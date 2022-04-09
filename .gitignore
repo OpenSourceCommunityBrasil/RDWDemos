@@ -27,15 +27,16 @@
 #
 
 # Delphi compiler-generated binaries (safe to delete)
+*.res
 *.exe
-*.dll
+#*.dll
 *.bpl
 *.bpi
 *.dcp
 *.so
 *.apk
 *.drc
-*.map
+#*.map
 *.dres
 *.rsm
 *.tds
@@ -64,6 +65,34 @@ __recovery/
 
 # Castalia statistics file (since XE7 Castalia is distributed with Delphi)
 *.stat
+*.skincfg
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+
+# Temporary Folders
+dist/
+static/
+**/Win32/
+**/Win64/
+**/Linux64/
+**/__history/
+**/__recovery/
+src/*.~*
+
+# Mac Specific
+*.DS_Store
+
+# FPC/Lazarus
+lib/
+backup/
+*.pp
+*.compiled
+*.ppu
+*.dbg
+
+# Code coverage reports
+**/console/
+**/vcl/
+dunitx-results.xml
+*.bak
