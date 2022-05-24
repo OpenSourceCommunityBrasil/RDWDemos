@@ -353,6 +353,7 @@ object ServerMethodDM: TServerMethodDM
       'select * from employee'
     )
     Params = <>
+    Macros = <>
     Left = 48
     Top = 269
   end
@@ -409,6 +410,7 @@ object ServerMethodDM: TServerMethodDM
         OnlyPreDefinedParams = False
         OnReplyEvent = DWServerEvents1EventsgetemployeeReplyEvent
       end>
+    ContextName = 'se1'
     Left = 344
     Top = 104
   end

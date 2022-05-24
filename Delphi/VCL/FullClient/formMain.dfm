@@ -12,6 +12,7 @@ object Form2: TForm2
   Font.Style = []
   OldCreateOrder = True
   Position = poDesktopCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
     873
@@ -77,7 +78,7 @@ object Form2: TForm2
   object labAcesso: TLabel
     Left = 8
     Top = 148
-    Width = 66
+    Width = 67
     Height = 17
     Caption = 'Access TAG'
     Color = clBtnFace
@@ -92,7 +93,7 @@ object Form2: TForm2
   object labWelcome: TLabel
     Left = 116
     Top = 148
-    Width = 110
+    Width = 111
     Height = 17
     Caption = 'Welcome Message'
     Color = clBtnFace
@@ -211,7 +212,7 @@ object Form2: TForm2
   object Label1: TLabel
     Left = 251
     Top = 231
-    Width = 109
+    Width = 110
     Height = 17
     Caption = 'UpdateTableName'
     Color = clBtnFace
@@ -2017,12 +2018,14 @@ object Form2: TForm2
     Width = 120
     Height = 19
     Caption = 'Binary Compatible'
+    Checked = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
+    State = cbChecked
     TabOrder = 21
   end
   object eUpdateTableName: TEdit
@@ -2130,7 +2133,7 @@ object Form2: TForm2
     object Label12: TLabel
       Left = 10
       Top = 5
-      Width = 34
+      Width = 35
       Height = 17
       Caption = 'Token'
       Font.Charset = DEFAULT_CHARSET
@@ -2143,7 +2146,7 @@ object Form2: TForm2
     object Label13: TLabel
       Left = 235
       Top = 53
-      Width = 105
+      Width = 104
       Height = 13
       Caption = 'Token Creation Time'
     end
@@ -2252,28 +2255,27 @@ object Form2: TForm2
     Width = 120
     Height = 19
     Caption = 'Threadrequest'
-    Checked = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    State = cbChecked
     TabOrder = 26
   end
   object DataSource1: TDataSource
     DataSet = RESTDWClientSQL1
-    Left = 224
+    Left = 264
     Top = 416
   end
   object RESTDWDataBase1: TRESTDWDataBase
     OnConnection = RESTDWDataBase1Connection
     OnBeforeConnect = RESTDWDataBase1BeforeConnect
-    Active = False
+    Active = True
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    MyIP = '127.0.0.1'
     AuthenticationOptions.AuthorizationOption = rdwAOBasic
     AuthenticationOptions.OptionParams.AuthDialog = True
     AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
@@ -2296,6 +2298,7 @@ object Form2: TForm2
     StrsTrim = False
     StrsEmpty2Null = False
     StrsTrim2Len = False
+    PoolerNotFoundMessage = 'Pooler not found'
     HandleRedirects = True
     RedirectMaximum = 2
     OnWork = RESTDWDataBase1Work
@@ -2313,7 +2316,7 @@ object Form2: TForm2
     UserAgent = 
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
-    Left = 166
+    Left = 78
     Top = 416
   end
   object ActionList1: TActionList
@@ -2586,13 +2589,14 @@ object Form2: TForm2
         EventName = 'dwevent11'
         OnlyPreDefinedParams = False
       end>
-    Left = 533
+    Left = 605
     Top = 401
   end
   object RESTClientPooler1: TRESTClientPooler
     DataCompression = True
     Encoding = esUtf8
     hEncodeStrings = False
+    ThreadRequest = False
     Host = 'localhost'
     AuthenticationOptions.AuthorizationOption = rdwAOToken
     AuthenticationOptions.OptionParams.AuthDialog = True
@@ -2623,76 +2627,14 @@ object Form2: TForm2
     UserAgent = 
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
+    PoolerNotFoundMessage = 'Pooler not found'
     Left = 504
     Top = 401
   end
   object RESTDWClientSQL1: TRESTDWClientSQL
-    FieldDefs = <
-      item
-        Name = 'EMP_NO'
-        Attributes = [faRequired]
-        DataType = ftSmallint
-      end
-      item
-        Name = 'FIRST_NAME'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'LAST_NAME'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 20
-      end
-      item
-        Name = 'PHONE_EXT'
-        DataType = ftString
-        Size = 4
-      end
-      item
-        Name = 'HIRE_DATE'
-        Attributes = [faRequired]
-        DataType = ftTimeStamp
-      end
-      item
-        Name = 'DEPT_NO'
-        Attributes = [faRequired, faFixed]
-        DataType = ftFixedChar
-        Size = 3
-      end
-      item
-        Name = 'JOB_CODE'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 5
-      end
-      item
-        Name = 'JOB_GRADE'
-        Attributes = [faRequired]
-        DataType = ftSmallint
-      end
-      item
-        Name = 'JOB_COUNTRY'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'SALARY'
-        Attributes = [faRequired]
-        DataType = ftFloat
-        Precision = 16
-      end
-      item
-        Name = 'FULL_NAME'
-        DataType = ftString
-        Size = 37
-      end
-      item
-        Name = 'TIMEC'
-        DataType = ftTime
-      end>
+    Active = False
+    Filtered = False
+    FieldDefs = <>
     IndexDefs = <>
     FetchOptions.AssignedValues = [evMode]
     FetchOptions.Mode = fmAll
@@ -2703,8 +2645,6 @@ object Form2: TForm2
     UpdateOptions.AutoCommitUpdates = True
     StoreDefs = True
     BinaryCompatibleMode = False
-    SequenceName = 'EMP_NO_GEN'
-    SequenceField = 'EMP_NO'
     OnWriterProcess = RESTDWClientSQL1WriterProcess
     MasterCascadeDelete = False
     BinaryRequest = True
@@ -2714,7 +2654,7 @@ object Form2: TForm2
     Params = <>
     DataBase = RESTDWDataBase1
     SQL.Strings = (
-      'select * From employee')
+      'Select * From EMPLOYEE')
     UpdateTableName = 'EMPLOYEE'
     CacheUpdateRecords = True
     AutoCommitData = False
@@ -2724,13 +2664,65 @@ object Form2: TForm2
     MassiveCache = DWMassiveCache1
     ActionCursor = crSQLWait
     ReflectChanges = True
-    Left = 195
+    Left = 179
     Top = 416
+    object RESTDWClientSQL1EMP_NO: TSmallintField
+      FieldName = 'EMP_NO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object RESTDWClientSQL1FIRST_NAME: TStringField
+      FieldName = 'FIRST_NAME'
+      Required = True
+      Size = 15
+    end
+    object RESTDWClientSQL1LAST_NAME: TStringField
+      FieldName = 'LAST_NAME'
+      Required = True
+    end
+    object RESTDWClientSQL1PHONE_EXT: TStringField
+      FieldName = 'PHONE_EXT'
+      Size = 4
+    end
+    object RESTDWClientSQL1HIRE_DATE: TSQLTimeStampField
+      FieldName = 'HIRE_DATE'
+      Required = True
+    end
+    object RESTDWClientSQL1DEPT_NO: TStringField
+      FieldName = 'DEPT_NO'
+      Required = True
+      Size = 3
+    end
+    object RESTDWClientSQL1JOB_CODE: TStringField
+      FieldName = 'JOB_CODE'
+      Required = True
+      Size = 5
+    end
+    object RESTDWClientSQL1JOB_GRADE: TSmallintField
+      FieldName = 'JOB_GRADE'
+      Required = True
+    end
+    object RESTDWClientSQL1JOB_COUNTRY: TStringField
+      FieldName = 'JOB_COUNTRY'
+      Required = True
+      Size = 15
+    end
+    object RESTDWClientSQL1SALARY: TFloatField
+      FieldName = 'SALARY'
+      Required = True
+    end
+    object RESTDWClientSQL1FULL_NAME: TStringField
+      FieldName = 'FULL_NAME'
+      Size = 37
+    end
+    object RESTDWClientSQL1TIMEC: TTimeField
+      FieldName = 'TIMEC'
+    end
   end
   object DWMassiveCache1: TDWMassiveCache
     MassiveType = mtMassiveCache
     ReflectChanges = False
     Left = 504
-    Top = 444
+    Top = 452
   end
 end

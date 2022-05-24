@@ -51,17 +51,6 @@ type
       const Params: TDWParams; Var ContentType, Result: String);
     procedure DWServerEvents1EventsgetemployeeReplyEvent(Var Params: TDWParams;
       Var Result: String);
-    procedure DWServerEvents1EventsloaddataseteventAuthRequest(
-      const Params: TDWParams; var Rejected: Boolean; var ResultError: String;
-      var StatusCode: Integer; RequestHeader: TStringList);
-    procedure DWServerEvents1EventsloaddataseteventBeforeExecute(
-      const aSelf: TCollectionItem);
-    procedure DWServerEvents1EventsloaddataseteventReplyEvent(
-      var Params: TDWParams; var Result: String);
-    procedure DWServerEvents1EventsloaddataseteventReplyEventByType(
-      var Params: TDWParams; var Result: String;
-      const RequestType: TRequestType; var StatusCode: Integer;
-      RequestHeader: TStringList);
     procedure DWServerEvents1EventsservertimeReplyEvent(Var Params: TDWParams;
       Var Result: String);
     procedure DWServerEvents1EventstesteReplyEvent(var Params: TDWParams;
@@ -146,31 +135,6 @@ begin
  Finally
   JSONValue.Free;
  End;
-end;
-
-procedure TServerMethodDM.DWServerEvents1EventsloaddataseteventAuthRequest(
-  const Params: TDWParams; var Rejected: Boolean; var ResultError: String;
-  var StatusCode: Integer; RequestHeader: TStringList);
-begin
-
-end;
-
-procedure TServerMethodDM.DWServerEvents1EventsloaddataseteventBeforeExecute(
-  const aSelf: TCollectionItem);
-begin
-
-end;
-
-procedure TServerMethodDM.DWServerEvents1EventsloaddataseteventReplyEvent(
-  var Params: TDWParams; var Result: String);
-begin
-
-end;
-
-procedure TServerMethodDM.DWServerEvents1EventsloaddataseteventReplyEventByType(
-  var Params: TDWParams; var Result: String; const RequestType: TRequestType;
-  var StatusCode: Integer; RequestHeader: TStringList);
-begin
 end;
 
 procedure TServerMethodDM.DWServerContext1ContextListphpReplyRequest(

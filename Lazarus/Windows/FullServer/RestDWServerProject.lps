@@ -2,15 +2,15 @@
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <BuildModes Active="Default"/>
-    <Units Count="34">
+    <Units Count="35">
       <Unit0>
         <Filename Value="RestDWServerProject.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
         <CursorPos X="18" Y="5"/>
         <UsageCount Value="41"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -19,10 +19,12 @@
         <ComponentName Value="RestDWForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="505"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="504"/>
         <CursorPos X="13" Y="305"/>
         <UsageCount Value="41"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
@@ -32,9 +34,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="31" Y="390"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="348"/>
+        <CursorPos X="52" Y="354"/>
         <UsageCount Value="41"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
@@ -142,7 +147,7 @@
         </Bookmarks>
       </Unit16>
       <Unit17>
-        <Filename Value="C:\Users\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\component\ZAbstractConnection.pas"/>
+        <Filename Value="..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\component\ZAbstractConnection.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="432"/>
         <CursorPos Y="443"/>
@@ -150,7 +155,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit17>
       <Unit18>
-        <Filename Value="C:\Users\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\component\ZSequence.pas"/>
+        <Filename Value="..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\component\ZSequence.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="204"/>
         <CursorPos Y="222"/>
@@ -158,7 +163,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit18>
       <Unit19>
-        <Filename Value="C:\Users\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\dbc\ZDbcConnection.pas"/>
+        <Filename Value="..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\dbc\ZDbcConnection.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1528"/>
         <CursorPos Y="1546"/>
@@ -166,7 +171,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit19>
       <Unit20>
-        <Filename Value="C:\Users\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\dbc\ZDbcInterbase6Utils.pas"/>
+        <Filename Value="..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\dbc\ZDbcInterbase6Utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="828"/>
         <CursorPos Y="837"/>
@@ -174,7 +179,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
       <Unit21>
-        <Filename Value="C:\Users\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\dbc\ZDbcUtils.pas"/>
+        <Filename Value="..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\dbc\ZDbcUtils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="329"/>
         <CursorPos Y="339"/>
@@ -182,7 +187,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit21>
       <Unit22>
-        <Filename Value="C:\Users\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\component\ZAbstractDataset.pas"/>
+        <Filename Value="..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\component\ZAbstractDataset.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="422"/>
         <CursorPos Y="431"/>
@@ -225,7 +230,7 @@
         <UsageCount Value="10"/>
       </Unit27>
       <Unit28>
-        <Filename Value="C:\Users\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\source\IdSocketHandle.pas"/>
+        <Filename Value="..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\source\IdSocketHandle.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="406"/>
         <CursorPos Y="415"/>
@@ -259,39 +264,56 @@
         <UsageCount Value="10"/>
       </Unit32>
       <Unit33>
-        <Filename Value="C:\Users\xyderx\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Core\IdSocketHandle.pas"/>
+        <Filename Value="..\..\..\..\..\..\xyderx\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Core\IdSocketHandle.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="398"/>
         <CursorPos X="61" Y="419"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit33>
+      <Unit34>
+        <Filename Value="D:\Projetos\Delphi\_Components\RestDW\CORE\Source\DmDados\uDWDatamodule.pas"/>
+        <ComponentName Value="ServerMethodDataModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="30" Y="6"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit34>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="2" HistoryIndex="1">
+      <Position1>
+        <Filename Value="RestDWServerFormU.pas"/>
+        <Caret Line="305" Column="13" TopLine="504"/>
+      </Position1>
+      <Position2>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="8" Column="36"/>
+      </Position2>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode="default"/>
+      <Modes ActiveMode="default"/>
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="2">
-      <Item1>
+    <BreakPoints>
+      <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="..\..\..\..\Source\Connectors\Lazarus\uRestDWLazDriver.pas"/>
         <Line Value="1830"/>
-      </Item1>
-      <Item2>
+      </Item>
+      <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="..\..\..\..\Source\uRESTDWBase.pas"/>
         <Line Value="5187"/>
-      </Item2>
+      </Item>
     </BreakPoints>
   </Debugging>
 </CONFIG>

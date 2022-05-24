@@ -12,10 +12,12 @@ object RestDWForm: TRestDWForm
   Font.Height = -11
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poScreenCenter
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
+  PixelsPerInch = 96
   TextHeight = 13
   object Label8: TLabel
     Left = 8
@@ -1520,7 +1522,7 @@ object RestDWForm: TRestDWForm
             object Label12: TLabel
               Left = 0
               Top = 2
-              Width = 65
+              Width = 67
               Height = 17
               Caption = 'Token Type'
               Font.Charset = DEFAULT_CHARSET
@@ -1533,7 +1535,7 @@ object RestDWForm: TRestDWForm
             object Label13: TLabel
               Left = 0
               Top = 46
-              Width = 89
+              Width = 90
               Height = 17
               Caption = 'GetToken Event'
             end
@@ -1554,7 +1556,7 @@ object RestDWForm: TRestDWForm
             object Label22: TLabel
               Left = 105
               Top = 90
-              Width = 67
+              Width = 68
               Height = 17
               Caption = 'Token Hash'
             end
@@ -3284,7 +3286,7 @@ object RestDWForm: TRestDWForm
     ForceWelcomeAccess = False
     CriptOptions.Use = True
     CriptOptions.Key = 'RDWBASEKEY256'
-    Left = 434
+    Left = 314
     Top = 270
   end
   object tupdatelogs: TTimer
