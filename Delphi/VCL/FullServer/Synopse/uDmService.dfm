@@ -1,10 +1,10 @@
 object ServerMethodDM: TServerMethodDM
-  OldCreateOrder = False
   OnCreate = ServerMethodDataModuleCreate
   Encoding = esUtf8
   OnMassiveProcess = ServerMethodDataModuleMassiveProcess
   OnUserTokenAuth = ServerMethodDataModuleUserTokenAuth
   OnGetToken = ServerMethodDataModuleGetToken
+  QueuedRequest = False
   Height = 252
   Width = 328
   object RESTDWPoolerFD: TRESTDWPoolerDB
