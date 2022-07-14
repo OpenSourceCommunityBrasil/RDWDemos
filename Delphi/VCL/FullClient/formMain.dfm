@@ -12,7 +12,6 @@ object Form2: TForm2
   Font.Style = []
   OldCreateOrder = True
   Position = poDesktopCenter
-  OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
     873
@@ -78,7 +77,7 @@ object Form2: TForm2
   object labAcesso: TLabel
     Left = 8
     Top = 148
-    Width = 67
+    Width = 66
     Height = 17
     Caption = 'Access TAG'
     Color = clBtnFace
@@ -93,7 +92,7 @@ object Form2: TForm2
   object labWelcome: TLabel
     Left = 116
     Top = 148
-    Width = 111
+    Width = 110
     Height = 17
     Caption = 'Welcome Message'
     Color = clBtnFace
@@ -212,7 +211,7 @@ object Form2: TForm2
   object Label1: TLabel
     Left = 251
     Top = 231
-    Width = 110
+    Width = 109
     Height = 17
     Caption = 'UpdateTableName'
     Color = clBtnFace
@@ -2018,14 +2017,12 @@ object Form2: TForm2
     Width = 120
     Height = 19
     Caption = 'Binary Compatible'
-    Checked = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    State = cbChecked
     TabOrder = 21
   end
   object eUpdateTableName: TEdit
@@ -2133,7 +2130,7 @@ object Form2: TForm2
     object Label12: TLabel
       Left = 10
       Top = 5
-      Width = 35
+      Width = 34
       Height = 17
       Caption = 'Token'
       Font.Charset = DEFAULT_CHARSET
@@ -2146,7 +2143,7 @@ object Form2: TForm2
     object Label13: TLabel
       Left = 235
       Top = 53
-      Width = 104
+      Width = 105
       Height = 13
       Caption = 'Token Creation Time'
     end
@@ -2249,392 +2246,73 @@ object Form2: TForm2
       OnClick = Button2Click
     end
   end
-  object cbThreadrequest: TCheckBox
-    Left = 350
-    Top = 183
-    Width = 120
-    Height = 19
-    Caption = 'Threadrequest'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 26
-  end
   object DataSource1: TDataSource
     DataSet = RESTDWClientSQL1
-    Left = 264
-    Top = 416
-  end
-  object RESTDWDataBase1: TRESTDWDataBase
-    OnConnection = RESTDWDataBase1Connection
-    OnBeforeConnect = RESTDWDataBase1BeforeConnect
-    Active = True
-    Compression = True
-    CriptOptions.Use = False
-    CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '127.0.0.1'
-    AuthenticationOptions.AuthorizationOption = rdwAOBasic
-    AuthenticationOptions.OptionParams.AuthDialog = True
-    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
-    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
-    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
-    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
-    AuthenticationOptions.OptionParams.Username = 'testserver'
-    AuthenticationOptions.OptionParams.Password = 'testserver'
-    Proxy = False
-    ProxyOptions.Port = 8888
-    PoolerService = '127.0.0.1'
-    PoolerPort = 8082
-    PoolerName = 'TServerMethodDM.RESTDWPoolerFD'
-    StateConnection.AutoCheck = False
-    StateConnection.InTime = 1000
-    RequestTimeOut = 100000
-    ConnectTimeOut = 3000
-    EncodeStrings = True
-    Encoding = esUtf8
-    StrsTrim = False
-    StrsEmpty2Null = False
-    StrsTrim2Len = False
-    PoolerNotFoundMessage = 'Pooler not found'
-    HandleRedirects = True
-    RedirectMaximum = 2
-    OnWork = RESTDWDataBase1Work
-    OnWorkBegin = RESTDWDataBase1WorkBegin
-    OnWorkEnd = RESTDWDataBase1WorkEnd
-    OnStatus = RESTDWDataBase1Status
-    OnFailOverExecute = RESTDWDataBase1FailOverExecute
-    OnFailOverError = RESTDWDataBase1FailOverError
-    OnBeforeGetToken = RESTDWDataBase1BeforeGetToken
-    ParamCreate = False
-    FailOver = True
-    FailOverConnections = <>
-    FailOverReplaceDefaults = True
-    ClientConnectionDefs.Active = False
-    UserAgent = 
-      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
-      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
-    Left = 78
+    Left = 224
     Top = 416
   end
   object ActionList1: TActionList
     Left = 362
     Top = 384
   end
-  object DWClientEvents1: TDWClientEvents
-    ServerEventName = 'TServerMethodDM.DWSETESTE'
-    CriptOptions.Use = False
-    CriptOptions.Key = 'RDWBASEKEY256'
-    RESTClientPooler = RESTClientPooler1
-    Events = <
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovDateTime
-            ParamName = 'result'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'inputdata'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odINOUT
-            ObjectValue = ovString
-            ParamName = 'resultstring'
-            Encoded = False
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovBoolean
-            ParamName = 'booleano'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'dwpurl0'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'servertime'
-        EventName = 'servertime'
-        OnlyPreDefinedParams = True
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'loaddatasetevent'
-        EventName = 'loaddatasetevent'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'getemployee'
-        EventName = 'getemployee'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'result'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odINOUT
-            ObjectValue = ovString
-            ParamName = 'segundoparam'
-            Encoded = True
-          end>
-        JsonMode = jmPureJSON
-        Name = 'getemployeeDW'
-        EventName = 'getemployeeDW'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovInteger
-            ParamName = 'mynumber'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovInteger
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'eventint'
-        EventName = 'eventint'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovDateTime
-            ParamName = 'mydatetime'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovDateTime
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'eventdatetime'
-        EventName = 'eventdatetime'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'entrada'
-            Encoded = True
-          end>
-        JsonMode = jmPureJSON
-        Name = 'helloworldPJ'
-        EventName = 'helloworldPJ'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'result'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'entrada'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'helloworldRDW'
-        EventName = 'helloworldRDW'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql1'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql2'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql3'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql4'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql5'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovBoolean
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'athorarioliberar'
-        EventName = 'athorarioliberar'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <>
-        JsonMode = jmDataware
-        Name = 'assyncevent'
-        EventName = 'assyncevent'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <>
-        JsonMode = jmDataware
-        Name = 'dwevent11'
-        EventName = 'dwevent11'
-        OnlyPreDefinedParams = False
-      end>
-    Left = 605
-    Top = 401
-  end
-  object RESTClientPooler1: TRESTClientPooler
-    DataCompression = True
-    Encoding = esUtf8
-    hEncodeStrings = False
-    ThreadRequest = False
-    Host = 'localhost'
-    AuthenticationOptions.AuthorizationOption = rdwAOToken
-    AuthenticationOptions.OptionParams.AuthDialog = True
-    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
-    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
-    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
-    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
-    AuthenticationOptions.OptionParams.TokenType = rdwJWT
-    AuthenticationOptions.OptionParams.TokenRequestType = rdwtRequest
-    AuthenticationOptions.OptionParams.GetTokenEvent = 'GetToken'
-    AuthenticationOptions.OptionParams.Key = 'token'
-    AuthenticationOptions.OptionParams.AutoGetToken = True
-    AuthenticationOptions.OptionParams.AutoRenewToken = True
-    ProxyOptions.BasicAuthentication = False
-    ProxyOptions.ProxyPort = 0
-    RequestTimeOut = 10000
-    ConnectTimeOut = 3000
-    AllowCookies = False
-    RedirectMaximum = 0
-    HandleRedirects = False
-    OnBeforeGetToken = RESTClientPooler1BeforeGetToken
-    FailOver = True
-    FailOverConnections = <>
-    FailOverReplaceDefaults = True
-    BinaryRequest = True
-    CriptOptions.Use = False
-    CriptOptions.Key = 'RDWBASEKEY256'
-    UserAgent = 
-      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
-      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
-    PoolerNotFoundMessage = 'Pooler not found'
-    Left = 504
-    Top = 401
-  end
   object RESTDWClientSQL1: TRESTDWClientSQL
-    Active = False
-    Filtered = False
-    FieldDefs = <>
+    FieldDefs = <
+      item
+        Name = 'EMP_NO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FIRST_NAME'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'LAST_NAME'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'PHONE_EXT'
+        DataType = ftString
+        Size = 4
+      end
+      item
+        Name = 'HIRE_DATE'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'DEPT_NO'
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'JOB_CODE'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'JOB_GRADE'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'JOB_COUNTRY'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'SALARY'
+        DataType = ftFloat
+        Precision = 15
+      end
+      item
+        Name = 'FULL_NAME'
+        DataType = ftString
+        Size = 37
+      end
+      item
+        Name = 'TIMEC'
+        DataType = ftTime
+      end>
     IndexDefs = <>
     FetchOptions.AssignedValues = [evMode]
     FetchOptions.Mode = fmAll
@@ -2645,84 +2323,130 @@ object Form2: TForm2
     UpdateOptions.AutoCommitUpdates = True
     StoreDefs = True
     BinaryCompatibleMode = False
+    SequenceName = 'EMP_NO_GEN'
+    SequenceField = 'EMP_NO'
     OnWriterProcess = RESTDWClientSQL1WriterProcess
     MasterCascadeDelete = False
-    BinaryRequest = True
+    BinaryRequest = False
     Datapacks = -1
     DataCache = False
     MassiveType = mtMassiveObject
     Params = <>
-    DataBase = RESTDWDataBase1
+    DataBase = RESTDWDatabase1
     SQL.Strings = (
-      'Select * From EMPLOYEE')
+      'select * From employee')
     UpdateTableName = 'EMPLOYEE'
     CacheUpdateRecords = True
     AutoCommitData = False
     AutoRefreshAfterCommit = False
-    ThreadRequest = True
+    ThreadRequest = False
     RaiseErrors = True
-    MassiveCache = DWMassiveCache1
     ActionCursor = crSQLWait
     ReflectChanges = True
-    Left = 179
+    Left = 195
     Top = 416
-    object RESTDWClientSQL1EMP_NO: TSmallintField
-      FieldName = 'EMP_NO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object RESTDWClientSQL1FIRST_NAME: TStringField
-      FieldName = 'FIRST_NAME'
-      Required = True
-      Size = 15
-    end
-    object RESTDWClientSQL1LAST_NAME: TStringField
-      FieldName = 'LAST_NAME'
-      Required = True
-    end
-    object RESTDWClientSQL1PHONE_EXT: TStringField
-      FieldName = 'PHONE_EXT'
-      Size = 4
-    end
-    object RESTDWClientSQL1HIRE_DATE: TSQLTimeStampField
-      FieldName = 'HIRE_DATE'
-      Required = True
-    end
-    object RESTDWClientSQL1DEPT_NO: TStringField
-      FieldName = 'DEPT_NO'
-      Required = True
-      Size = 3
-    end
-    object RESTDWClientSQL1JOB_CODE: TStringField
-      FieldName = 'JOB_CODE'
-      Required = True
-      Size = 5
-    end
-    object RESTDWClientSQL1JOB_GRADE: TSmallintField
-      FieldName = 'JOB_GRADE'
-      Required = True
-    end
-    object RESTDWClientSQL1JOB_COUNTRY: TStringField
-      FieldName = 'JOB_COUNTRY'
-      Required = True
-      Size = 15
-    end
-    object RESTDWClientSQL1SALARY: TFloatField
-      FieldName = 'SALARY'
-      Required = True
-    end
-    object RESTDWClientSQL1FULL_NAME: TStringField
-      FieldName = 'FULL_NAME'
-      Size = 37
-    end
-    object RESTDWClientSQL1TIMEC: TTimeField
-      FieldName = 'TIMEC'
-    end
   end
-  object DWMassiveCache1: TDWMassiveCache
-    MassiveType = mtMassiveCache
-    ReflectChanges = False
-    Left = 504
-    Top = 452
+  object RESTDWDatabase1: TRESTDWIdDatabase
+    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    AcceptEncoding = 'gzip2, deflate, br'
+    ContentType = 'application/json'
+    Charset = 'utf8'
+    ContentEncoding = 'multipart/form-data'
+    OnConnection = RESTDWDatabase1Connection
+    OnBeforeConnect = RESTDWDatabase1BeforeConnect
+    Active = False
+    Compression = False
+    CriptOptions.Use = False
+    CriptOptions.Key = 'RDWBASEKEY256'
+    DataRoute = '/datadm/'
+    AuthenticationOptions.AuthorizationOption = rdwAONone
+    Proxy = False
+    ProxyOptions.Port = 8888
+    PoolerService = 'localhost'
+    PoolerPort = 8082
+    PoolerName = 'TServerMethodDM.RESTDWPoolerFD'
+    StateConnection.AutoCheck = False
+    StateConnection.InTime = 1000
+    RequestTimeOut = 10000
+    ConnectTimeOut = 3000
+    EncodedStrings = True
+    Encoding = esUtf8
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = True
+    PoolerNotFoundMessage = 'Pooler not found'
+    HandleRedirects = False
+    RedirectMaximum = 0
+    OnWork = RESTDWDatabase1Work
+    OnWorkBegin = RESTDWDatabase1WorkBegin
+    OnWorkEnd = RESTDWDatabase1WorkEnd
+    OnStatus = RESTDWDatabase1Status
+    OnFailOverExecute = RESTDWDatabase1FailOverExecute
+    OnFailOverError = RESTDWDatabase1FailOverError
+    OnBeforeGetToken = RESTDWDatabase1BeforeGetToken
+    ParamCreate = True
+    FailOver = False
+    FailOverConnections = <>
+    FailOverReplaceDefaults = False
+    ClientConnectionDefs.Active = False
+    UserAgent = 
+      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
+      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
+    SSLMode = sslmUnassigned
+    SSLVersions = []
+    Left = 72
+    Top = 368
+  end
+  object RESTClientPooler1: TRESTDWIdClientPooler
+    DataCompression = False
+    AcceptEncoding = 'gzip2, deflate, br'
+    Charset = 'utf8'
+    DataRoute = '/datadm2/'
+    Encoding = esUtf8
+    EncodedStrings = False
+    ThreadRequest = False
+    Host = 'localhost'
+    AuthenticationOptions.AuthorizationOption = rdwAONone
+    RequestTimeOut = 10000
+    ConnectTimeOut = 3000
+    AllowCookies = True
+    RedirectMaximum = 0
+    HandleRedirects = False
+    ProxyOptions.ProxyPort = 0
+    OnBeforeGetToken = RESTClientPooler1BeforeGetToken
+    FailOver = False
+    UseSSL = False
+    FailOverConnections = <>
+    FailOverReplaceDefaults = False
+    BinaryRequest = False
+    CriptOptions.Use = False
+    CriptOptions.Key = 'RDWBASEKEY256'
+    UserAgent = 
+      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
+      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
+    PoolerNotFoundMessage = 'Pooler not found'
+    SSLMode = sslmUnassigned
+    SSLVersions = []
+    Left = 136
+    Top = 288
+  end
+  object RESTDWClientEvents1: TRESTDWClientEvents
+    ServerEventName = 'TServerMethodDM2.RDWSEDados2'
+    CriptOptions.Use = False
+    CriptOptions.Key = 'RDWBASEKEY256'
+    RESTClientPooler = RESTClientPooler1
+    Events = <
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        Params = <>
+        JsonMode = jmDataware
+        Name = 'helloworld'
+        EventName = 'helloworld'
+        BaseURL = '/'
+        OnlyPreDefinedParams = False
+      end>
+    Left = 200
+    Top = 280
   end
 end

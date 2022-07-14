@@ -1,0 +1,25 @@
+object DM: TDM
+  OldCreateOrder = False
+  Encoding = esUtf8
+  QueuedRequest = False
+  Height = 150
+  HorizontalOffset = 262
+  VerticalOffset = 250
+  Width = 150
+  object DWServerEvents1: TDWServerEvents
+    IgnoreInvalidParams = False
+    Events = <    
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        DWParams = <>
+        JsonMode = jmPureJSON
+        Name = 'hello'
+        EventName = 'hello'
+        OnlyPreDefinedParams = False
+        OnReplyEvent = DWServerEvents1EventshelloReplyEvent
+      end>
+    Left = 64
+    Top = 16
+  end
+end
