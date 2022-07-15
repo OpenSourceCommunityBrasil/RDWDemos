@@ -1,4 +1,4 @@
-program RestDWServerProject;
+program RESTDW_FullServer;
 
 uses
   Vcl.Forms,

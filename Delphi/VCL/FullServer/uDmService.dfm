@@ -146,6 +146,16 @@ object ServerMethodDM: TServerMethodDM
         BaseURL = '/se1/se2/se3/se4/se5/'
         OnlyPreDefinedParams = False
         OnReplyEventByType = RDWSEDadosEventshelloworldReplyEventByType
+      end
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        Params = <>
+        JsonMode = jmPureJSON
+        Name = 'test'
+        EventName = 'test'
+        BaseURL = '/'
+        OnlyPreDefinedParams = False
       end>
     Left = 160
     Top = 168
