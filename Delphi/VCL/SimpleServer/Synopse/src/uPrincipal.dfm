@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'SimpleServer'
   ClientHeight = 185
   ClientWidth = 411
   Color = clBtnFace
@@ -37,14 +37,7 @@ object Form1: TForm1
     RequestTimeout = -1
     ServicePort = 8082
     ProxyOptions.Port = 8888
-    AuthenticationOptions.AuthorizationOption = rdwAOBasic
-    AuthenticationOptions.OptionParams.AuthDialog = True
-    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
-    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
-    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
-    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
-    AuthenticationOptions.OptionParams.Username = 'testserver'
-    AuthenticationOptions.OptionParams.Password = 'testserver'
+    AuthenticationOptions.AuthorizationOption = rdwAONone
     Encoding = esUtf8
     RootPath = '/'
     RootUser = 'root'
