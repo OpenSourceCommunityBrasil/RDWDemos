@@ -179,9 +179,9 @@ procedure TRestDWForm.HideApplication;
 Begin
 //  CtiPrincipal.Visible     := True;
 //  Application.ShowMainForm := False;
-  If Self <> Nil Then
-    Self.Visible := False;
-  Application.Minimize;
+//  If Self <> Nil Then
+//    Self.Visible := False;
+//  Application.Minimize;
 //  ShowWindow(GetHandleOnTaskBar, SW_HIDE);
   ChangeStatusWindow;
 End;

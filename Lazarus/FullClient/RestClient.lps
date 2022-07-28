@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units Count="29">
+      <Unit0>
+        <Filename Value="RestClient.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="48"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="formMain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form2"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="306"/>
+        <CursorPos Y="340"/>
+        <UsageCount Value="48"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\..\..\..\Source\uRESTDWPoolerDB.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="395"/>
+        <CursorPos X="93" Y="416"/>
+        <UsageCount Value="21"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\..\..\..\Source\libs\uDWConstsCharset.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="2" Y="9"/>
+        <UsageCount Value="8"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\..\..\..\Source\libs\uDWConstsData.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="146"/>
+        <CursorPos Y="152"/>
+        <UsageCount Value="8"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\..\..\..\Source\libs\uDWConsts.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="198"/>
+        <CursorPos X="43" Y="217"/>
+        <UsageCount Value="21"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\..\..\..\Source\DCP\DCPcrypt2.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="23" Y="27"/>
+        <UsageCount Value="8"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\fpc\3.0.4\source\rtl\objpas\sysutils\sysutilh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="81"/>
+        <CursorPos X="4" Y="98"/>
+        <UsageCount Value="8"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\..\..\..\Source\DCP\DCPblockciphers.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="69"/>
+        <CursorPos Y="89"/>
+        <UsageCount Value="8"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\..\..\..\Source\DCP\Ciphers\DCPcast256.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="10"/>
+        <CursorPos X="57" Y="22"/>
+        <UsageCount Value="8"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\..\..\..\Source\uDWPoolerMethod.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="903"/>
+        <CursorPos X="76" Y="912"/>
+        <UsageCount Value="10"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\..\..\..\Source\DCP\Ciphers\DWDCPcast256.pas"/>
+        <UnitName Value="DCPcast256"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="C:\Users\xyderx\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Protocols\IdHTTP.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2812"/>
+        <CursorPos Y="2827"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="..\..\..\..\Source\uRESTDWBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2745"/>
+        <CursorPos X="16" Y="2762"/>
+        <UsageCount Value="10"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="..\..\..\..\Source\DCP\DWDCPbase64.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="105"/>
+        <CursorPos X="55" Y="106"/>
+        <UsageCount Value="10"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="..\..\..\..\Source\DCP\DWDCPtypes.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="28"/>
+        <CursorPos X="43" Y="45"/>
+        <UsageCount Value="10"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="..\..\..\..\Source\libs\uDWJSONObject.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4570"/>
+        <CursorPos X="17" Y="4587"/>
+        <UsageCount Value="10"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="..\..\..\..\Source\Connectors\RDWDriver\uRESTDWDriverRDW.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="63"/>
+        <CursorPos X="29" Y="81"/>
+        <UsageCount Value="10"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="..\..\..\..\Source\Basic\uRESTDWReg.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="803"/>
+        <CursorPos X="55" Y="813"/>
+        <UsageCount Value="11"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="..\..\..\..\Source\Sockets\Indy\uRESTDWIdBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4152"/>
+        <CursorPos Y="4168"/>
+        <UsageCount Value="11"/>
+        <Bookmarks Count="2">
+          <Item0 Y="4550" ID="1"/>
+          <Item1 Y="4168" ID="2"/>
+        </Bookmarks>
+      </Unit19>
+      <Unit20>
+        <Filename Value="..\..\..\..\Source\Basic\uRESTDWBasicDB.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3947"/>
+        <CursorPos Y="3964"/>
+        <UsageCount Value="11"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="..\..\..\..\Source\Basic\uRESTDWPoolermethod.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2441"/>
+        <CursorPos Y="2449"/>
+        <UsageCount Value="11"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="..\..\..\..\Source\Sockets\Indy\uRESTDWIdReg.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="75"/>
+        <CursorPos Y="102"/>
+        <UsageCount Value="11"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="..\..\..\..\Source\Basic\uRESTDWBasicTypes.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1947"/>
+        <CursorPos Y="1965"/>
+        <UsageCount Value="11"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="..\..\..\..\Source\Libs\uRESTDWTools.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3119"/>
+        <CursorPos Y="3136"/>
+        <UsageCount Value="11"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="..\..\..\..\Source\Libs\uRESTDWBase64.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="272"/>
+        <CursorPos Y="289"/>
+        <UsageCount Value="11"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="..\..\..\..\Source\Consts\uRESTDWConsts.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="916"/>
+        <CursorPos Y="942"/>
+        <UsageCount Value="10"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="..\..\..\..\Source\Libs\uzliblaz.pas"/>
+        <UnitName Value="uZlibLaz"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="32"/>
+        <CursorPos Y="60"/>
+        <UsageCount Value="10"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="..\..\..\..\Source\Basic\uRESTDWParams.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4325"/>
+        <CursorPos Y="4346"/>
+        <UsageCount Value="10"/>
+      </Unit28>
+    </Units>
+    <JumpHistory Count="5" HistoryIndex="4">
+      <Position1>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="326" TopLine="302"/>
+      </Position1>
+      <Position2>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="322" TopLine="302"/>
+      </Position2>
+      <Position3>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="324" TopLine="302"/>
+      </Position3>
+      <Position4>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="325" TopLine="302"/>
+      </Position4>
+      <Position5>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="326" TopLine="302"/>
+      </Position5>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
