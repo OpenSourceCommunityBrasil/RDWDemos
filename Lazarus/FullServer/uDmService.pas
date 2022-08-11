@@ -4,10 +4,9 @@ interface
 
 uses
   SysUtils, Classes, IBConnection, sqldb, db, uRESTDWDatamodule, Dialogs,
-  ZConnection, ZDataset, DataUtils, uRESTDWConsts, RestDWServerFormU,
+  ZConnection, ZDataset, uRESTDWDataUtils, uRESTDWConsts, RestDWServerFormU,
   uRESTDWServerEvents, uRESTDWServerContext, uRESTDWDriverZEOS,
-  uRestDWLazDriver, uRESTDWParams, uRESTDWComponentEvents, uRESTDWBasicDB;
-
+  uRestDWLazDriver, uRESTDWParams, uRESTDWBasicDB;
 
 type
 

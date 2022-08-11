@@ -103,7 +103,6 @@ type
     tupdatelogs: TTimer;
     procedure cbAuthOptionsChange(Sender: TObject);
     procedure cbDriverCloseUp(Sender: TObject);
-    procedure ctiPrincipalClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
     procedure ButtonStartClick(Sender: TObject);
@@ -152,7 +151,7 @@ implementation
 {$ENDIF}
 
 uses
- {$IFNDEF FPC}ShellApi,{$ENDIF}DataUtils, uRESTDWConsts, uDmService;
+ {$IFNDEF FPC}ShellApi,{$ENDIF}uRESTDWDataUtils, uRESTDWConsts, uDmService;
 
 Function ServerIpIndex(Items: TStrings; ChooseIP: string): Integer;
 Var
@@ -341,11 +340,6 @@ Begin
  RESTDWIdServicePooler.ServerMethodClass := TServerMethodDM;
  PageControl1.ActivePage              := tsConfigs;
 End;
-
-procedure TRestDWForm.ctiPrincipalClick(Sender: TObject);
-begin
-
-end;
 
 procedure TRestDWForm.cbDriverCloseUp(Sender: TObject);
 Var

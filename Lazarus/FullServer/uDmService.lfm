@@ -5,8 +5,8 @@ object ServerMethodDM: TServerMethodDM
   OnGetToken = DataModuleGetToken
   QueuedRequest = False
   Height = 501
-  HorizontalOffset = 954
-  VerticalOffset = 253
+  HorizontalOffset = 802
+  VerticalOffset = 217
   Width = 514
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF8
@@ -190,10 +190,12 @@ object ServerMethodDM: TServerMethodDM
             ParamName = 'result'
             Encoded = True
           end>
-        JsonMode = jmDataware
+        DataMode = dmDataware
         Name = 'servertime'
         EventName = 'servertime'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEvent = RESTDWServerEventsEventsservertimeReplyEvent
       end>

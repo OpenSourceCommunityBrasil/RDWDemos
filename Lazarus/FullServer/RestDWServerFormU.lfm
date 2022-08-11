@@ -16,7 +16,7 @@ object RestDWForm: TRestDWForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.0.4'
   object Label8: TLabel
     Left = 8
     Height = 1
@@ -26,7 +26,6 @@ object RestDWForm: TRestDWForm
     Font.Height = -11
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
-    ParentColor = False
     ParentFont = False
   end
   object Bevel3: TBevel
@@ -82,7 +81,6 @@ object RestDWForm: TRestDWForm
             Font.Color = clWindowText
             Font.Height = -13
             Font.Name = 'Segoe UI'
-            ParentColor = False
             ParentFont = False
           end
           object Label9: TLabel
@@ -94,7 +92,6 @@ object RestDWForm: TRestDWForm
             Font.Color = clWindowText
             Font.Height = -13
             Font.Name = 'Segoe UI'
-            ParentColor = False
             ParentFont = False
           end
           object edUserNameDW1: TEdit
@@ -135,7 +132,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object labUsuario: TLabel
@@ -147,7 +143,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object labSenha: TLabel
@@ -159,7 +154,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object lbPasta: TLabel
@@ -171,7 +165,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object labNomeBD: TLabel
@@ -183,7 +176,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object Label14: TLabel
@@ -195,7 +187,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object Label5: TLabel
@@ -207,7 +198,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object Label6: TLabel
@@ -223,7 +213,6 @@ object RestDWForm: TRestDWForm
           Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
-          ParentColor = False
           ParentFont = False
         end
         object Label15: TLabel
@@ -236,7 +225,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object Label16: TLabel
@@ -249,7 +237,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object Label17: TLabel
@@ -262,7 +249,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object labConexao: TLabel
@@ -278,7 +264,6 @@ object RestDWForm: TRestDWForm
           Font.Height = -16
           Font.Name = 'Segoe UI'
           Layout = tlCenter
-          ParentColor = False
           ParentFont = False
           Transparent = False
         end
@@ -294,7 +279,6 @@ object RestDWForm: TRestDWForm
           Font.Height = -16
           Font.Name = 'Segoe UI'
           Layout = tlCenter
-          ParentColor = False
           ParentFont = False
           Transparent = False
         end
@@ -310,7 +294,6 @@ object RestDWForm: TRestDWForm
           Font.Height = -16
           Font.Name = 'Segoe UI'
           Layout = tlCenter
-          ParentColor = False
           ParentFont = False
           Transparent = False
         end
@@ -327,7 +310,6 @@ object RestDWForm: TRestDWForm
           Font.Name = 'Consolas'
           Font.Style = [fsBold]
           Layout = tlCenter
-          ParentColor = False
           ParentFont = False
         end
         object Panel4: TPanel
@@ -903,7 +885,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object Label7: TLabel
@@ -915,7 +896,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object Label11: TLabel
@@ -927,7 +907,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
         object edPortaDW: TEdit
@@ -990,7 +969,6 @@ object RestDWForm: TRestDWForm
             Font.Color = clWindowText
             Font.Height = -13
             Font.Name = 'Segoe UI'
-            ParentColor = False
             ParentFont = False
           end
           object Label3: TLabel
@@ -1002,7 +980,6 @@ object RestDWForm: TRestDWForm
             Font.Color = clWindowText
             Font.Height = -13
             Font.Name = 'Segoe UI'
-            ParentColor = False
             ParentFont = False
           end
           object edUserNameDW: TEdit
@@ -1071,7 +1048,6 @@ object RestDWForm: TRestDWForm
             Font.Color = clWindowText
             Font.Height = -13
             Font.Name = 'Segoe UI'
-            ParentColor = False
             ParentFont = False
           end
           object Label13: TLabel
@@ -1080,7 +1056,6 @@ object RestDWForm: TRestDWForm
             Top = 46
             Width = 89
             Caption = 'GetToken Event'
-            ParentColor = False
           end
           object Label21: TLabel
             Left = 0
@@ -1088,7 +1063,6 @@ object RestDWForm: TRestDWForm
             Top = 90
             Width = 84
             Caption = 'LifeCycle(Secs)'
-            ParentColor = False
           end
           object Label20: TLabel
             Left = 144
@@ -1096,7 +1070,6 @@ object RestDWForm: TRestDWForm
             Top = 46
             Width = 96
             Caption = 'Server Signature'
-            ParentColor = False
           end
           object Label22: TLabel
             Left = 105
@@ -1104,7 +1077,6 @@ object RestDWForm: TRestDWForm
             Top = 90
             Width = 67
             Caption = 'Token Hash'
-            ParentColor = False
           end
           object cbTokenType: TComboBox
             Left = 0
@@ -1177,7 +1149,6 @@ object RestDWForm: TRestDWForm
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
-          ParentColor = False
           ParentFont = False
         end
       end
@@ -1194,7 +1165,6 @@ object RestDWForm: TRestDWForm
         Width = 60
         Caption = 'Respostas'
         Color = clBtnFace
-        ParentColor = False
         Transparent = False
       end
       object Label18: TLabel
@@ -1204,7 +1174,6 @@ object RestDWForm: TRestDWForm
         Width = 69
         Caption = 'Requisições'
         Color = clBtnFace
-        ParentColor = False
         Transparent = False
       end
       object memoReq: TMemo
@@ -1257,7 +1226,6 @@ object RestDWForm: TRestDWForm
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       Layout = tlCenter
-      ParentColor = False
       ParentFont = False
       Visible = False
     end
@@ -2694,7 +2662,6 @@ object RestDWForm: TRestDWForm
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
-      ParentColor = False
       ParentFont = False
     end
     object ButtonStart: TButton
@@ -5867,7 +5834,6 @@ object RestDWForm: TRestDWForm
       0000
     }
     Hint = 'REST Dataware - Service'
-    OnClick = ctiPrincipalClick
     OnDblClick = ctiPrincipalDblClick
     Left = 216
     Top = 360
