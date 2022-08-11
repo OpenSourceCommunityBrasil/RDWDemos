@@ -10,10 +10,12 @@ object DM: TDM
         Routes = [crAll]
         NeedAuthorization = True
         Params = <>
-        JsonMode = jmPureJSON
+        DataMode = dmDataware
         Name = 'teste'
         EventName = 'teste'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEventByType = RESTDWServerEvents1EventstesteReplyEventByType
       end>

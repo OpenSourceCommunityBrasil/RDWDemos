@@ -1,5 +1,7 @@
 object DM: TDM
   OldCreateOrder = False
+  Encoding = esUtf8
+  QueuedRequest = False
   Height = 91
   HorizontalOffset = 262
   VerticalOffset = 250
@@ -11,10 +13,12 @@ object DM: TDM
         Routes = [crAll]
         NeedAuthorization = True
         Params = <>
-        JsonMode = jmPureJSON
+        DataMode = dmRAW
         Name = 'teste'
         EventName = 'teste'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEventByType = RESTDWServerEvents1EventstesteReplyEventByType
       end>
