@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uRESTDWAbout, uRESTDWBasic,
-  uRESTDWIdBase, Vcl.WinXCtrls;
+  uRESTDWIdBase, Vcl.WinXCtrls, uRESTDWComponentBase;
 
 type
   TForm1 = class(TForm)

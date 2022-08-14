@@ -1,11 +1,11 @@
-unit uDM;
+unit udm;
 
 {$mode ObjFPC}{$H+}
 
 interface
 
 uses
-  Classes, SysUtils, uRESTDWDatamodule, uRESTDWServerEvents, uRESTDWParams, uRESTDWConsts;
+  Classes, SysUtils, uRESTDWDataModule, uRESTDWServerEvents, uRESTDWParams, uRESTDWConsts;
 
 type
 
@@ -31,16 +31,31 @@ implementation
 
 { TDM }
 
-procedure TDM.RESTDWServerEvents1EventstesteReplyEventByType(var Params: TRESTDWParams;
-  var Result: String; const RequestType: TRequestType; var StatusCode: Integer;
-  RequestHeader: TStringList);
+procedure TDM.RESTDWServerEvents1EventstesteReplyEventByType(var
+  Params: TRESTDWParams; var Result: String; const RequestType: TRequestType; var
+  StatusCode: Integer; RequestHeader: TStringList);
 begin
   case RequestType of
-  rtGet: Result := 'GET OK';
-  rtPost: Result := 'POST OK';
-  rtPut: Result := 'PUT OK';
-  rtPatch: Result := 'PATCH OK';
-  rtDelete: Result := 'DELETE OK';
+    rtGet: begin
+      StatusCode := 200;
+      Result := 'GET OK';
+    end;
+    rtPost: begin
+      StatusCode := 201;
+      Result := 'POST OK';
+    end;
+    rtPut: begin
+      StatusCode := 201;
+      Result := 'PUT OK';
+    end;
+    rtPatch: begin
+      StatusCode := 201;
+      Result := 'PATCH OK';
+    end;
+    rtDelete: begin
+      StatusCode := 200;
+      Result := 'DELETE OK';
+    end;
   end;
 end;
 

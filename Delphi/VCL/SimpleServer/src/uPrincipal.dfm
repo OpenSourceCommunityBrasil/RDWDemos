@@ -33,7 +33,7 @@ object Form1: TForm1
         'rization, X-CUSTOM-HEADER')
     PathTraversalRaiseError = True
     RequestTimeout = -1
-    ServicePort = 8082
+    ServicePort = 8083
     ProxyOptions.ProxyPort = 0
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Encoding = esUtf8
