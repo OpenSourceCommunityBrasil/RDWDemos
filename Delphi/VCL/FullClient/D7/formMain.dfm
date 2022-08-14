@@ -2346,35 +2346,125 @@ object Form2: TForm2
     Left = 629
     Top = 312
   end
-  object RESTDWDataBase1: TRESTDWDataBase
-    OnConnection = RESTDWDataBase1Connection
-    OnBeforeConnect = RESTDWDataBase1BeforeConnect
+  object ActionList1: TActionList
+    Left = 362
+    Top = 357
+  end
+  object RESTDWClientSQL1: TRESTDWClientSQL
     Active = False
-    Compression = False
+    FieldDefs = <
+      item
+        Name = 'EMP_NO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FIRST_NAME'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'LAST_NAME'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'PHONE_EXT'
+        DataType = ftString
+        Size = 4
+      end
+      item
+        Name = 'HIRE_DATE'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'DEPT_NO'
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'JOB_CODE'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'JOB_GRADE'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'JOB_COUNTRY'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'SALARY'
+        DataType = ftFloat
+        Precision = 15
+      end
+      item
+        Name = 'FULL_NAME'
+        DataType = ftString
+        Size = 37
+      end
+      item
+        Name = 'TIMEC'
+        DataType = ftTime
+      end>
+    BinaryCompatibleMode = False
+    MasterCascadeDelete = True
+    BinaryRequest = False
+    Datapacks = -1
+    DataCache = False
+    MassiveType = mtMassiveCache
+    Params = <>
+    DataBase = RESTDWIdDatabase1
+    SQL.Strings = (
+      'Select * From EMPLOYEE')
+    CacheUpdateRecords = True
+    AutoCommitData = False
+    AutoRefreshAfterCommit = False
+    ThreadRequest = False
+    RaiseErrors = True
+    Filtered = False
+    ActionCursor = crSQLWait
+    ReflectChanges = False
+    Left = 400
+    Top = 325
+  end
+  object RESTDWIdDatabase1: TRESTDWIdDatabase
+    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    AcceptEncoding = 'gzip2, deflate, br'
+    ContentType = 'application/json'
+    Charset = 'utf8'
+    ContentEncoding = 'multipart/form-data'
+    OnConnection = RESTDWIdDatabase1Connection
+    OnBeforeConnect = RESTDWIdDatabase1BeforeConnect
+    Active = False
+    Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    AuthenticationOptions.AuthorizationOption = rdwAOBasic
-    AuthenticationOptions.OptionParams.Username = 'testserver'
-    AuthenticationOptions.OptionParams.Password = 'testserver'
+    MyIP = '0.0.0.0'
+    AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False
     ProxyOptions.Port = 8888
-    PoolerService = 'localhost'
+    PoolerService = '127.0.0.1'
     PoolerPort = 8082
-    PoolerName = 'TServerMethodDM.RESTDWPoolerFD'
+    PoolerName = 'TServerMethodDM.RESTDWPoolerZEOS'
     StateConnection.AutoCheck = False
     StateConnection.InTime = 1000
-    RequestTimeOut = 9999999
-    EncodeStrings = False
+    RequestTimeOut = 10000
+    ConnectTimeOut = 3000
+    EncodedStrings = True
     Encoding = esUtf8
     StrsTrim = False
     StrsEmpty2Null = False
-    StrsTrim2Len = False
+    StrsTrim2Len = True
+    PoolerNotFoundMessage = 'Pooler not found'
     HandleRedirects = False
     RedirectMaximum = 0
-    OnWork = RESTDWDataBase1Work
-    OnWorkBegin = RESTDWDataBase1WorkBegin
-    OnWorkEnd = RESTDWDataBase1WorkEnd
-    OnStatus = RESTDWDataBase1Status
+    OnWork = RESTDWIdDatabase1Work
+    OnWorkBegin = RESTDWIdDatabase1WorkBegin
+    OnWorkEnd = RESTDWIdDatabase1WorkEnd
+    OnStatus = RESTDWIdDatabase1Status
     ParamCreate = True
     FailOver = False
     FailOverConnections = <>
@@ -2383,298 +2473,86 @@ object Form2: TForm2
     UserAgent = 
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
-    Left = 502
-    Top = 292
+    SSLMode = sslmUnassigned
+    SSLVersions = []
+    Left = 328
+    Top = 424
   end
-  object ActionList1: TActionList
-    Left = 362
-    Top = 357
-  end
-  object DWClientEvents1: TDWClientEvents
-    ServerEventName = 'TServerMethodDM.DWSETESTE'
+  object RESTDWClientEvents1: TRESTDWClientEvents
+    ServerEventName = 'TServerMethodDM.RESTDWServerEvents'
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    RESTClientPooler = RESTClientPooler1
+    RESTClientPooler = RESTDWIdClientPooler1
     Events = <
       item
         Routes = [crAll]
         NeedAuthorization = True
-        DWParams = <
+        Params = <
+          item
+            TypeObject = toParam
+            ObjectDirection = odIN
+            ObjectValue = ovString
+            ParamName = 'temp'
+            Encoded = True
+          end
+          item
+            TypeObject = toParam
+            ObjectDirection = odIN
+            ObjectValue = ovString
+            ParamName = '0'
+            Encoded = True
+          end
+          item
+            TypeObject = toParam
+            ObjectDirection = odIN
+            ObjectValue = ovString
+            ParamName = '1'
+            Encoded = True
+          end>
+        JsonMode = jmPureJSON
+        Name = 'helloworld'
+        EventName = 'helloworld'
+        BaseURL = '/'
+        OnlyPreDefinedParams = False
+      end
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        Params = <
           item
             TypeObject = toParam
             ObjectDirection = odOUT
             ObjectValue = ovDateTime
             ParamName = 'result'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'inputdata'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odINOUT
-            ObjectValue = ovString
-            ParamName = 'resultstring'
-            Encoded = False
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovBoolean
-            ParamName = 'booleano'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'dwpurl0'
             Encoded = True
           end>
         JsonMode = jmDataware
         Name = 'servertime'
         EventName = 'servertime'
-        OnlyPreDefinedParams = True
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'loaddatasetevent'
-        EventName = 'loaddatasetevent'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'getemployee'
-        EventName = 'getemployee'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'result'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odINOUT
-            ObjectValue = ovString
-            ParamName = 'segundoparam'
-            Encoded = True
-          end>
-        JsonMode = jmPureJSON
-        Name = 'getemployeeDW'
-        EventName = 'getemployeeDW'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovInteger
-            ParamName = 'mynumber'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovInteger
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'eventint'
-        EventName = 'eventint'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovDateTime
-            ParamName = 'mydatetime'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovDateTime
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'eventdatetime'
-        EventName = 'eventdatetime'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'entrada'
-            Encoded = True
-          end>
-        JsonMode = jmPureJSON
-        Name = 'helloworldPJ'
-        EventName = 'helloworldPJ'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'result'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'entrada'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'helloworldRDW'
-        EventName = 'helloworldRDW'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql1'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql2'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql3'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql4'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'sql5'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovBoolean
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'athorarioliberar'
-        EventName = 'athorarioliberar'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <>
-        JsonMode = jmDataware
-        Name = 'assyncevent'
-        EventName = 'assyncevent'
-        OnlyPreDefinedParams = False
-      end
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <>
-        JsonMode = jmDataware
-        Name = 'dwevent11'
-        EventName = 'dwevent11'
+        BaseURL = '/'
         OnlyPreDefinedParams = False
       end>
-    Left = 533
-    Top = 365
+    Left = 272
+    Top = 456
   end
-  object RESTClientPooler1: TRESTClientPooler
+  object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
-    Encoding = esUtf8
-    hEncodeStrings = False
-    Host = 'localhost'
-    AuthenticationOptions.AuthorizationOption = rdwAOBasic
-    AuthenticationOptions.OptionParams.Username = 'testserver'
-    AuthenticationOptions.OptionParams.Password = 'testserver'
-    ProxyOptions.BasicAuthentication = False
-    ProxyOptions.ProxyPort = 0
-    RequestTimeOut = 10000
+    AcceptEncoding = 'gzip2, deflate, br'
+    Charset = 'utf8'
+    DataRoute = '/'
+    Encoding = esASCII
+    EncodedStrings = True
     ThreadRequest = False
+    Host = 'localhost'
+    AuthenticationOptions.AuthorizationOption = rdwAONone
+    RequestTimeOut = 10000
+    ConnectTimeOut = 3000
     AllowCookies = False
     RedirectMaximum = 0
     HandleRedirects = False
+    ProxyOptions.ProxyPort = 0
     FailOver = False
+    UseSSL = False
     FailOverConnections = <>
     FailOverReplaceDefaults = False
     BinaryRequest = False
@@ -2683,45 +2561,10 @@ object Form2: TForm2
     UserAgent = 
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
-    Left = 449
-    Top = 377
-  end
-  object DWClientEvents2: TDWClientEvents
-    ServerEventName = 'TServerMethodDM.DWServerEvents2'
-    CriptOptions.Use = False
-    CriptOptions.Key = 'RDWBASEKEY256'
-    RESTClientPooler = RESTClientPooler1
-    Events = <
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        DWParams = <>
-        JsonMode = jmPureJSON
-        Name = 'helloworld'
-        EventName = 'helloworld'
-        OnlyPreDefinedParams = False
-      end>
-    Left = 614
-    Top = 364
-  end
-  object RESTDWClientSQL1: TRESTDWClientSQL
-    Active = False
-    FieldDefs = <>
-    BinaryCompatibleMode = True
-    MasterCascadeDelete = True
-    BinaryRequest = True
-    Datapacks = -1
-    DataCache = False
-    Params = <>
-    DataBase = RESTDWDataBase1
-    CacheUpdateRecords = True
-    AutoCommitData = False
-    AutoRefreshAfterCommit = False
-    RaiseErrors = True
-    Filtered = False
-    ActionCursor = crSQLWait
-    ReflectChanges = False
-    Left = 400
-    Top = 325
+    PoolerNotFoundMessage = 'Pooler not found'
+    SSLMode = sslmUnassigned
+    SSLVersions = []
+    Left = 336
+    Top = 480
   end
 end

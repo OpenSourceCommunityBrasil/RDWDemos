@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="RDWSimpleServer.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="25" Y="13"/>
+        <UsageCount Value="45"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\uprincipal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uPrincipal"/>
+        <TopLine Value="18"/>
+        <CursorPos X="31" Y="30"/>
+        <UsageCount Value="45"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\udm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="38"/>
+        <CursorPos X="18" Y="39"/>
+        <UsageCount Value="45"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\RDWGit\branches\refactor\CORE\Source\Sockets\Indy\uRESTDWIdBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3076"/>
+        <CursorPos Y="3087"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\RDWGit\branches\refactor\CORE\Source\Basic\Mechanics\DataUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="11" Y="3"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\RDWGit\branches\refactor\CORE\Source\Basic\Mechanics\uRESTDWMessageCoderMIME.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="8" Y="3"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\RDWGit\branches\refactor\CORE\Source\libs\JSON\uRESTDWJSONInterface.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="11" Y="3"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\RDWGit\branches\refactor\CORE\Source\libs\uRESTDWTools.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1461"/>
+        <CursorPos X="5" Y="1472"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\RDWGit\branches\refactor\CORE\Source\Basic\uRESTDWBasic.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3800"/>
+        <CursorPos Y="3812"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\IDE\lazarus\config_lazarus\onlinepackagemanager\packages\Indy10\Protocols\IdCustomHTTPServer.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1001"/>
+        <CursorPos Y="1013"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\IDE\lazarus\config_lazarus\onlinepackagemanager\packages\Indy10\System\IdStack.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="927"/>
+        <CursorPos X="55" Y="935"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="12">
+      <Position>
+        <Filename Value="src\uprincipal.pas"/>
+        <Caret Line="29" Column="7" TopLine="12"/>
+      </Position>
+      <Position>
+        <Filename Value="src\uprincipal.pas"/>
+        <Caret Line="31" Column="7" TopLine="12"/>
+      </Position>
+      <Position>
+        <Filename Value="src\udm.pas"/>
+        <Caret Line="8" Column="90"/>
+      </Position>
+      <Position>
+        <Filename Value="src\uprincipal.pas"/>
+        <Caret Line="8" Column="82"/>
+      </Position>
+      <Position>
+        <Filename Value="src\udm.pas"/>
+        <Caret Line="34" Column="42" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="src\udm.pas"/>
+        <Caret Line="43" Column="26" TopLine="30"/>
+      </Position>
+      <Position>
+        <Filename Value="src\udm.pas"/>
+        <Caret Line="50" Column="26" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="src\uprincipal.pas"/>
+        <Caret Line="37" Column="19" TopLine="18"/>
+      </Position>
+      <Position>
+        <Filename Value="src\uprincipal.pas"/>
+        <Caret Line="36" Column="19" TopLine="17"/>
+      </Position>
+      <Position>
+        <Filename Value="src\udm.pas"/>
+        <Caret Line="11" Column="33"/>
+      </Position>
+      <Position>
+        <Filename Value="src\udm.pas"/>
+        <Caret Line="14" Column="33"/>
+      </Position>
+      <Position>
+        <Filename Value="src\uprincipal.pas"/>
+        <Caret Line="36" Column="19" TopLine="17"/>
+      </Position>
+      <Position>
+        <Filename Value="src\uprincipal.pas"/>
+        <Caret Line="37" Column="19" TopLine="18"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\..\..\RDWGit\branches\refactor\CORE\Source\Basic\uRESTDWBasic.pas"/>
+        <Line Value="3812"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>

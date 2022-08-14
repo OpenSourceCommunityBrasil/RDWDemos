@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units Count="58">
+      <Unit0>
+        <Filename Value="RestDWServerProject.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="18" Y="5"/>
+        <UsageCount Value="46"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="RestDWServerFormU.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="RestDWForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="143"/>
+        <CursorPos X="39" Y="154"/>
+        <UsageCount Value="46"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="uDmService.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ServerMethodDM"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="46" Y="9"/>
+        <UsageCount Value="46"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="uSock.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="46"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="ServerMethodsUnit1.pas"/>
+        <UsageCount Value="38"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\..\..\..\Source\Connectors\Lazarus\uRestDWLazDriver.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1680"/>
+        <CursorPos X="52" Y="1684"/>
+        <UsageCount Value="16"/>
+        <Bookmarks Count="1">
+          <Item0 X="10" Y="1234" ID="4"/>
+        </Bookmarks>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\..\..\..\Source\libs\uDWMassiveBuffer.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1060"/>
+        <CursorPos X="30" Y="1078"/>
+        <UsageCount Value="16"/>
+        <Bookmarks Count="1">
+          <Item0 X="54" Y="1664" ID="2"/>
+        </Bookmarks>
+      </Unit6>
+      <Unit7>
+        <Filename Value="..\..\..\..\Source\libs\uDWJSONObject.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="479"/>
+        <CursorPos Y="492"/>
+        <UsageCount Value="15"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\..\..\..\Source\libs\JSON\uDWJSONInterface.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="503"/>
+        <CursorPos Y="513"/>
+        <UsageCount Value="13"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\..\..\..\Source\libs\uDWJSONTools.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="340"/>
+        <CursorPos X="40" Y="353"/>
+        <UsageCount Value="14"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\..\..\..\Source\libs\JSON\uDWJSON.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2666"/>
+        <CursorPos Y="2680"/>
+        <UsageCount Value="10"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\..\..\..\Source\libs\uDWConsts.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="69"/>
+        <CursorPos X="35" Y="98"/>
+        <UsageCount Value="14"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="C:\lazarus\components\lazutils\lconvencoding.pas"/>
+        <UnitName Value="LConvEncoding"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="19" Y="12"/>
+        <UsageCount Value="11"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="C:\lazarus\fpc\3.0.4\source\packages\fcl-db\src\base\db.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="218"/>
+        <CursorPos X="39" Y="229"/>
+        <UsageCount Value="10"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="C:\lazarus\fpc\3.0.4\source\packages\fcl-db\src\base\dsparams.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="731"/>
+        <CursorPos Y="733"/>
+        <UsageCount Value="10"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="..\..\..\..\Source\Connectors\ZEOS\uRESTDWDriverZEOS.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="64"/>
+        <CursorPos X="12" Y="81"/>
+        <UsageCount Value="15"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="..\..\..\..\Source\uRESTDWBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="12400"/>
+        <CursorPos X="50" Y="12423"/>
+        <UsageCount Value="14"/>
+        <Bookmarks Count="1">
+          <Item0 X="102" Y="1349" ID="3"/>
+        </Bookmarks>
+      </Unit16>
+      <Unit17>
+        <Filename Value="..\..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\component\ZAbstractConnection.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="432"/>
+        <CursorPos Y="443"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="..\..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\component\ZSequence.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="204"/>
+        <CursorPos Y="222"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="..\..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\dbc\ZDbcConnection.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1528"/>
+        <CursorPos Y="1546"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="..\..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\dbc\ZDbcInterbase6Utils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="828"/>
+        <CursorPos Y="837"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="..\..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\dbc\ZDbcUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="329"/>
+        <CursorPos Y="339"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="..\..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo-7.1.4\src\component\ZAbstractDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="422"/>
+        <CursorPos Y="431"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="..\..\..\..\Source\uRESTDWPoolerDB.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="614"/>
+        <CursorPos Y="624"/>
+        <UsageCount Value="11"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="..\..\..\..\Source\libs\uDWConstsData.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="76"/>
+        <CursorPos X="12" Y="92"/>
+        <UsageCount Value="11"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="C:\lazarus\fpc\3.0.4\source\packages\fcl-db\src\sqldb\mysql\mysqlconn.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="149"/>
+        <CursorPos X="50" Y="162"/>
+        <UsageCount Value="10"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="C:\lazarus\fpc\3.0.4\source\packages\fcl-db\src\sqldb\sqldb.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3135"/>
+        <CursorPos X="21" Y="3153"/>
+        <UsageCount Value="10"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\win32object.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="467"/>
+        <CursorPos Y="476"/>
+        <UsageCount Value="10"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="..\..\..\..\..\..\..\XyberX\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\source\IdSocketHandle.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="406"/>
+        <CursorPos Y="415"/>
+        <UsageCount Value="10"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="..\..\..\..\Source\uDWPoolerMethod.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="26" Y="11"/>
+        <UsageCount Value="10"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="..\..\..\..\Source\Connectors\ZEOS\Package\Lazarus\uRESTDWDriverZEOSReg.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="C:\Temp\JSONViewer\uDWJSONViewer.pas"/>
+        <ComponentName Value="fDWJSONViewer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="9"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="..\..\..\..\Source\Connectors\UniDAC\uRESTDWDriverUNIDAC.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="25"/>
+        <UsageCount Value="10"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="..\..\..\..\..\..\..\xyderx\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Core\IdSocketHandle.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="398"/>
+        <CursorPos X="61" Y="419"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="..\..\..\..\Source\uDWResponseTranslator.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="8" Y="5"/>
+        <UsageCount Value="10"/>
+        <Bookmarks Count="2">
+          <Item0 X="4" Y="179" ID="1"/>
+          <Item1 X="6" Y="635" ID="2"/>
+        </Bookmarks>
+      </Unit34>
+      <Unit35>
+        <Filename Value="..\..\..\..\Source\DmDados\uDWDatamodule.pas"/>
+        <ComponentName Value="ServerMethodDataModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="16" Y="7"/>
+        <UsageCount Value="10"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="..\..\..\..\..\..\..\xyderx\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Protocols\IdSSLOpenSSL.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="449"/>
+        <CursorPos X="44" Y="465"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="..\..\..\..\Source\uDWAbout.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="2" Y="6"/>
+        <UsageCount Value="10"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="..\..\..\..\..\..\..\xyderx\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Core\IdThread.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="294"/>
+        <CursorPos X="43" Y="311"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="..\..\..\..\Source\Connectors\RDWDriver\uRESTDWDriverRDW.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="65"/>
+        <CursorPos X="12" Y="81"/>
+        <UsageCount Value="10"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="..\..\..\..\Source\Connectors\RDWDriver\Package\Lazarus\uRESTDWDriverRDWReg.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="..\..\..\..\Source\libs\ServerUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="..\..\..\..\Source\mORMot.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="38023"/>
+        <CursorPos X="19" Y="38040"/>
+        <UsageCount Value="10"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="..\..\..\..\Source\SynFPCSock.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="43"/>
+        <CursorPos Y="60"/>
+        <UsageCount Value="10"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="..\..\..\..\Source\uRESTDWReg.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="109"/>
+        <UsageCount Value="10"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win\sysosh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="33"/>
+        <UsageCount Value="10"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win\sysutils.pp"/>
+        <UnitName Value="SysUtils"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\inc\threadh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="30"/>
+        <UsageCount Value="10"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="..\..\..\..\Source\Plugins\DMDados\uRESTDWDatamodule.pas"/>
+        <ComponentName Value="ServerMethodDataModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="33"/>
+        <CursorPos X="32" Y="49"/>
+        <UsageCount Value="10"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="..\..\..\..\Source\Basic\uRESTDWReg.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="774"/>
+        <CursorPos Y="796"/>
+        <UsageCount Value="10"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="..\..\..\..\Source\Sockets\Indy\uRESTDWIdBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3061"/>
+        <CursorPos Y="3078"/>
+        <UsageCount Value="10"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="C:\lazarus\ide\lazarus.pp"/>
+        <UnitName Value="Lazarus"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="134"/>
+        <CursorPos Y="167"/>
+        <UsageCount Value="10"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="..\..\..\..\Source\Basic\uRESTDWBasic.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2365"/>
+        <CursorPos Y="2382"/>
+        <UsageCount Value="10"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="..\..\..\..\Source\Libs\uRESTDWTools.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3272"/>
+        <CursorPos X="33" Y="3293"/>
+        <UsageCount Value="10"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="..\..\..\..\Source\Libs\uRESTDWBase64.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="279"/>
+        <CursorPos Y="297"/>
+        <UsageCount Value="10"/>
+      </Unit54>
+      <Unit55>
+        <Filename Value="..\..\..\..\Source\Database_Drivers\ZEOS\uRESTDWDriverZEOS.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4146"/>
+        <CursorPos Y="4159"/>
+        <UsageCount Value="10"/>
+      </Unit55>
+      <Unit56>
+        <Filename Value="..\..\..\..\Source\Basic\uRESTDWBasicTypes.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1027"/>
+        <CursorPos Y="1049"/>
+        <UsageCount Value="10"/>
+        <Bookmarks Count="1">
+          <Item0 X="49" Y="1049" ID="1"/>
+        </Bookmarks>
+      </Unit56>
+      <Unit57>
+        <Filename Value="uDmService.lfm"/>
+        <EditorIndex Value="-1"/>
+        <ExtraEditorCount Value="1"/>
+        <ExtraEditor1>
+          <EditorIndex Value="-1"/>
+          <TopLine Value="46"/>
+        </ExtraEditor1>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit57>
+    </Units>
+    <JumpHistory Count="2" HistoryIndex="1">
+      <Position1>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="11" Column="22"/>
+      </Position1>
+      <Position2>
+        <Filename Value="RestDWServerFormU.pas"/>
+        <Caret Line="154" Column="39" TopLine="143"/>
+      </Position2>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default"/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\..\Source\Connectors\Lazarus\uRestDWLazDriver.pas"/>
+        <Line Value="1830"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\..\Source\uRESTDWBase.pas"/>
+        <Line Value="5187"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\..\Source\Basic\uRESTDWBasicTypes.pas"/>
+        <Line Value="1048"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\..\Source\Basic\uRESTDWBasicTypes.pas"/>
+        <Line Value="1043"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\..\Source\Database_Drivers\ZEOS\uRESTDWDriverZEOS.pas"/>
+        <Line Value="4173"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\..\Source\Database_Drivers\ZEOS\uRESTDWDriverZEOS.pas"/>
+        <Line Value="4159"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>

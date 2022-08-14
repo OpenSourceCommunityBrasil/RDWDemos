@@ -1,0 +1,44 @@
+object Form1: TForm1
+  Left = 262
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  object ToggleBox1: TToggleBox
+    Left = 32
+    Height = 25
+    Top = 32
+    Width = 75
+    Caption = 'ToggleBox1'
+    OnChange = ToggleBox1Change
+    TabOrder = 0
+  end
+  object RESTDWIdServicePooler1: TRESTDWIdServicePooler
+    Active = False
+    CORS = False
+    CORS_CustomHeaders.Strings = (
+      'Access-Control-Allow-Origin=*'
+      'Access-Control-Allow-Methods=GET, POST, PATCH, PUT, DELETE, OPTIONS'
+      'Access-Control-Allow-Headers=Content-Type, Origin, Accept, Authorization, X-CUSTOM-HEADER'
+    )
+    PathTraversalRaiseError = True
+    RequestTimeout = -1
+    ServicePort = 8083
+    ProxyOptions.ProxyPort = 0
+    AuthenticationOptions.AuthorizationOption = rdwAONone
+    Encoding = esUtf8
+    RootPath = '/'
+    ForceWelcomeAccess = False
+    CriptOptions.Use = False
+    CriptOptions.Key = 'RDWBASEKEY256'
+    DatabaseCharSet = csUndefined
+    SSLVerifyMode = []
+    SSLVerifyDepth = 0
+    SSLMode = sslmUnassigned
+    Left = 128
+    Top = 104
+  end
+end

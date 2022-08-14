@@ -4,11 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
-  Controls, Forms, Dialogs, StdCtrls, uDWJSONObject, uLkJSON,
-  DB, Grids, DBGrids, uRESTDWBase, uDWJSONTools, uDWConsts, idComponent,
-  ExtCtrls, DBClient, uRESTDWPoolerDB, ComCtrls,
-  uDWConstsData, uRESTDWServerEvents, DateUtils, uDWDataset, uDWAbout,
-  ActnList, jpeg, ServerUtils;
+  Controls, Forms, Dialogs, StdCtrls, 
+  DB, Grids, DBGrids, uRESTDWConsts, 
+  ExtCtrls, DBClient, ComCtrls,
+  uRESTDWServerEvents, DateUtils, uRESTDWParams,
+  ActnList, jpeg, DataUtils, uRESTDWAbout, uRESTDWBasicDB, uRESTDWIdBase,
+  uRESTDWDataset, uRESTDWBasicTypes, uRESTDWBasic;
 
 type
 
@@ -32,11 +33,7 @@ type
     btnMassive: TButton;
     btnServerTime: TButton;
     DataSource1: TDataSource;
-    RESTDWDataBase1: TRESTDWDataBase;
     ActionList1: TActionList;
-    DWClientEvents1: TDWClientEvents;
-    RESTClientPooler1: TRESTClientPooler;
-    DWClientEvents2: TDWClientEvents;
     paTopo: TPanel;
     Image1: TImage;
     labSistema: TLabel;
@@ -83,17 +80,9 @@ type
     eUpdateTableName: TEdit;
     Label1: TLabel;
     Button1: TButton;
-    procedure RESTDWDataBase1WorkBegin(ASender: TObject;
-      AWorkMode: TWorkMode; AWorkCountMax: Int64);
-    procedure RESTDWDataBase1Work(ASender: TObject; AWorkMode: TWorkMode;
-      AWorkCount: Int64);
-    procedure RESTDWDataBase1WorkEnd(ASender: TObject;
-      AWorkMode: TWorkMode);
-    procedure RESTDWDataBase1BeforeConnect(Sender: TComponent);
-    procedure RESTDWDataBase1Connection(Sucess: Boolean;
-      const Error: String);
-    procedure RESTDWDataBase1Status(ASender: TObject;
-      const AStatus: TIdStatus; const AStatusText: String);
+    RESTDWIdDatabase1: TRESTDWIdDatabase;
+    RESTDWClientEvents1: TRESTDWClientEvents;
+    RESTDWIdClientPooler1: TRESTDWIdClientPooler;
     procedure btnOpenClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure btnServerTimeClick(Sender: TObject);
@@ -104,6 +93,15 @@ type
     procedure FormCreate(Sender: TObject);
     procedure cbAuthOptionsChange(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure RESTDWIdDatabase1Status(ASender: TObject;
+      const AStatus: TConnStatus; const AStatusText: String);
+    procedure RESTDWIdDatabase1Work(ASender: TObject; AWorkCount: Int64);
+    procedure RESTDWIdDatabase1BeforeConnect(Sender: TComponent);
+    procedure RESTDWIdDatabase1Connection(Sucess: Boolean;
+      const Error: String);
+    procedure RESTDWIdDatabase1WorkEnd(ASender: TObject);
+    procedure RESTDWIdDatabase1WorkBegin(ASender: TObject;
+      AWorkCount: Int64);
   private
     { Private declarations }
    vSecresString    : String;
@@ -125,21 +123,21 @@ implementation
 
 Procedure TForm2.GetLoginOptionsClientPooler;
 Begin
- If RESTClientPooler1.AuthenticationOptions.AuthorizationOption in [rdwAOBearer, rdwAOToken] Then
+ If RESTDWIdClientPooler1.AuthenticationOptions.AuthorizationOption in [rdwAOBearer, rdwAOToken] Then
   Begin
-   If RESTClientPooler1.AuthenticationOptions.AuthorizationOption = rdwAOBearer Then
+   If RESTDWIdClientPooler1.AuthenticationOptions.AuthorizationOption = rdwAOBearer Then
     Begin
-     eTokenID.Text       := TRDWAuthOptionBearerClient(RESTClientPooler1.AuthenticationOptions.OptionParams).Token;
-     lTokenBegin.Caption := FormatDateTime('dd/mm/yyyy hh:mm:ss', TRDWAuthOptionBearerClient(RESTClientPooler1.AuthenticationOptions.OptionParams).BeginTime);
-     lTokenEnd.Caption   := FormatDateTime('dd/mm/yyyy hh:mm:ss', TRDWAuthOptionBearerClient(RESTClientPooler1.AuthenticationOptions.OptionParams).EndTime);
-     vSecresString       := TRDWAuthOptionBearerClient(RESTClientPooler1.AuthenticationOptions.OptionParams).Secrets;
+     eTokenID.Text       := TRESTDWAuthOptionBearerClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Token;
+     lTokenBegin.Caption := FormatDateTime('dd/mm/yyyy hh:mm:ss', TRESTDWAuthOptionBearerClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).BeginTime);
+     lTokenEnd.Caption   := FormatDateTime('dd/mm/yyyy hh:mm:ss', TRESTDWAuthOptionBearerClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).EndTime);
+     vSecresString       := TRESTDWAuthOptionBearerClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Secrets;
     End
    Else
     Begin
-     eTokenID.Text       := TRDWAuthOptionTokenClient(RESTClientPooler1.AuthenticationOptions.OptionParams).Token;
-     lTokenBegin.Caption := FormatDateTime('dd/mm/yyyy hh:mm:ss', TRDWAuthOptionTokenClient(RESTClientPooler1.AuthenticationOptions.OptionParams).BeginTime);
-     lTokenEnd.Caption   := FormatDateTime('dd/mm/yyyy hh:mm:ss', TRDWAuthOptionTokenClient(RESTClientPooler1.AuthenticationOptions.OptionParams).EndTime);
-     vSecresString       := TRDWAuthOptionTokenClient(RESTClientPooler1.AuthenticationOptions.OptionParams).Secrets;
+     eTokenID.Text       := TRESTDWAuthOptionTokenClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Token;
+     lTokenBegin.Caption := FormatDateTime('dd/mm/yyyy hh:mm:ss', TRESTDWAuthOptionTokenClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).BeginTime);
+     lTokenEnd.Caption   := FormatDateTime('dd/mm/yyyy hh:mm:ss', TRESTDWAuthOptionTokenClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).EndTime);
+     vSecresString       := TRESTDWAuthOptionTokenClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Secrets;
     End;
   End;
 End;
@@ -147,60 +145,266 @@ End;
 Function  TForm2.GetSecret : String;
 Begin
  Result := '';
- If RESTDWDataBase1.AuthenticationOptions.AuthorizationOption in [rdwAOBearer, rdwAOToken] Then
+ If RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption in [rdwAOBearer, rdwAOToken] Then
   Begin
-   If RESTDWDataBase1.AuthenticationOptions.AuthorizationOption = rdwAOBearer Then
-    Result := TRDWAuthOptionBearerClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).Secrets
+   If RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption = rdwAOBearer Then
+    Result := TRESTDWAuthOptionBearerClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Secrets
    Else
-    Result := TRDWAuthOptionTokenClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).Secrets;
+    Result := TRESTDWAuthOptionTokenClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Secrets;
   End;
 End;
 
-procedure TForm2.RESTDWDataBase1WorkBegin(ASender: TObject;
-  AWorkMode: TWorkMode; AWorkCountMax: Int64);
+Procedure TForm2.SetLoginOptions;
+Begin
+  Case cbAuthOptions.ItemIndex Of
+   0 : RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption := rdwAONone;
+   1 : RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
+   2 : RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption := rdwAOBearer;
+   3 : RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption := rdwAOToken;
+  End;
+ RESTDWIdClientPooler1.AuthenticationOptions.AuthorizationOption := RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption;
+ If RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption in [rdwAOBearer, rdwAOToken] Then
+  Begin
+   If RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption = rdwAOBearer Then
+    Begin
+     TRESTDWAuthOptionBearerClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).TokenRequestType := rdwtRequest;
+     TRESTDWAuthOptionBearerClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Token   := eTokenID.Text;
+     TRESTDWAuthOptionBearerClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).TokenRequestType := TRESTDWAuthOptionBearerClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).TokenRequestType;
+     TRESTDWAuthOptionBearerClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Token := TRESTDWAuthOptionBearerClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Token;
+    End
+   Else
+    Begin
+     TRESTDWAuthOptionTokenClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).TokenRequestType := rdwtRequest;
+     TRESTDWAuthOptionTokenClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Token   := eTokenID.Text;
+     TRESTDWAuthOptionTokenClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).TokenRequestType := TRESTDWAuthOptionTokenClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).TokenRequestType;
+     TRESTDWAuthOptionTokenClient(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Token := TRESTDWAuthOptionTokenClient(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Token;
+    End;
+  End
+ Else If RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption = rdwAOBasic Then
+  Begin
+   TRESTDWAuthOptionBasic(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
+   TRESTDWAuthOptionBasic(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
+   TRESTDWAuthOptionBasic(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Username := TRESTDWAuthOptionBasic(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Username;
+   TRESTDWAuthOptionBasic(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Password := TRESTDWAuthOptionBasic(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Password;
+  End;
+End;
+
+procedure TForm2.btnOpenClick(Sender: TObject);
+Var
+ INICIO,
+ FIM        : TDateTime;
+ I          : Integer;
+ vKeyFields : TStringList;
+Begin
+ RESTDWIdDatabase1.Active            := False;
+ If Not RESTDWIdDatabase1.Active Then
+  Begin
+   RESTDWIdDatabase1.PoolerService   := EHost.Text;
+   RESTDWIdDatabase1.PoolerPort      := StrToInt(EPort.Text);
+   SetLoginOptions;
+   RESTDWIdDatabase1.Compression     := cbxCompressao.Checked;
+   RESTDWIdDatabase1.AccessTag       := eAccesstag.Text;
+   RESTDWIdDatabase1.WelcomeMessage  := eWelcomemessage.Text;
+   If chkhttps.Checked Then
+    RESTDWIdDatabase1.TypeRequest    := trHttps
+   Else
+    RESTDWIdDatabase1.TypeRequest    := trHttp;
+  End;
+ INICIO                            := Now;
+ DataSource1.DataSet               := RESTDWClientSQL1;
+ RESTDWClientSQL1.Close;
+ RESTDWClientSQL1.SQL.Clear;
+ RESTDWClientSQL1.SQL.Add(MComando.Text);
+ RESTDWClientSQL1.UpdateTableName  := Trim(eUpdateTableName.Text);
+ Try
+  RESTDWClientSQL1.Active          := True;
+ Except
+  On E: Exception Do
+   Begin
+    Raise Exception.Create('Erro ao executar a consulta: ' + sLineBreak + E.Message);
+   End;
+ End;
+ FIM := Now;
+ EHost.Text            := RESTDWIdDatabase1.PoolerService;
+ EPort.Text            := IntToStr(RESTDWIdDatabase1.PoolerPort);
+ cbxCompressao.Checked := RESTDWIdDatabase1.Compression;
+ eAccesstag.Text       := RESTDWIdDatabase1.AccessTag;
+ eWelcomemessage.Text  := RESTDWIdDatabase1.WelcomeMessage;
+ If RESTDWClientSQL1.FindField('FULL_NAME') <> Nil Then
+  RESTDWClientSQL1.FindField('FULL_NAME').ProviderFlags := [];
+ If RESTDWClientSQL1.FindField('UF') <> Nil Then
+  RESTDWClientSQL1.FindField('UF').ProviderFlags       := [];
+ If RESTDWClientSQL1.Active Then
+  Showmessage(IntToStr(RESTDWClientSQL1.Recordcount) + ' registro(s) recebido(s) em ' + IntToStr(MilliSecondsBetween(FIM, INICIO)) + ' Milis.');
+End;
+
+procedure TForm2.btnApplyClick(Sender: TObject);
+Var
+ vError : String;
 begin
- FBytesToTransfer      := AWorkCountMax;
- ProgressBar1.Max      := FBytesToTransfer;
- ProgressBar1.Position := 0;
+ If Not RESTDWClientSQL1.ApplyUpdates(vError) Then
+  MessageDlg(vError, mtError, [mbOK], 0);
 end;
 
-procedure TForm2.RESTDWDataBase1Work(ASender: TObject;
-  AWorkMode: TWorkMode; AWorkCount: Int64);
+procedure TForm2.btnServerTimeClick(Sender: TObject);
+Var
+ dwParams      : TRESTDWParams;
+ vNativeResult,
+ vErrorMessage : String;
+Begin
+ RESTDWIdClientPooler1.Host            := EHost.Text;
+ RESTDWIdClientPooler1.Port            := StrToInt(EPort.Text);
+ SetLoginOptions;
+ RESTDWIdClientPooler1.DataCompression := cbxCompressao.Checked;
+ RESTDWIdClientPooler1.AccessTag       := eAccesstag.Text;
+ RESTDWIdClientPooler1.WelcomeMessage  := eWelcomemessage.Text;
+ RESTDWIdClientPooler1.BinaryRequest   := cbBinaryRequest.Checked;
+ If chkhttps.Checked then
+  RESTDWIdClientPooler1.TypeRequest    := trHttps
+ Else
+  RESTDWIdClientPooler1.TypeRequest    := trHttp;
+ RESTDWClientEvents1.CreateDWParams('servertime', dwParams);
+ RESTDWClientEvents1.SendEvent('servertime', dwParams, vErrorMessage, vNativeResult);
+ If vErrorMessage = '' Then
+  Begin
+   GetLoginOptionsClientPooler;
+   If dwParams.ItemsString['result'] <> Nil Then
+    Showmessage('Server Date/Time is : ' + dwParams.ItemsString['result'].Value)
+   Else
+    Begin
+     If vNativeResult <> '' Then
+      Begin
+       If vNativeResult <> '' Then
+        Showmessage(vNativeResult)
+       Else
+        Showmessage(vErrorMessage);
+      End;
+    End;
+  End
+ Else
+  Showmessage(vErrorMessage);
+ dwParams.Free;
+End;
+
+procedure TForm2.btnMassiveClick(Sender: TObject);
 begin
-  If FBytesToTransfer = 0 Then // No Update File
-   Exit;
-  ProgressBar1.Position := AWorkCount;
+ If RESTDWClientSQL1.MassiveCount > 0 Then
+  Showmessage(RESTDWClientSQL1.MassiveToJSON);
 end;
 
-procedure TForm2.RESTDWDataBase1WorkEnd(ASender: TObject;
-  AWorkMode: TWorkMode);
-begin
- ProgressBar1.Position := FBytesToTransfer;
- FBytesToTransfer      := 0;
-end;
+procedure TForm2.btnGetClick(Sender: TObject);
+Var
+ dwParams       : TRESTDWParams;
+ vErrorMessage,
+ vNativeResult  : String;
+Begin
+ RESTDWIdClientPooler1.Host            := EHost.Text;
+ RESTDWIdClientPooler1.Port            := StrToInt(EPort.Text);
+ SetLoginOptions;
+ RESTDWIdClientPooler1.DataCompression := cbxCompressao.Checked;
+ RESTDWIdClientPooler1.AccessTag       := eAccesstag.Text;
+ RESTDWIdClientPooler1.WelcomeMessage  := eWelcomemessage.Text;
+ If chkhttps.Checked then
+  RESTDWIdClientPooler1.TypeRequest    := trHttps
+ Else
+  RESTDWIdClientPooler1.TypeRequest    := trHttp;
+ RESTDWClientEvents1.CreateDWParams('getemployee', dwParams);
+ RESTDWClientEvents1.SendEvent('getemployee', dwParams, vErrorMessage, vNativeResult);
+ If RESTDWIdClientPooler1.BinaryRequest then
+  Begin
+   If vErrorMessage <> '' Then
+    Showmessage(vErrorMessage)
+   Else
+    Begin
+     GetLoginOptionsClientPooler;
+     Showmessage(dwParams.ItemsString['result'].AsString);
+    End;
+  End
+ Else
+  Begin
+   If vNativeResult <> '' Then
+    Begin
+     GetLoginOptionsClientPooler;
+     Showmessage(vNativeResult);
+    End
+   Else
+    Showmessage(vErrorMessage);
+  End;
+ dwParams.Free;
+End;
 
-procedure TForm2.RESTDWDataBase1BeforeConnect(Sender: TComponent);
-begin
-  Memo1.Lines.Add(' ');
-  Memo1.Lines.Add('**********');
-  Memo1.Lines.Add(' ');
-end;
-
-procedure TForm2.RESTDWDataBase1Connection(Sucess: Boolean;
-  const Error: String);
-begin
-  IF Sucess THEN
-  BEGIN
-    Memo1.Lines.Add(DateTimeToStr(Now) + ' - Database conectado com sucesso.');
-  END
+procedure TForm2.btnExecuteClick(Sender: TObject);
+VAR
+  VError: STRING;
+BEGIN
+  RESTDWIdDatabase1.Close;
+  SetLoginOptions;
+  RESTDWIdDatabase1.PoolerService  := EHost.Text;
+  RESTDWIdDatabase1.PoolerPort     := StrToInt(EPort.Text);
+  TRESTDWAuthOptionBasic(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Username := EdUserNameDW.Text;
+  TRESTDWAuthOptionBasic(RESTDWIdDatabase1.AuthenticationOptions.OptionParams).Password := EdPasswordDW.Text;
+  RESTDWIdDatabase1.Compression    := cbxCompressao.Checked;
+  RESTDWIdDatabase1.AccessTag      := eAccesstag.Text;
+  RESTDWIdDatabase1.WelcomeMessage := eWelcomemessage.Text;
+  If chkhttps.Checked Then
+   RESTDWIdDatabase1.TypeRequest   := trHttps
+  Else
+   RESTDWIdDatabase1.TypeRequest   := trHttp;
+  RESTDWIdDatabase1.Open;
+  RESTDWClientSQL1.Close;
+  RESTDWClientSQL1.SQL.Clear;
+  RESTDWClientSQL1.SQL.Add(MComando.Text);
+  IF NOT RESTDWClientSQL1.ExecSQL(VError) THEN
+    Application.MessageBox(PChar('Erro executando o comando ' + RESTDWClientSQL1.SQL.Text), 'Erro...', Mb_iconerror + Mb_ok)
   ELSE
-  BEGIN
-    Memo1.Lines.Add(DateTimeToStr(Now) + ' - Falha de conexão ao Database: ' + Error);
-  END;
+    Application.MessageBox('Comando executado com sucesso...', 'Informação !!!', Mb_iconinformation + Mb_ok);
+END;
+
+procedure TForm2.cbUseCriptoClick(Sender: TObject);
+begin
+ RESTDWIdDatabase1.CriptOptions.Use   := cbUseCripto.Checked;
+ RESTDWIdClientPooler1.CriptOptions.Use := RESTDWIdDatabase1.CriptOptions.Use;
 end;
 
-procedure TForm2.RESTDWDataBase1Status(ASender: TObject;
-  const AStatus: TIdStatus; const AStatusText: String);
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+ labVersao.Caption := RESTDWVERSAO;
+end;
+
+procedure TForm2.cbAuthOptionsChange(Sender: TObject);
+begin
+ pTokenAuth.Visible := cbAuthOptions.ItemIndex > 1;
+ pBasicAuth.Visible := cbAuthOptions.ItemIndex = 1;
+end;
+
+procedure TForm2.Button1Click(Sender: TObject);
+Var
+ vErrorMessage : String;
+ dwParams      : TRESTDWParams;
+Begin
+ dwParams      := Nil;
+ RESTDWIdClientPooler1.Host            := EHost.Text;
+ RESTDWIdClientPooler1.Port            := StrToInt(EPort.Text);
+ SetLoginOptions;
+ RESTDWIdClientPooler1.DataCompression := cbxCompressao.Checked;
+ RESTDWIdClientPooler1.AccessTag       := eAccesstag.Text;
+ RESTDWIdClientPooler1.WelcomeMessage  := eWelcomemessage.Text;
+ If chkhttps.Checked then
+  RESTDWIdClientPooler1.TypeRequest    := trHttps
+ Else
+  RESTDWIdClientPooler1.TypeRequest    := trHttp;
+ RESTDWClientEvents1.SendEvent('assyncevent', dwParams, vErrorMessage, sePOST, True);
+ If vErrorMessage = '' Then
+  Begin
+   GetLoginOptionsClientPooler;
+   Showmessage('Assyncevent Executed...');
+  End
+ Else
+  Showmessage(vErrorMessage);
+End;
+
+procedure TForm2.RESTDWIdDatabase1Status(ASender: TObject;
+  const AStatus: TConnStatus; const AStatusText: String);
 begin
  if Self = Nil then
   Exit;
@@ -236,277 +440,45 @@ begin
         StatusBar1.Panels[0].Text := 'hsStatusText...';
         Memo1.Lines.Add(DateTimeToStr(Now) + ' - ' + AStatusText);
       END;
-    // These are to eliminate the TIdFTPStatus and the coresponding event These can be use din the other protocols to.
-    ftpTransfer:
-      BEGIN
-        StatusBar1.Panels[0].Text := 'ftpTransfer...';
-        Memo1.Lines.Add(DateTimeToStr(Now) + ' - ' + AStatusText);
-      END;
-    ftpReady:
-      BEGIN
-        StatusBar1.Panels[0].Text := 'ftpReady...';
-        Memo1.Lines.Add(DateTimeToStr(Now) + ' - ' + AStatusText);
-      END;
-    ftpAborted:
-      BEGIN
-        StatusBar1.Panels[0].Text := 'ftpAborted...';
-        Memo1.Lines.Add(DateTimeToStr(Now) + ' - ' + AStatusText);
-      END;
   END;
 end;
 
-Procedure TForm2.SetLoginOptions;
-Begin
-  Case cbAuthOptions.ItemIndex Of
-   0 : RESTDWDataBase1.AuthenticationOptions.AuthorizationOption := rdwAONone;
-   1 : RESTDWDataBase1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
-   2 : RESTDWDataBase1.AuthenticationOptions.AuthorizationOption := rdwAOBearer;
-   3 : RESTDWDataBase1.AuthenticationOptions.AuthorizationOption := rdwAOToken;
-  End;
- RESTClientPooler1.AuthenticationOptions.AuthorizationOption := RESTDWDataBase1.AuthenticationOptions.AuthorizationOption;
- If RESTDWDataBase1.AuthenticationOptions.AuthorizationOption in [rdwAOBearer, rdwAOToken] Then
-  Begin
-   If RESTDWDataBase1.AuthenticationOptions.AuthorizationOption = rdwAOBearer Then
-    Begin
-     TRDWAuthOptionBearerClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).TokenRequestType := rdwtRequest;
-     TRDWAuthOptionBearerClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).Token   := eTokenID.Text;
-     TRDWAuthOptionBearerClient(RESTClientPooler1.AuthenticationOptions.OptionParams).TokenRequestType := TRDWAuthOptionBearerClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).TokenRequestType;
-     TRDWAuthOptionBearerClient(RESTClientPooler1.AuthenticationOptions.OptionParams).Token := TRDWAuthOptionBearerClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).Token;
-    End
-   Else
-    Begin
-     TRDWAuthOptionTokenClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).TokenRequestType := rdwtRequest;
-     TRDWAuthOptionTokenClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).Token   := eTokenID.Text;
-     TRDWAuthOptionTokenClient(RESTClientPooler1.AuthenticationOptions.OptionParams).TokenRequestType := TRDWAuthOptionTokenClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).TokenRequestType;
-     TRDWAuthOptionTokenClient(RESTClientPooler1.AuthenticationOptions.OptionParams).Token := TRDWAuthOptionTokenClient(RESTDWDataBase1.AuthenticationOptions.OptionParams).Token;
-    End;
-  End
- Else If RESTDWDataBase1.AuthenticationOptions.AuthorizationOption = rdwAOBasic Then
-  Begin
-   TRDWAuthOptionBasic(RESTDWDataBase1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
-   TRDWAuthOptionBasic(RESTDWDataBase1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
-   TRDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username := TRDWAuthOptionBasic(RESTDWDataBase1.AuthenticationOptions.OptionParams).Username;
-   TRDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password := TRDWAuthOptionBasic(RESTDWDataBase1.AuthenticationOptions.OptionParams).Password;
-  End;
-End;
-
-procedure TForm2.btnOpenClick(Sender: TObject);
-Var
- INICIO,
- FIM        : TDateTime;
- I          : Integer;
- vKeyFields : TStringList;
-Begin
- RESTDWDataBase1.Active            := False;
- If Not RESTDWDataBase1.Active Then
-  Begin
-   RESTDWDataBase1.PoolerService   := EHost.Text;
-   RESTDWDataBase1.PoolerPort      := StrToInt(EPort.Text);
-   SetLoginOptions;
-   RESTDWDataBase1.Compression     := cbxCompressao.Checked;
-   RESTDWDataBase1.AccessTag       := eAccesstag.Text;
-   RESTDWDataBase1.WelcomeMessage  := eWelcomemessage.Text;
-   If chkhttps.Checked Then
-    RESTDWDataBase1.TypeRequest    := trHttps
-   Else
-    RESTDWDataBase1.TypeRequest    := trHttp;
-  End;
- INICIO                            := Now;
- DataSource1.DataSet               := RESTDWClientSQL1;
- RESTDWClientSQL1.Close;
- RESTDWClientSQL1.SQL.Clear;
- RESTDWClientSQL1.SQL.Add(MComando.Text);
- RESTDWClientSQL1.UpdateTableName  := Trim(eUpdateTableName.Text);
- Try
-  RESTDWClientSQL1.Active          := True;
- Except
-  On E: Exception Do
-   Begin
-    Raise Exception.Create('Erro ao executar a consulta: ' + sLineBreak + E.Message);
-   End;
- End;
- FIM := Now;
- EHost.Text            := RESTDWDataBase1.PoolerService;
- EPort.Text            := IntToStr(RESTDWDataBase1.PoolerPort);
- cbxCompressao.Checked := RESTDWDataBase1.Compression;
- eAccesstag.Text       := RESTDWDataBase1.AccessTag;
- eWelcomemessage.Text  := RESTDWDataBase1.WelcomeMessage;
- If RESTDWClientSQL1.FindField('FULL_NAME') <> Nil Then
-  RESTDWClientSQL1.FindField('FULL_NAME').ProviderFlags := [];
- If RESTDWClientSQL1.FindField('UF') <> Nil Then
-  RESTDWClientSQL1.FindField('UF').ProviderFlags       := [];
- If RESTDWClientSQL1.Active Then
-  Showmessage(IntToStr(RESTDWClientSQL1.Recordcount) + ' registro(s) recebido(s) em ' + IntToStr(MilliSecondsBetween(FIM, INICIO)) + ' Milis.');
-End;
-
-procedure TForm2.btnApplyClick(Sender: TObject);
-Var
- vError : String;
+procedure TForm2.RESTDWIdDatabase1Work(ASender: TObject;
+  AWorkCount: Int64);
 begin
- If Not RESTDWClientSQL1.ApplyUpdates(vError) Then
-  MessageDlg(vError, mtError, [mbOK], 0);
+  If FBytesToTransfer = 0 Then // No Update File
+   Exit;
+  ProgressBar1.Position := AWorkCount;
 end;
 
-procedure TForm2.btnServerTimeClick(Sender: TObject);
-Var
- dwParams      : TDWParams;
- vNativeResult,
- vErrorMessage : String;
-Begin
- RESTClientPooler1.Host            := EHost.Text;
- RESTClientPooler1.Port            := StrToInt(EPort.Text);
- SetLoginOptions;
- RESTClientPooler1.DataCompression := cbxCompressao.Checked;
- RESTClientPooler1.AccessTag       := eAccesstag.Text;
- RESTClientPooler1.WelcomeMessage  := eWelcomemessage.Text;
- RESTClientPooler1.BinaryRequest   := cbBinaryRequest.Checked;
- If chkhttps.Checked then
-  RESTClientPooler1.TypeRequest    := trHttps
- Else
-  RESTClientPooler1.TypeRequest    := trHttp;
- DWClientEvents1.CreateDWParams('servertime', dwParams);
- DWClientEvents1.SendEvent('servertime', dwParams, vErrorMessage, vNativeResult);
- If vErrorMessage = '' Then
-  Begin
-   GetLoginOptionsClientPooler;
-   If dwParams.ItemsString['result'] <> Nil Then
-    Begin
-     If dwParams.ItemsString['result'].AsString <> '' Then
-      Showmessage('Server Date/Time is : ' + dwParams.ItemsString['result'].AsString)
-     Else
-      Showmessage(vErrorMessage);
-    End
-   Else
-    Begin
-     If vNativeResult <> '' Then
-      Begin
-       If vNativeResult <> '' Then
-        Showmessage(vNativeResult)
-       Else
-        Showmessage(vErrorMessage);
-      End;
-    End;
-  End
- Else
-  Showmessage(vErrorMessage);
- dwParams.Free;
-End;
-
-procedure TForm2.btnMassiveClick(Sender: TObject);
+procedure TForm2.RESTDWIdDatabase1BeforeConnect(Sender: TComponent);
 begin
- If RESTDWClientSQL1.MassiveCount > 0 Then
-  Showmessage(RESTDWClientSQL1.MassiveToJSON);
+  Memo1.Lines.Add(' ');
+  Memo1.Lines.Add('**********');
+  Memo1.Lines.Add(' ');
 end;
 
-procedure TForm2.btnGetClick(Sender: TObject);
-Var
- dwParams       : TDWParams;
- vErrorMessage,
- vNativeResult  : String;
-Begin
- RESTClientPooler1.Host            := EHost.Text;
- RESTClientPooler1.Port            := StrToInt(EPort.Text);
- SetLoginOptions;
- RESTClientPooler1.DataCompression := cbxCompressao.Checked;
- RESTClientPooler1.AccessTag       := eAccesstag.Text;
- RESTClientPooler1.WelcomeMessage  := eWelcomemessage.Text;
- If chkhttps.Checked then
-  RESTClientPooler1.TypeRequest    := trHttps
- Else
-  RESTClientPooler1.TypeRequest    := trHttp;
- DWClientEvents1.CreateDWParams('getemployee', dwParams);
- DWClientEvents1.SendEvent('getemployee', dwParams, vErrorMessage, vNativeResult);
- If RESTClientPooler1.BinaryRequest then
-  Begin
-   If vErrorMessage <> '' Then
-    Showmessage(vErrorMessage)
-   Else
-    Begin
-     GetLoginOptionsClientPooler;
-     Showmessage(dwParams.ItemsString['result'].AsString);
-    End;
-  End
- Else
-  Begin
-   If vNativeResult <> '' Then
-    Begin
-     GetLoginOptionsClientPooler;
-     Showmessage(vNativeResult);
-    End
-   Else
-    Showmessage(vErrorMessage);
-  End;
- dwParams.Free;
-End;
-
-procedure TForm2.btnExecuteClick(Sender: TObject);
-VAR
-  VError: STRING;
-BEGIN
-  RESTDWDataBase1.Close;
-  SetLoginOptions;
-  RESTDWDataBase1.PoolerService  := EHost.Text;
-  RESTDWDataBase1.PoolerPort     := StrToInt(EPort.Text);
-  TRDWAuthOptionBasic(RESTDWDataBase1.AuthenticationOptions.OptionParams).Username := EdUserNameDW.Text;
-  TRDWAuthOptionBasic(RESTDWDataBase1.AuthenticationOptions.OptionParams).Password := EdPasswordDW.Text;
-  RESTDWDataBase1.Compression    := cbxCompressao.Checked;
-  RESTDWDataBase1.AccessTag      := eAccesstag.Text;
-  RESTDWDataBase1.WelcomeMessage := eWelcomemessage.Text;
-  If chkhttps.Checked Then
-   RESTDWDataBase1.TypeRequest   := trHttps
-  Else
-   RESTDWDataBase1.TypeRequest   := trHttp;
-  RESTDWDataBase1.Open;
-  RESTDWClientSQL1.Close;
-  RESTDWClientSQL1.SQL.Clear;
-  RESTDWClientSQL1.SQL.Add(MComando.Text);
-  IF NOT RESTDWClientSQL1.ExecSQL(VError) THEN
-    Application.MessageBox(PChar('Erro executando o comando ' + RESTDWClientSQL1.SQL.Text), 'Erro...', Mb_iconerror + Mb_ok)
-  ELSE
-    Application.MessageBox('Comando executado com sucesso...', 'Informação !!!', Mb_iconinformation + Mb_ok);
-END;
-
-procedure TForm2.cbUseCriptoClick(Sender: TObject);
+procedure TForm2.RESTDWIdDatabase1Connection(Sucess: Boolean;
+  const Error: String);
 begin
- RESTDWDataBase1.CriptOptions.Use   := cbUseCripto.Checked;
- RESTClientPooler1.CriptOptions.Use := RESTDWDataBase1.CriptOptions.Use;
+ If Sucess Then
+  Memo1.Lines.Add(DateTimeToStr(Now) + ' - Database conectado com sucesso.')
+ Else
+  Memo1.Lines.Add(DateTimeToStr(Now) + ' - Falha de conexão ao Database: ' + Error);
 end;
 
-procedure TForm2.FormCreate(Sender: TObject);
+procedure TForm2.RESTDWIdDatabase1WorkEnd(ASender: TObject);
 begin
- labVersao.Caption := DWVERSAO;
+ ProgressBar1.Position := FBytesToTransfer;
+ FBytesToTransfer      := 0;
 end;
 
-procedure TForm2.cbAuthOptionsChange(Sender: TObject);
+procedure TForm2.RESTDWIdDatabase1WorkBegin(ASender: TObject;
+  AWorkCount: Int64);
 begin
- pTokenAuth.Visible := cbAuthOptions.ItemIndex > 1;
- pBasicAuth.Visible := cbAuthOptions.ItemIndex = 1;
+ FBytesToTransfer      := AWorkCount;
+ ProgressBar1.Max      := FBytesToTransfer;
+ ProgressBar1.Position := 0;
 end;
-
-procedure TForm2.Button1Click(Sender: TObject);
-Var
- vErrorMessage : String;
- dwParams      : TdwParams;
-Begin
- dwParams      := Nil;
- RESTClientPooler1.Host            := EHost.Text;
- RESTClientPooler1.Port            := StrToInt(EPort.Text);
- SetLoginOptions;
- RESTClientPooler1.DataCompression := cbxCompressao.Checked;
- RESTClientPooler1.AccessTag       := eAccesstag.Text;
- RESTClientPooler1.WelcomeMessage  := eWelcomemessage.Text;
- If chkhttps.Checked then
-  RESTClientPooler1.TypeRequest    := trHttps
- Else
-  RESTClientPooler1.TypeRequest    := trHttp;
- DWClientEvents1.SendEvent('assyncevent', dwParams, vErrorMessage, sePOST, True);
- If vErrorMessage = '' Then
-  Begin
-   GetLoginOptionsClientPooler;
-   Showmessage('Assyncevent Executed...');
-  End
- Else
-  Showmessage(vErrorMessage);
-End;
 
 end.

@@ -1,0 +1,28 @@
+object DM: TDM
+  OldCreateOrder = False
+  Encoding = esUtf8
+  QueuedRequest = False
+  Height = 150
+  HorizontalOffset = 262
+  VerticalOffset = 250
+  Width = 150
+  object RESTDWServerEvents1: TRESTDWServerEvents
+    IgnoreInvalidParams = False
+    Events = <    
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        Params = <>
+        DataMode = dmRAW
+        Name = 'teste'
+        EventName = 'teste'
+        BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+        OnReplyEventByType = RESTDWServerEvents1EventstesteReplyEventByType
+      end>
+    Left = 64
+    Top = 40
+  end
+end
