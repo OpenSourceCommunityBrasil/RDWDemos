@@ -46,7 +46,7 @@ Uses
   IdHTTP, uREStDWJSONObject, uRESTDWAbout,
   uRESTDWBasic, uRESTDWIdBase, IdContext, IdHeaderList, IdCustomHTTPServer,
   IdServerIOHandler, IdSSL, IdSSLOpenSSL, IdBaseComponent, IdComponent,
-  IdCustomTCPServer, IdHTTPServer;
+  IdCustomTCPServer, IdHTTPServer, uRESTDWComponentBase;
 
 type
   TfPrincipal = class(TForm)
@@ -408,7 +408,7 @@ Begin
   Else
     CtiPrincipal.BalloonFlags := BfInfo;
   End;
-  CtiPrincipal.BalloonTitle := RestDWForm.Caption;
+  CtiPrincipal.BalloonTitle := Self.Caption;
   CtiPrincipal.BalloonHint  := MessageValue;
   CtiPrincipal.ShowBalloonHint;
   Application.ProcessMessages;

@@ -139,10 +139,12 @@ object DMPrincipal: TDMPrincipal
             ParamName = '1'
             Encoded = True
           end>
-        JsonMode = jmPureJSON
+        DataMode = dmDataware
         Name = 'helloworld'
         EventName = 'helloworld'
         BaseURL = '/se1/se2/se3/se4/se5/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEventByType = RDWSEDadosEventshelloworldReplyEventByType
       end
@@ -157,10 +159,12 @@ object DMPrincipal: TDMPrincipal
             ParamName = 'result'
             Encoded = True
           end>
-        JsonMode = jmDataware
+        DataMode = dmDataware
         Name = 'servertime'
         EventName = 'servertime'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEvent = RESTDWServerEventsEventsservertimeReplyEvent
       end>

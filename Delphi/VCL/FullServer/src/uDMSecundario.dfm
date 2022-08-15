@@ -116,10 +116,12 @@ object DMSecundario: TDMSecundario
         Routes = [crAll]
         NeedAuthorization = True
         Params = <>
-        JsonMode = jmPureJSON
+        DataMode = dmDataware
         Name = 'helloworld'
         EventName = 'helloworld'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEventByType = RDWSEDadosEventshelloworldReplyEventByType
       end>

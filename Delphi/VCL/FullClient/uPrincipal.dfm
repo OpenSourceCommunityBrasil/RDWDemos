@@ -2439,7 +2439,6 @@ object fPrincipal: TfPrincipal
     DataCache = False
     MassiveType = mtMassiveObject
     Params = <>
-    DataBase = RESTDWDatabase1
     SQL.Strings = (
       'select * From employee')
     UpdateTableName = 'EMPLOYEE'
@@ -2448,79 +2447,52 @@ object fPrincipal: TfPrincipal
     AutoRefreshAfterCommit = False
     ThreadRequest = False
     RaiseErrors = True
-    ActionCursor = crSQLWait
     ReflectChanges = True
-    Left = 195
-    Top = 416
+    Left = 107
+    Top = 424
   end
-  object RESTDWDatabase1: TRESTDWIdDatabase
-    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-    AcceptEncoding = 'gzip2, deflate, br'
-    ContentType = 'application/json'
-    Charset = 'utf8'
-    ContentEncoding = 'multipart/form-data'
-    OnConnection = RESTDWDatabase1Connection
-    OnBeforeConnect = RESTDWDatabase1BeforeConnect
-    Active = False
-    Compression = False
+  object RESTDWClientEvents1: TRESTDWClientEvents
+    ServerEventName = 'TServerMethodDM.RESTDWServerEvents'
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    DataRoute = '/'
-    AuthenticationOptions.AuthorizationOption = rdwAONone
-    Proxy = False
-    ProxyOptions.Port = 8888
-    PoolerService = 'localhost'
-    PoolerPort = 8082
-    PoolerName = 'TServerMethodDM.RESTDWPoolerZEOS'
-    StateConnection.AutoCheck = False
-    StateConnection.InTime = 1000
-    RequestTimeOut = 999999
-    ConnectTimeOut = 3000
-    EncodedStrings = True
-    Encoding = esUtf8
-    StrsTrim = False
-    StrsEmpty2Null = False
-    StrsTrim2Len = True
-    PoolerNotFoundMessage = 'Pooler not found'
-    HandleRedirects = False
-    RedirectMaximum = 0
-    OnWork = RESTDWDatabase1Work
-    OnWorkBegin = RESTDWDatabase1WorkBegin
-    OnWorkEnd = RESTDWDatabase1WorkEnd
-    OnStatus = RESTDWDatabase1Status
-    OnFailOverExecute = RESTDWDatabase1FailOverExecute
-    OnFailOverError = RESTDWDatabase1FailOverError
-    OnBeforeGetToken = RESTDWDatabase1BeforeGetToken
-    ParamCreate = True
-    FailOver = False
-    FailOverConnections = <>
-    FailOverReplaceDefaults = False
-    ClientConnectionDefs.Active = False
-    UserAgent = 
-      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
-      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
-    SSLMode = sslmUnassigned
-    SSLVersions = []
-    Left = 72
-    Top = 368
+    Events = <
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        Params = <
+          item
+            TypeObject = toParam
+            ObjectDirection = odOUT
+            ObjectValue = ovString
+            ParamName = 'result'
+            Encoded = True
+          end>
+        DataMode = dmDataware
+        Name = 'servertime'
+        EventName = 'servertime'
+        BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+      end>
+    Left = 256
+    Top = 288
   end
-  object RESTClientPooler1: TRESTDWIdClientPooler
-    DataCompression = False
+  object RESTDWIdClientPooler1: TRESTDWIdClientPooler
+    DataCompression = True
     AcceptEncoding = 'gzip2, deflate, br'
     Charset = 'utf8'
-    DataRoute = '/'
     Encoding = esUtf8
-    EncodedStrings = False
+    EncodedStrings = True
     ThreadRequest = False
     Host = 'localhost'
     AuthenticationOptions.AuthorizationOption = rdwAONone
     RequestTimeOut = 10000
     ConnectTimeOut = 3000
-    AllowCookies = True
+    AllowCookies = False
     RedirectMaximum = 0
     HandleRedirects = False
     ProxyOptions.ProxyPort = 0
-    OnBeforeGetToken = RESTClientPooler1BeforeGetToken
     FailOver = False
     UseSSL = False
     FailOverConnections = <>
@@ -2534,33 +2506,48 @@ object fPrincipal: TfPrincipal
     PoolerNotFoundMessage = 'Pooler not found'
     SSLMode = sslmUnassigned
     SSLVersions = []
-    Left = 136
-    Top = 288
+    Left = 128
+    Top = 296
   end
-  object RESTDWClientEvents1: TRESTDWClientEvents
-    ServerEventName = 'TServerMethodDM.RESTDWServerEvents'
+  object RESTDWIdDatabase1: TRESTDWIdDatabase
+    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    AcceptEncoding = 'gzip2, deflate, br'
+    ContentType = 'application/json'
+    Charset = 'utf8'
+    ContentEncoding = 'multipart/form-data'
+    Active = False
+    Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    RESTClientPooler = RESTClientPooler1
-    Events = <
-      item
-        Routes = [crAll]
-        NeedAuthorization = True
-        Params = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'result'
-            Encoded = True
-          end>
-        JsonMode = jmDataware
-        Name = 'servertime'
-        EventName = 'servertime'
-        BaseURL = '/'
-        OnlyPreDefinedParams = False
-      end>
-    Left = 200
-    Top = 280
+    MyIP = '0.0.0.0'
+    AuthenticationOptions.AuthorizationOption = rdwAONone
+    Proxy = False
+    ProxyOptions.Port = 8888
+    PoolerService = '127.0.0.1'
+    PoolerPort = 8082
+    StateConnection.AutoCheck = False
+    StateConnection.InTime = 1000
+    RequestTimeOut = 10000
+    ConnectTimeOut = 3000
+    EncodedStrings = True
+    Encoding = esUtf8
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = True
+    PoolerNotFoundMessage = 'Pooler not found'
+    HandleRedirects = False
+    RedirectMaximum = 0
+    ParamCreate = True
+    FailOver = False
+    FailOverConnections = <>
+    FailOverReplaceDefaults = False
+    ClientConnectionDefs.Active = False
+    UserAgent = 
+      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
+      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
+    SSLMode = sslmUnassigned
+    SSLVersions = []
+    Left = 80
+    Top = 360
   end
 end

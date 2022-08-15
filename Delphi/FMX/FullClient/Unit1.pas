@@ -3,17 +3,20 @@ unit Unit1;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, uRESTDWAbout,
   uRESTDWBasicDB, uRESTDWIdBase, FMX.Objects, System.Rtti, FMX.Grid.Style,
   FMX.Memo, FMX.StdCtrls, FMX.Edit, FMX.ListBox, FMX.Layouts,
-  System.Diagnostics, System.TimeSpan, FMX.Controls.Presentation, FMX.ScrollBox, FMX.Grid,
+  System.Diagnostics, System.TimeSpan, FMX.Controls.Presentation, FMX.ScrollBox,
+  FMX.Grid,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
-  Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope,
+  Data.Bind.EngExt, FMX.Bind.DBEngExt, FMX.Bind.Grid, System.Bindings.Outputs,
+  FMX.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, uRESTDWBasicTypes,
-  uRESTDWServerEvents, uRESTDWParams, uRESTDWBasic;
+  uRESTDWServerEvents, uRESTDWParams, uRESTDWBasic, FMX.Memo.Types,
+  uRESTDWComponentBase;
 
 type
   TForm1 = class(TForm)
@@ -37,9 +40,9 @@ type
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
-    RESTDWClientPooler: TRESTDWIdClientPooler;
     RESTDWClientEvents: TRESTDWClientEvents;
-    RESTDWDatabase: TRESTDWIdDatabase;
+    RESTDWIdDatabase1: TRESTDWIdDatabase;
+    RESTDWIdClientPooler1: TRESTDWIdClientPooler;
     procedure btn1Click(Sender: TObject);
     procedure bServerTimeClick(Sender: TObject);
   private
@@ -57,50 +60,51 @@ implementation
 
 procedure TForm1.bServerTimeClick(Sender: TObject);
 Var
- dwParams      : TRESTDWParams;
- vNativeResult,
- vErrorMessage : String;
- vResult       : Boolean;
+  dwParams: TRESTDWParams;
+  vNativeResult, vErrorMessage: String;
+  vResult: Boolean;
 begin
- RESTDWClientPooler.Host            := edtip.Text;
- RESTDWClientPooler.Port            := StrToInt(edtporta.Text);
- RESTDWClientPooler.DataCompression := True;
-// RESTDWClientEvents.GetEvents := True;
- vResult := RESTDWClientEvents.GetEvents;
- RESTDWClientEvents.CreateDWParams('helloworld', dwParams);
- dwParams.ItemsString['temp'].AsString := 'teste de string';
- RESTDWClientEvents.SendEvent('helloworld', dwParams, vErrorMessage, vNativeResult);
- If vErrorMessage = '' Then
+  RESTDWIdClientPooler1.Host := edtip.Text;
+  RESTDWIdClientPooler1.Port := StrToInt(edtporta.Text);
+  RESTDWIdClientPooler1.DataCompression := True;
+  // RESTDWClientEvents.GetEvents := True;
+  vResult := RESTDWClientEvents.GetEvents;
+  RESTDWClientEvents.CreateDWParams('helloworld', dwParams);
+  dwParams.ItemsString['temp'].AsString := 'teste de string';
+  RESTDWClientEvents.SendEvent('helloworld', dwParams, vErrorMessage,
+    vNativeResult);
+  If vErrorMessage = '' Then
   Begin
-   If vNativeResult <> '' Then
-    Showmessage(vNativeResult)
-   Else
-    Showmessage(vErrorMessage);
+    If vNativeResult <> '' Then
+      Showmessage(vNativeResult)
+    Else
+      Showmessage(vErrorMessage);
   End
- Else
-  Showmessage(vErrorMessage);
- dwParams.Free;
+  Else
+    Showmessage(vErrorMessage);
+  dwParams.Free;
 end;
 
 procedure TForm1.btn1Click(Sender: TObject);
 Var
- Stopwatch : TStopwatch;
- Elapsed   : TTimeSpan;
+  Stopwatch: TStopwatch;
+  Elapsed: TTimeSpan;
 Begin
- Stopwatch := TStopwatch.StartNew;
- If Not RESTDWDataBase.Connected Then
+  Stopwatch := TStopwatch.StartNew;
+  If Not RESTDWIdDatabase1.Connected Then
   Begin
-   RESTDWDataBase.active := false;
-   RESTDWDataBase.PoolerService := edtip.Text;
-   RESTDWDataBase.PoolerPort := strtoint(edtporta.text);
-   RESTDWDataBase.Active := true;
+    RESTDWIdDatabase1.active := false;
+    RESTDWIdDatabase1.PoolerService := edtip.Text;
+    RESTDWIdDatabase1.PoolerPort := StrToInt(edtporta.Text);
+    RESTDWIdDatabase1.active := True;
   End;
- RESTDWClientSQL1.Close;
- RESTDWClientSQL1.SQL.Clear;
- RESTDWClientSQL1.SQL.Text := mmo1.Lines.Text;
- RESTDWClientSQL1.Open;
- Elapsed := Stopwatch.Elapsed;
- listboxitem3.Text:= 'Tempo de Resposta: '+ inttostr(elapsed.Milliseconds)+' milisegundos.';
+  RESTDWClientSQL1.Close;
+  RESTDWClientSQL1.SQL.Clear;
+  RESTDWClientSQL1.SQL.Text := mmo1.Lines.Text;
+  RESTDWClientSQL1.Open;
+  Elapsed := Stopwatch.Elapsed;
+  ListBoxItem3.Text := 'Tempo de Resposta: ' + inttostr(Elapsed.Milliseconds) +
+    ' milisegundos.';
 end;
 
 end.

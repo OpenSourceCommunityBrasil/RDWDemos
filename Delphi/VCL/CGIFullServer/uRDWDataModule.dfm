@@ -110,10 +110,12 @@ object RDWDataModule: TRDWDataModule
             ParamName = 'resultstring'
             Encoded = True
           end>
-        JsonMode = jmDataware
+        DataMode = dmDataware
         Name = 'servertime'
         EventName = 'servertime'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEvent = RESTDWServerEvents1Eventsdwevent1ReplyEvent
       end
@@ -121,10 +123,12 @@ object RDWDataModule: TRDWDataModule
         Routes = [crAll]
         NeedAuthorization = True
         Params = <>
-        JsonMode = jmPureJSON
+        DataMode = dmDataware
         Name = 'helloworld'
         EventName = 'helloworld'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEvent = RESTDWServerEvents1EventshelloworldReplyEvent
       end>

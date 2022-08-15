@@ -21,7 +21,7 @@ USES
   uRESTDWDatamodule, uRESTDWMassiveBuffer, uRESTDWJSONObject, uRESTDWAbout,
   uRESTDWServerContext, uRESTDWBasicDB, uRESTDWParams, uRESTDWBasicTypes,
   uRESTDWTools, uRestDWDriverFD, uRESTDWBasic,
-  uPrincipal;
+  uPrincipal, uRESTDWComponentBase;
 
 Const
   WelcomeSample = True;
@@ -121,7 +121,7 @@ TYPE
     vConnectFromClient: Boolean;
     function GetGenID(GenName: String): Integer;
     procedure employeeReplyEvent(var Params: TRESTDWParams;
-      dJsonMode: TJsonMode; Var Result: String);
+      dJsonMode: TDataMode; Var Result: String);
   PUBLIC
     { Public declarations }
   END;
@@ -135,7 +135,7 @@ IMPLEMENTATION
 {$R *.dfm}
 
 procedure TDMPrincipal.employeeReplyEvent(var Params: TRESTDWParams;
-  dJsonMode: TJsonMode; Var Result: String);
+  dJsonMode: TDataMode; Var Result: String);
 Var
   JSONValue: TJSONValue;
 begin
@@ -146,18 +146,18 @@ begin
     FDQuery1.SQL.Add('select * from employee');
     Try
       FDQuery1.Open;
-      JSONValue.JsonMode := Params.JsonMode;
+      JSONValue.DataMode := Params.DataMode;
       JSONValue.Encoding := Encoding;
-      If Params.JsonMode = jmPureJSON Then
+      If Params.DataMode = dmRAW Then
       Begin
         JSONValue.Utf8SpecialChars := True;
-        JSONValue.LoadFromDataset('', FDQuery1, False, Params.JsonMode,
+        JSONValue.LoadFromDataset('', FDQuery1, False, Params.DataMode,
           'dd/mm/yyyy hh:mm:ss', '.');
         Result := JSONValue.ToJson;
       End
       Else
       Begin
-        JSONValue.LoadFromDataset('employee', FDQuery1, False, Params.JsonMode);
+        JSONValue.LoadFromDataset('employee', FDQuery1, False, Params.DataMode);
         Params.ItemsString['result'].AsObject := JSONValue.ToJson;
       End;
     Except
@@ -194,11 +194,11 @@ begin
     FDQuery1.SQL.Add('select * from employee');
     Try
       FDQuery1.Open;
-      JSONValue.JsonMode := jmPureJSON;
+      JSONValue.DataMode := dmRAW;
       JSONValue.Encoding := Encoding;
-      JSONValue.LoadFromDataset('', FDQuery1, False, JSONValue.JsonMode,
+      JSONValue.LoadFromDataset('', FDQuery1, False, JSONValue.DataMode,
         'dd/mm/yyyy', '.');
-      JSONValue.LoadFromDataset('', FDQuery1, False, JSONValue.JsonMode,
+      JSONValue.LoadFromDataset('', FDQuery1, False, JSONValue.DataMode,
         'dd/mm/yyyy', '.');
       Result := JSONValue.ToJson;
     Except
@@ -371,13 +371,13 @@ end;
 procedure TDMPrincipal.DWServerEvents1EventsgetemployeeDWReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 begin
-  employeeReplyEvent(Params, Params.JsonMode, Result);
+  employeeReplyEvent(Params, Params.DataMode, Result);
 end;
 
 procedure TDMPrincipal.DWServerEvents1EventsgetemployeeReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 Begin
-  employeeReplyEvent(Params, Params.JsonMode, Result);
+  employeeReplyEvent(Params, Params.DataMode, Result);
 End;
 
 procedure TDMPrincipal.DWServerEvents1EventshelloworldRDWReplyEvent
