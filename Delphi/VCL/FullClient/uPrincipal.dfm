@@ -2439,6 +2439,7 @@ object fPrincipal: TfPrincipal
     DataCache = False
     MassiveType = mtMassiveObject
     Params = <>
+    DataBase = RESTDWIdDatabase1
     SQL.Strings = (
       'select * From employee')
     UpdateTableName = 'EMPLOYEE'
@@ -2448,13 +2449,14 @@ object fPrincipal: TfPrincipal
     ThreadRequest = False
     RaiseErrors = True
     ReflectChanges = True
-    Left = 107
-    Top = 424
+    Left = 459
+    Top = 312
   end
   object RESTDWClientEvents1: TRESTDWClientEvents
     ServerEventName = 'TServerMethodDM.RESTDWServerEvents'
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    RESTClientPooler = RESTDWIdClientPooler1
     Events = <
       item
         Routes = [crAll]
@@ -2475,8 +2477,8 @@ object fPrincipal: TfPrincipal
         CallbackEvent = False
         OnlyPreDefinedParams = False
       end>
-    Left = 256
-    Top = 288
+    Left = 664
+    Top = 296
   end
   object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
@@ -2506,8 +2508,8 @@ object fPrincipal: TfPrincipal
     PoolerNotFoundMessage = 'Pooler not found'
     SSLMode = sslmUnassigned
     SSLVersions = []
-    Left = 128
-    Top = 296
+    Left = 664
+    Top = 240
   end
   object RESTDWIdDatabase1: TRESTDWIdDatabase
     Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
@@ -2519,12 +2521,12 @@ object fPrincipal: TfPrincipal
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '0.0.0.0'
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False
     ProxyOptions.Port = 8888
     PoolerService = '127.0.0.1'
     PoolerPort = 8082
+    PoolerName = 'TDMPrincipal.RESTDWPoolerFD'
     StateConnection.AutoCheck = False
     StateConnection.InTime = 1000
     RequestTimeOut = 10000
@@ -2547,7 +2549,7 @@ object fPrincipal: TfPrincipal
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
     SSLMode = sslmUnassigned
     SSLVersions = []
-    Left = 80
-    Top = 360
+    Left = 456
+    Top = 256
   end
 end
