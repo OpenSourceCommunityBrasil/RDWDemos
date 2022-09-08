@@ -1,0 +1,101 @@
+﻿<main role="main">		
+<div class="box-header with-border">
+<h3 class="box-title">Dados do Empregado</h3>
+</div>
+<section class="content container-fluid">
+		 <div class="row"><input type="hidden" name="operacao" class="operacao">
+			<div class="col-lg-8">
+			   <div class="form-group">
+				  <label for="FIRST_NAME">Nome</label>
+				  <input type="text" class="form-control" id="FIRST_NAME" name="FIRST_NAME">
+			   </div>
+			</div>
+			<div class="col-lg-4">
+			   <div class="form-group">
+				  <label for="LAST_NAME">Sobre Nome</label>
+				  <input type="text" class="form-control" id="LAST_NAME" name="LAST_NAME">
+			   </div>
+			</div>
+		 </div>
+		 <div class="row">
+		    <div class="col-lg-4">
+		     <label for="HIRE_DATE">Nascimento</label>
+     		 <div class='input-group date' id='HIRE_DATE'>
+                        <input type='text' id='CAD_HIRE_DATEB' class="form-control"/>
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+             </div>		 			        
+			 <script type="text/javascript">
+			  $("#CAD_HIRE_DATEB").mask("99/99/9999");
+			  $("#CAD_HIRE_DATEB").datepicker({timepicker:false, format: "dd/mm/yyyy"});
+			 </script>
+			</div>
+			<div class="col-lg-4">
+			   <div class="form-group">
+				  <label for="PHONE_EXT">Telefone(DDD)</label>
+				  <input type="text" class="form-control" id="PHONE_EXT" name="PHONE_EXT">
+				  <script type="text/javascript">
+				    $('#PHONE_EXT').mask('(999)');
+				  </script>
+			   </div>
+			</div>
+		 </div>
+		 <div class="row">
+		    <div class="col-lg-4">
+			   <div class="form-group">
+				  <label for="JOB_COUNTRY">País/Emprego</label>
+					<select class="form-control" id="JOB_COUNTRY" name = "JOB_COUNTRY">
+					 <option value="" >Selecione seu país</option>
+					</select> 
+			   </div>
+			</div>
+			<div class="col-lg-8">
+			   <div class="form-group">
+				  <label for="JOB_GRADE">Cargo</label>
+				  <select class="form-control" id="JOB_GRADE" name = "JOB_GRADE">
+                   <option value="" >Selecione Cargo</option>				  
+				  </select>
+			   </div>
+			</div>
+		 </div> 
+		 
+		 <div class="row">
+			<div class="col-lg-3">
+			   <div class="form-group">
+				  <label for="SALARY">Salário</label>
+				  <input type="text" class="form-control" id="SALARY" name="SALARY" data-thousands="." data-decimal="," data-prefix="R$ ">
+				  <script type="text/javascript">$("#SALARY").maskMoney();</script>
+			   </div>
+			</div>
+		 </div>	 
+ 	     <div class="pull-right">
+             <button type="button" class="btn btn-danger"  id="CANCELEP">Cancelar</button>
+             <button type="button" class="btn btn-success" id="SAVEEP">Salvar</button>
+  	     </div>
+</section>
+</main>
+
+<script type="text/javascript">
+$('.close').click(function(){
+       reloadDatatable(true);
+});
+
+$('#CANCELEP').click(function(){
+  cancelemployee();
+});
+
+$('#cancelar').click(function(){
+  canceldelete();
+   // $('#modal_apagar').modal('hide');
+});
+
+$('#ok').click(function(){
+ deleteemployee();
+});
+
+$('#SAVEEP').click(function(){
+ saveemployee();
+});
+
+</script>
