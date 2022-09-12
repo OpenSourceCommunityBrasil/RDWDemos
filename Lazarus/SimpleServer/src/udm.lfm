@@ -21,6 +21,19 @@ object DM: TDM
         CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEventByType = RESTDWServerEvents1EventstesteReplyEventByType
+      end    
+      item
+        Routes = [crPost, crPut, crPatch]
+        NeedAuthorization = True
+        Params = <>
+        DataMode = dmDataware
+        Name = 'testebody'
+        EventName = 'testebody'
+        BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+        OnReplyEventByType = RESTDWServerEvents1EventstestebodyReplyEventByType
       end>
     Left = 64
     Top = 40

@@ -5,7 +5,8 @@ unit udm;
 interface
 
 uses
-  Classes, SysUtils, uRESTDWDataModule, uRESTDWServerEvents, uRESTDWParams, uRESTDWConsts;
+  Classes, SysUtils, uRESTDWDataModule, uRESTDWServerEvents, uRESTDWParams,
+  uRESTDWConsts;
 
 type
 
@@ -13,9 +14,13 @@ type
 
   TDM = class(TServerMethodDataModule)
     RESTDWServerEvents1: TRESTDWServerEvents;
-    procedure RESTDWServerEvents1EventstesteReplyEventByType(var Params: TRESTDWParams;
-      var Result: String; const RequestType: TRequestType; var StatusCode: Integer;
+    procedure RESTDWServerEvents1EventstestebodyReplyEventByType(
+      var Params: TRESTDWParams; var Result: string;
+      const RequestType: TRequestType; var StatusCode: integer;
       RequestHeader: TStringList);
+    procedure RESTDWServerEvents1EventstesteReplyEventByType(
+      var Params: TRESTDWParams; var Result: string; const RequestType: TRequestType;
+      var StatusCode: integer; RequestHeader: TStringList);
   private
 
   public
@@ -31,9 +36,9 @@ implementation
 
 { TDM }
 
-procedure TDM.RESTDWServerEvents1EventstesteReplyEventByType(var
-  Params: TRESTDWParams; var Result: String; const RequestType: TRequestType; var
-  StatusCode: Integer; RequestHeader: TStringList);
+procedure TDM.RESTDWServerEvents1EventstesteReplyEventByType(
+  var Params: TRESTDWParams; var Result: string; const RequestType: TRequestType;
+  var StatusCode: integer; RequestHeader: TStringList);
 begin
   case RequestType of
     rtGet: begin
@@ -59,5 +64,12 @@ begin
   end;
 end;
 
-end.
+procedure TDM.RESTDWServerEvents1EventstestebodyReplyEventByType(
+  var Params: TRESTDWParams; var Result: string; const RequestType: TRequestType;
+  var StatusCode: integer; RequestHeader: TStringList);
+begin
+  if RequestType = rtPost then
+    Result := 'Body content: ' + Params.RawBody.AsString;
+end;
 
+end.
