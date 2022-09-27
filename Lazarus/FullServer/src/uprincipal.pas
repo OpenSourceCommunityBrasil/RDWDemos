@@ -3,8 +3,9 @@ unit uprincipal;
 Interface
 
 Uses LCL, LCLIntf, LCLType, Messages, SysUtils, Variants, Classes, Graphics,
-  Controls, Forms, Dialogs, uSock, IniFiles, IBConnection, db,
-  ComCtrls, MaskEdit, StdCtrls, ExtCtrls, Menus, uRESTDWIdBase, uRESTDWComponentEvents;
+  Controls, Forms, Dialogs, uSock, IniFiles,
+  IBConnection, db, ComCtrls, MaskEdit, StdCtrls, ExtCtrls, Menus, IdSSLOpenSSL,
+  uRESTDWIdBase, uRESTDWComponentEvents;
 
 type
 

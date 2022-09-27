@@ -26,7 +26,7 @@ object DM: TDM
         Routes = [crPost, crPut, crPatch]
         NeedAuthorization = True
         Params = <>
-        DataMode = dmDataware
+        DataMode = dmRAW
         Name = 'testebody'
         EventName = 'testebody'
         BaseURL = '/'
