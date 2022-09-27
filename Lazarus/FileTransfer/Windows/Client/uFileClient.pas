@@ -5,11 +5,10 @@ unit uFileClient;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics,
-  Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  uRESTDWParams, uRESTDWJSONObject, uRESTDWConsts, ComCtrls,
-  uRESTDWDataUtils, uRESTDWServerEvents, uRESTDWAbout, uRESTDWBasic, uRESTDWIdBase,
-  uRESTDWComponentBase, uRESTDWComponentEvents;
+  SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls,
+  ExtCtrls, ComCtrls,
+  uRESTDWParams, uRESTDWConsts, uRESTDWDataUtils, uRESTDWServerEvents,
+  uRESTDWBasic, uRESTDWIdBase;
 
 type
 
@@ -43,8 +42,6 @@ type
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button3Click(Sender: TObject);
-    procedure Image1Click(Sender: TObject);
-    procedure RESTClientPooler1BeforeExecute(ASender: TObject);
     procedure RESTClientPooler1Work(ASender: TObject; AWorkCount: Int64);
     procedure RESTClientPooler1WorkEnd(ASender: TObject);
     procedure RESTClientPooler1WorkBegin(ASender: TObject; AWorkCount: Int64);
@@ -160,7 +157,8 @@ Begin
   Begin
    DWClientEvents1.CreateDWParams('SendReplicationFile', dwParams);
    dwParams.ItemsString['Arquivo'].AsString := OpenDialog1.FileName;
-   MemoryStream                 := TStringStream.Create(OpenDialog1.FileName, fmOpenRead);
+   MemoryStream                 := TStringStream.Create;
+   MemoryStream.LoadFromFile(OpenDialog1.FileName);
    dwParams.ItemsString['FileSend'].LoadFromStream(MemoryStream);
    MemoryStream.Free;
    DWClientEvents1.SendEvent('SendReplicationFile', DWParams, vErrorMessage);
@@ -174,16 +172,6 @@ Begin
     End;
    DWParams.Free;
   End;
-end;
-
-procedure TForm4.Image1Click(Sender: TObject);
-begin
-
-end;
-
-procedure TForm4.RESTClientPooler1BeforeExecute(ASender: TObject);
-begin
-
 end;
 
 procedure TForm4.FormCreate(Sender: TObject);
