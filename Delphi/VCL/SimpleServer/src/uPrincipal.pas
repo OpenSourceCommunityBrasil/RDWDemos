@@ -5,13 +5,16 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uRESTDWAbout, uRESTDWBasic,
-  uRESTDWIdBase, Vcl.WinXCtrls, uRESTDWComponentBase;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.WinXCtrls, Vcl.StdCtrls,
+  uRESTDWAbout, uRESTDWBasic, uRESTDWComponentBase,
+  uRESTDWIdBase;
 
 type
   TForm1 = class(TForm)
     ToggleSwitch1: TToggleSwitch;
-    RESTDWIdServicePooler1: TRESTDWIdServicePooler;
+    Label1: TLabel;
+    Pooler: TRESTDWIdServicePooler;
     procedure FormCreate(Sender: TObject);
     procedure ToggleSwitch1Click(Sender: TObject);
   private
@@ -32,12 +35,16 @@ uses
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  RESTDWIdServicePooler1.ServerMethodClass := TDM;
+  Pooler.ServerMethodClass := TDM;
 end;
 
 procedure TForm1.ToggleSwitch1Click(Sender: TObject);
 begin
-  RESTDWIdServicePooler1.Active := ToggleSwitch1.State = tssOn;
+  Pooler.Active := ToggleSwitch1.State = tssOn;
+  if Pooler.Active then
+    Label1.Caption := 'https://localhost:' + Pooler.ServicePort.ToString
+  else
+    Label1.Caption := 'label1';
 end;
 
 end.

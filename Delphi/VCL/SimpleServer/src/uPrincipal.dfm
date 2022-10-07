@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'Indy Test Server'
   ClientHeight = 328
-  ClientWidth = 460
+  ClientWidth = 452
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,6 +12,13 @@ object Form1: TForm1
   Font.Style = []
   OnCreate = FormCreate
   TextHeight = 15
+  object Label1: TLabel
+    Left = 16
+    Top = 64
+    Width = 34
+    Height = 15
+    Caption = 'Label1'
+  end
   object ToggleSwitch1: TToggleSwitch
     Left = 16
     Top = 24
@@ -20,7 +27,7 @@ object Form1: TForm1
     TabOrder = 0
     OnClick = ToggleSwitch1Click
   end
-  object RESTDWIdServicePooler1: TRESTDWIdServicePooler
+  object Pooler: TRESTDWIdServicePooler
     Active = False
     CORS = False
     CORS_CustomHeaders.Strings = (
@@ -33,18 +40,27 @@ object Form1: TForm1
         'rization, X-CUSTOM-HEADER')
     PathTraversalRaiseError = True
     RequestTimeout = -1
-    ServicePort = 8083
+    ServicePort = 8082
     ProxyOptions.ProxyPort = 0
-    AuthenticationOptions.AuthorizationOption = rdwAONone
+    AuthenticationOptions.AuthorizationOption = rdwAOBasic
+    AuthenticationOptions.OptionParams.AuthDialog = True
+    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
+    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
+    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
+    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
+    AuthenticationOptions.OptionParams.Username = 'testserver'
+    AuthenticationOptions.OptionParams.Password = 'testserver'
     Encoding = esUtf8
     RootPath = '/'
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    SSLVersions = []
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
-    Left = 184
-    Top = 24
+    SSLMethod = sslvSSLv2
+    Left = 224
+    Top = 40
   end
 end
