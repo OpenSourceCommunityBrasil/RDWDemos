@@ -6,14 +6,19 @@ interface
 
 uses
   Classes, SysUtils, uRESTDWDataModule, uRESTDWServerEvents, uRESTDWParams,
-  uRESTDWConsts;
+  uRESTDWServerContext, uRESTDWConsts;
 
 type
 
   { TDM }
 
   TDM = class(TServerMethodDataModule)
+    RESTDWServerContext1: TRESTDWServerContext;
     RESTDWServerEvents1: TRESTDWServerEvents;
+    procedure relatorio(
+      const Params: TRESTDWParams; var ContentType: String;
+      const Result: TMemoryStream; const RequestType: TRequestType;
+      var StatusCode: Integer);
     procedure RESTDWServerEvents1EventstestebodyReplyEventByType(
       var Params: TRESTDWParams; var Result: string;
       const RequestType: TRequestType; var StatusCode: integer;
@@ -70,6 +75,15 @@ procedure TDM.RESTDWServerEvents1EventstestebodyReplyEventByType(
 begin
   if RequestType = rtPost then
     Result := 'Body content: ' + Params.RawBody.AsString;
+end;
+
+procedure TDM.relatorio(
+  const Params: TRESTDWParams; var ContentType: String;
+  const Result: TMemoryStream; const RequestType: TRequestType;
+  var StatusCode: Integer);
+begin
+  ContentType := GetMIMEType('.\relatorio.pdf');
+  Result.LoadFromFile('.\relatorio.pdf');
 end;
 
 end.

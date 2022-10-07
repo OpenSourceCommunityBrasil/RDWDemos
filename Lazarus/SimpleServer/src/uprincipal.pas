@@ -16,6 +16,7 @@ type
     ToggleBox1: TToggleBox;
     procedure FormCreate(Sender: TObject);
     procedure ToggleBox1Change(Sender: TObject);
+    procedure ToggleBox1Click(Sender: TObject);
   private
 
   public
@@ -42,6 +43,15 @@ end;
 procedure TForm1.ToggleBox1Change(Sender: TObject);
 begin
   RESTDWIdServicePooler1.Active := ToggleBox1.Checked;
+end;
+
+procedure TForm1.ToggleBox1Click(Sender: TObject);
+begin
+  if ToggleBox1.Checked then
+    ToggleBox1.Caption := 'http://localhost:' +
+      RESTDWIdServicePooler1.ServicePort.ToString
+  else
+    ToggleBox1.Caption := 'inativo';
 end;
 
 end.

@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25" Y="13"/>
-        <UsageCount Value="50"/>
+        <UsageCount Value="52"/>
       </Unit>
       <Unit>
         <Filename Value="src\uprincipal.pas"/>
@@ -19,9 +19,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uPrincipal"/>
-        <TopLine Value="16"/>
-        <CursorPos X="17" Y="26"/>
-        <UsageCount Value="50"/>
+        <TopLine Value="32"/>
+        <CursorPos X="37" Y="54"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -33,9 +33,9 @@
         <ResourceBaseClass Value="DataModule"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="45"/>
-        <CursorPos X="42" Y="62"/>
-        <UsageCount Value="50"/>
+        <TopLine Value="58"/>
+        <CursorPos X="42" Y="86"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -103,83 +103,20 @@
       </Unit>
       <Unit>
         <Filename Value="..\..\..\..\RDWGit\trunk\CORE\Source\Sockets\Indy\uRESTDWIdBase.pas"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="3094"/>
         <CursorPos Y="3104"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\rdwmerge\CORE\Source\utils\uRESTDWMimeTypes.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="615"/>
+        <CursorPos X="40" Y="621"/>
+        <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="16">
-      <Position>
-        <Filename Value="src\uprincipal.pas"/>
-        <Caret Line="29" Column="7" TopLine="12"/>
-      </Position>
-      <Position>
-        <Filename Value="src\uprincipal.pas"/>
-        <Caret Line="31" Column="7" TopLine="12"/>
-      </Position>
-      <Position>
-        <Filename Value="src\udm.pas"/>
-        <Caret Line="8" Column="90"/>
-      </Position>
-      <Position>
-        <Filename Value="src\uprincipal.pas"/>
-        <Caret Line="8" Column="82"/>
-      </Position>
-      <Position>
-        <Filename Value="src\udm.pas"/>
-        <Caret Line="34" Column="42" TopLine="19"/>
-      </Position>
-      <Position>
-        <Filename Value="src\udm.pas"/>
-        <Caret Line="43" Column="26" TopLine="30"/>
-      </Position>
-      <Position>
-        <Filename Value="src\udm.pas"/>
-        <Caret Line="50" Column="26" TopLine="34"/>
-      </Position>
-      <Position>
-        <Filename Value="src\uprincipal.pas"/>
-        <Caret Line="37" Column="19" TopLine="18"/>
-      </Position>
-      <Position>
-        <Filename Value="src\uprincipal.pas"/>
-        <Caret Line="36" Column="19" TopLine="17"/>
-      </Position>
-      <Position>
-        <Filename Value="src\udm.pas"/>
-        <Caret Line="11" Column="33"/>
-      </Position>
-      <Position>
-        <Filename Value="src\udm.pas"/>
-        <Caret Line="14" Column="33"/>
-      </Position>
-      <Position>
-        <Filename Value="src\uprincipal.pas"/>
-        <Caret Line="36" Column="19" TopLine="17"/>
-      </Position>
-      <Position>
-        <Filename Value="src\uprincipal.pas"/>
-        <Caret Line="37" Column="19" TopLine="18"/>
-      </Position>
-      <Position>
-        <Filename Value="src\udm.pas"/>
-        <Caret Line="43" Column="18" TopLine="42"/>
-      </Position>
-      <Position>
-        <Filename Value="src\uprincipal.pas"/>
-        <Caret Line="25" Column="15" TopLine="18"/>
-      </Position>
-      <Position>
-        <Filename Value="src\udm.pas"/>
-        <Caret Line="72" Column="56" TopLine="49"/>
-      </Position>
-      <Position>
-        <Filename Value="src\udm.pas"/>
-        <Caret Line="50" Column="34" TopLine="45"/>
-      </Position>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>
@@ -193,6 +130,13 @@
         <WatchKind Value="wpkWrite"/>
         <Source Value="..\..\..\..\..\RDWGit\branches\refactor\CORE\Source\Basic\uRESTDWBasic.pas"/>
         <Line Value="3812"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\..\rdwmerge\CORE\Source\utils\uRESTDWMimeTypes.pas"/>
+        <Line Value="643"/>
       </Item>
     </BreakPoints>
   </Debugging>

@@ -5,7 +5,7 @@ object DM: TDM
   Height = 150
   HorizontalOffset = 262
   VerticalOffset = 250
-  Width = 150
+  Width = 375
   object RESTDWServerEvents1: TRESTDWServerEvents
     IgnoreInvalidParams = False
     Events = <    
@@ -36,6 +36,24 @@ object DM: TDM
         OnReplyEventByType = RESTDWServerEvents1EventstestebodyReplyEventByType
       end>
     Left = 64
-    Top = 40
+    Top = 16
+  end
+  object RESTDWServerContext1: TRESTDWServerContext
+    IgnoreInvalidParams = False
+    ContextList = <    
+      item
+        Params = <>
+        ContentType = 'text/html'
+        Name = 'relatorio'
+        BaseURL = '/'
+        ContextName = 'relatorio'
+        Routes = [crAll]
+        OnlyPreDefinedParams = False
+        IgnoreBaseHeader = False
+        NeedAuthorization = True
+        OnReplyRequestStream = relatorio
+      end>
+    Left = 208
+    Top = 16
   end
 end
