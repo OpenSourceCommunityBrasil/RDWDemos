@@ -22,7 +22,7 @@ Uses
   Mask,
   Menus,
   ComCtrls,
-  DB, jpeg, uRESTDWAbout, uRESTDWBasic, uRESTDWIdBase;
+  DB, jpeg, uRESTDWAbout, uRESTDWBasic, uRESTDWIdBase, uRESTDWComponentBase;
 
 
 type
@@ -149,7 +149,7 @@ implementation
 {$R *.dfm}
 
 Uses
-  ShellApi, UDmService, DataUtils;
+  ShellApi, UDmService, uRESTDWDataUtils;
 
 Function ServerIpIndex(Items: TStrings; ChooseIP: string): Integer;
 var

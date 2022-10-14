@@ -2425,7 +2425,6 @@ object Form2: TForm2
     ThreadRequest = False
     RaiseErrors = True
     Filtered = False
-    ActionCursor = crSQLWait
     ReflectChanges = False
     Left = 400
     Top = 325
@@ -2509,7 +2508,7 @@ object Form2: TForm2
             ParamName = '1'
             Encoded = True
           end>
-        JsonMode = jmPureJSON
+        DataMode = dmRAW
         Name = 'helloworld'
         EventName = 'helloworld'
         BaseURL = '/'
@@ -2526,7 +2525,7 @@ object Form2: TForm2
             ParamName = 'result'
             Encoded = True
           end>
-        JsonMode = jmDataware
+        DataMode = dmDataWare
         Name = 'servertime'
         EventName = 'servertime'
         BaseURL = '/'
