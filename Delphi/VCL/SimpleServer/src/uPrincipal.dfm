@@ -42,14 +42,7 @@ object Form1: TForm1
     RequestTimeout = -1
     ServicePort = 8082
     ProxyOptions.ProxyPort = 0
-    AuthenticationOptions.AuthorizationOption = rdwAOBasic
-    AuthenticationOptions.OptionParams.AuthDialog = True
-    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
-    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
-    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
-    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
-    AuthenticationOptions.OptionParams.Username = 'testserver'
-    AuthenticationOptions.OptionParams.Password = 'testserver'
+    AuthenticationOptions.AuthorizationOption = rdwAONone
     Encoding = esUtf8
     RootPath = '/'
     ForceWelcomeAccess = False
@@ -60,7 +53,7 @@ object Form1: TForm1
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
-    Left = 224
-    Top = 40
+    Left = 136
+    Top = 160
   end
 end

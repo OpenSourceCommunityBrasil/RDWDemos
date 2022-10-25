@@ -3,22 +3,29 @@ unit uDM;
 interface
 
 uses
-  System.SysUtils, System.Classes, uRESTDWAbout, uRESTDWServerEvents,
-  uRESTDWDatamodule,
-  uRESTDWParams, uRESTDWConsts, uRESTDWComponentBase, FireDAC.Stan.Intf,
-  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
-  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
-  FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait, Data.DB,
-  FireDAC.Comp.Client, uRESTDWBasic, uRestDWDriverFD, uRESTDWBasicDB,
-  uRESTDWServerContext;
+  System.SysUtils, System.Classes, Data.DB,
+
+  uRESTDWAbout, uRESTDWServerEvents, uRESTDWDatamodule, uRESTDWParams,
+  uRESTDWConsts, uRESTDWComponentBase, uRESTDWBasic, uRESTDWBasicDB,
+  uRESTDWServerContext, uRESTDWDriverBase, uRESTDWFireDACDriver,
+
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait,
+  FireDAC.Comp.Client, FireDAC.DApt, FireDAC.Phys.SQLite,
+  FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
+  FireDAC.Phys.SQLiteWrapper.Stat
+
+    ;
 
 type
   TDM = class(TServerMethodDataModule)
     RESTDWServerEvents1: TRESTDWServerEvents;
     RESTDWPoolerDB1: TRESTDWPoolerDB;
-    RESTDWDriverFD1: TRESTDWDriverFD;
     FDConnection1: TFDConnection;
     RESTDWServerContext1: TRESTDWServerContext;
+    RESTDWFireDACDriver1: TRESTDWFireDACDriver;
+    RESTDWPoolerDB2: TRESTDWPoolerDB;
     procedure teste(var Params: TRESTDWParams; var Result: string;
       const RequestType: TRequestType; var StatusCode: Integer;
       RequestHeader: TStringList);
@@ -31,6 +38,7 @@ type
     procedure relatorio(const Params: TRESTDWParams; var ContentType: string;
       const Result: TMemoryStream; const RequestType: TRequestType;
       var StatusCode: Integer);
+    procedure ServerMethodDataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -81,6 +89,15 @@ procedure TDM.relatorio(const Params: TRESTDWParams; var ContentType: string;
 begin
   ContentType := GetMIMEType('.\relatorio.pdf');
   Result.LoadFromFile('.\relatorio.pdf');
+end;
+
+procedure TDM.ServerMethodDataModuleCreate(Sender: TObject);
+begin
+  FDConnection1.Params.Clear;
+  FDConnection1.DriverName := 'SQLite';
+  FDConnection1.Params.Add('Database=' + ExtractFilePath(ParamStr(0)) +
+    'employee.db');
+  FDConnection1.Params.Add('LockingMode=normal');
 end;
 
 procedure TDM.teste(var Params: TRESTDWParams; var Result: string;

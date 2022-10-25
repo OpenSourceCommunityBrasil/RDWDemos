@@ -7,8 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.StdCtrls,
-  uRESTDWAbout, uRESTDWBasic, uRESTDWComponentBase,
-  uRESTDWIdBase;
+  uRESTDWAbout, uRESTDWBasic, uRESTDWComponentBase, uRESTDWIdBase;
 
 type
   TForm1 = class(TForm)

@@ -1,4 +1,5 @@
 object DM: TDM
+  OnCreate = ServerMethodDataModuleCreate
   Encoding = esUtf8
   QueuedRequest = False
   Height = 238
@@ -49,7 +50,7 @@ object DM: TDM
     Top = 32
   end
   object RESTDWPoolerDB1: TRESTDWPoolerDB
-    RESTDriver = RESTDWDriverFD1
+    RESTDriver = RESTDWFireDACDriver1
     Compression = True
     Encoding = esUtf8
     StrsTrim = False
@@ -61,19 +62,13 @@ object DM: TDM
     Left = 288
     Top = 16
   end
-  object RESTDWDriverFD1: TRESTDWDriverFD
-    CommitRecords = 100
-    Connection = FDConnection1
-    Left = 288
-    Top = 72
-  end
   object FDConnection1: TFDConnection
     Params.Strings = (
       'Server=OCSServer'
       'User_Name=postgres'
       'Password=admin'
       'Database=testedbware'
-      'DriverID=PG')
+      'DriverID=SQLite')
     LoginPrompt = False
     Left = 288
     Top = 128
@@ -95,5 +90,30 @@ object DM: TDM
       end>
     Left = 64
     Top = 96
+  end
+  object RESTDWFireDACDriver1: TRESTDWFireDACDriver
+    Connection = FDConnection1
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = False
+    Compression = False
+    EncodeStringsJSON = False
+    Encoding = esASCII
+    ParamCreate = False
+    CommitRecords = 0
+    Left = 278
+    Top = 72
+  end
+  object RESTDWPoolerDB2: TRESTDWPoolerDB
+    Compression = True
+    Encoding = esUtf8
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = True
+    Active = True
+    PoolerOffMessage = 'RESTPooler not active.'
+    ParamCreate = True
+    Left = 176
+    Top = 16
   end
 end
