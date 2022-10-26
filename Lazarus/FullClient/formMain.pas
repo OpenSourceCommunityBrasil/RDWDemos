@@ -5,7 +5,7 @@ interface
 uses
   Lcl, DateUtils, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs, StdCtrls, fpjson, DB, sqldb, DBGrids, ExtCtrls,
-  ComCtrls, ActnList, uRESTDWBasicDB, uRESTDWServerEvents, DataUtils,
+  ComCtrls, ActnList, uRESTDWBasicDB, uRESTDWServerEvents, uRESTDWDataUtils,
   uRESTDWDataset, uRESTDWConsts, uRESTDWIdBase, LConvEncoding, uRESTDWComponentEvents,
   uRESTDWParams, uRESTDWBasicTypes;
 

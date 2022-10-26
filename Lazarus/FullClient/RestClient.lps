@@ -21,8 +21,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="306"/>
-        <CursorPos Y="340"/>
+        <CursorPos X="42" Y="12"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -95,7 +94,7 @@
         <UsageCount Value="10"/>
       </Unit11>
       <Unit12>
-        <Filename Value="C:\Users\xyderx\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Protocols\IdHTTP.pas"/>
+        <Filename Value="..\..\..\..\..\..\..\..\xyderx\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Protocols\IdHTTP.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2812"/>
         <CursorPos Y="2827"/>
@@ -220,7 +219,7 @@
         <UsageCount Value="10"/>
       </Unit28>
     </Units>
-    <JumpHistory Count="5" HistoryIndex="4">
+    <JumpHistory Count="7" HistoryIndex="6">
       <Position1>
         <Filename Value="formMain.pas"/>
         <Caret Line="326" TopLine="302"/>
@@ -241,6 +240,14 @@
         <Filename Value="formMain.pas"/>
         <Caret Line="326" TopLine="302"/>
       </Position5>
+      <Position6>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="316" Column="24" TopLine="312"/>
+      </Position6>
+      <Position7>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="147" Column="3" TopLine="147"/>
+      </Position7>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
