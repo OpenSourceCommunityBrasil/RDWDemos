@@ -1,4 +1,4 @@
-unit formMain;
+unit uPrincipal;
 
 interface
 
@@ -11,9 +11,9 @@ uses
 
 type
 
-  { TForm2 }
+  { TfPrincipal }
 
-  TForm2 = class(TForm)
+  TfPrincipal = class(TForm)
     ActionList1: TActionList;
     btnApply: TButton;
     btnExecute: TButton;
@@ -42,9 +42,6 @@ type
     eUpdateTableName: TEdit;
     eWelcomemessage: TEdit;
     Image1: TImage;
-    Image2: TImage;
-    Image3: TImage;
-    Image4: TImage;
     labAcesso: TLabel;
     labConexao: TLabel;
     Label1: TLabel;
@@ -69,9 +66,6 @@ type
     lTokenEnd: TLabel;
     mComando: TMemo;
     Memo1: TMemo;
-    paEspanhol: TPanel;
-    paIngles: TPanel;
-    paPortugues: TPanel;
     paTopo: TPanel;
     pBasicAuth: TPanel;
     ProgressBar1: TProgressBar;
@@ -121,7 +115,7 @@ type
   end;
 
 var
-  Form2: TForm2;
+  fPrincipal: TfPrincipal;
 
 implementation
 
@@ -132,20 +126,21 @@ implementation
 {$ENDIF}
 
 
-{ TForm2 }
+{ TfPrincipal }
 
-procedure TForm2.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+procedure TfPrincipal.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
- Form2 := Nil;
+ fPrincipal := Nil;
  Release;
 end;
 
-procedure TForm2.FormCreate(Sender: TObject);
+procedure TfPrincipal.FormCreate(Sender: TObject);
 begin
   vSecresString := '';
+  labVersao.Caption := 'Versão: ' + RESTDWVersao;
 end;
 
-procedure TForm2.RESTDWIdDatabase1Status(ASender: TObject;
+procedure TfPrincipal.RESTDWIdDatabase1Status(ASender: TObject;
   const AStatus: TConnStatus; const AStatusText: String);
 begin
  if Self = Nil then
@@ -185,14 +180,14 @@ begin
   END;
 end;
 
-procedure TForm2.RESTDWIdDatabase1Work(ASender: TObject; AWorkCount: Int64);
+procedure TfPrincipal.RESTDWIdDatabase1Work(ASender: TObject; AWorkCount: Int64);
 begin
  If FBytesToTransfer = 0 Then // No Update File
   Exit;
  ProgressBar1.Position := AWorkCount;
 end;
 
-procedure TForm2.RESTDWIdDatabase1WorkBegin(ASender: TObject; AWorkCount: Int64
+procedure TfPrincipal.RESTDWIdDatabase1WorkBegin(ASender: TObject; AWorkCount: Int64
   );
 begin
  FBytesToTransfer      := AWorkCount;
@@ -200,13 +195,13 @@ begin
  ProgressBar1.Position := 0;
 end;
 
-procedure TForm2.RESTDWIdDatabase1WorkEnd(ASender: TObject);
+procedure TfPrincipal.RESTDWIdDatabase1WorkEnd(ASender: TObject);
 begin
  ProgressBar1.Position := FBytesToTransfer;
  FBytesToTransfer      := 0;
 end;
 
-Procedure TForm2.GetLoginOptionsDatabase;
+Procedure TfPrincipal.GetLoginOptionsDatabase;
 Begin
  If RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption in [rdwAOBearer, rdwAOToken] Then
   Begin
@@ -227,7 +222,7 @@ Begin
   End;
 End;
 
-Procedure TForm2.GetLoginOptionsClientPooler;
+Procedure TfPrincipal.GetLoginOptionsClientPooler;
 Begin
  If RESTDWIdClientPooler1.AuthenticationOptions.AuthorizationOption in [rdwAOBearer, rdwAOToken] Then
   Begin
@@ -248,7 +243,7 @@ Begin
   End;
 End;
 
-procedure TForm2.btnOpenClick(Sender: TObject);
+procedure TfPrincipal.btnOpenClick(Sender: TObject);
 Var
  INICIO,
  FIM        : TDateTime;
@@ -299,7 +294,7 @@ Begin
   Showmessage(IntToStr(RESTDWClientSQL1.Recordcount) + ' registro(s) recebido(s) em ' + IntToStr(MilliSecondsBetween(FIM, INICIO)) + ' Milis.');
 End;
 
-procedure TForm2.btnServerTimeClick(Sender: TObject);
+procedure TfPrincipal.btnServerTimeClick(Sender: TObject);
 Var
  dwParams      : TRESTDWParams;
  vNativeResult,
@@ -340,7 +335,7 @@ Begin
  dwParams.Free;
 End;
 
-procedure TForm2.Button1Click(Sender: TObject);
+procedure TfPrincipal.Button1Click(Sender: TObject);
 Var
  vErrorMessage : String;
  dwParams      : TRESTDWParams;
@@ -366,19 +361,19 @@ Begin
   Showmessage(vErrorMessage);
 End;
 
-procedure TForm2.cbAuthOptionsChange(Sender: TObject);
+procedure TfPrincipal.cbAuthOptionsChange(Sender: TObject);
 begin
  pTokenAuth.Visible := cbAuthOptions.ItemIndex > 1;
  pBasicAuth.Visible := cbAuthOptions.ItemIndex = 1;
 end;
 
-procedure TForm2.cbUseCriptoClick(Sender: TObject);
+procedure TfPrincipal.cbUseCriptoClick(Sender: TObject);
 begin
  RESTDWIdDatabase1.CriptOptions.Use   := cbUseCripto.Checked;
  RESTDWIdClientPooler1.CriptOptions.Use := RESTDWIdDatabase1.CriptOptions.Use;
 end;
 
-Procedure TForm2.SetLoginOptions;
+Procedure TfPrincipal.SetLoginOptions;
 Begin
   Case cbAuthOptions.ItemIndex Of
    0 : RESTDWIdDatabase1.AuthenticationOptions.AuthorizationOption := rdwAONone;
@@ -409,7 +404,7 @@ Begin
   End;
 End;
 
-procedure TForm2.btnGetClick(Sender: TObject);
+procedure TfPrincipal.btnGetClick(Sender: TObject);
 Var
  dwParams       : TRESTDWParams;
  vErrorMessage,
@@ -450,13 +445,13 @@ Begin
  dwParams.Free;
 End;
 
-procedure TForm2.btnMassiveClick(Sender: TObject);
+procedure TfPrincipal.btnMassiveClick(Sender: TObject);
 begin
  If RESTDWClientSQL1.MassiveCount > 0 Then
   Showmessage(RESTDWClientSQL1.MassiveToJSON);
 end;
 
-procedure TForm2.btnExecuteClick(Sender: TObject);
+procedure TfPrincipal.btnExecuteClick(Sender: TObject);
 VAR
   VError: STRING;
 BEGIN
@@ -481,7 +476,7 @@ BEGIN
     ShowMessage('Comando executado com sucesso...');
 END;
 
-procedure TForm2.btnApplyClick(Sender: TObject);
+procedure TfPrincipal.btnApplyClick(Sender: TObject);
 Var
  vError : String;
 begin
@@ -489,7 +484,7 @@ begin
   MessageDlg(vError, mtError, [mbOK], 0);
 end;
 
-procedure TForm2.RESTDWIdDatabase1BeforeConnect(Sender: TComponent);
+procedure TfPrincipal.RESTDWIdDatabase1BeforeConnect(Sender: TComponent);
 begin
   Memo1.Lines.Add(' ');
   Memo1.Lines.Add('**********');
