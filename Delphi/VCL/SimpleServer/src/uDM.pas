@@ -7,7 +7,7 @@ uses
 
   uRESTDWAbout, uRESTDWServerEvents, uRESTDWDatamodule, uRESTDWParams,
   uRESTDWConsts, uRESTDWComponentBase, uRESTDWBasic, uRESTDWBasicDB,
-  uRESTDWServerContext, uRESTDWDriverBase, uRESTDWFireDACDriver,
+  uRESTDWServerContext, uRestDWDriverFD,
 
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
@@ -24,8 +24,8 @@ type
     RESTDWPoolerDB1: TRESTDWPoolerDB;
     FDConnection1: TFDConnection;
     RESTDWServerContext1: TRESTDWServerContext;
-    RESTDWFireDACDriver1: TRESTDWFireDACDriver;
     RESTDWPoolerDB2: TRESTDWPoolerDB;
+    RESTDWDriverFD1: TRESTDWDriverFD;
     procedure teste(var Params: TRESTDWParams; var Result: string;
       const RequestType: TRequestType; var StatusCode: Integer;
       RequestHeader: TStringList);

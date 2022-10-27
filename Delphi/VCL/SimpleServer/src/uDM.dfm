@@ -50,7 +50,7 @@ object DM: TDM
     Top = 32
   end
   object RESTDWPoolerDB1: TRESTDWPoolerDB
-    RESTDriver = RESTDWFireDACDriver1
+    RESTDriver = RESTDWDriverFD1
     Compression = True
     Encoding = esUtf8
     StrsTrim = False
@@ -91,19 +91,6 @@ object DM: TDM
     Left = 64
     Top = 96
   end
-  object RESTDWFireDACDriver1: TRESTDWFireDACDriver
-    Connection = FDConnection1
-    StrsTrim = False
-    StrsEmpty2Null = False
-    StrsTrim2Len = False
-    Compression = False
-    EncodeStringsJSON = False
-    Encoding = esASCII
-    ParamCreate = False
-    CommitRecords = 0
-    Left = 278
-    Top = 72
-  end
   object RESTDWPoolerDB2: TRESTDWPoolerDB
     Compression = True
     Encoding = esUtf8
@@ -115,5 +102,11 @@ object DM: TDM
     ParamCreate = True
     Left = 176
     Top = 16
+  end
+  object RESTDWDriverFD1: TRESTDWDriverFD
+    CommitRecords = 100
+    Connection = FDConnection1
+    Left = 288
+    Top = 80
   end
 end

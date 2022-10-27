@@ -47,10 +47,13 @@ type
     GroupBox1: TGroupBox;
     cbBinaryCompatibleMode: TCheckBox;
     lTitulo: TLabel;
+    Button2: TButton;
+    Layout3: TLayout;
     procedure RESTDWClientSQL1AfterOpen(DataSet: TDataSet);
     procedure FormCreate(Sender: TObject);
     procedure cbPoolerDBEnter(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
     procedure ConfiguraComponentes;
@@ -73,6 +76,16 @@ begin
 
   RESTDWClientSQL1.SQL.Text := Memo1.Text;
   RESTDWClientSQL1.Open;
+end;
+
+procedure TfPrincipal.Button2Click(Sender: TObject);
+var
+  erro: boolean;
+  mensagemerro: string;
+begin
+  ConfiguraComponentes;
+  RESTDWClientSQL1.SQL.Text := Memo1.Text;
+  RESTDWIdDatabase1.OpenDatasets([RESTDWClientSQL1], erro, mensagemerro);
 end;
 
 procedure TfPrincipal.cbPoolerDBEnter(Sender: TObject);
@@ -109,15 +122,19 @@ var
   DWParams: TRESTDWParams;
   DWClientPooler: TRESTDWIdClientPooler;
   JSONParam: TJSONParam;
-  teste, teste2: string;
   plist: TStringList;
 begin
+  // verifica se os parâmetros de conexão foram informados corretamente
   if not(eServidor.Text.IsEmpty) and not(ePorta.Text.IsEmpty) then
   begin
+    // configura o componente que vai puxar as informações de pooler
     DWClientPooler := TRESTDWIdClientPooler.Create(nil);
+    DWClientPooler.AuthenticationOptions :=
+      RESTDWIdDatabase1.AuthenticationOptions;
     DWClientPooler.Host := eServidor.Text;
     DWClientPooler.Port := ePorta.Text.ToInteger;
 
+    // configura os parâmetros que serão usados
     plist := TStringList.Create;
     DWParams := TRESTDWParams.Create;
     try
@@ -129,7 +146,10 @@ begin
       JSONParam.AsString := '';
       DWParams.Add(JSONParam);
 
-      teste := DWClientPooler.SendEvent('GetPoolerList', DWParams);
+      // executa a chamada pra buscar os poolers
+      DWClientPooler.SendEvent('GetPoolerList', DWParams);
+
+      // monta a lista de resultado
       cbPoolerDB.Items.delimiter := '|';
       cbPoolerDB.Items.delimitedText := DWParams.ItemsString['Result'].AsString;
     finally
@@ -149,12 +169,14 @@ begin
     ClearGrid;
     for I := 0 to pred(DataSet.Fields.Count) do
     begin
+      // monta as colunas da grid de resposta
       sgDBWare.AddObject(TStringColumn.Create(sgDBWare));
       sgDBWare.Columns[pred(sgDBWare.ColumnCount)].Header :=
         DataSet.Fields.Fields[I].FieldName;
     end;
     while not DataSet.Eof do
     begin
+      // preenche a grid com o resultado do dataset
       sgDBWare.RowCount := sgDBWare.RowCount + 1;
       for I := 0 to pred(DataSet.Fields.Count) do
         sgDBWare.Cells[I, pred(sgDBWare.RowCount)] := DataSet.Fields.Fields
