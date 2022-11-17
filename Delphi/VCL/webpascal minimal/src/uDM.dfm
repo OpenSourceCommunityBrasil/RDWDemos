@@ -10,7 +10,7 @@ object DM: TDM
         Params = <>
         ContentType = 'text/html'
         Name = 'index'
-        BaseURL = '/'
+        BaseURL = '/pages/'
         ContextName = 'index'
         Routes = [crAll]
         OnlyPreDefinedParams = False
@@ -22,7 +22,7 @@ object DM: TDM
         Params = <>
         ContentType = 'text/html'
         Name = 'produto'
-        BaseURL = '/'
+        BaseURL = '/pages/'
         ContextName = 'produto'
         Routes = [crAll]
         OnlyPreDefinedParams = False
@@ -33,5 +33,24 @@ object DM: TDM
     DefaultContext = '/'
     Left = 80
     Top = 24
+  end
+  object RESTDWServerEvents1: TRESTDWServerEvents
+    IgnoreInvalidParams = False
+    Events = <
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        Params = <>
+        DataMode = dmRAW
+        Name = 'index'
+        EventName = 'index'
+        BaseURL = '/api/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+        OnReplyEvent = RESTDWServerEvents1EventsindexReplyEvent
+      end>
+    Left = 80
+    Top = 104
   end
 end

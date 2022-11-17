@@ -39,7 +39,7 @@ type
     Label4: TLabel;
     Layout2: TLayout;
     FlowLayout1: TFlowLayout;
-    Button1: TButton;
+    DBWare_BOpen: TButton;
     TabControl2: TTabControl;
     TabItem4: TTabItem;
     TabItem5: TTabItem;
@@ -47,13 +47,15 @@ type
     GroupBox1: TGroupBox;
     cbBinaryCompatibleMode: TCheckBox;
     lTitulo: TLabel;
-    Button2: TButton;
+    DBWare_BOpenDatasets: TButton;
     Layout3: TLayout;
+    Button3: TButton;
     procedure RESTDWClientSQL1AfterOpen(DataSet: TDataSet);
     procedure FormCreate(Sender: TObject);
     procedure cbPoolerDBEnter(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    procedure DBWare_BOpenClick(Sender: TObject);
+    procedure DBWare_BOpenDatasetsClick(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
     procedure ConfiguraComponentes;
@@ -70,7 +72,7 @@ implementation
 
 {$R *.fmx}
 
-procedure TfPrincipal.Button1Click(Sender: TObject);
+procedure TfPrincipal.DBWare_BOpenClick(Sender: TObject);
 begin
   ConfiguraComponentes;
 
@@ -78,14 +80,39 @@ begin
   RESTDWClientSQL1.Open;
 end;
 
-procedure TfPrincipal.Button2Click(Sender: TObject);
+procedure TfPrincipal.DBWare_BOpenDatasetsClick(Sender: TObject);
 var
   erro: boolean;
   mensagemerro: string;
 begin
   ConfiguraComponentes;
   RESTDWClientSQL1.SQL.Text := Memo1.Text;
-  RESTDWIdDatabase1.OpenDatasets([RESTDWClientSQL1], erro, mensagemerro);
+  RESTDWIdDatabase1.OpenDatasets([RESTDWClientSQL1], erro, mensagemerro,
+    RESTDWClientSQL1.BinaryRequest, RESTDWClientSQL1.BinaryCompatibleMode);
+  if erro then
+    raise Exception.Create(mensagemerro);
+end;
+
+procedure TfPrincipal.Button3Click(Sender: TObject);
+var
+  ClientREST: TRESTDWIdClientREST;
+  ssResponse: TStringStream;
+  slHeaders: TStringList;
+  msBody: TMemoryStream;
+begin
+  ClientREST := TRESTDWIdClientREST.Create(nil);
+  ssResponse := TStringStream.Create;
+  slHeaders := TStringList.Create;
+  msBody := TMemoryStream.Create;
+  try
+    ClientREST.Put('URL', slHeaders, ssResponse, false);
+    ClientREST.Put('URL', slHeaders, msBody, ssResponse, false);
+  finally
+    msBody.Free;
+    ssResponse.Free;
+    slHeaders.Free;
+    ClientREST.Free;
+  end;
 end;
 
 procedure TfPrincipal.cbPoolerDBEnter(Sender: TObject);

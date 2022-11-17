@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Indy Test Server'
+  Caption = 'Test Server'
   ClientHeight = 328
   ClientWidth = 452
   Color = clBtnFace
@@ -10,9 +10,7 @@ object Form1: TForm1
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OldCreateOrder = True
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 15
   object Label1: TLabel
     Left = 16
@@ -50,12 +48,13 @@ object Form1: TForm1
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    EncodeErrors = False
     SSLVersions = []
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
-    Left = 136
-    Top = 160
+    Left = 200
+    Top = 120
   end
 end

@@ -31,7 +31,7 @@ object Form1: TForm1
       
         'Access-Control-Allow-Headers=Content-Type, Origin, Accept, Autho' +
         'rization, X-CUSTOM-HEADER')
-    DefaultUrl = '/index'
+    DefaultUrl = '/pages/index'
     PathTraversalRaiseError = True
     RequestTimeout = -1
     ServicePort = 8082
@@ -47,7 +47,7 @@ object Form1: TForm1
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
-    Left = 168
-    Top = 8
+    Left = 112
+    Top = 48
   end
 end

@@ -3,7 +3,7 @@ object DM: TDM
   Encoding = esUtf8
   QueuedRequest = False
   Height = 238
-  Width = 370
+  Width = 409
   object RESTDWServerEvents1: TRESTDWServerEvents
     IgnoreInvalidParams = False
     Events = <
@@ -49,8 +49,8 @@ object DM: TDM
     Left = 64
     Top = 32
   end
-  object RESTDWPoolerDB1: TRESTDWPoolerDB
-    RESTDriver = RESTDWDriverFD1
+  object PoolerDBFireDAC: TRESTDWPoolerDB
+    RESTDriver = RDWDriverFD
     Compression = True
     Encoding = esUtf8
     StrsTrim = False
@@ -59,19 +59,16 @@ object DM: TDM
     Active = True
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
-    Left = 288
-    Top = 16
+    Left = 320
+    Top = 24
   end
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'Server=OCSServer'
-      'User_Name=postgres'
-      'Password=admin'
       'Database=testedbware'
       'DriverID=SQLite')
     LoginPrompt = False
-    Left = 288
-    Top = 128
+    Left = 320
+    Top = 160
   end
   object RESTDWServerContext1: TRESTDWServerContext
     IgnoreInvalidParams = False
@@ -91,7 +88,8 @@ object DM: TDM
     Left = 64
     Top = 96
   end
-  object RESTDWPoolerDB2: TRESTDWPoolerDB
+  object PoolerDBZeos: TRESTDWPoolerDB
+    RESTDriver = RDWDriverZeos
     Compression = True
     Encoding = esUtf8
     StrsTrim = False
@@ -100,13 +98,31 @@ object DM: TDM
     Active = True
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
-    Left = 176
-    Top = 16
+    Left = 192
+    Top = 24
   end
-  object RESTDWDriverFD1: TRESTDWDriverFD
+  object RDWDriverFD: TRESTDWDriverFD
     CommitRecords = 100
     Connection = FDConnection1
-    Left = 288
-    Top = 80
+    Left = 320
+    Top = 88
+  end
+  object RDWDriverZeos: TRESTDWDriverZeos
+    CommitRecords = 100
+    Connection = ZConnection1
+    Left = 192
+    Top = 88
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF16
+    Catalog = ''
+    HostName = ''
+    Port = 0
+    Database = 'testedbware'
+    User = ''
+    Password = ''
+    Protocol = 'sqlite-3'
+    Left = 192
+    Top = 160
   end
 end
