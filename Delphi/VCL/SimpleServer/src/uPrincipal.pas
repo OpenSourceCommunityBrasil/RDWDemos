@@ -3,11 +3,15 @@ unit uPrincipal;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.WinXCtrls, Vcl.StdCtrls,
-  uRESTDWAbout, uRESTDWBasic, uRESTDWComponentBase, uRESTDWIdBase;
+  Winapi.Windows, Winapi.Messages,
+  System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXCtrls,
+  Vcl.StdCtrls,
+
+  uRESTDWAbout, uRESTDWBasic, uRESTDWComponentBase, uRESTDWIdBase,
+  uRESTDWConsts
+
+    ;
 
 type
   TForm1 = class(TForm)
@@ -35,6 +39,7 @@ uses
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   Pooler.ServerMethodClass := TDM;
+  self.Caption := 'Test Server: ' + RESTDWVersao;
 end;
 
 procedure TForm1.ToggleSwitch1Click(Sender: TObject);
