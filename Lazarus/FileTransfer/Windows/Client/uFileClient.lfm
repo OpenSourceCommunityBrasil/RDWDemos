@@ -8361,7 +8361,7 @@ object Form4: TForm4
     TabOrder = 3
     Text = 'testserver'
   end
-  object Button1: TButton
+  object bListar: TButton
     Left = 376
     Height = 37
     Top = 173
@@ -8371,7 +8371,7 @@ object Form4: TForm4
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = Button1Click
+    OnClick = bListarClick
     ParentFont = False
     TabOrder = 4
   end
@@ -8383,7 +8383,7 @@ object Form4: TForm4
     ItemHeight = 0
     TabOrder = 5
   end
-  object Button2: TButton
+  object bDownload: TButton
     Left = 376
     Height = 37
     Top = 216
@@ -8393,11 +8393,11 @@ object Form4: TForm4
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = Button2Click
+    OnClick = bDownloadClick
     ParentFont = False
     TabOrder = 6
   end
-  object Button3: TButton
+  object bUpload: TButton
     Left = 376
     Height = 37
     Top = 260
@@ -8407,7 +8407,7 @@ object Form4: TForm4
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = Button3Click
+    OnClick = bUploadClick
     ParentFont = False
     TabOrder = 7
   end
@@ -8433,11 +8433,6 @@ object Form4: TForm4
     Top = 303
     Width = 119
     TabOrder = 9
-  end
-  object OpenDialog1: TOpenDialog
-    Title = 'Arquivo a enviar'
-    Left = 184
-    Top = 200
   end
   object DWClientEvents1: TRESTDWClientEvents
     ServerEventName = 'TdmFileServer.dwSEArquivos'

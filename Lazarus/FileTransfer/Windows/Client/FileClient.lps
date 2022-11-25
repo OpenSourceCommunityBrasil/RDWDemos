@@ -4,13 +4,13 @@
     <PathDelim Value="\"/>
     <Version Value="12"/>
     <BuildModes Active="Default"/>
-    <Units Count="2">
+    <Units Count="6">
       <Unit0>
         <Filename Value="FileClient.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="29" Y="9"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="26"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -20,15 +20,42 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="153"/>
-        <CursorPos X="13" Y="162"/>
-        <UsageCount Value="23"/>
+        <TopLine Value="172"/>
+        <CursorPos X="43" Y="169"/>
+        <FoldState Value=" T3lF050215"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="D:\IDE\lazarus\fpcsrc\rtl\objpas\sysutils\diskh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="22" Y="23"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="D:\IDE\lazarus\fpcsrc\rtl\objpas\sysutils\disk.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="76"/>
+        <CursorPos X="3" Y="109"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="D:\IDE\lazarus\fpcsrc\rtl\objpas\classes\classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1016"/>
+        <CursorPos X="22" Y="1032"/>
+        <UsageCount Value="10"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="D:\IDE\lazarus\fpcsrc\rtl\objpas\classes\streams.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="550"/>
+        <CursorPos X="3" Y="553"/>
+        <UsageCount Value="10"/>
+      </Unit5>
     </Units>
-    <JumpHistory Count="3" HistoryIndex="2">
+    <JumpHistory Count="13" HistoryIndex="12">
       <Position1>
         <Filename Value="uFileClient.pas"/>
         <Caret Line="11" Column="3"/>
@@ -41,10 +68,61 @@
         <Filename Value="uFileClient.pas"/>
         <Caret Line="162" Column="45" TopLine="153"/>
       </Position3>
+      <Position4>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="160" Column="29" TopLine="153"/>
+      </Position4>
+      <Position5>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="173" Column="20" TopLine="167"/>
+      </Position5>
+      <Position6>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="106" Column="20" TopLine="94"/>
+      </Position6>
+      <Position7>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="143" Column="33" TopLine="50"/>
+      </Position7>
+      <Position8>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="177" TopLine="59"/>
+      </Position8>
+      <Position9>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="178" TopLine="59"/>
+      </Position9>
+      <Position10>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="177" TopLine="59"/>
+      </Position10>
+      <Position11>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="155" Column="30" TopLine="149"/>
+      </Position11>
+      <Position12>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="154" Column="30" TopLine="148"/>
+      </Position12>
+      <Position13>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="182" Column="9" TopLine="151"/>
+      </Position13>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="uFileClient.pas"/>
+        <Line Value="159"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
 </CONFIG>
