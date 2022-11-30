@@ -18,7 +18,6 @@
         <ComponentName Value="fPrincipal"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="133"/>
         <CursorPos X="4" Y="12"/>
         <UsageCount Value="46"/>
@@ -32,17 +31,24 @@
         <ComponentName Value="ServerMethodDM"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="39" Y="9"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="49"/>
+        <CursorPos X="3" Y="7"/>
         <UsageCount Value="46"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
         <Filename Value="src\usock.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uSock"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="29" Y="12"/>
+        <TopLine Value="181"/>
+        <CursorPos X="32" Y="77"/>
         <UsageCount Value="46"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
         <Filename Value="ServerMethodsUnit1.pas"/>
