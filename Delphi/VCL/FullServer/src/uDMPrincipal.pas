@@ -20,8 +20,7 @@ USES
   uRESTDWDataUtils,
   uRESTDWDatamodule, uRESTDWMassiveBuffer, uRESTDWJSONObject, uRESTDWAbout,
   uRESTDWServerContext, uRESTDWBasicDB, uRESTDWParams, uRESTDWBasicTypes,
-  uRESTDWTools, uRestDWDriverFD, uRESTDWBasic,
-  uPrincipal, uRESTDWComponentBase;
+  uRESTDWTools, uRestDWDriverFD, uRESTDWBasic, uRESTDWComponentBase;
 
 Const
   WelcomeSample = True;
@@ -133,6 +132,9 @@ IMPLEMENTATION
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 {$R *.dfm}
+
+uses
+  uPrincipal;
 
 procedure TDMPrincipal.employeeReplyEvent(var Params: TRESTDWParams;
   dJsonMode: TDataMode; Var Result: String);

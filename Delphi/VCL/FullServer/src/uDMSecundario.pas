@@ -16,13 +16,11 @@ USES
   FireDAC.Moni.RemoteClient, FireDAC.Phys.ODBCDef, FireDAC.Phys.ODBC,
   FireDAC.Stan.StorageBin,
 
-  uPrincipal,
-
   uRESTDWConsts, uRESTDWServerEvents, uRESTDWAbout,
   uRESTDWDatamodule, uRESTDWMassiveBuffer, uRESTDWServerContext,
-  uRESTDWJSONObject,  uRESTDWDataUtils,
-  uRESTDWBasicDB, uRESTDWParams, uRESTDWBasicTypes, uRESTDWTools,
-  uRestDWDriverFD, uRESTDWBasic, uRESTDWComponentBase;
+  uRESTDWJSONObject, uRESTDWDataUtils,uRESTDWBasicDB, uRESTDWParams,
+  uRESTDWBasicTypes, uRESTDWTools, uRestDWDriverFD, uRESTDWBasic,
+  uRESTDWComponentBase;
 
 Const
   WelcomeSample = True;
@@ -133,6 +131,9 @@ IMPLEMENTATION
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 {$R *.dfm}
+
+uses
+  uPrincipal;
 
 procedure TDMSecundario.employeeReplyEvent(var Params: TRESTDWParams;
   dJsonMode: TDataMode; Var Result: String);
