@@ -1,0 +1,143 @@
+object DM: TDM
+  OldCreateOrder = False
+  Encoding = esUtf8
+  QueuedRequest = False
+  Height = 332
+  HorizontalOffset = 262
+  VerticalOffset = 250
+  Width = 526
+  object RESTDWServerEvents1: TRESTDWServerEvents
+    IgnoreInvalidParams = False
+    Events = <    
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        Params = <>
+        DataMode = dmRAW
+        Name = 'teste'
+        EventName = 'teste'
+        BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+        OnReplyEventByType = teste
+      end    
+      item
+        Routes = [crPost, crPut, crPatch]
+        NeedAuthorization = True
+        Params = <>
+        DataMode = dmRAW
+        Name = 'testebody'
+        EventName = 'testebody'
+        BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+        OnReplyEventByType = testebody
+      end    
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        Params = <>
+        DataMode = dmRAW
+        Name = 'testeheader'
+        EventName = 'testeheader'
+        BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+        OnReplyEventByType = testeheader
+      end>
+    Left = 64
+    Top = 16
+  end
+  object RESTDWServerContext1: TRESTDWServerContext
+    IgnoreInvalidParams = False
+    ContextList = <    
+      item
+        Params = <>
+        ContentType = 'text/html'
+        Name = 'relatorio'
+        BaseURL = '/'
+        ContextName = 'relatorio'
+        Routes = [crAll]
+        OnlyPreDefinedParams = False
+        IgnoreBaseHeader = False
+        NeedAuthorization = True
+        OnReplyRequestStream = relatorio
+      end>
+    Left = 64
+    Top = 80
+  end
+  object RESTDWPoolerDB1: TRESTDWPoolerDB
+    RESTDriver = RESTDWLazarusDriver1
+    Compression = True
+    Encoding = esUtf8
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = True
+    Active = True
+    PoolerOffMessage = 'RESTPooler not active.'
+    ParamCreate = True
+    Left = 232
+    Top = 16
+  end
+  object SQLite3Connection1: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'employee.db'
+    KeepConnection = False
+    AlwaysUseBigint = False
+    Left = 232
+    Top = 152
+  end
+  object RESTDWLazarusDriver1: TRESTDWLazarusDriver
+    Connection = SQLite3Connection1
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = False
+    Compression = False
+    EncodeStringsJSON = False
+    Encoding = esASCII
+    ParamCreate = True
+    DatabaseCharSet = csUndefined
+    CommitRecords = 100
+    Left = 232
+    Top = 80
+  end
+  object RESTDWZeosDriver1: TRESTDWZeosDriver
+    Connection = ZConnection1
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = False
+    Compression = False
+    EncodeStringsJSON = False
+    Encoding = esASCII
+    ParamCreate = True
+    DatabaseCharSet = csUndefined
+    CommitRecords = 100
+    Left = 368
+    Top = 83
+  end
+  object RESTDWPoolerDB2: TRESTDWPoolerDB
+    RESTDriver = RESTDWZeosDriver1
+    Compression = True
+    Encoding = esUtf8
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = True
+    Active = True
+    PoolerOffMessage = 'RESTPooler not active.'
+    ParamCreate = True
+    Left = 368
+    Top = 16
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Port = 0
+    Protocol = 'sqlite-3'
+    Left = 368
+    Top = 152
+  end
+end
