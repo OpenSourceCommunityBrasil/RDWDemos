@@ -11,3 +11,7 @@ Os demos de versões anteriores estão num branch separado de acordo com a vers�
 ![image](https://user-images.githubusercontent.com/26689802/187219396-f6f882fb-d8e1-4c80-8117-1722c4e47e5e.png)
 
 
+## Link para download do zip:
+- [Download v2.1](https://github.com/OpenSourceCommunityBrasil/RDWDemos/archive/refs/heads/2.1.zip)
+- [Download v2.0](https://github.com/OpenSourceCommunityBrasil/RDWDemos/archive/refs/heads/main.zip)
+- [Download v1.4.3](https://github.com/OpenSourceCommunityBrasil/RDWDemos/archive/refs/heads/demos-1.4.3.zip)
