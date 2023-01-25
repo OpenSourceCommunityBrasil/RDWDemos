@@ -6,8 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
   System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.TabControl, System.Rtti, FMX.Grid.Style, FMX.StdCtrls, FMX.Edit,
-  FMX.Layouts, FMX.Controls.Presentation, FMX.ScrollBox, FMX.Grid,
+  FMX.TabControl, System.Rtti, FMX.Grid, FMX.StdCtrls, FMX.Edit,
+  FMX.Layouts, FMX.Controls.Presentation, FMX.ScrollBox,
   FMX.Memo.Types, FMX.Memo, FMX.ListBox,
 
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
@@ -17,7 +17,12 @@ uses
 
   uRESTDWBasicTypes, uRESTDWBasicDB, uRESTDWComponentBase, uRESTDWIdBase,
   uRESTDWBasic, uRESTDWParams, uRESTDWConsts, uRESTDWServerEvents,
-  uRESTDWMemoryDataset;
+  uRESTDWMemoryDataset, uRESTDWDataUtils,
+
+  FMX.Grid.Style, Data.Bind.EngExt,
+  Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs, Fmx.Bind.Editors,
+  Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, Data.Bind.Controls,
+  Fmx.Bind.Navigator;
 
 type
   TfPrincipal = class(TForm)
@@ -26,7 +31,6 @@ type
     TabItem1: TTabItem;
     TabItem2: TTabItem;
     TabItem3: TTabItem;
-    sgDBWare: TStringGrid;
     RESTDWIdDatabase1: TRESTDWIdDatabase;
     RESTDWClientSQL1: TRESTDWClientSQL;
     lTitulo: TLabel;
@@ -34,14 +38,11 @@ type
     TabItem6: TTabItem;
     GroupBox1: TGroupBox;
     cbBinaryRequest: TCheckBox;
-    cbBinaryCompatibleMode: TCheckBox;
     Layout3: TLayout;
     eServidor: TEdit;
     Label1: TLabel;
     ePorta: TEdit;
     Label2: TLabel;
-    cbPoolerDB: TComboBox;
-    Label3: TLabel;
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
     Layout1: TLayout;
@@ -56,24 +57,51 @@ type
     Label5: TLabel;
     FlowLayout2: TFlowLayout;
     Button1: TButton;
-    Button2: TButton;
     RESTDWClientEvents1: TRESTDWClientEvents;
     RESTDWIdClientPooler1: TRESTDWIdClientPooler;
     TabControl2: TTabControl;
     TabItem4: TTabItem;
     TabItem5: TTabItem;
     Memo2: TMemo;
+    cbTableName: TComboBox;
+    Label6: TLabel;
+    FlowLayout3: TFlowLayout;
+    FlowLayoutBreak1: TFlowLayoutBreak;
+    cbAuth: TComboBox;
+    Label7: TLabel;
+    eAuthUsuario: TEdit;
+    Label8: TLabel;
+    eAuthSenha: TEdit;
+    Label9: TLabel;
+    Layout5: TLayout;
+    cbProtocol: TCheckBox;
+    cbPoolerDB: TComboBox;
+    Label3: TLabel;
+    FlowLayout4: TFlowLayout;
+    Layout6: TLayout;
+    gDBWare: TGrid;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    BindNavigator1: TBindNavigator;
     procedure RESTDWClientSQL1AfterOpen(DataSet: TDataSet);
     procedure FormCreate(Sender: TObject);
     procedure cbPoolerDBEnter(Sender: TObject);
     procedure DBWare_BOpenClick(Sender: TObject);
     procedure DBWare_BOpenDatasetsClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure cbTableNameEnter(Sender: TObject);
+    procedure cbAuthChange(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
+    FBaseURL: string;
+    FAuthType: TRESTDWClientAuthOptionParams;
     procedure ConfiguraComponentes;
     procedure ClearGrid;
     procedure ListarPoolers;
+    procedure EnableButtons(aButtons: array of TButton);
+    procedure DisableButtons(aButtons: array of TButton);
   public
     { Public declarations }
   end;
@@ -90,6 +118,7 @@ begin
   ConfiguraComponentes;
 
   RESTDWClientSQL1.SQL.Text := Memo1.Text;
+  RESTDWClientSQL1.UpdateTableName := cbTableName.Selected.Text;
   RESTDWClientSQL1.Open;
 end;
 
@@ -100,10 +129,27 @@ var
 begin
   ConfiguraComponentes;
   RESTDWClientSQL1.SQL.Text := Memo1.Text;
+  RESTDWClientSQL1.UpdateTableName := cbTableName.Selected.Text;
   RESTDWIdDatabase1.OpenDatasets([RESTDWClientSQL1], erro, mensagemerro,
-    RESTDWClientSQL1.BinaryRequest, RESTDWClientSQL1.BinaryCompatibleMode);
+    RESTDWClientSQL1.BinaryRequest);
   if erro then
     raise Exception.Create(mensagemerro);
+end;
+
+procedure TfPrincipal.DisableButtons(aButtons: array of TButton);
+var
+  Button: TButton;
+begin
+  for Button in aButtons do
+    Button.Enabled := false;
+end;
+
+procedure TfPrincipal.EnableButtons(aButtons: array of TButton);
+var
+  Button: TButton;
+begin
+  for Button in aButtons do
+    Button.Enabled := true;
 end;
 
 procedure TfPrincipal.Button3Click(Sender: TObject);
@@ -135,26 +181,111 @@ end;
 
 procedure TfPrincipal.ClearGrid;
 begin
-  sgDBWare.ClearColumns;
-  sgDBWare.ClearContent;
+  gDBWare.ClearColumns;
+  gDBWare.ClearContent;
+  gDBWare.RowCount := 0;
+end;
+
+procedure TfPrincipal.cbTableNameEnter(Sender: TObject);
+var
+  ClientPooler: TRESTDWIdClientPooler;
+  Params: TRESTDWParams;
+  JSONParam: TJSONParam;
+begin
+  ConfiguraComponentes;
+
+  ClientPooler := TRESTDWIdClientPooler.Create(nil);
+  ClientPooler.AuthenticationOptions := FAuthType;
+
+  Params := TRESTDWParams.Create;
+  Params.Encoding := ClientPooler.Encoding;
+  JSONParam := TJSONParam.Create(ClientPooler.Encoding);
+  JSONParam.ParamName := 'Result';
+  JSONParam.ObjectDirection := odOUT;
+  JSONParam.ObjectValue := ovString;
+  JSONParam.AsString := '';
+  Params.Add(JSONParam);
+
+  Params.Encoding := ClientPooler.Encoding;
+  JSONParam := TJSONParam.Create(ClientPooler.Encoding);
+  JSONParam.ParamName := 'Error';
+  JSONParam.ObjectDirection := odINOUT;
+  JSONParam.ObjectValue := ovBoolean;
+  JSONParam.AsBoolean := false;
+  Params.Add(JSONParam);
+
+  JSONParam := TJSONParam.Create(ClientPooler.Encoding);
+  JSONParam.ParamName := 'Pooler';
+  JSONParam.ObjectDirection := odIN;
+  JSONParam.ObjectValue := ovString;
+  JSONParam.AsString := cbPoolerDB.Selected.Text;
+  Params.Add(JSONParam);
+
+  try
+    ClientPooler.SendEvent('GetTableNames', Params);
+    cbTableName.Items.Delimiter := '|';
+    cbTableName.Items.DelimitedText := Params.ItemsString['Result'].AsString;
+  finally
+    Params.Free;
+    ClientPooler.Free;
+  end;
+end;
+
+procedure TfPrincipal.cbAuthChange(Sender: TObject);
+begin
+  Layout5.Visible := false;
+
+  if cbAuth.ItemIndex = 1 then
+    Layout5.Visible := true;
 end;
 
 procedure TfPrincipal.ConfiguraComponentes;
 begin
-  if (cbPoolerDB.Items.Count > 0) and not(cbPoolerDB.Selected.Text.IsEmpty) then
+  // configura servidor
+  if (not eServidor.Text.IsEmpty) and (not ePorta.Text.IsEmpty) then
   begin
-    RESTDWIdDatabase1.PoolerPort := ePorta.Text.ToInteger;
-    RESTDWIdDatabase1.PoolerService := eServidor.Text;
-    RESTDWIdDatabase1.PoolerName := cbPoolerDB.Selected.Text;
-  end;
-  RESTDWClientSQL1.BinaryRequest := cbBinaryRequest.IsChecked;
-  RESTDWClientSQL1.BinaryCompatibleMode := cbBinaryCompatibleMode.IsChecked;
+    if cbProtocol.IsChecked then
+      FBaseURL := 'https://' + eServidor.Text + ':' + ePorta.Text
+    else
+      FBaseURL := 'http://' + eServidor.Text + ':' + ePorta.Text;
+
+    case cbAuth.ItemIndex of
+      0:
+        FAuthType.AuthorizationOption := rdwAONone;
+      1:
+        begin
+          FAuthType.AuthorizationOption := rdwAOBasic;
+          TRESTDWAuthOptionBasic(FAuthType.OptionParams).Username :=
+            eAuthUsuario.Text;
+          TRESTDWAuthOptionBasic(FAuthType.OptionParams).Password :=
+            eAuthSenha.Text;
+        end;
+    end;
+
+    if (cbPoolerDB.Items.Count > 0) and not(cbPoolerDB.Selected.Text.IsEmpty)
+    then
+    begin
+      RESTDWIdDatabase1.PoolerPort := ePorta.Text.ToInteger;
+      RESTDWIdDatabase1.PoolerService := eServidor.Text;
+      RESTDWIdDatabase1.PoolerName := cbPoolerDB.Selected.Text;
+      RESTDWIdDatabase1.UseSSL := cbProtocol.IsChecked;
+    end;
+    RESTDWClientSQL1.BinaryRequest := cbBinaryRequest.IsChecked;
+  end
 end;
 
 procedure TfPrincipal.FormCreate(Sender: TObject);
 begin
+  FAuthType := TRESTDWClientAuthOptionParams.Create(nil);
+  FAuthType.AuthorizationOption := rdwAONone;
   ClearGrid;
   lTitulo.Text := 'Versão Componentes: ' + RESTDWVersao;
+  FBaseURL := '';
+end;
+
+procedure TfPrincipal.FormDestroy(Sender: TObject);
+begin
+  FAuthType.Free;
 end;
 
 procedure TfPrincipal.ListarPoolers;
@@ -190,8 +321,8 @@ begin
       DWClientPooler.SendEvent('GetPoolerList', DWParams);
 
       // monta a lista de resultado
-      cbPoolerDB.Items.delimiter := '|';
-      cbPoolerDB.Items.delimitedText := DWParams.ItemsString['Result'].AsString;
+      cbPoolerDB.Items.Delimiter := '|';
+      cbPoolerDB.Items.DelimitedText := DWParams.ItemsString['Result'].AsString;
     finally
       DWParams.Free;
       DWClientPooler.Free;
@@ -210,17 +341,31 @@ begin
     for I := 0 to pred(DataSet.Fields.Count) do
     begin
       // monta as colunas da grid de resposta
-      sgDBWare.AddObject(TStringColumn.Create(sgDBWare));
-      sgDBWare.Columns[pred(sgDBWare.ColumnCount)].Header :=
+      case DataSet.Fields.Fields[I].DataType of
+        ftBlob:
+          gDBWare.AddObject(TGlyphColumn.Create(gDBWare)); 
+      else
+        // ftString, ftWideString, ftFixedChar, ftMemo, ftFmtMemo:
+        gDBWare.AddObject(TStringColumn.Create(gDBWare));
+      end;
+
+      gDBWare.Columns[pred(gDBWare.ColumnCount)].Header :=
         DataSet.Fields.Fields[I].FieldName;
     end;
     while not DataSet.Eof do
     begin
       // preenche a grid com o resultado do dataset
-      sgDBWare.RowCount := sgDBWare.RowCount + 1;
+      gDBWare.RowCount := gDBWare.RowCount + 1;
       for I := 0 to pred(DataSet.Fields.Count) do
-        sgDBWare.Cells[I, pred(sgDBWare.RowCount)] := DataSet.Fields.Fields
-          [I].AsString;
+        case DataSet.Fields.Fields[I].DataType of
+          ftBlob:
+//            gDBWare.Cells[I, pred(gDBWare.RowCount)] :=
+//              DataSet.Fields.Fields[I].Value;
+        else
+          // ftString, ftWideString, ftFixedChar, ftMemo, ftFmtMemo:
+//          gDBWare.Cells[I, pred(gDBWare.RowCount)] := DataSet.Fields.Fields
+//            [I].AsString;
+        end;
       DataSet.Next;
     end;
   end;
