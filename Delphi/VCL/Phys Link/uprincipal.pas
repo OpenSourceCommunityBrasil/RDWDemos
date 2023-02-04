@@ -70,32 +70,35 @@ end;
 
 procedure TForm1.tbAfterPost(DataSet: TDataSet);
 var
-  s : string;
   oErr: EFDException;
+  lst : TStringList;
 begin
   if tb.ApplyUpdates > 0 then begin
+    lst := TStringList.Create;
+    lst.Sorted := False;
+    lst.Duplicates = [dupIgnore];
+
     tb.FilterChanges := [rtModified, rtInserted, rtDeleted, rtHasErrors];
     try
       tb.First;
-      s := '';
       while not tb.Eof do begin
         oErr := tb.RowError;
-        if oErr <> nil then begin
-          if s <> '' then
-            s := s + #13#10;
-          s := s + oErr.Message;
-        end;
+        if oErr <> nil then
+          lst.Add(oErr.Message);
         tb.Next;
       end;
     finally
       tb.FilterChanges := [rtUnmodified, rtModified, rtInserted];
     end;
-    ShowMessage(s);
+    ShowMessage(lst.Text);
+    lst.Free;
     tb.RevertRecord;
   end
   else begin
     ShowMessage('Gravado com sucesso!');
   end;
+
+  Trim()
 end;
 
 end.
