@@ -53,14 +53,10 @@ object Form1: TForm1
   end
   object conn: TFDConnection
     Params.Strings = (
-      'DriverID=RDW')
+      'DriverID=RESTDW')
+    Connected = True
     LoginPrompt = False
     Left = 104
-    Top = 80
-  end
-  object rdw_link: TFDPhysRDWDriverLink
-    Database = rdw_database
-    Left = 168
     Top = 80
   end
   object rdw_database: TRESTDWIdDatabase
@@ -68,12 +64,24 @@ object Form1: TForm1
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
     ContentEncoding = 'gzip, identity'
-    Active = False
+    Active = True
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    MyIP = '127.0.0.1'
     IgnoreEchoPooler = False
-    AuthenticationOptions.AuthorizationOption = rdwAONone
+    AuthenticationOptions.AuthorizationOption = rdwAOBearer
+    AuthenticationOptions.OptionParams.AuthDialog = True
+    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
+    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
+    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
+    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
+    AuthenticationOptions.OptionParams.TokenType = rdwTS
+    AuthenticationOptions.OptionParams.TokenRequestType = rdwtHeader
+    AuthenticationOptions.OptionParams.GetTokenEvent = 'GetToken'
+    AuthenticationOptions.OptionParams.Key = 'token'
+    AuthenticationOptions.OptionParams.AutoGetToken = True
+    AuthenticationOptions.OptionParams.AutoRenewToken = False
     Proxy = False
     ProxyOptions.Port = 8888
     PoolerService = '127.0.0.1'
@@ -113,17 +121,24 @@ object Form1: TForm1
     Top = 176
   end
   object ds: TDataSource
-    DataSet = q1
+    DataSet = tb
     Left = 248
     Top = 256
   end
   object tb: TFDTable
+    AfterPost = tbAfterPost
     CachedUpdates = True
     IndexFieldNames = 'COD_SETOR'
     Connection = conn
     UpdateOptions.UpdateTableName = 'SETOR'
     TableName = 'SETOR'
     Left = 248
+    Top = 328
+  end
+  object RESTDWFireDACPhysLink1: TRESTDWFireDACPhysLink
+    Database = rdw_database
+    RDBMS = 9
+    Left = 96
     Top = 328
   end
 end
