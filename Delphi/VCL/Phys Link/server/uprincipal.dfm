@@ -26,7 +26,20 @@ object Form2: TForm2
     RequestTimeout = -1
     ServicePort = 8082
     ProxyOptions.ProxyPort = 0
-    AuthenticationOptions.AuthorizationOption = rdwAONone
+    AuthenticationOptions.AuthorizationOption = rdwAOBearer
+    AuthenticationOptions.OptionParams.AuthDialog = True
+    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
+    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
+    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
+    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
+    AuthenticationOptions.OptionParams.TokenType = rdwTS
+    AuthenticationOptions.OptionParams.CryptType = rdwAES256
+    AuthenticationOptions.OptionParams.Key = 'token'
+    AuthenticationOptions.OptionParams.GetTokenEvent = 'GetToken'
+    AuthenticationOptions.OptionParams.GetTokenRoutes = [crAll]
+    AuthenticationOptions.OptionParams.TokenHash = 'RDWTS_HASH0011'
+    AuthenticationOptions.OptionParams.ServerSignature = 'Teste'
+    AuthenticationOptions.OptionParams.LifeCycle = 10
     Encoding = esUtf8
     RootPath = '/'
     ForceWelcomeAccess = False

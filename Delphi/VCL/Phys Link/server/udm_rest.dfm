@@ -1,6 +1,7 @@
 object dm_rest: Tdm_rest
   OldCreateOrder = False
   Encoding = esUtf8
+  OnGetToken = ServerMethodDataModuleGetToken
   QueuedRequest = False
   Height = 437
   Width = 591
