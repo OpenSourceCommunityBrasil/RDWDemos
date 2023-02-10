@@ -11,8 +11,6 @@ object dm_rest: Tdm_rest
       'Password=masterkey'
       'Protocol=TCPIP'
       'Server=localhost'
-      'Database=D:\bd\saude\santa_casa_pp\HOSPITAL.FDB'
-      'Port=3052'
       'DriverID=FB')
     LoginPrompt = False
     Left = 56
