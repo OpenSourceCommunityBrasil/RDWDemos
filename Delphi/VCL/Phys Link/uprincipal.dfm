@@ -51,10 +51,18 @@ object Form1: TForm1
     TabOrder = 2
     OnClick = Button2Click
   end
+  object Button3: TButton
+    Left = 128
+    Top = 249
+    Width = 75
+    Height = 25
+    Caption = 'Transa'#231#227'o'
+    TabOrder = 3
+    OnClick = Button3Click
+  end
   object conn: TFDConnection
     Params.Strings = (
       'DriverID=RESTDW')
-    Connected = True
     LoginPrompt = False
     Left = 104
     Top = 80
@@ -64,11 +72,10 @@ object Form1: TForm1
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
     ContentEncoding = 'gzip, identity'
-    Active = True
+    Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '127.0.0.1'
     IgnoreEchoPooler = False
     AuthenticationOptions.AuthorizationOption = rdwAOBearer
     AuthenticationOptions.OptionParams.AuthDialog = True
@@ -115,6 +122,7 @@ object Form1: TForm1
   end
   object q1: TFDQuery
     Connection = conn
+    UpdateOptions.AssignedValues = [uvUpdateMode]
     SQL.Strings = (
       'select * from banco')
     Left = 256
