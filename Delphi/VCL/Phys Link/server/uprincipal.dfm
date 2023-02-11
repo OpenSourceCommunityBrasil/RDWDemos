@@ -39,7 +39,7 @@ object Form2: TForm2
     AuthenticationOptions.OptionParams.GetTokenRoutes = [crAll]
     AuthenticationOptions.OptionParams.TokenHash = 'RDWTS_HASH0011'
     AuthenticationOptions.OptionParams.ServerSignature = 'Teste'
-    AuthenticationOptions.OptionParams.LifeCycle = 10
+    AuthenticationOptions.OptionParams.LifeCycle = 1800
     Encoding = esUtf8
     RootPath = '/'
     ForceWelcomeAccess = False
