@@ -8,7 +8,7 @@ uses
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXCtrls,
   Vcl.StdCtrls,
 
-  uRESTDWAbout, uRESTDWBasic, uRESTDWComponentBase, uRESTDWIdBase,
+  uRESTDWAbout, uRESTDWBasic, uRESTDWIdBase,
   uRESTDWConsts
 
     ;

@@ -8,7 +8,7 @@ uses
 
   // uses RDW
   uRESTDWAbout, uRESTDWServerEvents, uRESTDWDatamodule, uRESTDWParams,
-  uRESTDWConsts, uRESTDWComponentBase, uRESTDWBasic, uRESTDWBasicDB,
+  uRESTDWConsts, uRESTDWBasic, uRESTDWBasicDB,
   uRESTDWServerContext, uRESTDWZeosDriver, uRESTDWDriverBase,
   uRESTDWFireDACDriver, uRESTDWMIMETypes,
 
