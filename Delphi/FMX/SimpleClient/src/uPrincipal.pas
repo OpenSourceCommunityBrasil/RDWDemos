@@ -15,14 +15,14 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   Data.DB,
 
-  uRESTDWBasicTypes, uRESTDWBasicDB, uRESTDWComponentBase, uRESTDWIdBase,
+  uRESTDWBasicTypes, uRESTDWBasicDB, uRESTDWIdBase,
   uRESTDWBasic, uRESTDWParams, uRESTDWConsts, uRESTDWServerEvents,
   uRESTDWMemoryDataset, uRESTDWDataUtils,
 
   FMX.Grid.Style, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs, Fmx.Bind.Editors,
+  FMX.Bind.DBEngExt, FMX.Bind.Grid, System.Bindings.Outputs, FMX.Bind.Editors,
   Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, Data.Bind.Controls,
-  Fmx.Bind.Navigator;
+  FMX.Bind.Navigator, uRESTDWAbout, FMX.ComboEdit;
 
 type
   TfPrincipal = class(TForm)
@@ -34,7 +34,6 @@ type
     RESTDWIdDatabase1: TRESTDWIdDatabase;
     RESTDWClientSQL1: TRESTDWClientSQL;
     lTitulo: TLabel;
-    Button3: TButton;
     TabItem6: TTabItem;
     GroupBox1: TGroupBox;
     cbBinaryRequest: TCheckBox;
@@ -63,7 +62,6 @@ type
     TabItem4: TTabItem;
     TabItem5: TTabItem;
     Memo2: TMemo;
-    cbTableName: TComboBox;
     Label6: TLabel;
     FlowLayout3: TFlowLayout;
     FlowLayoutBreak1: TFlowLayoutBreak;
@@ -84,6 +82,35 @@ type
     BindingsList1: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     BindNavigator1: TBindNavigator;
+    GroupBox4: TGroupBox;
+    GroupBox5: TGroupBox;
+    Splitter1: TSplitter;
+    TabControl3: TTabControl;
+    Request: TTabItem;
+    Parameters: TTabItem;
+    Authentication: TTabItem;
+    Connection: TTabItem;
+    Layout7: TLayout;
+    ComboEdit2: TComboEdit;
+    Label12: TLabel;
+    Memo3: TMemo;
+    Layout8: TLayout;
+    ComboEdit1: TComboEdit;
+    Label11: TLabel;
+    ComboBox1: TComboBox;
+    Label10: TLabel;
+    Label13: TLabel;
+    TabControl4: TTabControl;
+    Label14: TLabel;
+    TabItem7: TTabItem;
+    TabItem8: TTabItem;
+    TabItem9: TTabItem;
+    Button3: TButton;
+    Button2: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    ceTableName: TComboEdit;
     procedure RESTDWClientSQL1AfterOpen(DataSet: TDataSet);
     procedure FormCreate(Sender: TObject);
     procedure cbPoolerDBEnter(Sender: TObject);
@@ -93,6 +120,7 @@ type
     procedure cbTableNameEnter(Sender: TObject);
     procedure cbAuthChange(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
     FBaseURL: string;
@@ -118,7 +146,8 @@ begin
   ConfiguraComponentes;
 
   RESTDWClientSQL1.SQL.Text := Memo1.Text;
-  RESTDWClientSQL1.UpdateTableName := cbTableName.Selected.Text;
+  if ceTableName.ItemIndex <> -1 then
+    RESTDWClientSQL1.UpdateTableName := ceTableName.Text;
   RESTDWClientSQL1.Open;
 end;
 
@@ -129,7 +158,7 @@ var
 begin
   ConfiguraComponentes;
   RESTDWClientSQL1.SQL.Text := Memo1.Text;
-  RESTDWClientSQL1.UpdateTableName := cbTableName.Selected.Text;
+  RESTDWClientSQL1.UpdateTableName := ceTableName.Text;
   RESTDWIdDatabase1.OpenDatasets([RESTDWClientSQL1], erro, mensagemerro,
     RESTDWClientSQL1.BinaryRequest);
   if erro then
@@ -150,6 +179,34 @@ var
 begin
   for Button in aButtons do
     Button.Enabled := true;
+end;
+
+procedure TfPrincipal.Button2Click(Sender: TObject);
+var
+  ClientREST: TRESTDWIdClientREST;
+  teste: string;
+  slistheader: TStringList;
+  sstrBody: TStringStream;
+begin
+  ClientREST := TRESTDWIdClientREST.Create(nil);
+  slistheader := TStringList.Create;
+  sstrBody := TStringStream.Create('', TEncoding.UTF8);
+  try
+    try
+      if ClientREST.Post('http://localhost:8082/testeerrounicode',slistheader,
+         sstrBody) = 400 then
+        teste := sstrBody.DataString;
+
+      ShowMessage(teste);
+    except
+      on e: Exception do
+        teste := e.Message;
+    end;
+  finally
+    sstrBody.Free;
+    slistheader.Free;
+    ClientREST.Free;
+  end;
 end;
 
 procedure TfPrincipal.Button3Click(Sender: TObject);
@@ -199,6 +256,7 @@ begin
 
   Params := TRESTDWParams.Create;
   Params.Encoding := ClientPooler.Encoding;
+
   JSONParam := TJSONParam.Create(ClientPooler.Encoding);
   JSONParam.ParamName := 'Result';
   JSONParam.ObjectDirection := odOUT;
@@ -206,7 +264,6 @@ begin
   JSONParam.AsString := '';
   Params.Add(JSONParam);
 
-  Params.Encoding := ClientPooler.Encoding;
   JSONParam := TJSONParam.Create(ClientPooler.Encoding);
   JSONParam.ParamName := 'Error';
   JSONParam.ObjectDirection := odINOUT;
@@ -223,8 +280,8 @@ begin
 
   try
     ClientPooler.SendEvent('GetTableNames', Params);
-    cbTableName.Items.Delimiter := '|';
-    cbTableName.Items.DelimitedText := Params.ItemsString['Result'].AsString;
+    ceTableName.Items.Delimiter := '|';
+    ceTableName.Items.DelimitedText := Params.ItemsString['Result'].AsString;
   finally
     Params.Free;
     ClientPooler.Free;
@@ -249,6 +306,10 @@ begin
     else
       FBaseURL := 'http://' + eServidor.Text + ':' + ePorta.Text;
 
+    if not assigned(FAuthType) then
+      FAuthType := TRESTDWClientAuthOptionParams.Create(nil);
+    FAuthType.AuthorizationOption := rdwAONone;
+
     case cbAuth.ItemIndex of
       0:
         FAuthType.AuthorizationOption := rdwAONone;
@@ -261,6 +322,9 @@ begin
             eAuthSenha.Text;
         end;
     end;
+
+    RESTDWIdDatabase1.AuthenticationOptions := FAuthType;
+    RESTDWClientSQL1.DataBase := RESTDWIdDatabase1;
 
     if (cbPoolerDB.Items.Count > 0) and not(cbPoolerDB.Selected.Text.IsEmpty)
     then
@@ -276,8 +340,6 @@ end;
 
 procedure TfPrincipal.FormCreate(Sender: TObject);
 begin
-  FAuthType := TRESTDWClientAuthOptionParams.Create(nil);
-  FAuthType.AuthorizationOption := rdwAONone;
   ClearGrid;
   lTitulo.Text := 'Versão Componentes: ' + RESTDWVersao;
   FBaseURL := '';
@@ -285,7 +347,8 @@ end;
 
 procedure TfPrincipal.FormDestroy(Sender: TObject);
 begin
-  FAuthType.Free;
+  if assigned(FAuthType) then
+    FAuthType.Free;
 end;
 
 procedure TfPrincipal.ListarPoolers;
@@ -295,13 +358,13 @@ var
   JSONParam: TJSONParam;
   plist: TStringList;
 begin
+  ConfiguraComponentes;
   // verifica se os parâmetros de conexão foram informados corretamente
   if not(eServidor.Text.IsEmpty) and not(ePorta.Text.IsEmpty) then
   begin
     // configura o componente que vai puxar as informações de pooler
     DWClientPooler := TRESTDWIdClientPooler.Create(nil);
-    DWClientPooler.AuthenticationOptions :=
-      RESTDWIdDatabase1.AuthenticationOptions;
+    DWClientPooler.AuthenticationOptions := FAuthType;
     DWClientPooler.Host := eServidor.Text;
     DWClientPooler.Port := ePorta.Text.ToInteger;
 
