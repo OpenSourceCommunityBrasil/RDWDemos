@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Test Server'
+  Caption = 'ICS Test Server'
   ClientHeight = 328
   ClientWidth = 452
   Color = clBtnFace
@@ -13,35 +13,69 @@ object Form1: TForm1
   OnCreate = FormCreate
   TextHeight = 15
   object Label1: TLabel
-    Left = 16
-    Top = 64
+    Left = 272
+    Top = 27
     Width = 34
     Height = 15
     Caption = 'Label1'
   end
+  object Label2: TLabel
+    Left = 8
+    Top = 71
+    Width = 20
+    Height = 15
+    Caption = 'Log'
+  end
   object ToggleSwitch1: TToggleSwitch
-    Left = 16
-    Top = 24
+    Left = 176
+    Top = 27
     Width = 73
     Height = 20
     TabOrder = 0
     OnClick = ToggleSwitch1Click
   end
   object Memo1: TMemo
-    Left = 16
-    Top = 96
-    Width = 428
-    Height = 113
+    Left = 8
+    Top = 92
+    Width = 436
+    Height = 157
     TabOrder = 1
   end
-  object Pooler: TRESTDWIdServicePooler
+  object LabeledEdit1: TLabeledEdit
+    Left = 92
+    Top = 27
+    Width = 65
+    Height = 23
+    EditLabel.Width = 28
+    EditLabel.Height = 15
+    EditLabel.Caption = 'Porta'
+    TabOrder = 2
+    Text = ''
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 8
+    Top = 0
+    Width = 78
+    Height = 65
+    Caption = 'Pooler'
+    Items.Strings = (
+      'Indy'
+      'ICS')
+    TabOrder = 3
+  end
+  object RESTDWAuthBasic1: TRESTDWAuthBasic
+    AuthDialog = True
+    UserName = 'testserver'
+    Password = 'testserver'
+    Left = 360
+    Top = 264
+  end
+  object RESTDWIdServicePooler1: TRESTDWIdServicePooler
     Active = False
+    Authenticator = RESTDWAuthBasic1
     CORS = False
     CORS_CustomHeaders.Strings = (
       'Access-Control-Allow-Origin=*'
-      
-        'Access-Control-Allow-Methods=GET, POST, PATCH, PUT, DELETE, OPTI' +
-        'ONS'
       
         'Access-Control-Allow-Headers=Content-Type, Origin, Accept, Autho' +
         'rization, X-CUSTOM-HEADER')
@@ -49,29 +83,46 @@ object Form1: TForm1
     RequestTimeout = -1
     ServicePort = 8082
     ProxyOptions.ProxyPort = 0
-    AuthenticationOptions.AuthorizationOption = rdwAOBasic
-    AuthenticationOptions.OptionParams.AuthDialog = True
-    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
-    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
-    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
-    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
-    AuthenticationOptions.OptionParams.Username = 'testserver'
-    AuthenticationOptions.OptionParams.Password = 'testserver'
-    OnLastRequest = PoolerLastRequest
     Encoding = esUtf8
     RootPath = '/'
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
     EncodeErrors = False
-    SSLVersions = []
     ServerIPVersionConfig.IPv4Address = '0.0.0.0'
     ServerIPVersionConfig.IPv6Address = '::'
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
-    Left = 408
-    Top = 16
+    SSLVersions = []
+    Left = 56
+    Top = 256
+  end
+  object RESTDWIcsServicePooler1: TRESTDWIcsServicePooler
+    Active = False
+    Authenticator = RESTDWAuthBasic1
+    CORS = False
+    CORS_CustomHeaders.Strings = (
+      'Access-Control-Allow-Origin=*'
+      
+        'Access-Control-Allow-Headers=Content-Type, Origin, Accept, Autho' +
+        'rization, X-CUSTOM-HEADER')
+    PathTraversalRaiseError = True
+    ServicePort = 8082
+    ProxyOptions.ProxyPort = 0
+    Encoding = esUtf8
+    RootPath = '/'
+    ForceWelcomeAccess = False
+    CriptOptions.Use = False
+    CriptOptions.Key = 'RDWBASEKEY256'
+    EncodeErrors = False
+    ServerIPVersionConfig.IPv4Address = '0.0.0.0'
+    ServerIPVersionConfig.IPv6Address = '::'
+    SSLVerifyMode = []
+    SSLCacheModes = []
+    SSLCliCertMethod = sslCliCertNone
+    Left = 208
+    Top = 256
   end
 end

@@ -49,6 +49,10 @@ type
       var StatusCode: Integer);
     procedure ServerMethodDataModuleCreate(Sender: TObject);
     procedure testecripto(var Params: TRESTDWParams; var Result: string);
+    procedure testeerrounicode(
+      var Params: TRESTDWParams; var Result: string;
+      const RequestType: TRequestType; var StatusCode: Integer;
+      RequestHeader: TStringList);
   private
     { Private declarations }
   public
@@ -74,6 +78,7 @@ var
 begin
   textos := TStringList.Create;
   textos.Add('seus params: ' + Params.ToJSON);
+  if Params.RawBody <> nil then
   textos.Add('o body: ' + Params.RawBody.AsObject);
 
   Result := textos.Text;
@@ -88,7 +93,10 @@ var
   I: Integer;
 begin
   textos := TStringList.Create;
-  textos.Add('seus params: ' + Params.ToJSON);
+  textos.Add('Params que você enviou como .ToJSON:');
+  textos.Add(Params.ToJSON);
+  textos.Add('============================================================');
+  textos.Add('Params que você enviou decodificados individualmente:');
   for I := 0 to pred(Params.Count) do
     textos.AddPair(Params.Items[I].ParamName, Params.Items[I].AsString);
 
@@ -107,6 +115,15 @@ end;
 procedure TDM.testecripto(var Params: TRESTDWParams; var Result: string);
 begin
   Form1.Memo1.lines.Add('senha: ' + Params.ItemsString['senha'].AsString);
+end;
+
+procedure TDM.testeerrounicode(
+  var Params: TRESTDWParams; var Result: string;
+  const RequestType: TRequestType; var StatusCode: Integer;
+  RequestHeader: TStringList);
+begin
+  StatusCode := 400;
+  Result := '{"erro": "erro não disparado no servidor com acentuação pra teste unicode"}';
 end;
 
 procedure TDM.ServerMethodDataModuleCreate(Sender: TObject);

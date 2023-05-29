@@ -70,6 +70,19 @@ object DM: TDM
         CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEvent = testecripto
+      end
+      item
+        Routes = [crAll]
+        NeedAuthorization = True
+        Params = <>
+        DataMode = dmRAW
+        Name = 'testeerrounicode'
+        EventName = 'testeerrounicode'
+        BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+        OnReplyEventByType = testeerrounicode
       end>
     Left = 64
     Top = 24
