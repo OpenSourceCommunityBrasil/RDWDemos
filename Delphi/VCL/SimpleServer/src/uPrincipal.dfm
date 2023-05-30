@@ -39,6 +39,7 @@ object Form1: TForm1
     Top = 92
     Width = 436
     Height = 157
+    ScrollBars = ssVertical
     TabOrder = 1
   end
   object LabeledEdit1: TLabeledEdit
