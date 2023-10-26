@@ -1252,8 +1252,8 @@ object fPrincipal: TfPrincipal
           Text = 'masterkey'
         end
         object edPasta: TEdit
-          Left = 9
-          Top = 304
+          Left = 15
+          Top = 308
           Width = 438
           Height = 25
           Font.Charset = DEFAULT_CHARSET
@@ -3251,7 +3251,7 @@ object fPrincipal: TfPrincipal
       632
       37)
     object lSeguro: TLabel
-      Left = 9
+      Left = 8
       Top = 12
       Width = 80
       Height = 17
@@ -3263,9 +3263,10 @@ object fPrincipal: TfPrincipal
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitLeft = 9
     end
     object ButtonStart: TButton
-      Left = 409
+      Left = 408
       Top = 6
       Width = 100
       Height = 25
@@ -3282,7 +3283,7 @@ object fPrincipal: TfPrincipal
       OnClick = ButtonStartClick
     end
     object ButtonStop: TButton
-      Left = 521
+      Left = 520
       Top = 6
       Width = 100
       Height = 25
@@ -3299,7 +3300,7 @@ object fPrincipal: TfPrincipal
       OnClick = ButtonStopClick
     end
     object cbPoolerState: TCheckBox
-      Left = 184
+      Left = 183
       Top = 12
       Width = 115
       Height = 17
@@ -3351,6 +3352,7 @@ object fPrincipal: TfPrincipal
   end
   object RESTServicePooler1: TRESTDWIdServicePooler
     Active = False
+    Authenticator = RESTDWAuthToken1
     CORS = False
     CORS_CustomHeaders.Strings = (
       'Access-Control-Allow-Origin=*'
@@ -3360,11 +3362,11 @@ object fPrincipal: TfPrincipal
       
         'Access-Control-Allow-Headers=Content-Type, Origin, Accept, Autho' +
         'rization, X-CUSTOM-HEADER')
+    DefaultUrl = '/login'
     PathTraversalRaiseError = True
     RequestTimeout = -1
     ServicePort = 8082
     ProxyOptions.ProxyPort = 0
-    AuthenticationOptions.AuthorizationOption = rdwAONone
     OnLastRequest = RESTServicePooler1LastRequest
     OnLastResponse = RESTServicePooler1LastResponse
     Encoding = esUtf8
@@ -3372,12 +3374,61 @@ object fPrincipal: TfPrincipal
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    EncodeErrors = False
+    ServerIPVersionConfig.IPv4Address = '0.0.0.0'
+    ServerIPVersionConfig.IPv6Address = '::'
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
     SSLVersions = []
     Left = 300
-    Top = 18
+    Top = 298
+  end
+  object RESTDWAuthToken1: TRESTDWAuthToken
+    AuthDialog = True
+    TokenType = rdwJWT
+    CryptType = rdwHSHA256
+    TokenRequestType = rdwtHeader
+    Key = 'token'
+    GetTokenEvent = 'GetToken'
+    GetTokenRoutes.All.Active = False
+    GetTokenRoutes.All.NeedAuthorization = False
+    GetTokenRoutes.Get.Active = False
+    GetTokenRoutes.Get.NeedAuthorization = False
+    GetTokenRoutes.Post.Active = True
+    GetTokenRoutes.Post.NeedAuthorization = False
+    GetTokenRoutes.Put.Active = False
+    GetTokenRoutes.Put.NeedAuthorization = False
+    GetTokenRoutes.Patch.Active = False
+    GetTokenRoutes.Patch.NeedAuthorization = False
+    GetTokenRoutes.Delete.Active = False
+    GetTokenRoutes.Delete.NeedAuthorization = False
+    GetTokenRoutes.Option.Active = False
+    GetTokenRoutes.Option.NeedAuthorization = False
+    TokenHash = 'RDWTS_HASH0011'
+    ServerSignature = 'RESTDWSERVER'
+    LifeCycle = 1800
+    AutoGetToken = True
+    AutoRenewToken = True
+    Left = 348
+    Top = 266
+  end
+  object RESTDWAuthOAuth1: TRESTDWAuthOAuth
+    AuthDialog = True
+    TokenType = rdwOATBasic
+    AutoBuildHex = False
+    GrantCodeEvent = 'authorize'
+    GrantType = 'client_credentials'
+    GetTokenEvent = 'access-token'
+    Left = 388
+    Top = 298
+  end
+  object RESTDWAuthBasic1: TRESTDWAuthBasic
+    AuthDialog = True
+    UserName = 'testserver'
+    Password = 'testserver'
+    Left = 196
+    Top = 306
   end
 end

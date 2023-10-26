@@ -4,10 +4,9 @@ object DMWebPascal: TDMWebPascal
   OnUserTokenAuth = ServerMethodDataModuleUserTokenAuth
   OnGetToken = ServerMethodDataModuleGetToken
   QueuedRequest = False
-  Height = 288
-  Width = 299
+  Height = 577
+  Width = 718
   object RESTDWPoolerDB1: TRESTDWPoolerDB
-    RESTDriver = RESTDWDriverFD1
     Compression = True
     Encoding = esUtf8
     StrsTrim = False
@@ -16,14 +15,8 @@ object DMWebPascal: TDMWebPascal
     Active = True
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
-    Left = 60
-    Top = 129
-  end
-  object RESTDWDriverFD1: TRESTDWDriverFD
-    CommitRecords = 100
-    Connection = Server_FDConnection
-    Left = 61
-    Top = 84
+    Left = 68
+    Top = 145
   end
   object Server_FDConnection: TFDConnection
     Params.Strings = (
@@ -59,10 +52,6 @@ object DMWebPascal: TDMWebPascal
     Left = 117
     Top = 39
   end
-  object FDPhysMSSQLDriverLink1: TFDPhysMSSQLDriverLink
-    Left = 145
-    Top = 84
-  end
   object FDTransaction1: TFDTransaction
     Options.AutoStop = False
     Options.DisconnectAction = xdRollback
@@ -90,11 +79,23 @@ object DMWebPascal: TDMWebPascal
         Name = 'index'
         BaseURL = '/'
         ContextName = 'index'
-        Routes = [crGet, crPost]
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = True
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = True
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = True
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = True
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = True
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         ContextRules = dwcrIndex
         OnlyPreDefinedParams = False
         IgnoreBaseHeader = False
-        NeedAuthorization = True
       end
       item
         Params = <>
@@ -102,11 +103,23 @@ object DMWebPascal: TDMWebPascal
         Name = 'login'
         BaseURL = '/'
         ContextName = 'login'
-        Routes = [crGet]
+        Routes.All.Active = False
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = True
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         ContextRules = dwcrLogin
         OnlyPreDefinedParams = False
         IgnoreBaseHeader = False
-        NeedAuthorization = False
       end
       item
         Params = <>
@@ -114,15 +127,26 @@ object DMWebPascal: TDMWebPascal
         Name = 'index2'
         BaseURL = '/'
         ContextName = 'index2'
-        Routes = [crAll]
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         OnlyPreDefinedParams = False
         IgnoreBaseHeader = False
-        NeedAuthorization = False
-        OnBeforeRenderer = dwsCrudServerContextListindex2BeforeRenderer
       end>
     OnBeforeRenderer = dwsCrudServerBeforeRenderer
-    Left = 136
-    Top = 161
+    Left = 240
+    Top = 265
   end
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
     Left = 201
@@ -523,8 +547,8 @@ object DMWebPascal: TDMWebPascal
         OnBeforeRendererContextItem = dwcrIndexItemsdwframeBeforeRendererContextItem
       end>
     OnBeforeRenderer = dwcrIndexBeforeRenderer
-    Left = 204
-    Top = 129
+    Left = 500
+    Top = 81
   end
   object dwcrLogin: TRESTDWContextRules
     ContentType = 'text/html'
@@ -665,23 +689,18 @@ object DMWebPascal: TDMWebPascal
         OnBeforeRendererContextItem = dwcrLoginItemsmeuloginnameBeforeRendererContextItem
       end>
     OnBeforeRenderer = dwcrLoginBeforeRenderer
-    Left = 208
-    Top = 208
+    Left = 488
+    Top = 184
   end
   object rOpenSecrets: TRESTDWClientSQL
     Active = False
     Filtered = False
     FieldDefs = <>
-    IndexDefs = <>
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    StoreDefs = True
-    BinaryCompatibleMode = False
+    SortOrder = soAsc
+    SortCaseSens = scYes
+    SortFields = ''
+    AutoSortOnOpen = True
+    AutoRefreshOnFilterChanged = True
     MasterCascadeDelete = True
     BinaryRequest = False
     Datapacks = -1
@@ -694,7 +713,47 @@ object DMWebPascal: TDMWebPascal
     ThreadRequest = False
     RaiseErrors = True
     ReflectChanges = False
-    Left = 128
-    Top = 224
+    Left = 72
+    Top = 232
+  end
+  object SrvCtxPix: TRESTDWServerContext
+    IgnoreInvalidParams = False
+    ContextList = <
+      item
+        Params = <>
+        ContentType = 'text/html'
+        Name = 'criarpix'
+        BaseURL = '/'
+        ContextName = 'criarpix'
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
+        ContextRules = CtxrlPix
+        OnlyPreDefinedParams = False
+        IgnoreBaseHeader = False
+      end>
+    OnBeforeRenderer = SrvCtxPixBeforeRenderer
+    Left = 168
+    Top = 416
+  end
+  object CtxrlPix: TRESTDWContextRules
+    ContentType = 'text/html'
+    MasterHtmlTag = '$body'
+    IncludeScriptsHtmlTag = '{%incscripts%}'
+    Items = <>
+    OnBeforeRenderer = CtxrlPixBeforeRenderer
+    Left = 168
+    Top = 472
   end
 end

@@ -12,17 +12,16 @@ Uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.Phys.Intf,
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.Phys.FB, FireDAC.Comp.Client, FireDAC.Comp.UI, FireDAC.Phys.IBBase,
-  FireDAC.Stan.StorageJSON, FireDAC.Phys.MSSQLDef, FireDAC.Phys.ODBCBase,
-  FireDAC.Phys.MSSQL, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.Dapt.Intf,
+  FireDAC.Stan.StorageJSON, FireDAC.Phys.ODBCBase,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.Dapt.Intf,
   FireDAC.Comp.DataSet, FireDAC.Phys.MySQLDef, FireDAC.Phys.MySQL,
   FireDAC.Phys.PGDef, FireDAC.Phys.PG,
 
   uRESTDWDatamodule, uRESTDWMassiveBuffer, uRESTDWJSONObject, uRESTDWDataUtils,
-  uRESTDWDriverFD, uRESTDWConsts, uRESTDWServerEvents, uRESTDWAbout,
+  uRESTDWConsts, uRESTDWServerEvents, uRESTDWAbout,
   uRESTDWServerContext, uRESTDWBasicTypes, uRESTDWBasicDB, uRESTDWBasic,
-  uRESTDWComponentBase, uRESTDWParams, uRESTDWTools
-
-    ;
+  uRESTDWParams, uRESTDWTools, uRESTDWMemoryDataset,
+  uRESTDWAuthenticators;
 
 Const
   WelcomeSample = False;
@@ -33,12 +32,10 @@ Const
 Type
   TDMWebPascal = Class(TServerMethodDataModule)
     RESTDWPoolerDB1: TRESTDWPoolerDB;
-    RESTDWDriverFD1: TRESTDWDriverFD;
     Server_FDConnection: TFDConnection;
     FDPhysFBDriverLink1: TFDPhysFBDriverLink;
     FDStanStorageJSONLink1: TFDStanStorageJSONLink;
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
-    FDPhysMSSQLDriverLink1: TFDPhysMSSQLDriverLink;
     FDTransaction1: TFDTransaction;
     FDQuery1: TFDQuery;
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
@@ -47,6 +44,8 @@ Type
     dwcrIndex: TRESTDWContextRules;
     dwcrLogin: TRESTDWContextRules;
     rOpenSecrets: TRESTDWClientSQL;
+    SrvCtxPix: TRESTDWServerContext;
+    CtxrlPix: TRESTDWContextRules;
     Procedure ServerMethodDataModuleCreate(Sender: TObject);
     Procedure Server_FDConnectionBeforeConnect(Sender: TObject);
     procedure dwcrIndexItemsdatatableRequestExecute(const Params: TRESTDWParams;
@@ -61,11 +60,8 @@ Type
       (var ContextItemTag: string);
     procedure dwcrIndexItemsdwsidemenuBeforeRendererContextItem
       (var ContextItemTag: string);
-    procedure dwcrIndexBeforeRenderer(aSelf: TComponent);
-    procedure dwcrLoginBeforeRenderer(aSelf: TComponent);
     procedure dwcrIndexItemscadModalBeforeRendererContextItem
       (var ContextItemTag: string);
-    procedure dwsCrudServerBeforeRenderer(aSelf: TComponent);
     procedure dwcrLoginItemsmeuloginnameBeforeRendererContextItem
       (var ContextItemTag: string);
     procedure dwcrIndexItemsmeuloginnameBeforeRendererContextItem
@@ -80,17 +76,27 @@ Type
       : TRESTDWParams; var ContentType, Result: string);
     procedure dwcrIndexItemsdwcbCargosRequestExecute(const Params
       : TRESTDWParams; var ContentType, Result: string);
-    procedure ServerMethodDataModuleGetToken(Welcomemsg, AccessTag: string;
-      Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
-      var ErrorCode: Integer; var ErrorMessage, TokenID: string;
-      var Accept: Boolean);
-    procedure ServerMethodDataModuleUserTokenAuth(Welcomemsg, AccessTag: string;
-      Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
-      var ErrorCode: Integer; var ErrorMessage, TokenID: string;
-      var Accept: Boolean);
     procedure dwsCrudServerContextListindex2BeforeRenderer(const BaseHeader
       : string; var ContentType, ContentRenderer: string;
       const RequestType: TRequestType);
+    procedure ServerMethodDataModuleGetToken(Welcomemsg, AccessTag: string;
+      Params: TRESTDWParams; AuthOptions: TRESTDWAuthToken;
+      var ErrorCode: Integer; var ErrorMessage, TokenID: string;
+      var Accept: Boolean);
+    procedure ServerMethodDataModuleUserTokenAuth(Welcomemsg, AccessTag: string;
+      Params: TRESTDWParams; AuthOptions: TRESTDWAuthToken;
+      var ErrorCode: Integer; var ErrorMessage, TokenID: string;
+      var Accept: Boolean);
+    procedure dwcrLoginBeforeRenderer(aSelf: TComponent;
+      const Params: TRESTDWParams);
+    procedure dwcrIndexBeforeRenderer(aSelf: TComponent;
+      const Params: TRESTDWParams);
+    procedure dwsCrudServerBeforeRenderer(aSelf: TComponent;
+      const Params: TRESTDWParams);
+    procedure SrvCtxPixBeforeRenderer(aSelf: TComponent;
+      const Params: TRESTDWParams);
+    procedure CtxrlPixBeforeRenderer(aSelf: TComponent;
+      const Params: TRESTDWParams);
   Private
     { Private declarations }
     IDUser: Integer;
@@ -140,7 +146,15 @@ Begin
   End;
 End;
 
-procedure TDMWebPascal.dwcrIndexBeforeRenderer(aSelf: TComponent);
+procedure TDMWebPascal.CtxrlPixBeforeRenderer(aSelf: TComponent;
+  const Params: TRESTDWParams);
+begin
+  TRESTDWContextRules(aSelf).MasterHtml.LoadFromFile
+    ('.\www\templates\pix\criarpix.html');
+end;
+
+procedure TDMWebPascal.dwcrIndexBeforeRenderer(aSelf: TComponent;
+  const Params: TRESTDWParams);
 begin
   TRESTDWContextRules(aSelf).MasterHtml.LoadFromFile
     ('.\www\templates\index.html');
@@ -417,7 +431,8 @@ begin
   End;
 end;
 
-procedure TDMWebPascal.dwcrLoginBeforeRenderer(aSelf: TComponent);
+procedure TDMWebPascal.dwcrLoginBeforeRenderer(aSelf: TComponent;
+  const Params: TRESTDWParams);
 begin
   TRESTDWContextRules(aSelf).MasterHtml.LoadFromFile
     ('.\www\templates\login.html');
@@ -431,7 +446,8 @@ begin
     [IDUser, IDUserName]);
 end;
 
-procedure TDMWebPascal.dwsCrudServerBeforeRenderer(aSelf: TComponent);
+procedure TDMWebPascal.dwsCrudServerBeforeRenderer(aSelf: TComponent;
+  const Params: TRESTDWParams);
 begin
   TRESTDWServerContext(aSelf).BaseHeader.LoadFromFile
     ('.\www\templates\master.html');
@@ -462,7 +478,7 @@ Begin
 End;
 
 procedure TDMWebPascal.ServerMethodDataModuleGetToken(Welcomemsg,
-  AccessTag: string; Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
+  AccessTag: string; Params: TRESTDWParams; AuthOptions: TRESTDWAuthToken;
   var ErrorCode: Integer; var ErrorMessage, TokenID: string;
   var Accept: Boolean);
 Var
@@ -536,7 +552,7 @@ begin
 end;
 
 procedure TDMWebPascal.ServerMethodDataModuleUserTokenAuth(Welcomemsg,
-  AccessTag: string; Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
+  AccessTag: string; Params: TRESTDWParams; AuthOptions: TRESTDWAuthToken;
   var ErrorCode: Integer; var ErrorMessage, TokenID: string;
   var Accept: Boolean);
 Var
@@ -647,5 +663,14 @@ Begin
   TFDConnection(Sender).LoginPrompt := False;
   TFDConnection(Sender).UpdateOptions.CountUpdatedRecords := False;
 End;
+
+procedure TDMWebPascal.SrvCtxPixBeforeRenderer(aSelf: TComponent;
+  const Params: TRESTDWParams);
+begin
+  TRESTDWServerContext(aSelf).BaseHeader.LoadFromFile
+    ('.\www\templates\master.html');
+  TRESTDWServerContext(aSelf).BaseHeader.Text :=
+    UTF8ToString(TRESTDWServerContext(aSelf).BaseHeader.Text);
+end;
 
 End.

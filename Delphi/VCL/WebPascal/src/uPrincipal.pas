@@ -18,8 +18,8 @@ Uses
   FireDAC.Stan.StorageJSON,
 
   uSock,
-  uRESTDWComponentBase, uRESTDWBasic, uRESTDWIdBase, uRESTDWDataUtils,
-  uRESTDWConsts, uDMWebPascal;
+  uRESTDWBasic, uRESTDWIdBase, uRESTDWDataUtils,
+  uRESTDWConsts, uDMWebPascal, uRESTDWAbout, uRESTDWAuthenticators;
 
 type
   TfPrincipal = class(TForm)
@@ -116,6 +116,9 @@ type
     eServerSignature: TEdit;
     eTokenHash: TEdit;
     RESTServicePooler1: TRESTDWIdServicePooler;
+    RESTDWAuthToken1: TRESTDWAuthToken;
+    RESTDWAuthOAuth1: TRESTDWAuthOAuth;
+    RESTDWAuthBasic1: TRESTDWAuthBasic;
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
     procedure ButtonStartClick(Sender: TObject);
@@ -606,61 +609,6 @@ procedure TfPrincipal.StartServer;
 Begin
   If Not RESTServicePooler1.Active Then
   Begin
-    RESTServicePooler1.AuthenticationOptions.AuthorizationOption :=
-      GetAuthOption;
-    Case RESTServicePooler1.AuthenticationOptions.AuthorizationOption Of
-      rdwAOBasic:
-        Begin
-          TRESTDWAuthOptionBasic
-            (RESTServicePooler1.AuthenticationOptions.OptionParams).Username :=
-            edUserNameDW.Text;
-          TRESTDWAuthOptionBasic
-            (RESTServicePooler1.AuthenticationOptions.OptionParams).Password :=
-            edPasswordDW.Text;
-        End;
-      rdwAOBearer, rdwAOToken:
-        Begin
-          If RESTServicePooler1.AuthenticationOptions.AuthorizationOption =
-            rdwAOBearer Then
-          Begin
-            TRESTDWAuthOptionBearerServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams).TokenType
-              := GetTokenType;
-            TRESTDWAuthOptionBearerServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams)
-              .GetTokenEvent := eTokenEvent.Text;
-            TRESTDWAuthOptionBearerServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams).TokenHash
-              := eTokenHash.Text;
-            TRESTDWAuthOptionBearerServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams)
-              .ServerSignature := eServerSignature.Text;
-            TRESTDWAuthOptionBearerServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams).LifeCycle
-              := StrToInt(eLifeCycle.Text);
-          End
-          Else
-          Begin
-            TRESTDWAuthOptionTokenServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams).TokenType
-              := GetTokenType;
-            TRESTDWAuthOptionTokenServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams)
-              .GetTokenEvent := eTokenEvent.Text;
-            TRESTDWAuthOptionTokenServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams).TokenHash
-              := eTokenHash.Text;
-            TRESTDWAuthOptionTokenServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams)
-              .ServerSignature := eServerSignature.Text;
-            TRESTDWAuthOptionTokenServer
-              (RESTServicePooler1.AuthenticationOptions.OptionParams).LifeCycle
-              := StrToInt(eLifeCycle.Text);
-          End;
-        End;
-    Else
-      RESTServicePooler1.AuthenticationOptions.AuthorizationOption := rdwAONone;
-    End;
     RESTServicePooler1.ServicePort := StrToInt(edPortaDW.Text);
     RESTServicePooler1.SSLPrivateKeyFile := ePrivKeyFile.Text;
     RESTServicePooler1.SSLPrivateKeyPassword := ePrivKeyPass.Text;
