@@ -55,6 +55,8 @@ object fPrincipal: TfPrincipal
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 626
+    ExplicitHeight = 614
     object tsConfigs: TTabSheet
       Caption = 'Configuration'
       object Panel1: TPanel
@@ -71,6 +73,8 @@ object fPrincipal: TfPrincipal
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 610
+        ExplicitHeight = 574
         DesignSize = (
           616
           583)
@@ -411,6 +415,7 @@ object fPrincipal: TfPrincipal
           ParentBackground = False
           ShowCaption = False
           TabOrder = 0
+          ExplicitLeft = 620
           object Image7: TImage
             AlignWithMargins = True
             Left = 2
@@ -758,6 +763,7 @@ object fPrincipal: TfPrincipal
           ParentBackground = False
           ShowCaption = False
           TabOrder = 1
+          ExplicitLeft = 688
           object Image8: TImage
             AlignWithMargins = True
             Left = 2
@@ -1252,8 +1258,8 @@ object fPrincipal: TfPrincipal
           Text = 'masterkey'
         end
         object edPasta: TEdit
-          Left = 15
-          Top = 308
+          Left = 9
+          Top = 304
           Width = 438
           Height = 25
           Font.Charset = DEFAULT_CHARSET
@@ -1320,6 +1326,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 13
+          ExplicitTop = 428
         end
         object eCertFile: TEdit
           Left = 7
@@ -1334,6 +1341,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 14
+          ExplicitTop = 474
         end
         object ePrivKeyPass: TMaskEdit
           Left = 459
@@ -1350,6 +1358,7 @@ object fPrincipal: TfPrincipal
           PasswordChar = '*'
           TabOrder = 15
           Text = ''
+          ExplicitTop = 428
         end
         object EdDataSource: TEdit
           Left = 459
@@ -1422,6 +1431,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 20
+          ExplicitTop = 520
         end
         object pBasicAuth: TPanel
           Left = 328
@@ -1666,6 +1676,7 @@ object fPrincipal: TfPrincipal
     Color = 2763306
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 626
     DesignSize = (
       632
       58)
@@ -2098,6 +2109,7 @@ object fPrincipal: TfPrincipal
       ParentBackground = False
       ShowCaption = False
       TabOrder = 0
+      ExplicitLeft = 422
       object Image3: TImage
         AlignWithMargins = True
         Left = 2
@@ -2486,6 +2498,7 @@ object fPrincipal: TfPrincipal
       ParentBackground = False
       ShowCaption = False
       TabOrder = 1
+      ExplicitLeft = 490
       object Image4: TImage
         AlignWithMargins = True
         Left = 2
@@ -2833,6 +2846,7 @@ object fPrincipal: TfPrincipal
       ParentBackground = False
       ShowCaption = False
       TabOrder = 2
+      ExplicitLeft = 558
       object Image5: TImage
         AlignWithMargins = True
         Left = 2
@@ -3247,6 +3261,8 @@ object fPrincipal: TfPrincipal
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 684
+    ExplicitWidth = 626
     DesignSize = (
       632
       37)
@@ -3281,6 +3297,7 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 0
       OnClick = ButtonStartClick
+      ExplicitLeft = 404
     end
     object ButtonStop: TButton
       Left = 520
@@ -3298,6 +3315,7 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 1
       OnClick = ButtonStopClick
+      ExplicitLeft = 515
     end
     object cbPoolerState: TCheckBox
       Left = 183
@@ -3315,6 +3333,7 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       State = cbChecked
       TabOrder = 2
+      ExplicitLeft = 181
     end
   end
   object ApplicationEvents1: TApplicationEvents
@@ -3411,8 +3430,8 @@ object fPrincipal: TfPrincipal
     LifeCycle = 1800
     AutoGetToken = True
     AutoRenewToken = True
-    Left = 348
-    Top = 266
+    Left = 396
+    Top = 394
   end
   object RESTDWAuthOAuth1: TRESTDWAuthOAuth
     AuthDialog = True
@@ -3421,14 +3440,14 @@ object fPrincipal: TfPrincipal
     GrantCodeEvent = 'authorize'
     GrantType = 'client_credentials'
     GetTokenEvent = 'access-token'
-    Left = 388
-    Top = 298
+    Left = 428
+    Top = 530
   end
   object RESTDWAuthBasic1: TRESTDWAuthBasic
     AuthDialog = True
     UserName = 'testserver'
     Password = 'testserver'
-    Left = 196
-    Top = 306
+    Left = 508
+    Top = 474
   end
 end

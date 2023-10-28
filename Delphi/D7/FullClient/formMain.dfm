@@ -253,7 +253,9 @@ object Form2: TForm2
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     Lines.Strings = (
-      'select * from employee')
+      'Select first 1'
+      'PESSOA_ID'
+      'From pessoa_teste2')
     ParentCtl3D = False
     ParentFont = False
     TabOrder = 1
@@ -2090,22 +2092,6 @@ object Form2: TForm2
     TabOrder = 19
     OnClick = cbUseCriptoClick
   end
-  object cbBinaryCompatible: TCheckBox
-    Left = 350
-    Top = 163
-    Width = 120
-    Height = 19
-    Caption = 'Binary Compatible'
-    Checked = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
-    ParentFont = False
-    State = cbChecked
-    TabOrder = 20
-  end
   object cbAuthOptions: TComboBox
     Left = 242
     Top = 108
@@ -2114,7 +2100,7 @@ object Form2: TForm2
     Style = csDropDownList
     ItemHeight = 13
     ItemIndex = 0
-    TabOrder = 21
+    TabOrder = 20
     Text = 'rdwAONone'
     OnChange = cbAuthOptionsChange
     Items.Strings = (
@@ -2129,7 +2115,7 @@ object Form2: TForm2
     Width = 260
     Height = 113
     BevelOuter = bvNone
-    TabOrder = 22
+    TabOrder = 21
     Visible = False
     object Label2: TLabel
       Left = 10
@@ -2193,7 +2179,7 @@ object Form2: TForm2
     Width = 390
     Height = 118
     BevelOuter = bvNone
-    TabOrder = 23
+    TabOrder = 22
     Visible = False
     object Label12: TLabel
       Left = 10
@@ -2324,7 +2310,7 @@ object Form2: TForm2
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 24
+    TabOrder = 23
     Text = 'EMPLOYEE'
   end
   object Button1: TButton
@@ -2339,10 +2325,11 @@ object Form2: TForm2
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 25
+    TabOrder = 24
     OnClick = Button1Click
   end
   object DataSource1: TDataSource
+    DataSet = RESTDWClientSQL1
     Left = 629
     Top = 312
   end
@@ -2352,6 +2339,7 @@ object Form2: TForm2
   end
   object RESTDWClientSQL1: TRESTDWClientSQL
     Active = False
+    Filtered = False
     FieldDefs = <
       item
         Name = 'EMP_NO'
@@ -2409,83 +2397,48 @@ object Form2: TForm2
         Name = 'TIMEC'
         DataType = ftTime
       end>
-    BinaryCompatibleMode = False
+    SortOrder = soAsc
+    SortCaseSens = scYes
+    AutoSortOnOpen = True
+    AutoRefreshOnFilterChanged = True
     MasterCascadeDelete = True
-    BinaryRequest = False
+    BinaryRequest = True
     Datapacks = -1
     DataCache = False
     MassiveType = mtMassiveCache
     Params = <>
     DataBase = RESTDWIdDatabase1
     SQL.Strings = (
-      'Select * From EMPLOYEE')
+      'Select first 10 * From pacientes')
     CacheUpdateRecords = True
     AutoCommitData = False
     AutoRefreshAfterCommit = False
     ThreadRequest = False
     RaiseErrors = True
-    Filtered = False
     ReflectChanges = False
     Left = 400
-    Top = 325
-  end
-  object RESTDWIdDatabase1: TRESTDWIdDatabase
-    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-    AcceptEncoding = 'gzip2, deflate, br'
-    ContentType = 'application/json'
-    Charset = 'utf8'
-    ContentEncoding = 'multipart/form-data'
-    OnConnection = RESTDWIdDatabase1Connection
-    OnBeforeConnect = RESTDWIdDatabase1BeforeConnect
-    Active = False
-    Compression = True
-    CriptOptions.Use = False
-    CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '0.0.0.0'
-    AuthenticationOptions.AuthorizationOption = rdwAONone
-    Proxy = False
-    ProxyOptions.Port = 8888
-    PoolerService = '127.0.0.1'
-    PoolerPort = 8082
-    PoolerName = 'TServerMethodDM.RESTDWPoolerZEOS'
-    StateConnection.AutoCheck = False
-    StateConnection.InTime = 1000
-    RequestTimeOut = 10000
-    ConnectTimeOut = 3000
-    EncodedStrings = True
-    Encoding = esUtf8
-    StrsTrim = False
-    StrsEmpty2Null = False
-    StrsTrim2Len = True
-    PoolerNotFoundMessage = 'Pooler not found'
-    HandleRedirects = False
-    RedirectMaximum = 0
-    OnWork = RESTDWIdDatabase1Work
-    OnWorkBegin = RESTDWIdDatabase1WorkBegin
-    OnWorkEnd = RESTDWIdDatabase1WorkEnd
-    OnStatus = RESTDWIdDatabase1Status
-    ParamCreate = True
-    FailOver = False
-    FailOverConnections = <>
-    FailOverReplaceDefaults = False
-    ClientConnectionDefs.Active = False
-    UserAgent = 
-      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
-      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
-    SSLMode = sslmUnassigned
-    SSLVersions = []
-    Left = 328
-    Top = 424
+    Top = 301
   end
   object RESTDWClientEvents1: TRESTDWClientEvents
     ServerEventName = 'TServerMethodDM.RESTDWServerEvents'
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    RESTClientPooler = RESTDWIdClientPooler1
     Events = <
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -2508,15 +2461,29 @@ object Form2: TForm2
             ParamName = '1'
             Encoded = True
           end>
-        DataMode = dmRAW
+        DataMode = dmDataware
         Name = 'helloworld'
         EventName = 'helloworld'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
       end
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -2525,24 +2492,67 @@ object Form2: TForm2
             ParamName = 'result'
             Encoded = True
           end>
-        DataMode = dmDataWare
+        DataMode = dmDataware
         Name = 'servertime'
         EventName = 'servertime'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
       end>
-    Left = 272
-    Top = 456
+    Left = 288
+    Top = 424
+  end
+  object TRESTDWIdDatabase
+    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    ContentType = 'application/json'
+    Charset = 'utf8'
+    ContentEncoding = 'multipart/form-data'
+    Active = False
+    Compression = True
+    CriptOptions.Use = False
+    CriptOptions.Key = 'RDWBASEKEY256'
+    IgnoreEchoPooler = False
+    AuthenticationOptions.AuthorizationOption = rdwAONone
+    Proxy = False
+    ProxyOptions.Port = 8888
+    PoolerService = '127.0.0.1'
+    PoolerPort = 8082
+    StateConnection.AutoCheck = False
+    StateConnection.InTime = 1000
+    RequestTimeOut = 10000
+    ConnectTimeOut = 3000
+    EncodedStrings = True
+    Encoding = esASCII
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = True
+    PoolerNotFoundMessage = 'Pooler not found'
+    HandleRedirects = False
+    RedirectMaximum = 0
+    ParamCreate = False
+    FailOver = False
+    FailOverConnections = <>
+    FailOverReplaceDefaults = False
+    ClientConnectionDefs.Active = False
+    UseSSL = False
+    SSLVersions = []
+    UserAgent = 
+      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
+      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
+    SSLMode = sslmUnassigned
   end
   object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
-    AcceptEncoding = 'gzip2, deflate, br'
+    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    ContentEncoding = 'gzip, identity'
+    ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
-    DataRoute = '/'
-    Encoding = esASCII
+    Encoding = esUtf8
     EncodedStrings = True
     ThreadRequest = False
     Host = 'localhost'
+    Port = 9087
     AuthenticationOptions.AuthorizationOption = rdwAONone
     RequestTimeOut = 10000
     ConnectTimeOut = 3000
@@ -2561,9 +2571,51 @@ object Form2: TForm2
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
     PoolerNotFoundMessage = 'Pooler not found'
-    SSLMode = sslmUnassigned
     SSLVersions = []
-    Left = 336
-    Top = 480
+    SSLMode = sslmUnassigned
+    Left = 456
+    Top = 408
+  end
+  object RESTDWIdDatabase1: TRESTDWIdDatabase
+    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    ContentType = 'application/x-www-form-urlencoded'
+    Charset = 'utf8'
+    ContentEncoding = 'gzip, identity'
+    Active = False
+    Compression = True
+    CriptOptions.Use = False
+    CriptOptions.Key = 'RDWBASEKEY256'
+    IgnoreEchoPooler = False
+    AuthenticationOptions.AuthorizationOption = rdwAONone
+    Proxy = False
+    ProxyOptions.Port = 8888
+    PoolerService = '127.0.0.1'
+    PoolerPort = 8082
+    PoolerName = 'TDMPrincipal.RESTDWPoolerFD'
+    StateConnection.AutoCheck = False
+    StateConnection.InTime = 1000
+    RequestTimeOut = 10000
+    ConnectTimeOut = 3000
+    EncodedStrings = True
+    Encoding = esUtf8
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = True
+    PoolerNotFoundMessage = 'Pooler not found'
+    HandleRedirects = False
+    RedirectMaximum = 0
+    ParamCreate = True
+    FailOver = False
+    FailOverConnections = <>
+    FailOverReplaceDefaults = False
+    ClientConnectionDefs.Active = False
+    UseSSL = False
+    SSLVersions = []
+    UserAgent = 
+      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
+      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
+    SSLMode = sslmUnassigned
+    Left = 456
+    Top = 352
   end
 end

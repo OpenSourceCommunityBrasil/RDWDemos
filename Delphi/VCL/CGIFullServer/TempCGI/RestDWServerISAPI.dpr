@@ -6,8 +6,9 @@ uses
   Web.WebBroker,
   Web.Win.ISAPIApp,
   Web.Win.ISAPIThreadPool,
-  dmdwcgiserver in '..\dmdwcgiserver.pas' {dwCGIService: TWebModule},
-  uDmService in '..\uDmService.pas' {ServerMethodDM: TServerMethodDataModule};
+  uRDWDataModule in '..\uRDWDataModule.pas' {RDWDataModule: TServerMethodDataModule},
+  uCGIWebModule in '..\uCGIWebModule.pas' {CGIWebModule: TWebModule},
+  uConsts in '..\uConsts.pas';
 
 {$R *.res}
 
@@ -25,6 +26,6 @@ begin
   Application.Initialize;
   Application.WebModuleClass              := Nil;
   TISAPIApplication(Application).OnTerminate := TerminateThreads;
-  Application.CreateForm(TdwCGIService, dwCGIService);
+  Application.CreateForm(TCGIWebModule, CGIWebModule);
   Application.Run;
 end.

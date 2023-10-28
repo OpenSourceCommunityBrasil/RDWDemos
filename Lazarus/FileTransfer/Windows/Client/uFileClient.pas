@@ -5,10 +5,11 @@ unit uFileClient;
 interface
 
 uses
-  SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls,
-  ExtCtrls, ComCtrls,
-  uRESTDWParams, uRESTDWConsts, uRESTDWDataUtils, uRESTDWServerEvents,
-  uRESTDWBasic, uRESTDWIdBase;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
+  uRESTDWParams, uRESTDWJSONObject, uRESTDWConsts, ComCtrls,
+  uRESTDWDataUtils, uRESTDWServerEvents, uRESTDWAbout, uRESTDWBasic, uRESTDWIdBase,
+  uRESTDWComponentBase, uRESTDWComponentEvents;
 
 type
 
@@ -27,29 +28,32 @@ type
     edPasswordDW: TEdit;
     edUserNameDW: TEdit;
     Label1: TLabel;
-    bListar: TButton;
+    Button1: TButton;
     Bevel2: TBevel;
     lbLocalFiles: TListBox;
-    bDownload: TButton;
-    bUpload: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    OpenDialog1: TOpenDialog;
     cmb_tmp: TComboBox;
     Label2: TLabel;
     ProgressBar1: TProgressBar;
     DWClientEvents1: TRESTDWClientEvents;
     RESTClientPooler1: TRESTDWIdClientPooler;
-    procedure bListarClick(Sender: TObject);
-    procedure bDownloadClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure bUploadClick(Sender: TObject);
-    procedure RESTClientPooler1Work(ASender: TObject; AWorkCount: int64);
+    procedure Button3Click(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure RESTClientPooler1BeforeExecute(ASender: TObject);
+    procedure RESTClientPooler1Work(ASender: TObject; AWorkCount: Int64);
     procedure RESTClientPooler1WorkEnd(ASender: TObject);
-    procedure RESTClientPooler1WorkBegin(ASender: TObject; AWorkCount: int64);
+    procedure RESTClientPooler1WorkBegin(ASender: TObject; AWorkCount: Int64);
   private
     { Private declarations }
-    FBytesToTransfer: int64;
+   FBytesToTransfer : Int64;
   public
     { Public declarations }
-    LocalDirName: string;
+   DirName : String;
   end;
 
 var
@@ -59,157 +63,156 @@ implementation
 
 {$R *.lfm}
 
-procedure TForm4.bListarClick(Sender: TObject);
-var
-  dwParams: TRESTDWParams;
-  vErrorMessage: string;
-  vFileList: TStringStream;
-begin
-  lbLocalFiles.Clear;
-  RESTClientPooler1.Host := eHost.Text;
-  RESTClientPooler1.Port := StrToInt(ePort.Text);
-  RESTClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
-  TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username :=
-    edUserNameDW.Text;
-  TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password :=
-    edPasswordDW.Text;
-  try
-    try
-      DWClientEvents1.CreateDWParams('FileList', dwParams);
-      DWClientEvents1.SendEvent('FileList', dwParams, vErrorMessage);
-      if vErrorMessage = '' then
-      begin
-        if not dwParams.ItemsString['result'].isNull then
-        begin
-          vFileList := TStringStream.Create('');
-          try
-            dwParams.ItemsString['result'].SaveToStream(vFileList);
-            lbLocalFiles.Items.Text := vFileList.DataString;
-          finally
-            vFileList.Free;
-          end;
-        end;
-      end
-      else
-        ShowMessage(vErrorMessage);
-    except
-    end;
-  finally
-    FreeAndNil(dwParams);
-  end;
+procedure TForm4.Button1Click(Sender: TObject);
+Var
+ dwParams      : TRESTDWParams;
+ vErrorMessage : String;
+ vFileList     : TStringStream;
+Begin
+ lbLocalFiles.Clear;
+ RESTClientPooler1.Host     := eHost.Text;
+ RESTClientPooler1.Port     := StrToInt(ePort.Text);
+ RESTClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
+ TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
+ TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
+ Try
+  Try
+   DWClientEvents1.CreateDWParams('FileList', dwParams);
+   DWClientEvents1.SendEvent('FileList', dwParams, vErrorMessage);
+   If vErrorMessage = '' Then
+    Begin
+     If Not dwParams.ItemsString['result'].isNull Then
+      Begin
+       vFileList := TStringStream.Create('');
+       Try
+        dwParams.ItemsString['result'].SaveToStream(vFileList);
+        lbLocalFiles.Items.Text := vFileList.DataString;
+       Finally
+        vFileList.Free;
+       End;
+      End;
+    End
+   Else
+    Showmessage(vErrorMessage);
+  Except
+  End;
+ Finally
+  FreeAndNil(dwParams);
+ End;
+End;
+
+procedure TForm4.Button2Click(Sender: TObject);
+Var
+ DWParams     : TRESTDWParams;
+ vErrorMessage : String;
+ StringStream : TStringStream;
+Begin
+ If lbLocalFiles.ItemIndex > -1 Then
+  Begin
+   RESTClientPooler1.Host     := eHost.Text;
+   RESTClientPooler1.Port     := StrToInt(ePort.Text);
+   RESTClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
+   TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
+   TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
+   DWClientEvents1.CreateDWParams('DownloadFile', dwParams);
+   dwParams.ItemsString['Arquivo'].AsString := lbLocalFiles.Items[lbLocalFiles.ItemIndex];
+   Try
+    Try
+     RESTClientPooler1.Host := eHost.Text;
+     RESTClientPooler1.Port := StrToInt(ePort.Text);
+     DWClientEvents1.SendEvent('DownloadFile', dwParams, vErrorMessage);
+     If vErrorMessage = '' Then
+      Begin
+       StringStream          := TStringStream.Create('');
+       dwParams.ItemsString['result'].SaveToStream(StringStream);
+       Try
+        ForceDirectories(ExtractFilePath(DirName + lbLocalFiles.Items[lbLocalFiles.ItemIndex]));
+        If FileExists(DirName + lbLocalFiles.Items[lbLocalFiles.ItemIndex]) Then
+         DeleteFile(DirName + lbLocalFiles.Items[lbLocalFiles.ItemIndex]);
+        StringStream.SaveToFile(DirName + lbLocalFiles.Items[lbLocalFiles.ItemIndex]);
+        StringStream.SetSize(0);
+        Showmessage('Download concluído...');
+       Finally
+        FreeAndNil(StringStream);
+       End;
+      End;
+    Except
+    End;
+   Finally
+    FreeAndNil(DWParams);
+   End;
+  End
+ Else
+  Showmessage('Escolha um arquivo para Download...');
+End;
+
+procedure TForm4.Button3Click(Sender: TObject);
+Var
+ DWParams      : TRESTDWParams;
+ vErrorMessage : String;
+ MemoryStream  : TStringStream;
+Begin
+ RESTClientPooler1.RequestTimeOut:= StrToInt(Copy(cmb_tmp.Text, 1,1)) * 60000;
+ RESTClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
+ TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
+ TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
+ If OpenDialog1.Execute Then
+  Begin
+   DWClientEvents1.CreateDWParams('SendReplicationFile', dwParams);
+   dwParams.ItemsString['Arquivo'].AsString := OpenDialog1.FileName;
+   MemoryStream                 := TStringStream.Create(OpenDialog1.FileName, fmOpenRead);
+   dwParams.ItemsString['FileSend'].LoadFromStream(MemoryStream);
+   MemoryStream.Free;
+   DWClientEvents1.SendEvent('SendReplicationFile', DWParams, vErrorMessage);
+   If vErrorMessage = '' Then
+    Begin
+      Try
+       If DWParams.ItemsString['Result'].AsBoolean Then
+        Showmessage('Upload concluído...');
+      Finally
+      End;
+    End;
+   DWParams.Free;
+  End;
 end;
 
-procedure TForm4.bDownloadClick(Sender: TObject);
-var
-  DWParams: TRESTDWParams;
-  vErrorMessage, RemoteFilePath: string;
-  //arquivo: TFileStream;
-  //StringStream : TStringStream;
+procedure TForm4.Image1Click(Sender: TObject);
 begin
-  if lbLocalFiles.ItemIndex > -1 then
-  begin
-    RESTClientPooler1.Host := eHost.Text;
-    RESTClientPooler1.Port := StrToInt(ePort.Text);
-    RESTClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
-    TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username
-    :=
-      edUserNameDW.Text;
-    TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password
-    :=
-      edPasswordDW.Text;
-    DWClientEvents1.CreateDWParams('DownloadFile', dwParams);
-    RemoteFilePath := lbLocalFiles.GetSelectedText;
-    dwParams.ItemsString['Arquivo'].AsString := RemoteFilePath;
-    try
-      try
-        DWClientEvents1.SendEvent('DownloadFile', dwParams, vErrorMessage);
-        if vErrorMessage = '' then
-        begin
-          try
-            ForceDirectories(ExtractFileDir(LocalDirName + RemoteFilePath));
-            if FileExists(LocalDirName + RemoteFilePath) then
-              DeleteFile(LocalDirName + RemoteFilePath);
-            dwParams.ItemsString['result'].SaveToFile(LocalDirName + RemoteFilePath);
 
-            ShowMessage('Download concluído...');
-          finally
-
-          end;
-        end;
-      except
-      end;
-    finally
-      FreeAndNil(DWParams);
-    end;
-  end
-  else
-    ShowMessage('Escolha um arquivo para Download...');
 end;
 
-procedure TForm4.bUploadClick(Sender: TObject);
-var
-  DWParams: TRESTDWParams;
-  vErrorMessage: string;
-  MemoryStream: TStringStream;
-  OpenDialog: TOpenDialog;
+procedure TForm4.RESTClientPooler1BeforeExecute(ASender: TObject);
 begin
-  RESTClientPooler1.RequestTimeOut := StrToInt(Copy(cmb_tmp.Text, 1, 1)) * 60000;
-  RESTClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
-  TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username :=
-    edUserNameDW.Text;
-  TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password :=
-    edPasswordDW.Text;
-  OpenDialog := TOpenDialog.Create(nil);
-  try
-    if OpenDialog.Execute then
-    begin
-      DWClientEvents1.CreateDWParams('SendReplicationFile', dwParams);
-      dwParams.ItemsString['Arquivo'].AsString := OpenDialog.FileName;
-      MemoryStream := TStringStream.Create;
-      MemoryStream.LoadFromFile(OpenDialog.FileName);
-      dwParams.ItemsString['FileSend'].LoadFromStream(MemoryStream);
-      MemoryStream.Free;
-      DWClientEvents1.SendEvent('SendReplicationFile', DWParams, vErrorMessage);
-      if vErrorMessage = '' then
-      begin
-        try
-          if DWParams.ItemsString['Result'].AsBoolean then
-            ShowMessage('Upload concluído...');
-        finally
-        end;
-      end;
-      DWParams.Free;
-    end;
-  finally
-    OpenDialog.Free;
-  end;
+
 end;
 
 procedure TForm4.FormCreate(Sender: TObject);
 begin
-  LocalDirName := IncludeTrailingPathDelimiter(ExtractFileDir(ParamStr(0)) +
-    '\localfiles');
-  ForceDirectories(LocalDirName);
+ DirName  := IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName)) +
+             IncludeTrailingPathDelimiter('filelist');
+ If Not DirectoryExists(DirName) Then
+  ForceDirectories(DirName);
 end;
 
-procedure TForm4.RESTClientPooler1Work(ASender: TObject; AWorkCount: int64);
+procedure TForm4.RESTClientPooler1Work(ASender: TObject; AWorkCount: Int64);
 begin
-  if FBytesToTransfer = 0 then // No Update File
-    Exit;
+  If FBytesToTransfer = 0 Then // No Update File
+   Exit;
   ProgressBar1.Position := AWorkCount;
 end;
 
-procedure TForm4.RESTClientPooler1WorkBegin(ASender: TObject; AWorkCount: int64);
+procedure TForm4.RESTClientPooler1WorkBegin(ASender: TObject;
+  AWorkCount: Int64);
 begin
-  FBytesToTransfer := AWorkCount;
-  ProgressBar1.Max := FBytesToTransfer;
-  ProgressBar1.Position := 0;
+ FBytesToTransfer := AWorkCount;
+ ProgressBar1.Max := FBytesToTransfer;
+ ProgressBar1.Position := 0;
 end;
 
 procedure TForm4.RESTClientPooler1WorkEnd(ASender: TObject);
 begin
-  ProgressBar1.Position := FBytesToTransfer;
-  FBytesToTransfer := 0;
+ ProgressBar1.Position := FBytesToTransfer;
+ FBytesToTransfer      := 0;
 end;
 
 end.

@@ -44,8 +44,6 @@ Type
     dwcrIndex: TRESTDWContextRules;
     dwcrLogin: TRESTDWContextRules;
     rOpenSecrets: TRESTDWClientSQL;
-    SrvCtxPix: TRESTDWServerContext;
-    CtxrlPix: TRESTDWContextRules;
     Procedure ServerMethodDataModuleCreate(Sender: TObject);
     Procedure Server_FDConnectionBeforeConnect(Sender: TObject);
     procedure dwcrIndexItemsdatatableRequestExecute(const Params: TRESTDWParams;
@@ -92,10 +90,6 @@ Type
     procedure dwcrIndexBeforeRenderer(aSelf: TComponent;
       const Params: TRESTDWParams);
     procedure dwsCrudServerBeforeRenderer(aSelf: TComponent;
-      const Params: TRESTDWParams);
-    procedure SrvCtxPixBeforeRenderer(aSelf: TComponent;
-      const Params: TRESTDWParams);
-    procedure CtxrlPixBeforeRenderer(aSelf: TComponent;
       const Params: TRESTDWParams);
   Private
     { Private declarations }
@@ -145,13 +139,6 @@ Begin
     Result := Copy(Value, 1, Length(Value)) + '/' + Result;
   End;
 End;
-
-procedure TDMWebPascal.CtxrlPixBeforeRenderer(aSelf: TComponent;
-  const Params: TRESTDWParams);
-begin
-  TRESTDWContextRules(aSelf).MasterHtml.LoadFromFile
-    ('.\www\templates\pix\criarpix.html');
-end;
 
 procedure TDMWebPascal.dwcrIndexBeforeRenderer(aSelf: TComponent;
   const Params: TRESTDWParams);
@@ -663,14 +650,5 @@ Begin
   TFDConnection(Sender).LoginPrompt := False;
   TFDConnection(Sender).UpdateOptions.CountUpdatedRecords := False;
 End;
-
-procedure TDMWebPascal.SrvCtxPixBeforeRenderer(aSelf: TComponent;
-  const Params: TRESTDWParams);
-begin
-  TRESTDWServerContext(aSelf).BaseHeader.LoadFromFile
-    ('.\www\templates\master.html');
-  TRESTDWServerContext(aSelf).BaseHeader.Text :=
-    UTF8ToString(TRESTDWServerContext(aSelf).BaseHeader.Text);
-end;
 
 End.

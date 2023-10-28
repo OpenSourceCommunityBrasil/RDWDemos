@@ -2,16 +2,16 @@
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
-    <Version Value="12"/>
+    <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="8">
+    <Units Count="4">
       <Unit0>
         <Filename Value="FileServer.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <CursorPos X="21" Y="16"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="10"/>
+        <UsageCount Value="21"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
         <Filename Value="uPrincipal.pas"/>
@@ -19,12 +19,11 @@
         <ComponentName Value="fServer"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="4"/>
-        <CursorPos X="36" Y="17"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="109"/>
+        <CursorPos X="3" Y="135"/>
+        <UsageCount Value="21"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
         <Filename Value="uDMFileServer.pas"/>
@@ -32,12 +31,10 @@
         <ComponentName Value="dmFileServer"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="5"/>
-        <CursorPos X="27" Y="19"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="11"/>
+        <UsageCount Value="21"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
@@ -46,67 +43,14 @@
         <CursorPos X="5" Y="3"/>
         <UsageCount Value="10"/>
       </Unit3>
-      <Unit4>
-        <Filename Value="..\..\..\..\..\..\rdwmerge\CORE\Source\Basic\Dialogs\uRESTDWAbout.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="10" Y="3"/>
-        <UsageCount Value="10"/>
-      </Unit4>
-      <Unit5>
-        <Filename Value="..\..\..\..\..\..\rdwmerge\CORE\Source\Basic\uRESTDWBasicTypes.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="29"/>
-        <CursorPos X="6" Y="40"/>
-        <UsageCount Value="10"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="..\..\..\..\..\..\rdwgithubGIT\CORE\Source\Plugins\Memdataset\uRESTDWCustom.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="30"/>
-        <CursorPos X="36" Y="43"/>
-        <UsageCount Value="10"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="..\..\..\..\..\..\rdwgithubGIT\CORE\Source\Plugins\JSONViewer\uRESTDWJSONViewer.pas"/>
-        <HasResources Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="15" Y="18"/>
-        <UsageCount Value="10"/>
-      </Unit7>
     </Units>
-    <JumpHistory Count="7" HistoryIndex="6">
-      <Position1>
-        <Filename Value="FileServer.lpr"/>
-        <Caret Line="20"/>
-      </Position1>
-      <Position2>
-        <Filename Value="uDMFileServer.pas"/>
-        <Caret Line="78" Column="40" TopLine="67"/>
-      </Position2>
-      <Position3>
-        <Filename Value="uDMFileServer.pas"/>
-        <Caret Line="8" Column="49"/>
-      </Position3>
-      <Position4>
-        <Filename Value="uDMFileServer.pas"/>
-        <Caret Line="9" Column="41"/>
-      </Position4>
-      <Position5>
-        <Filename Value="uDMFileServer.pas"/>
-        <Caret Line="130" Column="23" TopLine="117"/>
-      </Position5>
-      <Position6>
-        <Filename Value="uDMFileServer.pas"/>
-        <Caret Line="48" Column="15" TopLine="36"/>
-      </Position6>
-      <Position7>
-        <Filename Value="uDMFileServer.pas"/>
-        <Caret Line="19" Column="27" TopLine="5"/>
-      </Position7>
-    </JumpHistory>
+    <General>
+      <ActiveWindowIndexAtStart Value="-1"/>
+    </General>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes ActiveMode=""/>
+      <Modes Count="0" ActiveMode=""/>
     </RunParams>
   </ProjectSession>
 </CONFIG>

@@ -11,7 +11,7 @@ USES
   DB, ZAbstractRODataset,
   ZAbstractDataset, ZDataset, ZAbstractConnection, ZConnection,
   uRESTDWDriverZEOS, uRESTDWBasic, uRESTDWAbout, uRESTDWBasicDB,
-  uRESTDWServerEvents, uRESTDWServerContext;
+  uRESTDWServerEvents, uRESTDWServerContext, uRESTDWComponentBase;
 
 Const
  WelcomeSample = False;

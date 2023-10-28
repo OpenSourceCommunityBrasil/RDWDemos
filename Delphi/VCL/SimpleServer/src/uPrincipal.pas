@@ -3,21 +3,15 @@ unit uPrincipal;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages,
-  System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXCtrls,
-  Vcl.StdCtrls,
-
-  uRESTDWAbout, uRESTDWBasic, uRESTDWComponentBase, uRESTDWIdBase,
-  uRESTDWConsts
-
-    ;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uRESTDWAbout, uRESTDWBasic,
+  uRESTDWIdBase, Vcl.WinXCtrls, uRESTDWComponentBase;
 
 type
   TForm1 = class(TForm)
     ToggleSwitch1: TToggleSwitch;
-    Label1: TLabel;
-    Pooler: TRESTDWIdServicePooler;
+    RESTDWIdServicePooler1: TRESTDWIdServicePooler;
     procedure FormCreate(Sender: TObject);
     procedure ToggleSwitch1Click(Sender: TObject);
   private
@@ -38,17 +32,12 @@ uses
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Pooler.ServerMethodClass := TDM;
-  self.Caption := 'Test Server: ' + RESTDWVersao;
+  RESTDWIdServicePooler1.ServerMethodClass := TDM;
 end;
 
 procedure TForm1.ToggleSwitch1Click(Sender: TObject);
 begin
-  Pooler.Active := ToggleSwitch1.State = tssOn;
-  if Pooler.Active then
-    Label1.Caption := 'https://localhost:' + Pooler.ServicePort.ToString
-  else
-    Label1.Caption := 'label1';
+  RESTDWIdServicePooler1.Active := ToggleSwitch1.State = tssOn;
 end;
 
 end.

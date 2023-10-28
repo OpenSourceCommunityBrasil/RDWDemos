@@ -10,7 +10,7 @@ uses
   SOAPHTTPDisp, WebBrokerSOAP, Soap.InvokeRegistry, Soap.WSDLIntf,
   System.TypInfo, Soap.WebServExp, Soap.WSDLBind, Xml.XMLSchema,
   uRDWDataModule, uRESTDWAbout, uRESTDWBasic,
-  uRESTDWShellServices, uRESTDWComponentBase;
+  uRESTDWShellServicesDelphi, uRESTDWComponentBase;
 
 type
   TCGIWebModule = class(TWebModule)

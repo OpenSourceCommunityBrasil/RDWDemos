@@ -3,18 +3,20 @@ object fPrincipal: TfPrincipal
   Top = 153
   Caption = 'RESTDataWare - Full Client'
   ClientHeight = 600
-  ClientWidth = 873
+  ClientWidth = 876
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poDesktopCenter
   OnCreate = FormCreate
   DesignSize = (
-    873
+    876
     600)
+  PixelsPerInch = 96
   TextHeight = 13
   object labHost: TLabel
     Left = 8
@@ -47,15 +49,10 @@ object fPrincipal: TfPrincipal
     ParentFont = False
   end
   object labResult: TLabel
-    AlignWithMargins = True
-    Left = 4
-    Top = 383
-    Width = 865
+    Left = 0
+    Top = 394
+    Width = 876
     Height = 23
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 0
     Align = alBottom
     AutoSize = False
     Caption = ' .: QUERY RESULT'
@@ -69,8 +66,7 @@ object fPrincipal: TfPrincipal
     ParentFont = False
     Transparent = False
     Layout = tlCenter
-    ExplicitTop = 360
-    ExplicitWidth = 776
+    ExplicitWidth = 890
   end
   object labAcesso: TLabel
     Left = 8
@@ -118,12 +114,10 @@ object fPrincipal: TfPrincipal
     ParentFont = False
   end
   object labSql: TLabel
-    AlignWithMargins = True
     Left = 4
     Top = 205
     Width = 377
     Height = 23
-    Margins.Bottom = 0
     AutoSize = False
     Caption = ' .: SQL QUERY'
     Color = clGrayText
@@ -138,12 +132,10 @@ object fPrincipal: TfPrincipal
     Layout = tlCenter
   end
   object labRepsonse: TLabel
-    AlignWithMargins = True
     Left = 384
     Top = 205
     Width = 485
     Height = 23
-    Margins.Bottom = 0
     AutoSize = False
     Caption = ' .: SERVER RESPONSE'
     Color = clGrayText
@@ -158,14 +150,10 @@ object fPrincipal: TfPrincipal
     Layout = tlCenter
   end
   object labConexao: TLabel
-    AlignWithMargins = True
-    Left = 4
-    Top = 65
-    Width = 865
+    Left = 0
+    Top = 58
+    Width = 876
     Height = 23
-    Margins.Left = 4
-    Margins.Right = 4
-    Margins.Bottom = 0
     Align = alTop
     AutoSize = False
     Caption = ' .: SERVER CONFIGURATION'
@@ -179,19 +167,13 @@ object fPrincipal: TfPrincipal
     ParentFont = False
     Transparent = False
     Layout = tlCenter
-    ExplicitLeft = 3
-    ExplicitWidth = 777
+    ExplicitWidth = 890
   end
   object labVersao: TLabel
-    AlignWithMargins = True
     Left = 450
-    Top = 65
+    Top = 58
     Width = 319
     Height = 23
-    Margins.Left = 4
-    Margins.Top = 1
-    Margins.Right = 4
-    Margins.Bottom = 0
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Vers'#227'o'
@@ -246,11 +228,11 @@ object fPrincipal: TfPrincipal
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    Text = '127.0.0.1'
+    Text = 'localhost'
   end
   object ePort: TEdit
-    Left = 147
-    Top = 119
+    Left = 149
+    Top = 117
     Width = 40
     Height = 25
     Font.Charset = DEFAULT_CHARSET
@@ -262,38 +244,9 @@ object fPrincipal: TfPrincipal
     TabOrder = 1
     Text = '8082'
   end
-  object DBGrid1: TDBGrid
-    AlignWithMargins = True
-    Left = 4
-    Top = 410
-    Width = 865
-    Height = 163
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
-    Align = alBottom
-    BorderStyle = bsNone
-    Color = clInfoBk
-    DataSource = DataSource1
-    DrawingStyle = gdsGradient
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgConfirmDelete, dgTitleClick, dgTitleHotTrack]
-    ParentFont = False
-    TabOrder = 2
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -13
-    TitleFont.Name = 'Calibri'
-    TitleFont.Style = [fsBold]
-  end
   object mComando: TMemo
-    Left = 4
-    Top = 231
+    Left = 8
+    Top = 227
     Width = 241
     Height = 72
     Font.Charset = DEFAULT_CHARSET
@@ -302,12 +255,13 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     Lines.Strings = (
-      'select * from employee')
+      'select first 1 TOTAL_VALUE, discount '
+      ' from sales')
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 2
   end
   object btnOpen: TButton
-    Left = 4
+    Left = 8
     Top = 305
     Width = 120
     Height = 26
@@ -318,7 +272,7 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 3
     OnClick = btnOpenClick
   end
   object cbxCompressao: TCheckBox
@@ -335,10 +289,10 @@ object fPrincipal: TfPrincipal
     Font.Style = [fsBold]
     ParentFont = False
     State = cbChecked
-    TabOrder = 5
+    TabOrder = 4
   end
   object btnExecute: TButton
-    Left = 4
+    Left = 8
     Top = 333
     Width = 120
     Height = 26
@@ -349,7 +303,7 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 5
     OnClick = btnExecuteClick
   end
   object ProgressBar1: TProgressBar
@@ -357,7 +311,7 @@ object fPrincipal: TfPrincipal
     Top = 362
     Width = 367
     Height = 17
-    TabOrder = 7
+    TabOrder = 6
   end
   object btnGet: TButton
     Left = 127
@@ -371,16 +325,14 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 7
     OnClick = btnGetClick
   end
   object StatusBar1: TStatusBar
-    AlignWithMargins = True
-    Left = 3
-    Top = 577
-    Width = 867
+    Left = 0
+    Top = 580
+    Width = 876
     Height = 20
-    Margins.Top = 0
     Color = clGray
     Panels = <
       item
@@ -391,7 +343,7 @@ object fPrincipal: TfPrincipal
   object Memo1: TMemo
     Left = 384
     Top = 231
-    Width = 485
+    Width = 484
     Height = 148
     Anchors = [akLeft, akTop, akRight]
     Color = clInfoBk
@@ -403,7 +355,7 @@ object fPrincipal: TfPrincipal
     Lines.Strings = (
       'Memo1')
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 9
   end
   object btnApply: TButton
     Left = 127
@@ -417,7 +369,7 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 11
+    TabOrder = 10
     OnClick = btnApplyClick
   end
   object chkhttps: TCheckBox
@@ -432,7 +384,7 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 12
+    TabOrder = 11
   end
   object btnMassive: TButton
     Left = 251
@@ -446,7 +398,7 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 13
+    TabOrder = 12
     OnClick = btnMassiveClick
   end
   object btnServerTime: TButton
@@ -461,7 +413,7 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 14
+    TabOrder = 13
     OnClick = btnServerTimeClick
   end
   object eAccesstag: TEdit
@@ -476,7 +428,7 @@ object fPrincipal: TfPrincipal
     Font.Style = [fsBold]
     ParentFont = False
     PasswordChar = '*'
-    TabOrder = 15
+    TabOrder = 14
     Text = 'Eloconta2013'
   end
   object eWelcomemessage: TEdit
@@ -490,36 +442,26 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 16
+    TabOrder = 15
   end
   object paTopo: TPanel
-    AlignWithMargins = True
-    Left = 4
-    Top = 4
-    Width = 865
+    Left = 0
+    Top = 0
+    Width = 876
     Height = 58
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 0
     Align = alTop
     BevelOuter = bvNone
     Color = 2763306
     ParentBackground = False
-    TabOrder = 17
+    TabOrder = 16
     DesignSize = (
-      865
+      876
       58)
     object Image1: TImage
-      AlignWithMargins = True
-      Left = 4
-      Top = 4
+      Left = 0
+      Top = 0
       Width = 239
-      Height = 50
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
+      Height = 58
       Align = alLeft
       Center = True
       Picture.Data = {
@@ -904,12 +846,10 @@ object fPrincipal: TfPrincipal
       Transparent = True
     end
     object labSistema: TLabel
-      AlignWithMargins = True
       Left = 170
       Top = 4
       Width = 52
       Height = 13
-      Margins.Right = 10
       Alignment = taCenter
       Caption = 'C L I E N T'
       Color = 4227327
@@ -924,7 +864,7 @@ object fPrincipal: TfPrincipal
       Layout = tlCenter
     end
     object paPortugues: TPanel
-      Left = 659
+      Left = 645
       Top = 10
       Width = 59
       Height = 37
@@ -933,19 +873,13 @@ object fPrincipal: TfPrincipal
       Caption = 'paPortugues'
       Color = clWhite
       ParentBackground = False
-      ShowCaption = False
       TabOrder = 0
       object Image3: TImage
-        AlignWithMargins = True
-        Left = 2
-        Top = 2
-        Width = 55
-        Height = 33
+        Left = 0
+        Top = 0
+        Width = 59
+        Height = 37
         Cursor = crHandPoint
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
         Align = alClient
         AutoSize = True
         Center = True
@@ -1307,12 +1241,12 @@ object fPrincipal: TfPrincipal
           571E833261F434752B4E55D542F8FA9FF55BFE2270F548E6FF00FFD9}
         Transparent = True
         OnClick = Image3Click
-        ExplicitLeft = 125
-        ExplicitTop = 5
+        ExplicitWidth = 55
+        ExplicitHeight = 33
       end
     end
     object paEspanhol: TPanel
-      Left = 727
+      Left = 713
       Top = 10
       Width = 59
       Height = 37
@@ -1321,19 +1255,13 @@ object fPrincipal: TfPrincipal
       Caption = 'paPortugues'
       Color = 2763306
       ParentBackground = False
-      ShowCaption = False
       TabOrder = 1
       object Image4: TImage
-        AlignWithMargins = True
-        Left = 2
-        Top = 2
+        Left = 4
+        Top = 0
         Width = 55
-        Height = 33
+        Height = 37
         Cursor = crHandPoint
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
         Align = alRight
         AutoSize = True
         Center = True
@@ -1654,12 +1582,11 @@ object fPrincipal: TfPrincipal
           3C9BC09762AEC55D8ABB1570FE0708E6893FFFD9}
         Transparent = True
         OnClick = Image4Click
-        ExplicitLeft = 6
-        ExplicitTop = 6
+        ExplicitHeight = 33
       end
     end
     object paIngles: TPanel
-      Left = 795
+      Left = 781
       Top = 10
       Width = 59
       Height = 37
@@ -1668,19 +1595,13 @@ object fPrincipal: TfPrincipal
       Caption = 'paPortugues'
       Color = 2763306
       ParentBackground = False
-      ShowCaption = False
       TabOrder = 2
       object Image2: TImage
-        AlignWithMargins = True
-        Left = 2
-        Top = 2
+        Left = 4
+        Top = 0
         Width = 55
-        Height = 33
+        Height = 37
         Cursor = crHandPoint
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
         Align = alRight
         AutoSize = True
         Center = True
@@ -2065,8 +1986,7 @@ object fPrincipal: TfPrincipal
           58D0FF00C6D65F8BF7076E7FCE17A7F7C3EF0FFFD9}
         Transparent = True
         OnClick = Image2Click
-        ExplicitLeft = 6
-        ExplicitTop = 6
+        ExplicitHeight = 33
       end
     end
   end
@@ -2082,7 +2002,7 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 18
+    TabOrder = 17
     OnClick = Button1Click
   end
   object cbBinaryRequest: TCheckBox
@@ -2099,7 +2019,7 @@ object fPrincipal: TfPrincipal
     Font.Style = [fsBold]
     ParentFont = False
     State = cbChecked
-    TabOrder = 19
+    TabOrder = 18
   end
   object cbUseCripto: TCheckBox
     Left = 242
@@ -2113,27 +2033,13 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 20
+    TabOrder = 19
     OnClick = cbUseCriptoClick
   end
-  object cbBinaryCompatible: TCheckBox
-    Left = 350
-    Top = 165
-    Width = 120
-    Height = 19
-    Caption = 'Binary Compatible'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 21
-  end
   object eUpdateTableName: TEdit
-    Left = 251
+    Left = 254
     Top = 248
-    Width = 119
+    Width = 117
     Height = 25
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -2141,8 +2047,8 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 22
-    Text = 'EMPLOYEE'
+    TabOrder = 20
+    Text = 'PACIENTES'
   end
   object cbAuthOptions: TComboBox
     Left = 242
@@ -2151,7 +2057,7 @@ object fPrincipal: TfPrincipal
     Height = 21
     Style = csDropDownList
     ItemIndex = 0
-    TabOrder = 24
+    TabOrder = 22
     Text = 'rdwAONone'
     OnChange = cbAuthOptionsChange
     Items.Strings = (
@@ -2166,7 +2072,7 @@ object fPrincipal: TfPrincipal
     Width = 260
     Height = 113
     BevelOuter = bvNone
-    TabOrder = 25
+    TabOrder = 23
     Visible = False
     object Label2: TLabel
       Left = 10
@@ -2206,7 +2112,7 @@ object fPrincipal: TfPrincipal
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
-      Text = 'testserver'
+      Text = 'sugv20'
     end
     object edPasswordDW: TEdit
       Left = 131
@@ -2221,7 +2127,7 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       PasswordChar = '*'
       TabOrder = 1
-      Text = 'testserver'
+      Text = '1234'
     end
   end
   object pTokenAuth: TPanel
@@ -2230,7 +2136,7 @@ object fPrincipal: TfPrincipal
     Width = 390
     Height = 118
     BevelOuter = bvNone
-    TabOrder = 23
+    TabOrder = 21
     Visible = False
     object Label12: TLabel
       Left = 10
@@ -2325,10 +2231,10 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       PasswordChar = '*'
       TabOrder = 1
-      Text = '123'
+      Text = '1234'
     end
     object EdUserNameAuth: TEdit
-      Left = 11
+      Left = 12
       Top = 70
       Width = 100
       Height = 25
@@ -2339,7 +2245,7 @@ object fPrincipal: TfPrincipal
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 2
-      Text = 'rdw'
+      Text = 'sugv20'
     end
     object Button2: TButton
       Left = 292
@@ -2351,121 +2257,108 @@ object fPrincipal: TfPrincipal
       OnClick = Button2Click
     end
   end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 417
+    Width = 876
+    Height = 163
+    Align = alBottom
+    BorderStyle = bsNone
+    Color = clInfoBk
+    DataSource = DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 24
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -13
+    TitleFont.Name = 'Calibri'
+    TitleFont.Style = [fsBold]
+  end
   object DataSource1: TDataSource
     DataSet = RESTDWClientSQL1
     Left = 224
     Top = 416
   end
   object ActionList1: TActionList
-    Left = 362
-    Top = 384
-  end
-  object RESTDWClientSQL1: TRESTDWClientSQL
-    Active = False
-    Filtered = False
-    FieldDefs = <
-      item
-        Name = 'EMP_NO'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'FIRST_NAME'
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'LAST_NAME'
-        DataType = ftString
-        Size = 20
-      end
-      item
-        Name = 'PHONE_EXT'
-        DataType = ftString
-        Size = 4
-      end
-      item
-        Name = 'HIRE_DATE'
-        DataType = ftTimeStamp
-      end
-      item
-        Name = 'DEPT_NO'
-        DataType = ftString
-        Size = 3
-      end
-      item
-        Name = 'JOB_CODE'
-        DataType = ftString
-        Size = 5
-      end
-      item
-        Name = 'JOB_GRADE'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'JOB_COUNTRY'
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'SALARY'
-        DataType = ftFloat
-        Precision = 15
-      end
-      item
-        Name = 'FULL_NAME'
-        DataType = ftString
-        Size = 37
-      end
-      item
-        Name = 'TIMEC'
-        DataType = ftTime
-      end>
-    IndexDefs = <>
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvStoreItems, rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    StoreDefs = True
-    BinaryCompatibleMode = False
-    SequenceName = 'EMP_NO_GEN'
-    SequenceField = 'EMP_NO'
-    OnWriterProcess = RESTDWClientSQL1WriterProcess
-    MasterCascadeDelete = False
-    BinaryRequest = False
-    Datapacks = -1
-    DataCache = False
-    MassiveType = mtMassiveObject
-    Params = <>
-    DataBase = RESTDWIdDatabase1
-    SQL.Strings = (
-      'select * From employee')
-    UpdateTableName = 'EMPLOYEE'
-    CacheUpdateRecords = True
-    AutoCommitData = False
-    AutoRefreshAfterCommit = False
-    ThreadRequest = False
-    RaiseErrors = True
-    ReflectChanges = True
-    Left = 459
-    Top = 312
+    Left = 154
+    Top = 328
   end
   object RESTDWClientEvents1: TRESTDWClientEvents
-    ServerEventName = 'TServerMethodDM.RESTDWServerEvents'
+    ServerEventName = 'TDMPrincipal.RESTDWServerEvents'
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
     RESTClientPooler = RESTDWIdClientPooler1
     Events = <
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
+        Params = <
+          item
+            TypeObject = toParam
+            ObjectDirection = odIN
+            ObjectValue = ovString
+            ParamName = 'temp'
+            Encoded = True
+          end
+          item
+            TypeObject = toParam
+            ObjectDirection = odIN
+            ObjectValue = ovString
+            ParamName = '0'
+            Encoded = True
+          end
+          item
+            TypeObject = toParam
+            ObjectDirection = odIN
+            ObjectValue = ovString
+            ParamName = '1'
+            Encoded = True
+          end>
+        DataMode = dmDataware
+        Name = 'helloworld'
+        EventName = 'helloworld'
+        BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+      end
+      item
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
             ObjectDirection = odOUT
-            ObjectValue = ovString
+            ObjectValue = ovDateTime
             ParamName = 'result'
             Encoded = True
           end>
@@ -2477,13 +2370,17 @@ object fPrincipal: TfPrincipal
         CallbackEvent = False
         OnlyPreDefinedParams = False
       end>
-    Left = 664
-    Top = 296
+    Left = 544
+    Top = 312
   end
   object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
+    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
     AcceptEncoding = 'gzip2, deflate, br'
+    ContentEncoding = 'gzip, identity'
+    ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
+    DataRoute = '/cgi-bin/dwcgiserver.exe/'
     Encoding = esUtf8
     EncodedStrings = True
     ThreadRequest = False
@@ -2506,30 +2403,31 @@ object fPrincipal: TfPrincipal
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
     PoolerNotFoundMessage = 'Pooler not found'
-    SSLMode = sslmUnassigned
     SSLVersions = []
-    Left = 664
-    Top = 240
+    SSLMode = sslmUnassigned
+    Left = 624
+    Top = 376
   end
   object RESTDWIdDatabase1: TRESTDWIdDatabase
     Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-    AcceptEncoding = 'gzip2, deflate, br'
-    ContentType = 'application/json'
+    ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
-    ContentEncoding = 'multipart/form-data'
+    ContentEncoding = 'gzip, identity'
     Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    DataRoute = '/'
+    IgnoreEchoPooler = False
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False
     ProxyOptions.Port = 8888
-    PoolerService = '127.0.0.1'
+    PoolerService = 'localhost'
     PoolerPort = 8082
     PoolerName = 'TDMPrincipal.RESTDWPoolerFD'
     StateConnection.AutoCheck = False
     StateConnection.InTime = 1000
-    RequestTimeOut = 10000
+    RequestTimeOut = 60000
     ConnectTimeOut = 3000
     EncodedStrings = True
     Encoding = esUtf8
@@ -2544,12 +2442,109 @@ object fPrincipal: TfPrincipal
     FailOverConnections = <>
     FailOverReplaceDefaults = False
     ClientConnectionDefs.Active = False
+    UseSSL = False
+    SSLVersions = []
     UserAgent = 
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
     SSLMode = sslmUnassigned
-    SSLVersions = []
     Left = 456
     Top = 256
+  end
+  object RESTDWClientSQL1: TRESTDWClientSQL
+    FieldDefs = <
+      item
+        Name = 'ID_PAC'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'NM_PAC'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'END_PAC'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'DTNASC_PAC'
+        DataType = ftDate
+      end
+      item
+        Name = 'DUM'
+        DataType = ftDate
+      end
+      item
+        Name = 'VALID_CART'
+        DataType = ftDate
+      end
+      item
+        Name = 'DT_CADASTRO_PAC'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'DT_ALTERACAO'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'DT_ALTA'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'DT_OBITO'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'VALID_CART_EPS'
+        DataType = ftDate
+      end
+      item
+        Name = 'PESO_PAC'
+        DataType = ftSingle
+      end
+      item
+        Name = 'ALTURA_PAC'
+        DataType = ftSingle
+      end>
+    SortOrder = soAsc
+    SortCaseSens = scYes
+    SortFields = ''
+    AutoSortOnOpen = True
+    AutoRefreshOnFilterChanged = True
+    SequenceName = 'GEN_PACIENTES'
+    SequenceField = 'ID_PAC'
+    MasterCascadeDelete = True
+    BinaryRequest = True
+    Datapacks = -1
+    DataCache = False
+    MassiveType = mtMassiveCache
+    Params = <>
+    DataBase = RESTDWIdDatabase1
+    SQL.Strings = (
+      'select first 10000'
+      'ID_PAC, NM_PAC, END_PAC, '
+      'DTNASC_PAC, PESO_PAC, '
+      'ALTURA_PAC, DUM, VALID_CART, '
+      'DT_CADASTRO_PAC, '
+      'DT_ALTERACAO, DT_ALTA,'
+      'DT_OBITO, VALID_CART_EPS from '
+      'pacientes')
+    UpdateTableName = 'EMPLOYEE'
+    CacheUpdateRecords = True
+    AutoCommitData = True
+    AutoRefreshAfterCommit = False
+    ThreadRequest = False
+    RaiseErrors = True
+    ReflectChanges = True
+    Left = 320
+    Top = 424
+  end
+  object RESTDWMassiveCache1: TRESTDWMassiveCache
+    MassiveType = mtMassiveCache
+    Left = 448
+    Top = 328
   end
 end

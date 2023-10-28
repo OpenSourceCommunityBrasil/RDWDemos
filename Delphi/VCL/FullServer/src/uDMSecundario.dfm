@@ -1,14 +1,12 @@
 object DMSecundario: TDMSecundario
+  OldCreateOrder = True
   OnCreate = ServerMethodDataModuleCreate
   Encoding = esUtf8
   OnMassiveProcess = ServerMethodDataModuleMassiveProcess
-  OnUserTokenAuth = ServerMethodDataModuleUserTokenAuth
-  OnGetToken = ServerMethodDataModuleGetToken
   QueuedRequest = False
   Height = 252
   Width = 328
   object RESTDWPoolerFD: TRESTDWPoolerDB
-    RESTDriver = RESTDWDriverFD1
     Compression = True
     Encoding = esUtf8
     StrsTrim = False
@@ -103,18 +101,10 @@ object DMSecundario: TDMSecundario
     Left = 110
     Top = 17
   end
-  object RESTDWDriverFD1: TRESTDWDriverFD
-    CommitRecords = 100
-    Connection = Server_FDConnection
-    Left = 56
-    Top = 112
-  end
   object RDWSEDados2: TRESTDWServerEvents
     IgnoreInvalidParams = False
     Events = <
       item
-        Routes = [crAll]
-        NeedAuthorization = True
         Params = <>
         DataMode = dmDataware
         Name = 'helloworld'
@@ -133,5 +123,17 @@ object DMSecundario: TDMSecundario
     ContextList = <>
     Left = 152
     Top = 120
+  end
+  object RESTDWFireDACDriver1: TRESTDWFireDACDriver
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = False
+    Compression = False
+    EncodeStringsJSON = False
+    Encoding = esUtf8
+    ParamCreate = False
+    CommitRecords = 0
+    Left = 64
+    Top = 128
   end
 end

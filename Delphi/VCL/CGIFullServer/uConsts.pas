@@ -2,8 +2,6 @@ unit uConsts;
 
 interface
 
-uses uRESTDWBase;
-
 Const
  vUsername    = '';
  vPassword    = '';

@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Test Server'
+  Caption = 'Form1'
   ClientHeight = 328
-  ClientWidth = 452
+  ClientWidth = 460
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,13 +12,6 @@ object Form1: TForm1
   Font.Style = []
   OnCreate = FormCreate
   TextHeight = 15
-  object Label1: TLabel
-    Left = 16
-    Top = 64
-    Width = 34
-    Height = 15
-    Caption = 'Label1'
-  end
   object ToggleSwitch1: TToggleSwitch
     Left = 16
     Top = 24
@@ -27,7 +20,7 @@ object Form1: TForm1
     TabOrder = 0
     OnClick = ToggleSwitch1Click
   end
-  object Pooler: TRESTDWIdServicePooler
+  object RESTDWIdServicePooler1: TRESTDWIdServicePooler
     Active = False
     CORS = False
     CORS_CustomHeaders.Strings = (
@@ -40,7 +33,7 @@ object Form1: TForm1
         'rization, X-CUSTOM-HEADER')
     PathTraversalRaiseError = True
     RequestTimeout = -1
-    ServicePort = 8082
+    ServicePort = 8083
     ProxyOptions.ProxyPort = 0
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Encoding = esUtf8
@@ -48,13 +41,10 @@ object Form1: TForm1
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    EncodeErrors = False
-    SSLVersions = []
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
-    SSLMethod = sslvSSLv2
-    Left = 200
-    Top = 120
+    Left = 184
+    Top = 24
   end
 end

@@ -12,7 +12,10 @@ Uses
   FireDAC.Comp.DataSet,        FireDAC.Comp.Client, uRESTDWBasicTypes,
   uRESTDWBasicDB, uRESTDWServerEvents, uRESTDWBasic, uRESTDWIdBase, uRESTDWParams, uRESTDWAbout,
   uRESTDWMassiveBuffer, uRESTDWResponseTranslator, uRESTDWBasicClass,
-  uRESTDWComponentBase;
+  DBClient,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.UI.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Phys, FireDAC.VCLUI.Wait,
+  uRESTDWMemoryDataset, uRESTDWProtoTypes, Vcl.DBCtrls;
 
  Type
   TfPrincipal = Class(TForm)
@@ -22,7 +25,6 @@ Uses
    labPorta          : TLabel;
    DataSource1       : TDataSource;
    labResult         : TLabel;
-   DBGrid1           : TDBGrid;
    MComando          : TMemo;
    btnOpen           : TButton;
    cbxCompressao     : TCheckBox;
@@ -57,8 +59,6 @@ Uses
     Button1: TButton;
     cbBinaryRequest: TCheckBox;
     cbUseCripto: TCheckBox;
-    cbBinaryCompatible: TCheckBox;
-    RESTDWClientSQL1: TRESTDWClientSQL;
     eUpdateTableName: TEdit;
     Label1: TLabel;
     Label11: TLabel;
@@ -83,6 +83,9 @@ Uses
     RESTDWClientEvents1: TRESTDWClientEvents;
     RESTDWIdClientPooler1: TRESTDWIdClientPooler;
     RESTDWIdDatabase1: TRESTDWIdDatabase;
+    DBGrid1: TDBGrid;
+    RESTDWClientSQL1: TRESTDWClientSQL;
+    RESTDWMassiveCache1: TRESTDWMassiveCache;
    Procedure btnOpenClick            (Sender            : TObject);
    Procedure btnExecuteClick         (Sender            : TObject);
    Procedure FormCreate              (Sender            : TObject);
@@ -165,6 +168,7 @@ Var
  FIM        : TDateTime;
  I          : Integer;
  vKeyFields : TStringList;
+ vStream    : TStream;
 Begin
  RESTDWClientSQL1.Active := False;
  RESTDWIdDatabase1.Active            := False;
@@ -181,15 +185,20 @@ Begin
    Else
     RESTDWIdDatabase1.TypeRequest    := TTyperequest.trHttp;
   End;
+// RESTDWIdDatabase1.PoolerList;
  INICIO                            := Now;
- DataSource1.DataSet               := RESTDWClientSQL1;
+ RESTDWClientSQL1.Active           := False;
+// DataSource1.DataSet               := RESTDWClientSQL1;
  RESTDWClientSQL1.BinaryRequest    := cbBinaryRequest.Checked;
- RESTDWClientSQL1.BinaryCompatibleMode := cbBinaryCompatible.Checked;
  RESTDWClientSQL1.SQL.Clear;
  RESTDWClientSQL1.SQL.Add(MComando.Text);
  RESTDWClientSQL1.UpdateTableName  := Trim(eUpdateTableName.Text);
  Try
   RESTDWClientSQL1.Active          := True;
+//  If RESTDWClientSQL1.FindField('IMAGEM') <> Nil Then
+//   DBImage1.DataField := 'IMAGEM'
+//  Else If RESTDWClientSQL1.FindField('LOGO') <> Nil Then
+//   DBImage1.DataField := 'LOGO' ;
  Except
   On E: Exception Do
    Begin
@@ -300,8 +309,8 @@ Begin
  SetLoginOptions;
  If RESTDWClientSQL1.MassiveCache <> Nil Then
   Begin
-//   If DWMassiveCache1.MassiveCount > 0 Then
-//    RESTDWClientSQL1.DataBase.ApplyUpdates(DWMassiveCache1, vResultError, vError);
+   If RESTDWMassiveCache1.MassiveCount > 0 Then
+    RESTDWClientSQL1.DataBase.ApplyUpdates(RESTDWMassiveCache1, vResultError, vError);
    If vResultError Then
     MessageDlg(vError, TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
   End
@@ -337,8 +346,11 @@ Begin
   RESTDWIdClientPooler1.TypeRequest    := TTyperequest.trHttps
  Else
   RESTDWIdClientPooler1.TypeRequest    := TTyperequest.trHttp;
- RESTDWClientEvents1.CreateDWParams('servertime', dwParams);
- RESTDWClientEvents1.SendEvent('servertime', dwParams, vErrorMessage, vNativeResult);
+ RESTDWClientEvents1.CreateDWParams('helloworld', dwParams);
+ dwParams.Itemsstring['temp'].Clear;
+ dwParams.Itemsstring['0'].AsInteger := 10;
+ dwParams.Itemsstring['1'].AsInteger := 20;
+ RESTDWClientEvents1.SendEvent('helloworld', dwParams, vErrorMessage, vNativeResult);
  If vErrorMessage = '' Then
   Begin
    GetLoginOptionsClientPooler;
@@ -413,6 +425,8 @@ Begin
 // RESTDWIdDatabase1.FailOverConnections[0].GetPoolerList;
  Memo1.Lines.Clear;
  labVersao.Caption := RESTDWVersao;
+// cbAuthOptions.ItemIndex := 1;
+// cbAuthOptions.OnChange(cbAuthOptions);
 End;
 
 Procedure TfPrincipal.Image2Click(Sender: TObject);

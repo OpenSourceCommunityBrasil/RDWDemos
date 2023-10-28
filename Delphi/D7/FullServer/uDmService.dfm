@@ -51,9 +51,12 @@ object ServerMethodDM: TServerMethodDM
         Routes = [crAll]
         NeedAuthorization = True
         Params = <>
-        JsonMode = jmDataware
+        DataMode = dmDataware
         Name = 'dwevent1'
+        EventName = 'dwevent1'
         BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
         OnlyPreDefinedParams = False
       end>
     Left = 88

@@ -4,7 +4,7 @@ object RestDWForm: TRestDWForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'REST Dataware CORE - Simple Server'
-  ClientHeight = 700
+  ClientHeight = 728
   ClientWidth = 637
   Color = clWindow
   Ctl3D = False
@@ -43,7 +43,7 @@ object RestDWForm: TRestDWForm
     Left = 0
     Top = 58
     Width = 637
-    Height = 605
+    Height = 633
     ActivePage = tsConfigs
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
@@ -59,14 +59,14 @@ object RestDWForm: TRestDWForm
         Left = 0
         Top = 0
         Width = 629
-        Height = 573
+        Height = 601
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
         DesignSize = (
           629
-          573)
+          601)
         object labPorta: TLabel
           Left = 292
           Top = 254
@@ -160,7 +160,7 @@ object RestDWForm: TRestDWForm
         end
         object Label6: TLabel
           Left = 0
-          Top = 556
+          Top = 584
           Width = 629
           Height = 17
           Align = alBottom
@@ -178,7 +178,7 @@ object RestDWForm: TRestDWForm
         end
         object Label15: TLabel
           Left = 7
-          Top = 410
+          Top = 438
           Width = 87
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -192,7 +192,7 @@ object RestDWForm: TRestDWForm
         end
         object Label16: TLabel
           Left = 458
-          Top = 410
+          Top = 438
           Width = 124
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -206,7 +206,7 @@ object RestDWForm: TRestDWForm
         end
         object Label17: TLabel
           Left = 7
-          Top = 461
+          Top = 489
           Width = 50
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -359,7 +359,7 @@ object RestDWForm: TRestDWForm
         end
         object Label10: TLabel
           Left = 7
-          Top = 507
+          Top = 535
           Width = 81
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -901,7 +901,7 @@ object RestDWForm: TRestDWForm
         end
         object ePrivKeyFile: TEdit
           Left = 7
-          Top = 429
+          Top = 457
           Width = 440
           Height = 23
           Anchors = [akLeft, akBottom]
@@ -915,7 +915,7 @@ object RestDWForm: TRestDWForm
         end
         object eCertFile: TEdit
           Left = 7
-          Top = 480
+          Top = 508
           Width = 600
           Height = 23
           Anchors = [akLeft, akBottom]
@@ -929,7 +929,7 @@ object RestDWForm: TRestDWForm
         end
         object ePrivKeyPass: TMaskEdit
           Left = 459
-          Top = 429
+          Top = 457
           Width = 148
           Height = 23
           Anchors = [akLeft, akBottom]
@@ -1206,7 +1206,7 @@ object RestDWForm: TRestDWForm
         end
         object eHostCertFile: TEdit
           Left = 7
-          Top = 525
+          Top = 553
           Width = 600
           Height = 23
           Anchors = [akLeft, akBottom]
@@ -2868,7 +2868,7 @@ object RestDWForm: TRestDWForm
   end
   object Panel2: TPanel
     Left = 0
-    Top = 663
+    Top = 691
     Width = 637
     Height = 37
     Align = alBottom
@@ -2992,11 +2992,11 @@ object RestDWForm: TRestDWForm
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    SSLVersions = []
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
+    SSLVersions = []
     Left = 196
     Top = 294
   end

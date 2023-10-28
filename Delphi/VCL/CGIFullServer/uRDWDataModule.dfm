@@ -1,4 +1,5 @@
 object RDWDataModule: TRDWDataModule
+  OldCreateOrder = True
   Encoding = esUtf8
   OnMassiveProcess = ServerMethodDataModuleMassiveProcess
   OnUserTokenAuth = ServerMethodDataModuleUserTokenAuth
@@ -7,7 +8,7 @@ object RDWDataModule: TRDWDataModule
   Height = 213
   Width = 361
   object RESTDWPoolerDB1: TRESTDWPoolerDB
-    RESTDriver = RESTDWDriverFD1
+    RESTDriver = RESTDWFireDACDriver1
     Compression = True
     Encoding = esUtf8
     StrsTrim = False
@@ -18,12 +19,6 @@ object RDWDataModule: TRDWDataModule
     ParamCreate = True
     Left = 52
     Top = 103
-  end
-  object RESTDWDriverFD1: TRESTDWDriverFD
-    CommitRecords = 100
-    Connection = Server_FDConnection
-    Left = 221
-    Top = 11
   end
   object Server_FDConnection: TFDConnection
     Params.Strings = (
@@ -140,5 +135,18 @@ object RDWDataModule: TRDWDataModule
     ContextList = <>
     Left = 264
     Top = 120
+  end
+  object RESTDWFireDACDriver1: TRESTDWFireDACDriver
+    Connection = Server_FDConnection
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = False
+    Compression = False
+    EncodeStringsJSON = False
+    Encoding = esUtf8
+    ParamCreate = True
+    CommitRecords = 100
+    Left = 64
+    Top = 160
   end
 end

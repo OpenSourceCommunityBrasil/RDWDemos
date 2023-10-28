@@ -20,7 +20,8 @@ USES
   uRESTDWDataUtils,
   uRESTDWDatamodule, uRESTDWMassiveBuffer, uRESTDWJSONObject, uRESTDWAbout,
   uRESTDWServerContext, uRESTDWBasicDB, uRESTDWParams, uRESTDWBasicTypes,
-  uRESTDWTools, uRestDWDriverFD, uRESTDWBasic, uRESTDWComponentBase;
+  uRESTDWTools, uRESTDWBasic, uRESTDWMimeTypes,
+  uPrincipal, uRESTDWDriverBase, uRESTDWFireDACDriver;
 
 Const
   WelcomeSample = True;
@@ -42,8 +43,8 @@ TYPE
     FDQuery2: TFDQuery;
     FDQLogin: TFDQuery;
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
-    RESTDWDriverFD1: TRESTDWDriverFD;
     RESTDWServerEvents: TRESTDWServerEvents;
+    RESTDWFireDACDriver1: TRESTDWFireDACDriver;
     PROCEDURE Server_FDConnectionBeforeConnect(Sender: TObject);
     PROCEDURE Server_FDConnectionError(ASender, AInitiator: TObject;
       VAR AException: Exception);
@@ -114,6 +115,8 @@ TYPE
       RequestHeader: TStringList);
     procedure RESTDWServerEventsEventsservertimeReplyEvent
       (var Params: TRESTDWParams; var Result: string);
+    procedure RESTDWServerEventsEventstesteReplyEvent(var Params: TRESTDWParams;
+      var Result: string);
   PRIVATE
     { Private declarations }
     vIDVenda: Integer;
@@ -132,9 +135,6 @@ IMPLEMENTATION
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 {$R *.dfm}
-
-uses
-  uPrincipal;
 
 procedure TDMPrincipal.employeeReplyEvent(var Params: TRESTDWParams;
   dJsonMode: TDataMode; Var Result: String);
@@ -288,7 +288,7 @@ begin
     Begin
       Try
         Result.LoadFromFile(vFileName);
-        ContentType := GetMIMEType(vFileName);
+        ContentType := TRESTDWMIMEType.GetMIMEType(vFileName);
       Finally
       End;
     End;
@@ -473,9 +473,9 @@ begin
   Else
   Begin
     Result := 'Hello World RDW Refactor...' + sLineBreak +
-      Format('Params em URI Param 0 = %s, Param 1 = %s',
-      [Params.ItemsString['temp1'].AsString,
-      Params.ItemsString['temp2'].AsString])
+      Format('Params em URI Param 0 = %d, Param 1 = %d',
+      [Params.ItemsString['temp1'].AsInteger,
+      Params.ItemsString['temp2'].AsInteger])
   End;
 end;
 
@@ -495,6 +495,12 @@ procedure TDMPrincipal.RESTDWServerEventsEventsservertimeReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 begin
   Params.ItemsString['result'].AsDateTime := Now;
+end;
+
+procedure TDMPrincipal.RESTDWServerEventsEventstesteReplyEvent(
+  var Params: TRESTDWParams; var Result: string);
+begin
+ result := 'teste';
 end;
 
 procedure TDMPrincipal.ServerMethodDataModuleCreate(Sender: TObject);

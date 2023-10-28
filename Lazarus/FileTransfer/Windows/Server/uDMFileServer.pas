@@ -5,8 +5,9 @@ unit uDMFileServer;
 interface
 
 uses
-  SysUtils, Classes, ShellAPI,
-  uRESTDWDatamodule, uRESTDWServerEvents, uRESTDWParams;
+  SysUtils, Classes, ShellAPI, uRESTDWAbout,
+  uRESTDWServerEvents, uRESTDWJSONObject, uRESTDWDatamodule,
+  uRESTDWComponentBase, uRESTDWParams;
 
 type
   TdmFileServer = class(TServerMethodDataModule)
@@ -39,7 +40,8 @@ procedure TdmFileServer.dwSEArquivosEventsSendReplicationFileReplyEvent(
 Var
  vArquivo, vDiretorio: String;
  JSONValue    : TJSONValue;
- vFileIn      : TStringStream;
+ vFileIn,
+ vFile        : TStringStream;
  Procedure DelFilesFromDir(Directory, FileMask : String; Const DelSubDirs: Boolean = False);
  Var
   SourceLst: string;
@@ -95,6 +97,7 @@ procedure TdmFileServer.dwSEArquivosEventsDownloadFileReplyEvent(
 Var
  vFile        : TMemoryStream;
  vArquivo     : String;
+ vFileExport  : TMemoryStream;
 Begin
  If (Params.ItemsString['Arquivo']     <> Nil) Then
   Begin
@@ -123,6 +126,7 @@ End;
 procedure TdmFileServer.dwSEArquivosEventsFileListReplyEvent(
   var Params: TRESTDWParams; var Result: string);
 Var
+ vArquivo    : String;
  vFileExport : TStringStream;
  List        : TStringList;
 Begin

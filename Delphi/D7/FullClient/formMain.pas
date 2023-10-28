@@ -8,8 +8,9 @@ uses
   DB, Grids, DBGrids, uRESTDWConsts, 
   ExtCtrls, DBClient, ComCtrls,
   uRESTDWServerEvents, DateUtils, uRESTDWParams,
-  ActnList, jpeg, DataUtils, uRESTDWAbout, uRESTDWBasicDB, uRESTDWIdBase,
-  uRESTDWDataset, uRESTDWBasicTypes, uRESTDWBasic;
+  ActnList, jpeg, uRESTDWDataUtils, uRESTDWAbout, uRESTDWBasicDB, uRESTDWIdBase,
+  uRESTDWBasicTypes, uRESTDWBasic,
+  uRESTDWMemoryDataset, uRESTDWPrototypes, DBCtrls;
 
 type
 
@@ -58,7 +59,6 @@ type
     eWelcomemessage: TEdit;
     cbBinaryRequest: TCheckBox;
     cbUseCripto: TCheckBox;
-    cbBinaryCompatible: TCheckBox;
     cbAuthOptions: TComboBox;
     pBasicAuth: TPanel;
     Label2: TLabel;
@@ -80,9 +80,9 @@ type
     eUpdateTableName: TEdit;
     Label1: TLabel;
     Button1: TButton;
-    RESTDWIdDatabase1: TRESTDWIdDatabase;
     RESTDWClientEvents1: TRESTDWClientEvents;
     RESTDWIdClientPooler1: TRESTDWIdClientPooler;
+    RESTDWIdDatabase1: TRESTDWIdDatabase;
     procedure btnOpenClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure btnServerTimeClick(Sender: TObject);
@@ -211,8 +211,9 @@ Begin
     RESTDWIdDatabase1.TypeRequest    := trHttp;
   End;
  INICIO                            := Now;
- DataSource1.DataSet               := RESTDWClientSQL1;
  RESTDWClientSQL1.Close;
+ DataSource1.DataSet               := RESTDWClientSQL1;
+ RESTDWClientSQL1.BinaryRequest        := cbBinaryRequest.Checked;
  RESTDWClientSQL1.SQL.Clear;
  RESTDWClientSQL1.SQL.Add(MComando.Text);
  RESTDWClientSQL1.UpdateTableName  := Trim(eUpdateTableName.Text);
@@ -230,8 +231,6 @@ Begin
  cbxCompressao.Checked := RESTDWIdDatabase1.Compression;
  eAccesstag.Text       := RESTDWIdDatabase1.AccessTag;
  eWelcomemessage.Text  := RESTDWIdDatabase1.WelcomeMessage;
- If RESTDWClientSQL1.FindField('FULL_NAME') <> Nil Then
-  RESTDWClientSQL1.FindField('FULL_NAME').ProviderFlags := [];
  If RESTDWClientSQL1.FindField('UF') <> Nil Then
   RESTDWClientSQL1.FindField('UF').ProviderFlags       := [];
  If RESTDWClientSQL1.Active Then

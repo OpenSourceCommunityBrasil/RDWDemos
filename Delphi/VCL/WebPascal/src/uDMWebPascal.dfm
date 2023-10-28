@@ -4,8 +4,9 @@ object DMWebPascal: TDMWebPascal
   OnUserTokenAuth = ServerMethodDataModuleUserTokenAuth
   OnGetToken = ServerMethodDataModuleGetToken
   QueuedRequest = False
-  Height = 577
-  Width = 718
+  Height = 360
+  Width = 374
+  PixelsPerInch = 120
   object RESTDWPoolerDB1: TRESTDWPoolerDB
     Compression = True
     Encoding = esUtf8
@@ -15,8 +16,8 @@ object DMWebPascal: TDMWebPascal
     Active = True
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
-    Left = 68
-    Top = 145
+    Left = 75
+    Top = 161
   end
   object Server_FDConnection: TFDConnection
     Params.Strings = (
@@ -36,39 +37,39 @@ object DMWebPascal: TDMWebPascal
     LoginPrompt = False
     Transaction = FDTransaction1
     BeforeConnect = Server_FDConnectionBeforeConnect
-    Left = 61
-    Top = 39
+    Left = 76
+    Top = 49
   end
   object FDPhysFBDriverLink1: TFDPhysFBDriverLink
-    Left = 117
-    Top = 84
+    Left = 146
+    Top = 105
   end
   object FDStanStorageJSONLink1: TFDStanStorageJSONLink
-    Left = 89
-    Top = 84
+    Left = 111
+    Top = 105
   end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
-    Left = 117
-    Top = 39
+    Left = 146
+    Top = 49
   end
   object FDTransaction1: TFDTransaction
     Options.AutoStop = False
     Options.DisconnectAction = xdRollback
     Connection = Server_FDConnection
-    Left = 89
-    Top = 39
+    Left = 111
+    Top = 49
   end
   object FDQuery1: TFDQuery
     Connection = Server_FDConnection
     SQL.Strings = (
       '')
-    Left = 145
-    Top = 39
+    Left = 181
+    Top = 49
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
-    Left = 173
-    Top = 84
+    Left = 216
+    Top = 105
   end
   object dwsCrudServer: TRESTDWServerContext
     IgnoreInvalidParams = False
@@ -145,12 +146,12 @@ object DMWebPascal: TDMWebPascal
         IgnoreBaseHeader = False
       end>
     OnBeforeRenderer = dwsCrudServerBeforeRenderer
-    Left = 240
-    Top = 265
+    Left = 170
+    Top = 201
   end
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    Left = 201
-    Top = 84
+    Left = 251
+    Top = 105
   end
   object dwcrIndex: TRESTDWContextRules
     ContentType = 'text/html'
@@ -547,8 +548,8 @@ object DMWebPascal: TDMWebPascal
         OnBeforeRendererContextItem = dwcrIndexItemsdwframeBeforeRendererContextItem
       end>
     OnBeforeRenderer = dwcrIndexBeforeRenderer
-    Left = 500
-    Top = 81
+    Left = 255
+    Top = 161
   end
   object dwcrLogin: TRESTDWContextRules
     ContentType = 'text/html'
@@ -689,8 +690,8 @@ object DMWebPascal: TDMWebPascal
         OnBeforeRendererContextItem = dwcrLoginItemsmeuloginnameBeforeRendererContextItem
       end>
     OnBeforeRenderer = dwcrLoginBeforeRenderer
-    Left = 488
-    Top = 184
+    Left = 260
+    Top = 260
   end
   object rOpenSecrets: TRESTDWClientSQL
     Active = False
@@ -713,47 +714,7 @@ object DMWebPascal: TDMWebPascal
     ThreadRequest = False
     RaiseErrors = True
     ReflectChanges = False
-    Left = 72
-    Top = 232
-  end
-  object SrvCtxPix: TRESTDWServerContext
-    IgnoreInvalidParams = False
-    ContextList = <
-      item
-        Params = <>
-        ContentType = 'text/html'
-        Name = 'criarpix'
-        BaseURL = '/'
-        ContextName = 'criarpix'
-        Routes.All.Active = True
-        Routes.All.NeedAuthorization = False
-        Routes.Get.Active = False
-        Routes.Get.NeedAuthorization = False
-        Routes.Post.Active = False
-        Routes.Post.NeedAuthorization = False
-        Routes.Put.Active = False
-        Routes.Put.NeedAuthorization = False
-        Routes.Patch.Active = False
-        Routes.Patch.NeedAuthorization = False
-        Routes.Delete.Active = False
-        Routes.Delete.NeedAuthorization = False
-        Routes.Option.Active = False
-        Routes.Option.NeedAuthorization = False
-        ContextRules = CtxrlPix
-        OnlyPreDefinedParams = False
-        IgnoreBaseHeader = False
-      end>
-    OnBeforeRenderer = SrvCtxPixBeforeRenderer
-    Left = 168
-    Top = 416
-  end
-  object CtxrlPix: TRESTDWContextRules
-    ContentType = 'text/html'
-    MasterHtmlTag = '$body'
-    IncludeScriptsHtmlTag = '{%incscripts%}'
-    Items = <>
-    OnBeforeRenderer = CtxrlPixBeforeRenderer
-    Left = 168
-    Top = 472
+    Left = 160
+    Top = 280
   end
 end

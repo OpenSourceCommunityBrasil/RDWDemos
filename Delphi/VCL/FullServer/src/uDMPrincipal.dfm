@@ -1,14 +1,13 @@
 object DMPrincipal: TDMPrincipal
+  OldCreateOrder = True
   OnCreate = ServerMethodDataModuleCreate
   Encoding = esUtf8
   OnMassiveProcess = ServerMethodDataModuleMassiveProcess
-  OnUserTokenAuth = ServerMethodDataModuleUserTokenAuth
-  OnGetToken = ServerMethodDataModuleGetToken
   QueuedRequest = False
   Height = 252
   Width = 328
   object RESTDWPoolerFD: TRESTDWPoolerDB
-    RESTDriver = RESTDWDriverFD1
+    RESTDriver = RESTDWFireDACDriver1
     Compression = True
     Encoding = esUtf8
     StrsTrim = False
@@ -17,20 +16,21 @@ object DMPrincipal: TDMPrincipal
     Active = True
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
-    Left = 54
-    Top = 163
+    Left = 62
+    Top = 115
   end
   object Server_FDConnection: TFDConnection
     Params.Strings = (
-      
-        'Database=D:\Meus Dados\Projetos\SUGV\Componentes\XyberPower\REST' +
-        '_Controls\CORE\Demos\EMPLOYEE.FDB'
-      'User_Name=sysdba'
-      'Password=masterkey'
+      'Database=Finance'
+      'User_Name=sa'
+      'Server=10.1.1.144'
+      'Password=Meb2005$'
       'DriverID=FB')
     FetchOptions.AssignedValues = [evCursorKind]
     FetchOptions.CursorKind = ckDefault
     UpdateOptions.AssignedValues = [uvCountUpdatedRecords]
+    TxOptions.AutoStop = False
+    TxOptions.DisconnectAction = xdRollback
     ConnectedStoredUsage = []
     LoginPrompt = False
     Transaction = FDTransaction1
@@ -103,18 +103,24 @@ object DMPrincipal: TDMPrincipal
     Left = 110
     Top = 17
   end
-  object RESTDWDriverFD1: TRESTDWDriverFD
-    CommitRecords = 100
-    Connection = Server_FDConnection
-    Left = 56
-    Top = 112
-  end
   object RESTDWServerEvents: TRESTDWServerEvents
     IgnoreInvalidParams = False
     Events = <
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = True
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -142,15 +148,27 @@ object DMPrincipal: TDMPrincipal
         DataMode = dmDataware
         Name = 'helloworld'
         EventName = 'helloworld'
-        BaseURL = '/se1/se2/se3/se4/se5/'
+        BaseURL = '/'
         DefaultContentType = 'application/json'
         CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEventByType = RDWSEDadosEventshelloworldReplyEventByType
       end
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -168,7 +186,21 @@ object DMPrincipal: TDMPrincipal
         OnlyPreDefinedParams = False
         OnReplyEvent = RESTDWServerEventsEventsservertimeReplyEvent
       end>
-    Left = 160
+    Left = 184
+    Top = 120
+  end
+  object RESTDWFireDACDriver1: TRESTDWFireDACDriver
+    Connection = Server_FDConnection
+    ConectionType = dbtFirebird
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = False
+    Compression = False
+    EncodeStringsJSON = False
+    Encoding = esUtf8
+    ParamCreate = False
+    CommitRecords = 0
+    Left = 64
     Top = 168
   end
 end

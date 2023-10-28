@@ -15,8 +15,8 @@ USES
 
   uRESTDWServerContext, uRESTDWAbout, uRESTDWBasic, uRESTDWParams,
   uRESTDWComponentBase, uRESTDWDatamodule, uRESTDWMassiveBuffer,
-  uRESTDWDataUtils, uRESTDWBasicDB, URestDWDriverFD, uRESTDWConsts,
-  uRESTDWServerEvents;
+  uRESTDWDataUtils, uRESTDWBasicDB, uRESTDWConsts,
+  uRESTDWServerEvents, uRESTDWDriverBase, uRESTDWFireDACDriver;
 
 Const
   Const404Page = 'www\404.html';
@@ -24,7 +24,6 @@ Const
 TYPE
   TRDWDataModule = CLASS(TServerMethodDataModule)
     RESTDWPoolerDB1: TRESTDWPoolerDB;
-    RESTDWDriverFD1: TRESTDWDriverFD;
     Server_FDConnection: TFDConnection;
     FDPhysFBDriverLink1: TFDPhysFBDriverLink;
     FDStanStorageJSONLink1: TFDStanStorageJSONLink;
@@ -35,6 +34,7 @@ TYPE
     FDQLogin: TFDQuery;
     RESTDWServerEvents1: TRESTDWServerEvents;
     RESTDWServerContext1: TRESTDWServerContext;
+    RESTDWFireDACDriver1: TRESTDWFireDACDriver;
     PROCEDURE Server_FDConnectionBeforeConnect(Sender: TObject);
     procedure ServerMethodDataModuleMassiveProcess(var MassiveDataset
       : TMassiveDatasetBuffer; var Ignore: Boolean);

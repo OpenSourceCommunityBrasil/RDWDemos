@@ -14,6 +14,7 @@ object Form4: TForm4
   Font.Name = 'Tahoma'
   OnCreate = FormCreate
   Position = poScreenCenter
+  LCLVersion = '2.0.10.0'
   object Label4: TLabel
     Left = 13
     Height = 13
@@ -49,6 +50,7 @@ object Form4: TForm4
     Height = 100
     Top = 35
     Width = 133
+    OnClick = Image1Click
     Picture.Data = {
       1754506F727461626C654E6574776F726B4772617068696394FF030089504E47
       0D0A1A0A0000000D494844520000025800000250080600000052351AB1000000
@@ -8361,7 +8363,7 @@ object Form4: TForm4
     TabOrder = 3
     Text = 'testserver'
   end
-  object bListar: TButton
+  object Button1: TButton
     Left = 376
     Height = 37
     Top = 173
@@ -8371,7 +8373,7 @@ object Form4: TForm4
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = bListarClick
+    OnClick = Button1Click
     ParentFont = False
     TabOrder = 4
   end
@@ -8383,7 +8385,7 @@ object Form4: TForm4
     ItemHeight = 0
     TabOrder = 5
   end
-  object bDownload: TButton
+  object Button2: TButton
     Left = 376
     Height = 37
     Top = 216
@@ -8393,11 +8395,11 @@ object Form4: TForm4
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = bDownloadClick
+    OnClick = Button2Click
     ParentFont = False
     TabOrder = 6
   end
-  object bUpload: TButton
+  object Button3: TButton
     Left = 376
     Height = 37
     Top = 260
@@ -8407,7 +8409,7 @@ object Form4: TForm4
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = bUploadClick
+    OnClick = Button3Click
     ParentFont = False
     TabOrder = 7
   end
@@ -8433,6 +8435,11 @@ object Form4: TForm4
     Top = 303
     Width = 119
     TabOrder = 9
+  end
+  object OpenDialog1: TOpenDialog
+    Title = 'Arquivo a enviar'
+    Left = 184
+    Top = 200
   end
   object DWClientEvents1: TRESTDWClientEvents
     ServerEventName = 'TdmFileServer.dwSEArquivos'
@@ -8555,6 +8562,7 @@ object Form4: TForm4
     OnWork = RESTClientPooler1Work
     OnWorkBegin = RESTClientPooler1WorkBegin
     OnWorkEnd = RESTClientPooler1WorkEnd
+    OnBeforeExecute = RESTClientPooler1BeforeExecute
     FailOver = False
     UseSSL = False
     FailOverConnections = <>
@@ -8564,9 +8572,9 @@ object Form4: TForm4
     CriptOptions.Key = 'RDWBASEKEY256'
     UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36'
     PoolerNotFoundMessage = 'Pooler not found'
-    SSLVersions = []
     DatabaseCharSet = csUndefined
     SSLMode = sslmUnassigned
+    SSLVersions = []
     Left = 48
     Top = 176
   end

@@ -1,4 +1,5 @@
 object CGIWebModule: TCGIWebModule
+  OldCreateOrder = True
   OnCreate = WebModuleCreate
   Actions = <
     item
