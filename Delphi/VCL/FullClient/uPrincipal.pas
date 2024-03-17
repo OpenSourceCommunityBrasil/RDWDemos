@@ -6,15 +6,10 @@ Uses
   DateUtils,      Windows,     Messages, SysUtils,     Variants,       Classes, Graphics,
   Controls,       Forms,       Dialogs,  StdCtrls,     DB,  Grids,     DBGrids,
   Vcl.ExtCtrls,   Vcl.Imaging.Pngimage,  Vcl.ComCtrls, System.UITypes, System.Actions,
-  Vcl.ActnList,   Vcl.Buttons, Vcl.Imaging.jpeg,       FireDAC.Stan.Intf,
-  FireDAC.Stan.Option,         FireDAC.Stan.Param,     FireDAC.Stan.Error,
-  FireDAC.DatS,                FireDAC.Phys.Intf,      FireDAC.DApt.Intf,
-  FireDAC.Comp.DataSet,        FireDAC.Comp.Client, uRESTDWBasicTypes,
+  Vcl.ActnList,   Vcl.Buttons, Vcl.Imaging.jpeg,      uRESTDWBasicTypes,
   uRESTDWBasicDB, uRESTDWServerEvents, uRESTDWBasic, uRESTDWIdBase, uRESTDWParams, uRESTDWAbout,
   uRESTDWMassiveBuffer, uRESTDWResponseTranslator, uRESTDWBasicClass,
   DBClient,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.UI.Intf, FireDAC.Stan.Def,
-  FireDAC.Stan.Pool, FireDAC.Phys, FireDAC.VCLUI.Wait,
   uRESTDWMemoryDataset, uRESTDWProtoTypes, Vcl.DBCtrls;
 
  Type
@@ -195,6 +190,8 @@ Begin
  RESTDWClientSQL1.UpdateTableName  := Trim(eUpdateTableName.Text);
  Try
   RESTDWClientSQL1.Active          := True;
+//  vStream    := TMemoryStream.Create;
+//  RESTDWClientSQL1.SaveToStream(vStream);
 //  If RESTDWClientSQL1.FindField('IMAGEM') <> Nil Then
 //   DBImage1.DataField := 'IMAGEM'
 //  Else If RESTDWClientSQL1.FindField('LOGO') <> Nil Then

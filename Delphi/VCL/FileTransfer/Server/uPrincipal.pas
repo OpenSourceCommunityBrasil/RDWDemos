@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Imaging.pngimage, uDMFileServer, uRESTDWAbout, uRESTDWComponentBase,
+  Vcl.Imaging.pngimage, uDMFileServer, uRESTDWAbout,
   uRESTDWBasic, uRESTDWIdBase, uRESTDWDataUtils;
 
 type

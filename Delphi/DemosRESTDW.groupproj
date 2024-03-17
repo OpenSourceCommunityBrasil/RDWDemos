@@ -1,0 +1,84 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7C96F2B9-DCF9-4184-BA10-0D2DDB51BF90}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="VCL\FullClient\RESTDWFullClient.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VCL\FullServer\RESTDWFullServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VCL\ClientSlides\ClientSlides.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VCL\WebPascal\WebPascalFullServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VCL\JSON\Basic\RESTDWJsonSerialize.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RESTDWFullClient">
+        <MSBuild Projects="VCL\FullClient\RESTDWFullClient.dproj"/>
+    </Target>
+    <Target Name="RESTDWFullClient:Clean">
+        <MSBuild Projects="VCL\FullClient\RESTDWFullClient.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTDWFullClient:Make">
+        <MSBuild Projects="VCL\FullClient\RESTDWFullClient.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RESTDWFullServer">
+        <MSBuild Projects="VCL\FullServer\RESTDWFullServer.dproj"/>
+    </Target>
+    <Target Name="RESTDWFullServer:Clean">
+        <MSBuild Projects="VCL\FullServer\RESTDWFullServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTDWFullServer:Make">
+        <MSBuild Projects="VCL\FullServer\RESTDWFullServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ClientSlides">
+        <MSBuild Projects="VCL\ClientSlides\ClientSlides.dproj"/>
+    </Target>
+    <Target Name="ClientSlides:Clean">
+        <MSBuild Projects="VCL\ClientSlides\ClientSlides.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ClientSlides:Make">
+        <MSBuild Projects="VCL\ClientSlides\ClientSlides.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="WebPascalFullServer">
+        <MSBuild Projects="VCL\WebPascal\WebPascalFullServer.dproj"/>
+    </Target>
+    <Target Name="WebPascalFullServer:Clean">
+        <MSBuild Projects="VCL\WebPascal\WebPascalFullServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WebPascalFullServer:Make">
+        <MSBuild Projects="VCL\WebPascal\WebPascalFullServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RESTDWJsonSerialize">
+        <MSBuild Projects="VCL\JSON\Basic\RESTDWJsonSerialize.dproj"/>
+    </Target>
+    <Target Name="RESTDWJsonSerialize:Clean">
+        <MSBuild Projects="VCL\JSON\Basic\RESTDWJsonSerialize.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTDWJsonSerialize:Make">
+        <MSBuild Projects="VCL\JSON\Basic\RESTDWJsonSerialize.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RESTDWFullClient;RESTDWFullServer;ClientSlides;WebPascalFullServer;RESTDWJsonSerialize"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RESTDWFullClient:Clean;RESTDWFullServer:Clean;ClientSlides:Clean;WebPascalFullServer:Clean;RESTDWJsonSerialize:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RESTDWFullClient:Make;RESTDWFullServer:Make;ClientSlides:Make;WebPascalFullServer:Make;RESTDWJsonSerialize:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

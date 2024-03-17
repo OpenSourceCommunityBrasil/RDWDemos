@@ -10,13 +10,11 @@ object fPrincipal: TfPrincipal
   Font.Height = -11
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OldCreateOrder = True
   Position = poDesktopCenter
   OnCreate = FormCreate
   DesignSize = (
     876
     600)
-  PixelsPerInch = 96
   TextHeight = 13
   object labHost: TLabel
     Left = 8
@@ -255,8 +253,8 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     Lines.Strings = (
-      'select first 1 TOTAL_VALUE, discount '
-      ' from sales')
+      'select * from '
+      'IMAGELIST')
     ParentFont = False
     TabOrder = 2
   end
@@ -339,11 +337,13 @@ object fPrincipal: TfPrincipal
         Text = 'Status'
         Width = 50
       end>
+    ExplicitTop = 577
+    ExplicitWidth = 872
   end
   object Memo1: TMemo
-    Left = 384
-    Top = 231
-    Width = 484
+    Left = 387
+    Top = 234
+    Width = 456
     Height = 148
     Anchors = [akLeft, akTop, akRight]
     Color = clInfoBk
@@ -356,6 +356,7 @@ object fPrincipal: TfPrincipal
       'Memo1')
     ParentFont = False
     TabOrder = 9
+    ExplicitWidth = 452
   end
   object btnApply: TButton
     Left = 127
@@ -454,6 +455,7 @@ object fPrincipal: TfPrincipal
     Color = 2763306
     ParentBackground = False
     TabOrder = 16
+    ExplicitWidth = 872
     DesignSize = (
       876
       58)
@@ -864,7 +866,7 @@ object fPrincipal: TfPrincipal
       Layout = tlCenter
     end
     object paPortugues: TPanel
-      Left = 645
+      Left = 617
       Top = 10
       Width = 59
       Height = 37
@@ -874,6 +876,7 @@ object fPrincipal: TfPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 613
       object Image3: TImage
         Left = 0
         Top = 0
@@ -1246,7 +1249,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paEspanhol: TPanel
-      Left = 713
+      Left = 685
       Top = 10
       Width = 59
       Height = 37
@@ -1256,6 +1259,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 681
       object Image4: TImage
         Left = 4
         Top = 0
@@ -1586,7 +1590,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paIngles: TPanel
-      Left = 781
+      Left = 753
       Top = 10
       Width = 59
       Height = 37
@@ -1596,6 +1600,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 749
       object Image2: TImage
         Left = 4
         Top = 0
@@ -2370,8 +2375,8 @@ object fPrincipal: TfPrincipal
         CallbackEvent = False
         OnlyPreDefinedParams = False
       end>
-    Left = 544
-    Top = 312
+    Left = 672
+    Top = 272
   end
   object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
@@ -2380,7 +2385,7 @@ object fPrincipal: TfPrincipal
     ContentEncoding = 'gzip, identity'
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
-    DataRoute = '/cgi-bin/dwcgiserver.exe/'
+    DataRoute = '/datadm/'
     Encoding = esUtf8
     EncodedStrings = True
     ThreadRequest = False
@@ -2413,11 +2418,12 @@ object fPrincipal: TfPrincipal
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
     ContentEncoding = 'gzip, identity'
+    OnBeforeConnect = RESTDWIdDatabase1BeforeConnect
     Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    DataRoute = '/'
+    DataRoute = '/datadm/'
     IgnoreEchoPooler = False
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False
@@ -2452,6 +2458,8 @@ object fPrincipal: TfPrincipal
     Top = 256
   end
   object RESTDWClientSQL1: TRESTDWClientSQL
+    Active = False
+    Filtered = False
     FieldDefs = <
       item
         Name = 'ID_PAC'

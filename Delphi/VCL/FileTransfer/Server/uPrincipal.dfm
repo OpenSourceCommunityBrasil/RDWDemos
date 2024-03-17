@@ -8465,11 +8465,14 @@ object fServer: TfServer
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    EncodeErrors = False
+    SSLVersions = []
+    ServerIPVersionConfig.IPv4Address = '0.0.0.0'
+    ServerIPVersionConfig.IPv6Address = '::'
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
-    SSLVersions = []
     Left = 272
     Top = 152
   end

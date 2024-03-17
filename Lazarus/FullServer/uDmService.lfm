@@ -202,7 +202,6 @@ object ServerMethodDM: TServerMethodDM
   end
   object RESTDWZeosDriver1: TRESTDWZeosDriver
     Connection = ZConnection1
-    ConectionType = dbtFirebird
     StrsTrim = False
     StrsEmpty2Null = False
     StrsTrim2Len = False
@@ -210,14 +209,13 @@ object ServerMethodDM: TServerMethodDM
     EncodeStringsJSON = False
     Encoding = esUtf8
     ParamCreate = True
-    DatabaseCharSet = csISO_8859_1
+    DatabaseCharSet = csUndefined
     CommitRecords = 100
     Left = 345
     Top = 128
   end
   object RESTDWLazarusDriver1: TRESTDWLazarusDriver
     Connection = IBConnection1
-    ConectionType = dbtFirebird
     StrsTrim = False
     StrsEmpty2Null = False
     StrsTrim2Len = False

@@ -1,5 +1,4 @@
 object DMSecundario: TDMSecundario
-  OldCreateOrder = True
   OnCreate = ServerMethodDataModuleCreate
   Encoding = esUtf8
   OnMassiveProcess = ServerMethodDataModuleMassiveProcess
@@ -50,10 +49,6 @@ object DMSecundario: TDMSecundario
     Left = 109
     Top = 62
   end
-  object FDPhysMSSQLDriverLink1: TFDPhysMSSQLDriverLink
-    Left = 82
-    Top = 17
-  end
   object FDTransaction1: TFDTransaction
     Options.AutoStop = False
     Options.DisconnectAction = xdRollback
@@ -73,10 +68,6 @@ object DMSecundario: TDMSecundario
   end
   object FDMoniRemoteClientLink1: TFDMoniRemoteClientLink
     Left = 166
-    Top = 17
-  end
-  object FDPhysODBCDriverLink1: TFDPhysODBCDriverLink
-    Left = 195
     Top = 17
   end
   object FDQuery2: TFDQuery
@@ -105,6 +96,20 @@ object DMSecundario: TDMSecundario
     IgnoreInvalidParams = False
     Events = <
       item
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <>
         DataMode = dmDataware
         Name = 'helloworld'

@@ -12,12 +12,10 @@ object fPrincipal: TfPrincipal
   Font.Height = -11
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OldCreateOrder = True
   Position = poScreenCenter
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 13
   object Label8: TLabel
     Left = 8
@@ -52,6 +50,8 @@ object fPrincipal: TfPrincipal
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 636
+    ExplicitHeight = 632
     object tsConfigs: TTabSheet
       Caption = 'Configuration'
       object Panel1: TPanel
@@ -63,6 +63,8 @@ object fPrincipal: TfPrincipal
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 628
+        ExplicitHeight = 600
         DesignSize = (
           632
           603)
@@ -371,7 +373,7 @@ object fPrincipal: TfPrincipal
           ParentFont = False
         end
         object Panel4: TPanel
-          Left = 694
+          Left = 676
           Top = 10
           Width = 59
           Height = 37
@@ -381,6 +383,7 @@ object fPrincipal: TfPrincipal
           Color = 2763306
           ParentBackground = False
           TabOrder = 0
+          ExplicitLeft = 672
           object Image8: TImage
             Left = 4
             Top = 0
@@ -770,6 +773,7 @@ object fPrincipal: TfPrincipal
               70657DABFDC9F73762FEF63EF1F7BF473C9DFF009343F353FE612C3FEA2EDF3E
               58D0FF00C6D65F8BF7076E7FCE17A7F7C3EF0FFFD9}
             Transparent = True
+            ExplicitHeight = 33
           end
         end
         object edPortaDW: TEdit
@@ -936,6 +940,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 12
+          ExplicitTop = 430
         end
         object eCertFile: TEdit
           Left = 7
@@ -950,6 +955,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 13
+          ExplicitTop = 476
         end
         object ePrivKeyPass: TMaskEdit
           Left = 459
@@ -966,6 +972,7 @@ object fPrincipal: TfPrincipal
           PasswordChar = '*'
           TabOrder = 14
           Text = ''
+          ExplicitTop = 430
         end
         object EdDataSource: TEdit
           Left = 459
@@ -1038,6 +1045,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 19
+          ExplicitTop = 522
         end
         object pBasicAuth: TPanel
           Left = 328
@@ -1277,6 +1285,7 @@ object fPrincipal: TfPrincipal
     Color = 2763306
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 636
     DesignSize = (
       640
       58)
@@ -1688,7 +1697,7 @@ object fPrincipal: TfPrincipal
       Visible = False
     end
     object paPortugues: TPanel
-      Left = 428
+      Left = 410
       Top = 10
       Width = 59
       Height = 37
@@ -1698,6 +1707,7 @@ object fPrincipal: TfPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 406
       object Image3: TImage
         Left = 0
         Top = 0
@@ -2070,7 +2080,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paEspanhol: TPanel
-      Left = 496
+      Left = 478
       Top = 10
       Width = 59
       Height = 37
@@ -2080,6 +2090,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 474
       object Image4: TImage
         Left = 4
         Top = 0
@@ -2410,7 +2421,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paIngles: TPanel
-      Left = 564
+      Left = 546
       Top = 10
       Width = 59
       Height = 37
@@ -2420,6 +2431,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 542
       object Image5: TImage
         Left = 4
         Top = 0
@@ -2823,11 +2835,13 @@ object fPrincipal: TfPrincipal
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 690
+    ExplicitWidth = 636
     DesignSize = (
       640
       37)
     object lSeguro: TLabel
-      Left = 9
+      Left = 4
       Top = 12
       Width = 80
       Height = 17
@@ -2839,9 +2853,10 @@ object fPrincipal: TfPrincipal
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitLeft = 9
     end
     object ButtonStart: TButton
-      Left = 409
+      Left = 396
       Top = 6
       Width = 100
       Height = 25
@@ -2856,9 +2871,10 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 0
       OnClick = ButtonStartClick
+      ExplicitLeft = 393
     end
     object ButtonStop: TButton
-      Left = 521
+      Left = 502
       Top = 6
       Width = 100
       Height = 25
@@ -2873,9 +2889,10 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 1
       OnClick = ButtonStopClick
+      ExplicitLeft = 499
     end
     object cbPoolerState: TCheckBox
-      Left = 184
+      Left = 175
       Top = 12
       Width = 115
       Height = 17
@@ -2890,6 +2907,7 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       State = cbChecked
       TabOrder = 2
+      ExplicitLeft = 174
     end
   end
   object ApplicationEvents1: TApplicationEvents
@@ -2943,8 +2961,8 @@ object fPrincipal: TfPrincipal
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
     SSLVersions = []
-    Left = 196
-    Top = 234
+    Left = 188
+    Top = 370
   end
   object CtiPrincipal: TTrayIcon
     PopupMenu = pmMenu

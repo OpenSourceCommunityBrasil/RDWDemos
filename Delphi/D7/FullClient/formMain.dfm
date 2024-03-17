@@ -253,9 +253,8 @@ object Form2: TForm2
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     Lines.Strings = (
-      'Select first 1'
-      'PESSOA_ID'
-      'From pessoa_teste2')
+      'select first 100000 * from '
+      'pacientes')
     ParentCtl3D = False
     ParentFont = False
     TabOrder = 1
@@ -2338,7 +2337,7 @@ object Form2: TForm2
     Top = 357
   end
   object RESTDWClientSQL1: TRESTDWClientSQL
-    Active = False
+    Active = True
     Filtered = False
     FieldDefs = <
       item
@@ -2397,10 +2396,6 @@ object Form2: TForm2
         Name = 'TIMEC'
         DataType = ftTime
       end>
-    SortOrder = soAsc
-    SortCaseSens = scYes
-    AutoSortOnOpen = True
-    AutoRefreshOnFilterChanged = True
     MasterCascadeDelete = True
     BinaryRequest = True
     Datapacks = -1
@@ -2416,8 +2411,8 @@ object Form2: TForm2
     ThreadRequest = False
     RaiseErrors = True
     ReflectChanges = False
-    Left = 400
-    Top = 301
+    Left = 376
+    Top = 269
   end
   object RESTDWClientEvents1: TRESTDWClientEvents
     ServerEventName = 'TServerMethodDM.RESTDWServerEvents'
@@ -2425,20 +2420,8 @@ object Form2: TForm2
     CriptOptions.Key = 'RDWBASEKEY256'
     Events = <
       item
-        Routes.All.Active = True
-        Routes.All.NeedAuthorization = False
-        Routes.Get.Active = False
-        Routes.Get.NeedAuthorization = False
-        Routes.Post.Active = False
-        Routes.Post.NeedAuthorization = False
-        Routes.Put.Active = False
-        Routes.Put.NeedAuthorization = False
-        Routes.Patch.Active = False
-        Routes.Patch.NeedAuthorization = False
-        Routes.Delete.Active = False
-        Routes.Delete.NeedAuthorization = False
-        Routes.Option.Active = False
-        Routes.Option.NeedAuthorization = False
+        Routes = [crAll]
+        NeedAuthorization = True
         Params = <
           item
             TypeObject = toParam
@@ -2470,20 +2453,8 @@ object Form2: TForm2
         OnlyPreDefinedParams = False
       end
       item
-        Routes.All.Active = True
-        Routes.All.NeedAuthorization = False
-        Routes.Get.Active = False
-        Routes.Get.NeedAuthorization = False
-        Routes.Post.Active = False
-        Routes.Post.NeedAuthorization = False
-        Routes.Put.Active = False
-        Routes.Put.NeedAuthorization = False
-        Routes.Patch.Active = False
-        Routes.Patch.NeedAuthorization = False
-        Routes.Delete.Active = False
-        Routes.Delete.NeedAuthorization = False
-        Routes.Option.Active = False
-        Routes.Option.NeedAuthorization = False
+        Routes = [crAll]
+        NeedAuthorization = True
         Params = <
           item
             TypeObject = toParam
@@ -2615,7 +2586,7 @@ object Form2: TForm2
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
     SSLMode = sslmUnassigned
-    Left = 456
-    Top = 352
+    Left = 288
+    Top = 320
   end
 end

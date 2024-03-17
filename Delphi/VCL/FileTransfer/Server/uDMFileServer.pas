@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Classes, Winapi.ShellAPI, uRESTDWAbout,
   uRESTDWServerEvents, uRESTDWJSONObject, uRESTDWDatamodule,
-  uRESTDWComponentBase, uRESTDWParams;
+  uRESTDWParams;
 
 type
   TdmFileServer = class(TServerMethodDataModule)
