@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Release"/>
+    <Units>
+      <Unit>
+        <Filename Value="fileserver.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos Y="22"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../src/fs.datamodules.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DMFS"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="10"/>
+        <CursorPos Y="10"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="14"/>
+        <CursorPos Y="19"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../../../lazarus-2.2.0/config_lazarus/onlinepackagemanager/packages/restdataware/CORE/Source/Sockets/Indy/uRESTDWIdBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="54"/>
+        <CursorPos X="31" Y="62"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../src/fs.datamodules.lfm"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="12"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../src/fs.mainform.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="13">
+      <Position>
+        <Filename Value="fileserver.lpr"/>
+        <Caret Line="11" Column="11" TopLine="3"/>
+      </Position>
+      <Position>
+        <Filename Value="fileserver.lpr"/>
+        <Caret Line="8"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="124" Column="3" TopLine="122"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="52" Column="29" TopLine="41"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="103" Column="35" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="115" Column="34" TopLine="106"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="121" Column="31" TopLine="103"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="122" Column="38" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="68" Column="10" TopLine="68"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="115" Column="33" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="154" Column="71" TopLine="116"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="153" Column="71" TopLine="130"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.mainform.pas"/>
+        <Caret Line="68" Column="18" TopLine="52"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fs.datamodules.pas"/>
+        <Caret Line="42" Column="36" TopLine="34"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

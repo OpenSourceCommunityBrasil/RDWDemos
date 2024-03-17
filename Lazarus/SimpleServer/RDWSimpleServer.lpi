@@ -29,22 +29,10 @@
     </RunParams>
     <RequiredPackages>
       <Item>
-        <PackageName Value="RESTDataWareComponents"/>
+        <PackageName Value="restdatawarecomponents"/>
       </Item>
       <Item>
-        <PackageName Value="RESTDWIndySockets"/>
-      </Item>
-      <Item>
-        <PackageName Value="RESTDWLazarusDriver"/>
-      </Item>
-      <Item>
-        <PackageName Value="RESTDWZeosDriver"/>
-      </Item>
-      <Item>
-        <PackageName Value="zcomponent"/>
-      </Item>
-      <Item>
-        <PackageName Value="FCL"/>
+        <PackageName Value="RestDatawareIndySockets"/>
       </Item>
       <Item>
         <PackageName Value="LCL"/>
@@ -87,7 +75,6 @@
       <Debugging>
         <DebugInfoType Value="dsDwarf2"/>
         <UseHeaptrc Value="True"/>
-        <UseExternalDbgSyms Value="True"/>
       </Debugging>
       <Options>
         <Win32>
@@ -95,12 +82,6 @@
         </Win32>
       </Options>
     </Linking>
-    <Other>
-      <Verbosity>
-        <ShoLineNum Value="True"/>
-        <ShowDebugInfo Value="True"/>
-      </Verbosity>
-    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions>

@@ -3,19 +3,19 @@ program RestClient;
 {$mode objfpc}{$H+}
 
 uses
- {$IFDEF UNIX}{$IFDEF UseCThreads}
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
-   {$ENDIF} {$ENDIF}
+  {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms,
-  uPrincipal;
+  Forms, formMain;
 
 {$R *.res}
 
 begin
-  RequireDerivedFormResource := True;
-  Application.Scaled := True;
+  RequireDerivedFormResource:=True;
+  Application.Scaled:=True;
   Application.Initialize;
-  Application.CreateForm(TfPrincipal, fPrincipal);
+  Application.CreateForm(TForm2, Form2);
   Application.Run;
 end.
+

@@ -3,20 +3,18 @@ object fPrincipal: TfPrincipal
   Top = 153
   Caption = 'RESTDataWare - Full Client'
   ClientHeight = 600
-  ClientWidth = 890
+  ClientWidth = 876
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OldCreateOrder = True
   Position = poDesktopCenter
   OnCreate = FormCreate
   DesignSize = (
-    890
+    876
     600)
-  PixelsPerInch = 96
   TextHeight = 13
   object labHost: TLabel
     Left = 8
@@ -51,7 +49,7 @@ object fPrincipal: TfPrincipal
   object labResult: TLabel
     Left = 0
     Top = 394
-    Width = 890
+    Width = 876
     Height = 23
     Align = alBottom
     AutoSize = False
@@ -66,6 +64,7 @@ object fPrincipal: TfPrincipal
     ParentFont = False
     Transparent = False
     Layout = tlCenter
+    ExplicitWidth = 890
   end
   object labAcesso: TLabel
     Left = 8
@@ -151,7 +150,7 @@ object fPrincipal: TfPrincipal
   object labConexao: TLabel
     Left = 0
     Top = 58
-    Width = 890
+    Width = 876
     Height = 23
     Align = alTop
     AutoSize = False
@@ -166,6 +165,7 @@ object fPrincipal: TfPrincipal
     ParentFont = False
     Transparent = False
     Layout = tlCenter
+    ExplicitWidth = 890
   end
   object labVersao: TLabel
     Left = 450
@@ -229,8 +229,8 @@ object fPrincipal: TfPrincipal
     Text = 'localhost'
   end
   object ePort: TEdit
-    Left = 147
-    Top = 119
+    Left = 149
+    Top = 117
     Width = 40
     Height = 25
     Font.Charset = DEFAULT_CHARSET
@@ -240,7 +240,7 @@ object fPrincipal: TfPrincipal
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
-    Text = '9088'
+    Text = '8082'
   end
   object mComando: TMemo
     Left = 8
@@ -253,8 +253,8 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     Lines.Strings = (
-      'SELECT * '
-      'FROM COR')
+      'select * from '
+      'IMAGELIST')
     ParentFont = False
     TabOrder = 2
   end
@@ -329,7 +329,7 @@ object fPrincipal: TfPrincipal
   object StatusBar1: TStatusBar
     Left = 0
     Top = 580
-    Width = 890
+    Width = 876
     Height = 20
     Color = clGray
     Panels = <
@@ -337,11 +337,13 @@ object fPrincipal: TfPrincipal
         Text = 'Status'
         Width = 50
       end>
+    ExplicitTop = 577
+    ExplicitWidth = 872
   end
   object Memo1: TMemo
-    Left = 384
-    Top = 231
-    Width = 485
+    Left = 387
+    Top = 234
+    Width = 456
     Height = 148
     Anchors = [akLeft, akTop, akRight]
     Color = clInfoBk
@@ -354,6 +356,7 @@ object fPrincipal: TfPrincipal
       'Memo1')
     ParentFont = False
     TabOrder = 9
+    ExplicitWidth = 452
   end
   object btnApply: TButton
     Left = 127
@@ -445,15 +448,16 @@ object fPrincipal: TfPrincipal
   object paTopo: TPanel
     Left = 0
     Top = 0
-    Width = 890
+    Width = 876
     Height = 58
     Align = alTop
     BevelOuter = bvNone
     Color = 2763306
     ParentBackground = False
     TabOrder = 16
+    ExplicitWidth = 872
     DesignSize = (
-      890
+      876
       58)
     object Image1: TImage
       Left = 0
@@ -862,7 +866,7 @@ object fPrincipal: TfPrincipal
       Layout = tlCenter
     end
     object paPortugues: TPanel
-      Left = 659
+      Left = 617
       Top = 10
       Width = 59
       Height = 37
@@ -872,6 +876,7 @@ object fPrincipal: TfPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 613
       object Image3: TImage
         Left = 0
         Top = 0
@@ -1244,7 +1249,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paEspanhol: TPanel
-      Left = 727
+      Left = 685
       Top = 10
       Width = 59
       Height = 37
@@ -1254,6 +1259,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 681
       object Image4: TImage
         Left = 4
         Top = 0
@@ -1584,7 +1590,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paIngles: TPanel
-      Left = 795
+      Left = 753
       Top = 10
       Width = 59
       Height = 37
@@ -1594,6 +1600,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 749
       object Image2: TImage
         Left = 4
         Top = 0
@@ -2035,9 +2042,9 @@ object fPrincipal: TfPrincipal
     OnClick = cbUseCriptoClick
   end
   object eUpdateTableName: TEdit
-    Left = 251
+    Left = 254
     Top = 248
-    Width = 119
+    Width = 117
     Height = 25
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -2046,7 +2053,7 @@ object fPrincipal: TfPrincipal
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 20
-    Text = 'EMPLOYEE'
+    Text = 'PACIENTES'
   end
   object cbAuthOptions: TComboBox
     Left = 242
@@ -2258,7 +2265,7 @@ object fPrincipal: TfPrincipal
   object DBGrid1: TDBGrid
     Left = 0
     Top = 417
-    Width = 890
+    Width = 876
     Height = 163
     Align = alBottom
     BorderStyle = bsNone
@@ -2277,15 +2284,6 @@ object fPrincipal: TfPrincipal
     TitleFont.Name = 'Calibri'
     TitleFont.Style = [fsBold]
   end
-  object DBImage1: TDBImage
-    Left = 681
-    Top = 78
-    Width = 201
-    Height = 121
-    DataSource = DataSource1
-    Stretch = True
-    TabOrder = 25
-  end
   object DataSource1: TDataSource
     DataSet = RESTDWClientSQL1
     Left = 224
@@ -2302,8 +2300,20 @@ object fPrincipal: TfPrincipal
     RESTClientPooler = RESTDWIdClientPooler1
     Events = <
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -2335,8 +2345,20 @@ object fPrincipal: TfPrincipal
         OnlyPreDefinedParams = False
       end
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -2353,8 +2375,8 @@ object fPrincipal: TfPrincipal
         CallbackEvent = False
         OnlyPreDefinedParams = False
       end>
-    Left = 544
-    Top = 312
+    Left = 672
+    Top = 272
   end
   object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
@@ -2363,7 +2385,7 @@ object fPrincipal: TfPrincipal
     ContentEncoding = 'gzip, identity'
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
-    DataRoute = '/cgi-bin/dwcgiserver.exe/'
+    DataRoute = '/datadm/'
     Encoding = esUtf8
     EncodedStrings = True
     ThreadRequest = False
@@ -2396,25 +2418,19 @@ object fPrincipal: TfPrincipal
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
     ContentEncoding = 'gzip, identity'
+    OnBeforeConnect = RESTDWIdDatabase1BeforeConnect
     Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    DataRoute = '/'
+    DataRoute = '/datadm/'
     IgnoreEchoPooler = False
-    AuthenticationOptions.AuthorizationOption = rdwAOBasic
-    AuthenticationOptions.OptionParams.AuthDialog = True
-    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
-    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
-    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
-    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
-    AuthenticationOptions.OptionParams.Username = 'sugv20'
-    AuthenticationOptions.OptionParams.Password = '1234'
+    AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False
     ProxyOptions.Port = 8888
     PoolerService = 'localhost'
-    PoolerPort = 9088
-    PoolerName = 'TServerMethodDM.RESTDWPoolerFD'
+    PoolerPort = 8082
+    PoolerName = 'TDMPrincipal.RESTDWPoolerFD'
     StateConnection.AutoCheck = False
     StateConnection.InTime = 1000
     RequestTimeOut = 60000
@@ -2442,7 +2458,72 @@ object fPrincipal: TfPrincipal
     Top = 256
   end
   object RESTDWClientSQL1: TRESTDWClientSQL
-    FieldDefs = <>
+    Active = False
+    Filtered = False
+    FieldDefs = <
+      item
+        Name = 'ID_PAC'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'NM_PAC'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'END_PAC'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'DTNASC_PAC'
+        DataType = ftDate
+      end
+      item
+        Name = 'DUM'
+        DataType = ftDate
+      end
+      item
+        Name = 'VALID_CART'
+        DataType = ftDate
+      end
+      item
+        Name = 'DT_CADASTRO_PAC'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'DT_ALTERACAO'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'DT_ALTA'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'DT_OBITO'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'VALID_CART_EPS'
+        DataType = ftDate
+      end
+      item
+        Name = 'PESO_PAC'
+        DataType = ftSingle
+      end
+      item
+        Name = 'ALTURA_PAC'
+        DataType = ftSingle
+      end>
+    SortOrder = soAsc
+    SortCaseSens = scYes
+    SortFields = ''
+    AutoSortOnOpen = True
+    AutoRefreshOnFilterChanged = True
+    SequenceName = 'GEN_PACIENTES'
+    SequenceField = 'ID_PAC'
     MasterCascadeDelete = True
     BinaryRequest = True
     Datapacks = -1
@@ -2451,14 +2532,27 @@ object fPrincipal: TfPrincipal
     Params = <>
     DataBase = RESTDWIdDatabase1
     SQL.Strings = (
-      'select * From MODELO')
+      'select first 10000'
+      'ID_PAC, NM_PAC, END_PAC, '
+      'DTNASC_PAC, PESO_PAC, '
+      'ALTURA_PAC, DUM, VALID_CART, '
+      'DT_CADASTRO_PAC, '
+      'DT_ALTERACAO, DT_ALTA,'
+      'DT_OBITO, VALID_CART_EPS from '
+      'pacientes')
+    UpdateTableName = 'EMPLOYEE'
     CacheUpdateRecords = True
-    AutoCommitData = False
+    AutoCommitData = True
     AutoRefreshAfterCommit = False
     ThreadRequest = False
     RaiseErrors = True
-    ReflectChanges = False
+    ReflectChanges = True
     Left = 320
     Top = 424
+  end
+  object RESTDWMassiveCache1: TRESTDWMassiveCache
+    MassiveType = mtMassiveCache
+    Left = 448
+    Top = 328
   end
 end

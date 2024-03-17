@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="fileclient.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="47" Y="21"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="128"/>
+        <CursorPos Y="140"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../../lazarus-2.2.0/lazarus/lcl/include/control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2948"/>
+        <CursorPos Y="2959"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../../lazarus-2.2.0/config_lazarus/onlinepackagemanager/packages/Indy10/Protocols/IdHTTP.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2814"/>
+        <CursorPos Y="2843"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../src/fc.mainform.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="984"/>
+        <CursorPos X="30" Y="1007"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../server/src/fs.mainform.pas"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="122"/>
+        <CursorPos X="47" Y="122"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="21">
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="92" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="93" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="95" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="91" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="92" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="93" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="95" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="fileclient.lpr"/>
+        <Caret Line="21" Column="47"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="91" TopLine="79"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="92" TopLine="79"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="97" Column="21" TopLine="76"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="91" TopLine="76"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="92" TopLine="76"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="92" TopLine="86"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="91" TopLine="86"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="92" TopLine="86"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="93" TopLine="86"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="91" TopLine="86"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="141" TopLine="130"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="138" TopLine="130"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="139" TopLine="130"/>
+      </Position>
+      <Position>
+        <Filename Value="../src/fc.mainform.pas"/>
+        <Caret Line="138" Column="132" TopLine="128"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

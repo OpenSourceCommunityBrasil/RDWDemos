@@ -29,10 +29,10 @@
     </RunParams>
     <RequiredPackages Count="4">
       <Item1>
-        <PackageName Value="RESTDataWareComponents"/>
+        <PackageName Value="RESTDWIndySockets"/>
       </Item1>
       <Item2>
-        <PackageName Value="RESTDWIndySockets"/>
+        <PackageName Value="restdatawarecomponents"/>
       </Item2>
       <Item3>
         <PackageName Value="FCL"/>
@@ -47,9 +47,9 @@
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="src\uPrincipal.pas"/>
+        <Filename Value="formMain.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="fPrincipal"/>
+        <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit1>
@@ -63,12 +63,12 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="src"/>
+      <OtherUnitFiles Value="."/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
       <Debugging>
-        <DebugInfoType Value="dsDwarf2Set"/>
+        <DebugInfoType Value="dsDwarf3"/>
       </Debugging>
       <Options>
         <Win32>
@@ -78,7 +78,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="7">
+    <Exceptions Count="9">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -100,6 +100,12 @@
       <Item7>
         <Name Value="EReadError"/>
       </Item7>
+      <Item8>
+        <Name Value="RunError(204)"/>
+      </Item8>
+      <Item9>
+        <Name Value="EInvalidPointer"/>
+      </Item9>
     </Exceptions>
   </Debugging>
 </CONFIG>

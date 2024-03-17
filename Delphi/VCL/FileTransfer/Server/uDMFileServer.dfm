@@ -1,4 +1,5 @@
 object dmFileServer: TdmFileServer
+  OldCreateOrder = False
   Encoding = esUtf8
   QueuedRequest = False
   Height = 239

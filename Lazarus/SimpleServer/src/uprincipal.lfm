@@ -14,18 +14,7 @@ object Form1: TForm1
     Width = 75
     Caption = 'ToggleBox1'
     OnChange = ToggleBox1Change
-    OnClick = ToggleBox1Click
     TabOrder = 0
-  end
-  object Memo1: TMemo
-    Left = 0
-    Height = 90
-    Top = 144
-    Width = 312
-    Lines.Strings = (
-      'Memo1'
-    )
-    TabOrder = 1
   end
   object RESTDWIdServicePooler1: TRESTDWIdServicePooler
     Active = False
@@ -45,16 +34,11 @@ object Form1: TForm1
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    EncodeErrors = False
     DatabaseCharSet = csUndefined
-    SSLVersions = []
-    ServerIPVersionConfig.IPv4Address = '0.0.0.0'
-    ServerIPVersionConfig.IPv6Address = '::'
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
-    SSLMethod = sslvSSLv2
-    Left = 176
-    Top = 56
+    Left = 128
+    Top = 104
   end
 end

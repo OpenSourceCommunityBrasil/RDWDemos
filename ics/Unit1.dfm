@@ -1,0 +1,70 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 299
+  ClientWidth = 635
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Button1: TButton
+    Left = 216
+    Top = 24
+    Width = 75
+    Height = 25
+    Caption = 'Button1'
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object DisplayMemo: TMemo
+    Left = 0
+    Top = 88
+    Width = 635
+    Height = 211
+    Align = alBottom
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = []
+    Lines.Strings = (
+      'DisplayMemo')
+    ParentFont = False
+    ScrollBars = ssBoth
+    TabOrder = 1
+  end
+  object HttpAppSrv1: THttpAppSrv
+    ListenBacklog = 5
+    MultiListenSockets = <>
+    Port = '80'
+    Addr = '0.0.0.0'
+    SocketFamily = sfIPv4
+    MaxClients = 0
+    LingerOnOff = wsLingerNoSet
+    LingerTimeout = 0
+    Options = []
+    KeepAliveTimeSec = 10
+    KeepAliveTimeXferSec = 300
+    MaxRequestsKeepAlive = -1
+    SizeCompressMin = 5000
+    SizeCompressMax = 5000000
+    MaxBlkSize = 8192
+    BandwidthLimit = 0
+    BandwidthSampling = 1000
+    OnGetDocument = HttpAppSrv1GetDocument
+    AuthTypes = []
+    AuthRealm = 'ics'
+    SocketErrs = wsErrTech
+    ExclusiveAddr = True
+    SessionTimeout = 300
+    MaxSessions = 0
+    Left = 52
+    Top = 88
+  end
+end
