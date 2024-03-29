@@ -1,5 +1,4 @@
 object dmFileServer: TdmFileServer
-  OldCreateOrder = False
   Encoding = esUtf8
   QueuedRequest = False
   Height = 239
@@ -8,8 +7,20 @@ object dmFileServer: TdmFileServer
     IgnoreInvalidParams = False
     Events = <
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -28,8 +39,20 @@ object dmFileServer: TdmFileServer
         OnReplyEvent = dwSEArquivosEventsFileListReplyEvent
       end
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -69,8 +92,20 @@ object dmFileServer: TdmFileServer
         OnReplyEvent = dwSEArquivosEventsSendReplicationFileReplyEvent
       end
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam

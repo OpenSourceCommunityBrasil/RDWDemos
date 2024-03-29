@@ -2337,7 +2337,7 @@ object Form2: TForm2
     Top = 357
   end
   object RESTDWClientSQL1: TRESTDWClientSQL
-    Active = True
+    Active = False
     Filtered = False
     FieldDefs = <
       item
@@ -2396,6 +2396,10 @@ object Form2: TForm2
         Name = 'TIMEC'
         DataType = ftTime
       end>
+    SortOrder = soAsc
+    SortCaseSens = scYes
+    AutoSortOnOpen = True
+    AutoRefreshOnFilterChanged = True
     MasterCascadeDelete = True
     BinaryRequest = True
     Datapacks = -1
@@ -2418,10 +2422,23 @@ object Form2: TForm2
     ServerEventName = 'TServerMethodDM.RESTDWServerEvents'
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    RESTClientPooler = RESTDWIdClientPooler1
     Events = <
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -2453,8 +2470,20 @@ object Form2: TForm2
         OnlyPreDefinedParams = False
       end
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -2474,45 +2503,6 @@ object Form2: TForm2
     Left = 288
     Top = 424
   end
-  object TRESTDWIdDatabase
-    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-    ContentType = 'application/json'
-    Charset = 'utf8'
-    ContentEncoding = 'multipart/form-data'
-    Active = False
-    Compression = True
-    CriptOptions.Use = False
-    CriptOptions.Key = 'RDWBASEKEY256'
-    IgnoreEchoPooler = False
-    AuthenticationOptions.AuthorizationOption = rdwAONone
-    Proxy = False
-    ProxyOptions.Port = 8888
-    PoolerService = '127.0.0.1'
-    PoolerPort = 8082
-    StateConnection.AutoCheck = False
-    StateConnection.InTime = 1000
-    RequestTimeOut = 10000
-    ConnectTimeOut = 3000
-    EncodedStrings = True
-    Encoding = esASCII
-    StrsTrim = False
-    StrsEmpty2Null = False
-    StrsTrim2Len = True
-    PoolerNotFoundMessage = 'Pooler not found'
-    HandleRedirects = False
-    RedirectMaximum = 0
-    ParamCreate = False
-    FailOver = False
-    FailOverConnections = <>
-    FailOverReplaceDefaults = False
-    ClientConnectionDefs.Active = False
-    UseSSL = False
-    SSLVersions = []
-    UserAgent = 
-      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
-      'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
-    SSLMode = sslmUnassigned
-  end
   object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
     Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
@@ -2523,7 +2513,6 @@ object Form2: TForm2
     EncodedStrings = True
     ThreadRequest = False
     Host = 'localhost'
-    Port = 9087
     AuthenticationOptions.AuthorizationOption = rdwAONone
     RequestTimeOut = 10000
     ConnectTimeOut = 3000
@@ -2544,8 +2533,8 @@ object Form2: TForm2
     PoolerNotFoundMessage = 'Pooler not found'
     SSLVersions = []
     SSLMode = sslmUnassigned
-    Left = 456
-    Top = 408
+    Left = 400
+    Top = 312
   end
   object RESTDWIdDatabase1: TRESTDWIdDatabase
     Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
@@ -2556,6 +2545,7 @@ object Form2: TForm2
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    MyIP = '0.0.0.0'
     IgnoreEchoPooler = False
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False
@@ -2568,7 +2558,7 @@ object Form2: TForm2
     RequestTimeOut = 10000
     ConnectTimeOut = 3000
     EncodedStrings = True
-    Encoding = esUtf8
+    Encoding = esASCII
     StrsTrim = False
     StrsEmpty2Null = False
     StrsTrim2Len = True
@@ -2586,7 +2576,7 @@ object Form2: TForm2
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
     SSLMode = sslmUnassigned
-    Left = 288
-    Top = 320
+    Left = 320
+    Top = 288
   end
 end

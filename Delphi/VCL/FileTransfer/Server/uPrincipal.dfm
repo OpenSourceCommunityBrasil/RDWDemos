@@ -12,10 +12,8 @@ object fServer: TfServer
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
     Left = 341
@@ -8439,6 +8437,7 @@ object fServer: TfServer
   end
   object rspServerFiles: TRESTDWIdServicePooler
     Active = False
+    Authenticator = RESTDWAuthBasic1
     CORS = False
     CORS_CustomHeaders.Strings = (
       'Access-Control-Allow-Origin=*'
@@ -8452,28 +8451,27 @@ object fServer: TfServer
     RequestTimeout = -1
     ServicePort = 8082
     ProxyOptions.ProxyPort = 0
-    AuthenticationOptions.AuthorizationOption = rdwAOBasic
-    AuthenticationOptions.OptionParams.AuthDialog = True
-    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
-    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
-    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
-    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
-    AuthenticationOptions.OptionParams.Username = 'testserver'
-    AuthenticationOptions.OptionParams.Password = 'testserver'
     Encoding = esUtf8
     RootPath = '/'
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
     EncodeErrors = False
-    SSLVersions = []
     ServerIPVersionConfig.IPv4Address = '0.0.0.0'
     ServerIPVersionConfig.IPv6Address = '::'
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
+    SSLVersions = []
     Left = 272
     Top = 152
+  end
+  object RESTDWAuthBasic1: TRESTDWAuthBasic
+    AuthDialog = True
+    UserName = 'testserver'
+    Password = 'testserver'
+    Left = 168
+    Top = 144
   end
 end

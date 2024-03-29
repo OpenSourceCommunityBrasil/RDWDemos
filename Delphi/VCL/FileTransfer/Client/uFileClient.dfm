@@ -12,10 +12,8 @@ object Form4: TForm4
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 13
   object Label4: TLabel
     Left = 13
@@ -8487,8 +8485,20 @@ object Form4: TForm4
     RESTClientPooler = RESTClientPooler1
     Events = <
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -8506,8 +8516,20 @@ object Form4: TForm4
         OnlyPreDefinedParams = False
       end
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam
@@ -8546,8 +8568,20 @@ object Form4: TForm4
         OnlyPreDefinedParams = False
       end
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <
           item
             TypeObject = toParam

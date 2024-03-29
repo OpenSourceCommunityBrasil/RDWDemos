@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.Imaging.pngimage, uDMFileServer, uRESTDWAbout,
-  uRESTDWBasic, uRESTDWIdBase, uRESTDWDataUtils;
+  uRESTDWBasic, uRESTDWIdBase, uRESTDWDataUtils, uRESTDWAuthenticators;
 
 type
   TfServer = class(TForm)
@@ -26,6 +26,7 @@ type
     Bevel2: TBevel;
     cbPoolerState: TCheckBox;
     rspServerFiles: TRESTDWIdServicePooler;
+    RESTDWAuthBasic1: TRESTDWAuthBasic;
     procedure FormCreate(Sender: TObject);
     procedure ButtonStartClick(Sender: TObject);
   private
@@ -106,9 +107,8 @@ procedure TfServer.ButtonStartClick(Sender: TObject);
 begin
  If Not rspServerFiles.Active Then
   Begin
-   rspServerFiles.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
-   TRESTDWAuthOptionBasic(rspServerFiles.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
-   TRESTDWAuthOptionBasic(rspServerFiles.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
+   RESTDWAuthBasic1.Username := edUserNameDW.Text;
+   RESTDWAuthBasic1.Password := edPasswordDW.Text;
    rspServerFiles.ServicePort := StrToInt(edPortaDW.Text);
    rspServerFiles.Active      := True;
    If Not rspServerFiles.Active Then
