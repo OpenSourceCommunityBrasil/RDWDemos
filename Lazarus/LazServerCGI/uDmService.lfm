@@ -1,8 +1,6 @@
 object ServerMethodDM: TServerMethodDM
   OldCreateOrder = False
   Encoding = esUtf8
-  OnUserTokenAuth = DataModuleUserTokenAuth
-  OnGetToken = DataModuleGetToken
   QueuedRequest = False
   Height = 316
   HorizontalOffset = 713
@@ -12,8 +10,20 @@ object ServerMethodDM: TServerMethodDM
     IgnoreInvalidParams = False
     Events = <    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <        
           item
             TypeObject = toParam
@@ -46,8 +56,20 @@ object ServerMethodDM: TServerMethodDM
         OnReplyEvent = DWServerEvents1EventsservertimeReplyEvent
       end    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <>
         DataMode = dmDataware
         Name = 'helloworld'
@@ -59,8 +81,20 @@ object ServerMethodDM: TServerMethodDM
         OnReplyEvent = DWServerEvents1EventstesteReplyEvent
       end    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <        
           item
             TypeObject = toParam
@@ -85,8 +119,20 @@ object ServerMethodDM: TServerMethodDM
         OnlyPreDefinedParams = False
       end    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <        
           item
             TypeObject = toParam
@@ -105,8 +151,20 @@ object ServerMethodDM: TServerMethodDM
         OnReplyEvent = DWServerEvents1EventsgetemployeeReplyEvent
       end    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <>
         DataMode = dmDataware
         Name = 'temp'
@@ -130,10 +188,22 @@ object ServerMethodDM: TServerMethodDM
         Name = 'init'
         BaseURL = '/www/'
         ContextName = 'init'
-        Routes = [crAll]
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         OnlyPreDefinedParams = False
         IgnoreBaseHeader = False
-        NeedAuthorization = True
         OnReplyRequest = DWServerContext1ContextListinitReplyRequest
       end    
       item
@@ -142,10 +212,22 @@ object ServerMethodDM: TServerMethodDM
         Name = 'index'
         BaseURL = '/www/'
         ContextName = 'index'
-        Routes = [crAll]
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         OnlyPreDefinedParams = False
         IgnoreBaseHeader = False
-        NeedAuthorization = True
         OnReplyRequest = DWServerContext1ContextListindexReplyRequest
       end    
       item
@@ -154,10 +236,22 @@ object ServerMethodDM: TServerMethodDM
         Name = 'openfile'
         BaseURL = '/www/'
         ContextName = 'openfile'
-        Routes = [crAll]
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         OnlyPreDefinedParams = False
         IgnoreBaseHeader = False
-        NeedAuthorization = True
         OnReplyRequestStream = DWServerContext1ContextListopenfileReplyRequestStream
       end    
       item
@@ -166,10 +260,22 @@ object ServerMethodDM: TServerMethodDM
         Name = 'angular'
         BaseURL = '/www/'
         ContextName = 'angular'
-        Routes = [crAll]
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         OnlyPreDefinedParams = False
         IgnoreBaseHeader = False
-        NeedAuthorization = True
         OnReplyRequest = DWServerContext1ContextListangularReplyRequest
       end    
       item
@@ -211,11 +317,23 @@ object ServerMethodDM: TServerMethodDM
           '</body>'
           '</html>'
         )
-        Routes = [crAll]
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         ContextRules = dwcrEmployee
         OnlyPreDefinedParams = False
         IgnoreBaseHeader = False
-        NeedAuthorization = True
       end>
     Left = 168
     Top = 208
@@ -331,15 +449,8 @@ object ServerMethodDM: TServerMethodDM
     Left = 240
     Top = 112
   end
-  object RESTDWDriverZeos1: TRESTDWDriverZeos
-    DatabaseCharSet = csUndefined
-    CommitRecords = 100
-    Connection = ZConnection1
-    Left = 160
-    Top = 48
-  end
   object RESTDWPoolerZEOS: TRESTDWPoolerDB
-    RESTDriver = RESTDWDriverZeos1
+    RESTDriver = RESTDWZeosDriver1
     Compression = True
     Encoding = esUtf8
     StrsTrim = False
@@ -362,5 +473,20 @@ object ServerMethodDM: TServerMethodDM
     Params = <>
     Left = 268
     Top = 33
+  end
+  object RESTDWZeosDriver1: TRESTDWZeosDriver
+    Connection = ZConnection1
+    ConectionType = dbtFirebird
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = False
+    Compression = False
+    EncodeStringsJSON = False
+    Encoding = esASCII
+    ParamCreate = True
+    DatabaseCharSet = csUndefined
+    CommitRecords = 100
+    Left = 133
+    Top = 51
   end
 end

@@ -6,6 +6,8 @@
     <General>
       <Flags>
         <MainUnitHasCreateFormStatements Value="False"/>
+        <MainUnitHasTitleStatement Value="False"/>
+        <MainUnitHasScaledStatement Value="False"/>
         <Runnable Value="False"/>
         <CompatibilityMode Value="True"/>
       </Flags>
@@ -32,15 +34,15 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="7">
+    <RequiredPackages Count="6">
       <Item1>
-        <PackageName Value="RestDatawareShellservices"/>
+        <PackageName Value="RESTDWZeosDriver"/>
       </Item1>
       <Item2>
-        <PackageName Value="restdatawarecomponents"/>
+        <PackageName Value="RESTDWShellServices"/>
       </Item2>
       <Item3>
-        <PackageName Value="RESTDWDriverZEOS"/>
+        <PackageName Value="restdatawarecomponents"/>
       </Item3>
       <Item4>
         <PackageName Value="zcomponent"/>
@@ -49,11 +51,8 @@
         <PackageName Value="FCL"/>
       </Item5>
       <Item6>
-        <PackageName Value="RESTDWLazDriver"/>
-      </Item6>
-      <Item7>
         <PackageName Value="WebLaz"/>
-      </Item7>
+      </Item6>
     </RequiredPackages>
     <Units Count="4">
       <Unit0>
@@ -84,7 +83,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="C:\AppServ\www\cgi-bin\dwCGIServer"/>
+      <Filename Value="C:\AppServ\www\cgi-bin\dwcgiserver"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>

@@ -24,7 +24,6 @@ object dwCGIService: TdwCGIService
     RequestTimeout = -1
     ServicePort = 8082
     ProxyOptions.ProxyPort = 0
-    AuthenticationOptions.AuthorizationOption = rdwAONone
     Encoding = esUtf8
     RootPath = '/'
     ForceWelcomeAccess = False
@@ -32,7 +31,8 @@ object dwCGIService: TdwCGIService
     CriptOptions.Key = 'RDWBASEKEY256'
     EncodeErrors = False
     DatabaseCharSet = csUndefined
-    SSLVersions = []
+    ServerIPVersionConfig.IPv4Address = '0.0.0.0'
+    ServerIPVersionConfig.IPv6Address = '::'
     Left = 96
     Top = 104
   end
