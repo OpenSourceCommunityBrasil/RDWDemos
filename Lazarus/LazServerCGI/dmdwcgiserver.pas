@@ -6,7 +6,7 @@ unit dmdwcgiserver;
 interface
 
 uses
-  SysUtils, Classes, uRESTDWShellServicesLazarus,
+  SysUtils, Classes, uRESTDWShellServicesLazarus, uRESTDWZeosDriver,
   fpHTTP, HTTPDefs, fpWeb;
 
  Type

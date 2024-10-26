@@ -131,9 +131,9 @@ IMPLEMENTATION
 procedure TDMSecundario.employeeReplyEvent(var Params: TRESTDWParams;
   dJsonMode: TDataMode; Var Result: String);
 Var
-  JSONValue: TJSONValue;
+  JSONValue: TRESTDWJSONValue;
 begin
-  JSONValue := TJSONValue.Create;
+  JSONValue := TRESTDWJSONValue.Create;
   Try
     FDQuery1.Close;
     FDQuery1.SQL.Clear;
@@ -179,9 +179,9 @@ end;
 procedure TDMSecundario.dwcrEmployeeItemsdatatableRequestExecute
   (const Params: TRESTDWParams; var ContentType, Result: string);
 Var
-  JSONValue: TJSONValue;
+  JSONValue: TRESTDWJSONValue;
 begin
-  JSONValue := TJSONValue.Create;
+  JSONValue := TRESTDWJSONValue.Create;
   Try
     FDQuery1.Close;
     FDQuery1.SQL.Clear;
@@ -391,11 +391,11 @@ end;
 procedure TDMSecundario.DWServerEvents1EventsloaddataseteventReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 Var
-  JSONValue: TJSONValue;
+  JSONValue: TRESTDWJSONValue;
 BEGIN
   If Params.ItemsString['sql'] <> Nil Then
   Begin
-    JSONValue := TJSONValue.Create;
+    JSONValue := TRESTDWJSONValue.Create;
     Try
       FDQuery1.Close;
       FDQuery1.SQL.Clear;

@@ -1,5 +1,4 @@
 object CGIWebModule: TCGIWebModule
-  OldCreateOrder = True
   OnCreate = WebModuleCreate
   Actions = <
     item
@@ -8,8 +7,8 @@ object CGIWebModule: TCGIWebModule
       PathInfo = '/'
       OnAction = dwCGIServiceDefaultHandlerAction
     end>
-  Height = 102
-  Width = 214
+  Height = 171
+  Width = 247
   object RESTDWShellService1: TRESTDWShellService
     Active = False
     CORS = False
@@ -25,13 +24,15 @@ object CGIWebModule: TCGIWebModule
     RequestTimeout = -1
     ServicePort = 8082
     ProxyOptions.ProxyPort = 0
-    AuthenticationOptions.AuthorizationOption = rdwAONone
     Encoding = esUtf8
     RootPath = '/'
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    Left = 80
-    Top = 16
+    EncodeErrors = False
+    ServerIPVersionConfig.IPv4Address = '0.0.0.0'
+    ServerIPVersionConfig.IPv6Address = '::'
+    Left = 88
+    Top = 64
   end
 end

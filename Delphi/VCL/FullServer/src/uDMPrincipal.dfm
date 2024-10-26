@@ -3,9 +3,8 @@ object DMPrincipal: TDMPrincipal
   Encoding = esUtf8
   OnMassiveProcess = ServerMethodDataModuleMassiveProcess
   QueuedRequest = False
-  Height = 278
-  Width = 362
-  PixelsPerInch = 106
+  Height = 252
+  Width = 328
   object RESTDWPoolerFD: TRESTDWPoolerDB
     RESTDriver = RESTDWFireDACDriver1
     Compression = True
@@ -16,8 +15,8 @@ object DMPrincipal: TDMPrincipal
     Active = True
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
-    Left = 68
-    Top = 127
+    Left = 62
+    Top = 115
   end
   object Server_FDConnection: TFDConnection
     Params.Strings = (
@@ -35,50 +34,50 @@ object DMPrincipal: TDMPrincipal
     Transaction = FDTransaction1
     OnError = Server_FDConnectionError
     BeforeConnect = Server_FDConnectionBeforeConnect
-    Left = 59
-    Top = 68
+    Left = 53
+    Top = 62
   end
   object FDPhysFBDriverLink1: TFDPhysFBDriverLink
-    Left = 60
-    Top = 19
+    Left = 54
+    Top = 17
   end
   object FDStanStorageJSONLink1: TFDStanStorageJSONLink
-    Left = 213
-    Top = 70
+    Left = 193
+    Top = 63
   end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
-    Left = 120
-    Top = 68
+    Left = 109
+    Top = 62
   end
   object FDTransaction1: TFDTransaction
     Options.AutoStop = False
     Options.DisconnectAction = xdRollback
     Connection = Server_FDConnection
-    Left = 89
-    Top = 68
+    Left = 81
+    Top = 62
   end
   object FDQuery1: TFDQuery
     AfterScroll = FDQuery1AfterScroll
     Connection = Server_FDConnection
-    Left = 151
-    Top = 68
+    Left = 137
+    Top = 62
   end
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    Left = 152
-    Top = 19
+    Left = 138
+    Top = 17
   end
   object FDMoniRemoteClientLink1: TFDMoniRemoteClientLink
-    Left = 183
-    Top = 19
+    Left = 166
+    Top = 17
   end
   object FDQuery2: TFDQuery
     Connection = Server_FDConnection
     SQL.Strings = (
       'select * from SALARY_HISTORY'
       'where emp_no = :emp_no')
-    Left = 182
-    Top = 68
+    Left = 165
+    Top = 62
     ParamData = <
       item
         Name = 'EMP_NO'
@@ -87,12 +86,12 @@ object DMPrincipal: TDMPrincipal
   end
   object FDQLogin: TFDQuery
     Connection = Server_FDConnection
-    Left = 244
-    Top = 70
+    Left = 221
+    Top = 63
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
-    Left = 121
-    Top = 19
+    Left = 110
+    Top = 17
   end
   object RESTDWServerEvents: TRESTDWServerEvents
     IgnoreInvalidParams = False
@@ -177,8 +176,8 @@ object DMPrincipal: TDMPrincipal
         OnlyPreDefinedParams = False
         OnReplyEvent = RESTDWServerEventsEventsservertimeReplyEvent
       end>
-    Left = 203
-    Top = 133
+    Left = 184
+    Top = 120
   end
   object RESTDWFireDACDriver1: TRESTDWFireDACDriver
     Connection = Server_FDConnection
@@ -191,7 +190,7 @@ object DMPrincipal: TDMPrincipal
     Encoding = esUtf8
     ParamCreate = False
     CommitRecords = 0
-    Left = 71
-    Top = 186
+    Left = 64
+    Top = 168
   end
 end

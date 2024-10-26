@@ -9,8 +9,7 @@ uses
   SysUtils, Classes, HTTPApp, WSDLPub, SOAPPasInv, SOAPHTTPPasInv,
   SOAPHTTPDisp, WebBrokerSOAP, Soap.InvokeRegistry, Soap.WSDLIntf,
   System.TypInfo, Soap.WebServExp, Soap.WSDLBind, Xml.XMLSchema,
-  uRDWDataModule, uRESTDWAbout, uRESTDWBasic,
-  uRESTDWShellServicesDelphi, uRESTDWComponentBase;
+  uRDWDataModule, uRESTDWAbout, uRESTDWBasic, uRESTDWShellServicesDelphi;
 
 type
   TCGIWebModule = class(TWebModule)

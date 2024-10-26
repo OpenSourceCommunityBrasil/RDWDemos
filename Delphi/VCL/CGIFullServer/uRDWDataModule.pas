@@ -14,7 +14,7 @@ USES
   FireDAC.Dapt.Intf, FireDAC.Comp.DataSet,
 
   uRESTDWServerContext, uRESTDWAbout, uRESTDWBasic, uRESTDWParams,
-  uRESTDWComponentBase, uRESTDWDatamodule, uRESTDWMassiveBuffer,
+  uRESTDWDatamodule, uRESTDWMassiveBuffer,
   uRESTDWDataUtils, uRESTDWBasicDB, uRESTDWConsts,
   uRESTDWServerEvents, uRESTDWDriverBase, uRESTDWFireDACDriver;
 
@@ -38,18 +38,6 @@ TYPE
     PROCEDURE Server_FDConnectionBeforeConnect(Sender: TObject);
     procedure ServerMethodDataModuleMassiveProcess(var MassiveDataset
       : TMassiveDatasetBuffer; var Ignore: Boolean);
-    procedure ServerMethodDataModuleGetToken(Welcomemsg, AccessTag: string;
-      Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
-      var ErrorCode: Integer; var ErrorMessage, TokenID: string;
-      var Accept: Boolean);
-    procedure RESTDWServerEvents1Eventsdwevent1ReplyEvent
-      (var Params: TRESTDWParams; var Result: string);
-    procedure RESTDWServerEvents1EventshelloworldReplyEvent
-      (var Params: TRESTDWParams; var Result: string);
-    procedure ServerMethodDataModuleUserTokenAuth(Welcomemsg, AccessTag: string;
-      Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
-      var ErrorCode: Integer; var ErrorMessage, TokenID: string;
-      var Accept: Boolean);
   PRIVATE
     { Private declarations }
     vIDVenda: Integer;
@@ -65,77 +53,6 @@ IMPLEMENTATION
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 {$R *.dfm}
-
-procedure TRDWDataModule.ServerMethodDataModuleGetToken(Welcomemsg,
-  AccessTag: string; Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
-  var ErrorCode: Integer; var ErrorMessage, TokenID: string;
-  var Accept: Boolean);
-Var
-  vMyClient, vMyPass: String;
-  Function RejectURL: String;
-  Var
-    v404Error: TStringList;
-  Begin
-    v404Error := TStringList.Create;
-    Try
-{$IFDEF APPWIN}
-      v404Error.LoadFromFile(RestDWForm.RESTServicePooler1.RootPath +
-        Const404Page);
-{$ELSE}
-      v404Error.LoadFromFile('.\www\' + Const404Page);
-{$ENDIF}
-      Result := v404Error.Text;
-    Finally
-      v404Error.Free;
-    End;
-  End;
-
-begin
-  vMyClient := '';
-  vMyPass := vMyClient;
-  If (Params.ItemsString['username'] <> Nil) And
-    (Params.ItemsString['password'] <> Nil) Then
-  Begin
-    vMyClient := Params.ItemsString['username'].AsString;
-    vMyPass := Params.ItemsString['password'].AsString;
-  End
-  Else
-  Begin
-    vMyClient := Copy(Welcomemsg, InitStrPos, Pos('|', Welcomemsg) - 1);
-    Delete(Welcomemsg, InitStrPos, Pos('|', Welcomemsg));
-    vMyPass := Trim(Welcomemsg);
-  End;
-  Accept := Not((vMyClient = '') Or (vMyPass = ''));
-  If Accept Then
-  Begin
-    FDQLogin.Close;
-    FDQLogin.SQL.Clear;
-    FDQLogin.SQL.Add
-      ('select * from TB_USUARIO where Upper(NM_LOGIN) = Upper(:NM_LOGIN) and Upper(DS_SENHA) = Upper(:DS_SENHA)');
-    Try
-      FDQLogin.ParamByName('NM_LOGIN').AsString := vMyClient;
-      FDQLogin.ParamByName('DS_SENHA').AsString := vMyPass;
-      FDQLogin.Open;
-    Finally
-      Accept := Not(FDQLogin.EOF);
-      If Not Accept Then
-      Begin
-        ErrorMessage := cInvalidAuth;
-        ErrorCode := 404;
-      End
-      Else
-        TokenID := AuthOptions.GetToken(Format('{"id":"%s", "login":"%s"}',
-          [FDQLogin.FindField('ID_PESSOA').AsString,
-          FDQLogin.FindField('NM_LOGIN').AsString]));
-      FDQLogin.Close;
-    End;
-  End
-  Else
-  Begin
-    ErrorMessage := cInvalidAuth;
-    ErrorCode := 404;
-  End;
-end;
 
 Function TRDWDataModule.GetGenID(GenName: String): Integer;
 Var
@@ -154,25 +71,6 @@ Begin
   End;
   vTempClient.Free;
 End;
-
-procedure TRDWDataModule.RESTDWServerEvents1Eventsdwevent1ReplyEvent
-  (var Params: TRESTDWParams; var Result: string);
-begin
-  If Params.ItemsString['inputdata'].AsString <> '' Then // servertime
-    Params.ItemsString['result'].AsDateTime := Now
-  Else
-    Params.ItemsString['result'].AsDateTime := Now - 1;
-  Params.ItemsString['resultstring'].AsString := 'testservice';
-  Params.RequestHeaders.Output.Add('meutesteheader=testado');
-  Params.Url_Redirect := 'servertime?redirect=testerdw';
-end;
-
-procedure TRDWDataModule.RESTDWServerEvents1EventshelloworldReplyEvent
-  (var Params: TRESTDWParams; var Result: string);
-begin
-  Result := Format('{"Message":"%s"}',
-    [Params.ItemsString['entrada'].AsString]);
-end;
 
 procedure TRDWDataModule.ServerMethodDataModuleMassiveProcess(var MassiveDataset
   : TMassiveDatasetBuffer; var Ignore: Boolean);
@@ -210,18 +108,6 @@ begin
         MassiveDataset.Fields.FieldByName('ID_ITEMS').Value :=
           IntToStr(GetGenID('GEN_' + lowercase(MassiveDataset.TableName)));
   End;
-end;
-
-procedure TRDWDataModule.ServerMethodDataModuleUserTokenAuth(Welcomemsg,
-  AccessTag: string; Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
-  var ErrorCode: Integer; var ErrorMessage, TokenID: string;
-  var Accept: Boolean);
-begin
-  // Novo código para validação
-  Accept := True;
-  // AuthOptions.BeginTime
-  // AuthOptions.EndTime
-  // AuthOptions.Secrets
 end;
 
 PROCEDURE TRDWDataModule.Server_FDConnectionBeforeConnect(Sender: TObject);

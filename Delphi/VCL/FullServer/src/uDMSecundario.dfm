@@ -118,7 +118,6 @@ object DMSecundario: TDMSecundario
         DefaultContentType = 'application/json'
         CallbackEvent = False
         OnlyPreDefinedParams = False
-        OnReplyEventByType = RDWSEDadosEventshelloworldReplyEventByType
       end>
     Left = 160
     Top = 168
@@ -130,6 +129,7 @@ object DMSecundario: TDMSecundario
     Top = 120
   end
   object RESTDWFireDACDriver1: TRESTDWFireDACDriver
+    ConectionType = dbtUndefined
     StrsTrim = False
     StrsEmpty2Null = False
     StrsTrim2Len = False

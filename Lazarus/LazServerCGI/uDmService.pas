@@ -4,9 +4,10 @@ interface
 
 uses
   SysUtils, Classes, IBConnection, sqldb, mysql55conn, mysql50conn,
-  uRESTDWDatamodule, uRESTDWJSONObject,   Dialogs, ZConnection, ZDataset, uRESTDWConsts,
-  uRESTDWBasicDB,    uRESTDWServerEvents, uRESTDWServerContext, uRESTDWParams, uRESTDWTools,
-  uRESTDWDriverZEOS, uRESTDWDataUtils,    uConsts;
+  uRESTDWDatamodule, uRESTDWJSONObject, Dialogs, ZConnection, ZDataset,
+  uRESTDWConsts, uRESTDWBasicDB, uRESTDWServerEvents, uRESTDWServerContext,
+  uRESTDWParams, uRESTDWAuthenticators, uRESTDWTools, uRESTDWZeosDriver,
+  uConsts;
 
 Const
  Const404Page = '404.html';
@@ -19,19 +20,11 @@ type
     dwcrEmployee: TRESTDWContextRules;
     DWServerContext1: TRESTDWServerContext;
     DWServerEvents1: TRESTDWServerEvents;
-    RESTDWDriverZeos1: TRESTDWDriverZeos;
     RESTDWPoolerZEOS: TRESTDWPoolerDB;
+    RESTDWZeosDriver1: TRESTDWZeosDriver;
     ZConnection1: TZConnection;
     FDQuery1: TZQuery;
     FDQLogin: TZQuery;
-    procedure DataModuleGetToken(Welcomemsg, AccessTag: String;
-      Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
-      var ErrorCode: Integer; var ErrorMessage: String; var TokenID: String;
-      var Accept: Boolean);
-    procedure DataModuleUserTokenAuth(Welcomemsg, AccessTag: String;
-      Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
-      var ErrorCode: Integer; var ErrorMessage: String; var TokenID: String;
-      var Accept: Boolean);
     procedure dwcrEmployeeItemsdatatableRequestExecute(const Params: TRESTDWParams;
       Var ContentType, Result: String);
     procedure DWServerContext1ContextListangularReplyRequest(
@@ -104,9 +97,9 @@ end;
 procedure TServerMethodDM.DWServerEvents1EventsgetemployeeReplyEvent(
   Var Params: TRESTDWParams; Var Result: String);
 Var
- JSONValue: TJSONValue;
+ JSONValue: TRESTDWJSONValue;
 begin
- JSONValue          := TJSONValue.Create;
+ JSONValue          := TRESTDWJSONValue.Create;
  Try
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
@@ -114,7 +107,7 @@ begin
   FDQuery1.Open;
   JSONValue.Encoding := Encoding;
   JSONValue.Encoded  := False;
-  JSONValue.DatabaseCharSet := RESTDWDriverZeos1.DatabaseCharSet;
+  JSONValue.DatabaseCharSet := RESTDWZeosDriver1.DatabaseCharSet;
   JSONValue.LoadFromDataset('employee', FDQuery1, False,  Params.DataMode);
   Params.ItemsString['result'].AsObject  := JSONValue.ToJSON;
  Finally
@@ -163,7 +156,7 @@ begin
     Begin
      Try
       Result.LoadFromFile(vFileName);
-      ContentType := GetMIMEType(vFileName);
+//      ContentType := GetMIMEType(vFileName);
      Finally
      End;
     End;
@@ -227,9 +220,9 @@ end;
 procedure TServerMethodDM.dwcrEmployeeItemsdatatableRequestExecute(
   const Params: TRESTDWParams; Var ContentType, Result: String);
 Var
- JSONValue :  TJSONValue;
+ JSONValue :  TRESTDWJSONValue;
 begin
- JSONValue := TJSONValue.Create;
+ JSONValue := TRESTDWJSONValue.Create;
  Try
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
@@ -238,7 +231,7 @@ begin
    FDQuery1.Open;
    JSONValue.DataMode := dmRAW;
    JSONValue.Encoding := Encoding;
-   JSONValue.DatabaseCharSet := RESTDWDriverZeos1.DatabaseCharSet;
+   JSONValue.DatabaseCharSet := RESTDWZeosDriver1.DatabaseCharSet;
    JSONValue.LoadFromDataset('', FDQuery1, False,  JSONValue.DataMode, 'dd/mm/yyyy', '.');
    Result := JSONValue.ToJson;
   Except
@@ -250,86 +243,6 @@ begin
  Finally
   JSONValue.Free;
  End;
-end;
-
-procedure TServerMethodDM.DataModuleGetToken(Welcomemsg, AccessTag: String;
-  Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam; var ErrorCode: Integer;
-  var ErrorMessage: String; var TokenID: String; var Accept: Boolean);
-Var
- vMyClient,
- vMyPass    : String;
- Function RejectURL : String;
- Var
-  v404Error  : TStringList;
- Begin
-  v404Error  := TStringList.Create;
-  Try
-   {$IFDEF APPWIN}
-   v404Error.LoadFromFile(RestDWForm.RESTServicePooler1.RootPath + Const404Page);
-   {$ELSE}
-   v404Error.LoadFromFile('.\www\' + Const404Page);
-   {$ENDIF}
-   Result := v404Error.Text;
-  Finally
-   v404Error.Free;
-  End;
- End;
-begin
- vMyClient  := '';
- vMyPass    := vMyClient;
- If (Params.ItemsString['username'] <> Nil) And
-    (Params.ItemsString['password'] <> Nil) Then
-  Begin
-   vMyClient  := Params.ItemsString['username'].AsString;
-   vMyPass    := Params.ItemsString['password'].AsString;
-  End
- Else
-  Begin
-   vMyClient  := Copy(Welcomemsg, InitStrPos, Pos('|', Welcomemsg) -1);
-   Delete(Welcomemsg, InitStrPos, Pos('|', Welcomemsg));
-   vMyPass    := Trim(Welcomemsg);
-  End;
- Accept     := Not ((vMyClient = '') Or
-                    (vMyPass   = ''));
- If Accept Then
-  Begin
-   FDQLogin.Close;
-   FDQLogin.SQL.Clear;
-   FDQLogin.SQL.Add('select * from TB_USUARIO where Upper(NM_LOGIN) = Upper(:NM_LOGIN) and Upper(DS_SENHA) = Upper(:DS_SENHA)');
-   Try
-    FDQLogin.ParamByName('NM_LOGIN').AsString := vMyClient;
-    FDQLogin.ParamByName('DS_SENHA').AsString := vMyPass;
-    FDQLogin.Open;
-   Finally
-    Accept     := Not(FDQLogin.EOF);
-    If Not Accept Then
-     Begin
-      ErrorMessage := RejectURL;
-      ErrorCode  := 404;
-     End
-    Else
-     TokenID := AuthOptions.GetToken(Format('{"id":"%s", "login":"%s"}', [FDQLogin.FindField('ID_PESSOA').AsString,
-                                                                          FDQLogin.FindField('NM_LOGIN').AsString]));
-    FDQLogin.Close;
-   End;
-  End
- Else
-  Begin
-   ErrorMessage := RejectURL;
-   ErrorCode  := 404;
-  End;
-end;
-
-procedure TServerMethodDM.DataModuleUserTokenAuth(Welcomemsg,
-  AccessTag: String; Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
-  var ErrorCode: Integer; var ErrorMessage: String; var TokenID: String;
-  var Accept: Boolean);
-begin
- //Novo código para validação
- Accept := True;
- // AuthOptions.BeginTime
- // AuthOptions.EndTime
- // AuthOptions.Secrets
 end;
 
 procedure TServerMethodDM.DWServerEvents1EventstesteReplyEvent(

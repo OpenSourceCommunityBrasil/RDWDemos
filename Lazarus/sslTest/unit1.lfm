@@ -1,0 +1,499 @@
+object Form1: TForm1
+  Left = 905
+  Height = 576
+  Top = 198
+  Width = 529
+  Caption = 'REST Dataware Ssl Sample'
+  ClientHeight = 576
+  ClientWidth = 529
+  LCLVersion = '3.4.0.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 539
+    Top = 37
+    Width = 529
+    ActivePage = TabItemEncodeJWT
+    Align = alClient
+    TabIndex = 1
+    TabOrder = 0
+    object TabItemDecodeJWT: TTabSheet
+      Caption = 'Decode JWT'
+      ClientHeight = 511
+      ClientWidth = 521
+      object MemoJWT1: TMemo
+        Left = 9
+        Height = 321
+        Top = 38
+        Width = 271
+        TabOrder = 0
+      end
+      object Label19: TLabel
+        Left = 9
+        Height = 15
+        Top = 14
+        Width = 46
+        Caption = 'Encoded'
+      end
+      object MemoHeader1: TMemo
+        Left = 287
+        Height = 81
+        Top = 38
+        Width = 225
+        TabOrder = 1
+      end
+      object Label20: TLabel
+        Left = 287
+        Height = 15
+        Top = 14
+        Width = 38
+        Caption = 'Header'
+      end
+      object MemoPayload1: TMemo
+        Left = 287
+        Height = 81
+        Top = 158
+        Width = 225
+        TabOrder = 2
+      end
+      object Label21: TLabel
+        Left = 287
+        Height = 15
+        Top = 134
+        Width = 42
+        Caption = 'Payload'
+      end
+      object MemoSignature1: TMemo
+        Left = 287
+        Height = 81
+        Top = 278
+        Width = 225
+        TabOrder = 3
+      end
+      object Label22: TLabel
+        Left = 287
+        Height = 15
+        Top = 254
+        Width = 50
+        Caption = 'Signature'
+      end
+      object ButtonRandomString2: TButton
+        Left = 8
+        Height = 25
+        Top = 376
+        Width = 225
+        Caption = 'Decode JSON Web Token'
+        TabOrder = 4
+        OnClick = ButtonRandomString2Click
+      end
+      object ButtonRandomDigits3: TButton
+        Left = 8
+        Height = 25
+        Top = 416
+        Width = 225
+        Caption = 'Reset'
+        TabOrder = 5
+        OnClick = ButtonRandomDigits3Click
+      end
+      object ButtonRandomString3: TButton
+        Left = 287
+        Height = 25
+        Top = 376
+        Width = 225
+        Caption = 'Verify JSON Web Token PubKey'
+        TabOrder = 6
+        OnClick = ButtonRandomString3Click
+      end
+      object ButtonRandomDigits4: TButton
+        Left = 287
+        Height = 25
+        Top = 416
+        Width = 225
+        Caption = 'Verify JSON Web Token PrivKey'
+        TabOrder = 7
+        OnClick = ButtonRandomDigits4Click
+      end
+    end
+    object TabItemEncodeJWT: TTabSheet
+      Caption = 'Encode JWT'
+      ClientHeight = 511
+      ClientWidth = 521
+      object MemoHeader2: TMemo
+        Left = 8
+        Height = 81
+        Top = 40
+        Width = 225
+        Lines.Strings = (
+          '{"alg":"RS256","typ":"JWT"}'
+        )
+        TabOrder = 0
+      end
+      object Label15: TLabel
+        Left = 8
+        Height = 15
+        Top = 16
+        Width = 38
+        Caption = 'Header'
+      end
+      object Label16: TLabel
+        Left = 240
+        Height = 15
+        Top = 16
+        Width = 46
+        Caption = 'Encoded'
+      end
+      object MemoJWT2: TMemo
+        Left = 240
+        Height = 321
+        Top = 40
+        Width = 271
+        TabOrder = 1
+      end
+      object MemoPayload2: TMemo
+        Left = 8
+        Height = 81
+        Top = 160
+        Width = 225
+        Lines.Strings = (
+          '{"sub":"1234567890","name":"XyberX","admin":true,"iat":1516239022}'
+        )
+        TabOrder = 2
+      end
+      object Label17: TLabel
+        Left = 8
+        Height = 15
+        Top = 136
+        Width = 42
+        Caption = 'Payload'
+      end
+      object MemoSignature2: TMemo
+        Left = 8
+        Height = 81
+        Top = 280
+        Width = 225
+        TabOrder = 3
+      end
+      object Label18: TLabel
+        Left = 8
+        Height = 15
+        Top = 256
+        Width = 50
+        Caption = 'Signature'
+      end
+      object ButtonRandomString1: TButton
+        Left = 8
+        Height = 25
+        Top = 376
+        Width = 225
+        Caption = 'Encode JSON Web Token'
+        TabOrder = 4
+        OnClick = ButtonRandomString1Click
+      end
+      object ButtonRandomDigits2: TButton
+        Left = 8
+        Height = 25
+        Top = 416
+        Width = 225
+        Caption = 'Reset'
+        TabOrder = 5
+        OnClick = ButtonRandomDigits2Click
+      end
+    end
+    object TabItemJWTCertificate: TTabSheet
+      Caption = 'JWT Cert'
+      ClientHeight = 511
+      ClientWidth = 521
+      object Label13: TLabel
+        Left = 8
+        Height = 15
+        Top = 16
+        Width = 55
+        Caption = 'Public Key'
+      end
+      object MemoPublicKey: TMemo
+        Left = 8
+        Height = 201
+        Top = 40
+        Width = 496
+        Lines.Strings = (
+          '-----BEGIN PUBLIC KEY-----'
+          'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnzyis1ZjfNB0bBgKFMSv'
+          'vkTtwlvBsaJq7S5wA+kzeVOVpVWwkWdVha4s38XM/pa/yr47av7+z3VTmvDRyAHc'
+          'aT92whREFpLv9cj5lTeJSibyr/Mrm/YtjCZVWgaOYIhwrXwKLqPr/11inWsAkfIy'
+          'tvHWTxZYEcXLgAXFuUuaS3uF9gEiNQwzGTU1v0FqkqTBr4B8nW3HCN47XUu0t8Y0'
+          'e+lf4s4OxQawWD79J9/5d3Ry0vbV3Am1FtGJiJvOwRsIfVChDpYStTcHTCMqtvWb'
+          'V6L11BWkpzGXSW4Hv43qa+GSYOD2QU68Mb59oSk2OB+BtOLpJofmbGEGgvmwyCI9'
+          'MwIDAQAB'
+          '-----END PUBLIC KEY-----'
+        )
+        TabOrder = 0
+      end
+      object Label14: TLabel
+        Left = 8
+        Height = 15
+        Top = 248
+        Width = 58
+        Caption = 'Private Key'
+      end
+      object MemoPrivateKey: TMemo
+        Left = 8
+        Height = 217
+        Top = 272
+        Width = 496
+        Lines.Strings = (
+          '-----BEGIN RSA PRIVATE KEY-----'
+          'MIIEogIBAAKCAQEAnzyis1ZjfNB0bBgKFMSvvkTtwlvBsaJq7S5wA+kzeVOVpVWw'
+          'kWdVha4s38XM/pa/yr47av7+z3VTmvDRyAHcaT92whREFpLv9cj5lTeJSibyr/Mr'
+          'm/YtjCZVWgaOYIhwrXwKLqPr/11inWsAkfIytvHWTxZYEcXLgAXFuUuaS3uF9gEi'
+          'NQwzGTU1v0FqkqTBr4B8nW3HCN47XUu0t8Y0e+lf4s4OxQawWD79J9/5d3Ry0vbV'
+          '3Am1FtGJiJvOwRsIfVChDpYStTcHTCMqtvWbV6L11BWkpzGXSW4Hv43qa+GSYOD2'
+          'QU68Mb59oSk2OB+BtOLpJofmbGEGgvmwyCI9MwIDAQABAoIBACiARq2wkltjtcjs'
+          'kFvZ7w1JAORHbEufEO1Eu27zOIlqbgyAcAl7q+/1bip4Z/x1IVES84/yTaM8p0go'
+          'amMhvgry/mS8vNi1BN2SAZEnb/7xSxbflb70bX9RHLJqKnp5GZe2jexw+wyXlwaM'
+          '+bclUCrh9e1ltH7IvUrRrQnFJfh+is1fRon9Co9Li0GwoN0x0byrrngU8Ak3Y6D9'
+          'D8GjQA4Elm94ST3izJv8iCOLSDBmzsPsXfcCUZfmTfZ5DbUDMbMxRnSo3nQeoKGC'
+          '0Lj9FkWcfmLcpGlSXTO+Ww1L7EGq+PT3NtRae1FZPwjddQ1/4V905kyQFLamAA5Y'
+          'lSpE2wkCgYEAy1OPLQcZt4NQnQzPz2SBJqQN2P5u3vXl+zNVKP8w4eBv0vWuJJF+'
+          'hkGNnSxXQrTkvDOIUddSKOzHHgSg4nY6K02ecyT0PPm/UZvtRpWrnBjcEVtHEJNp'
+          'bU9pLD5iZ0J9sbzPU/LxPmuAP2Bs8JmTn6aFRspFrP7W0s1Nmk2jsm0CgYEAyH0X'
+          '+jpoqxj4efZfkUrg5GbSEhf+dZglf0tTOA5bVg8IYwtmNk/pniLG/zI7c+GlTc9B'
+          'BwfMr59EzBq/eFMI7+LgXaVUsM/sS4Ry+yeK6SJx/otIMWtDfqxsLD8CPMCRvecC'
+          '2Pip4uSgrl0MOebl9XKp57GoaUWRWRHqwV4Y6h8CgYAZhI4mh4qZtnhKjY4TKDjx'
+          'QYufXSdLAi9v3FxmvchDwOgn4L+PRVdMwDNms2bsL0m5uPn104EzM6w1vzz1zwKz'
+          '5pTpPI0OjgWN13Tq8+PKvm/4Ga2MjgOgPWQkslulO/oMcXbPwWC3hcRdr9tcQtn9'
+          'Imf9n2spL/6EDFId+Hp/7QKBgAqlWdiXsWckdE1Fn91/NGHsc8syKvjjk1onDcw0'
+          'NvVi5vcba9oGdElJX3e9mxqUKMrw7msJJv1MX8LWyMQC5L6YNYHDfbPF1q5L4i8j'
+          '8mRex97UVokJQRRA452V2vCO6S5ETgpnad36de3MUxHgCOX3qL382Qx9/THVmbma'
+          '3YfRAoGAUxL/Eu5yvMK8SAt/dJK6FedngcM3JEFNplmtLYVLWhkIlNRGDwkg3I5K'
+          'y18Ae9n7dHVueyslrb6weq7dTkYDi3iOYRW8HRkIQh06wEdbxt0shTzAJvvCQfrB'
+          'jg/3747WSsf/zBTcHihTRBdAv6OmdhV4/dD5YBfLAkLrd+mX7iE='
+          '-----END RSA PRIVATE KEY-----'
+        )
+        TabOrder = 1
+      end
+    end
+    object TabItemX509Cert: TTabSheet
+      Caption = 'X.509 Cert'
+      ClientHeight = 511
+      ClientWidth = 521
+      object Label3: TLabel
+        Left = 192
+        Height = 15
+        Top = 24
+        Width = 54
+        Caption = 'Certificate'
+      end
+      object Label4: TLabel
+        Left = 192
+        Height = 15
+        Top = 256
+        Width = 58
+        Caption = 'Private Key'
+      end
+      object MemoX509Certificate: TMemo
+        Left = 192
+        Height = 201
+        Top = 48
+        Width = 305
+        TabOrder = 0
+      end
+      object MemoX509PrivateKey: TMemo
+        Left = 192
+        Height = 154
+        Top = 280
+        Width = 305
+        TabOrder = 1
+      end
+      object ButtonRandomDigits1: TButton
+        Left = 240
+        Height = 25
+        Top = 456
+        Width = 223
+        Caption = 'Create X.509 Certificate'
+        TabOrder = 2
+        OnClick = ButtonRandomDigits1Click
+      end
+      object Label5: TLabel
+        Left = 17
+        Height = 15
+        Top = 24
+        Width = 43
+        Caption = 'Country'
+      end
+      object Label6: TLabel
+        Left = 17
+        Height = 15
+        Top = 78
+        Width = 26
+        Caption = 'State'
+      end
+      object Label7: TLabel
+        Left = 17
+        Height = 15
+        Top = 200
+        Width = 68
+        Caption = 'Organization'
+      end
+      object Label8: TLabel
+        Left = 17
+        Height = 15
+        Top = 140
+        Width = 41
+        Caption = 'Locality'
+      end
+      object Label9: TLabel
+        Left = 17
+        Height = 15
+        Top = 430
+        Width = 65
+        Caption = 'Expires Days'
+      end
+      object Label10: TLabel
+        Left = 17
+        Height = 15
+        Top = 376
+        Width = 67
+        Caption = 'Server Name'
+      end
+      object Label11: TLabel
+        Left = 17
+        Height = 15
+        Top = 260
+        Width = 45
+        Caption = 'Org Unit'
+      end
+      object Label12: TLabel
+        Left = 17
+        Height = 15
+        Top = 318
+        Width = 86
+        Caption = 'Common Name'
+      end
+      object EditCountry: TEdit
+        Left = 16
+        Height = 23
+        Top = 48
+        Width = 64
+        TabOrder = 3
+        Text = 'BR'
+      end
+      object EditState: TEdit
+        Left = 16
+        Height = 23
+        Top = 104
+        Width = 157
+        TabOrder = 4
+        Text = 'Espírito Santo'
+      end
+      object EditLocality: TEdit
+        Left = 17
+        Height = 23
+        Top = 168
+        Width = 157
+        TabOrder = 5
+        Text = 'Serra'
+      end
+      object EditOrganization: TEdit
+        Left = 17
+        Height = 23
+        Top = 226
+        Width = 157
+        TabOrder = 6
+        Text = 'XyberPower'
+      end
+      object EditOrgUnit: TEdit
+        Left = 17
+        Height = 23
+        Top = 288
+        Width = 157
+        TabOrder = 7
+        Text = 'REST Dataware'
+      end
+      object EditCommonName: TEdit
+        Left = 17
+        Height = 23
+        Top = 344
+        Width = 157
+        TabOrder = 8
+        Text = 'restdataware.com'
+      end
+      object EditServerName: TEdit
+        Left = 17
+        Height = 23
+        Top = 400
+        Width = 157
+        TabOrder = 9
+        Text = 'www.restdataware.com'
+      end
+      object EditExpiresDays: TEdit
+        Left = 17
+        Height = 23
+        Top = 456
+        Width = 56
+        TabOrder = 10
+        Text = '365'
+      end
+    end
+    object TabItemRandom: TTabSheet
+      Caption = 'Random'
+      ClientHeight = 511
+      ClientWidth = 521
+      object Label1: TLabel
+        Left = 46
+        Height = 15
+        Top = 46
+        Width = 79
+        Caption = 'Random String'
+      end
+      object Label2: TLabel
+        Left = 46
+        Height = 15
+        Top = 128
+        Width = 78
+        Caption = 'Random Digits'
+      end
+      object ButtonRandomDigits: TButton
+        Left = 50
+        Height = 25
+        Top = 177
+        Width = 223
+        Caption = 'Create Random Digits'
+        TabOrder = 0
+        OnClick = ButtonRandomDigitsClick
+      end
+      object EditRandomString: TEdit
+        Left = 50
+        Height = 23
+        Top = 64
+        Width = 223
+        TabOrder = 2
+      end
+      object EditRandomDigits: TEdit
+        Left = 50
+        Height = 23
+        Top = 144
+        Width = 223
+        TabOrder = 1
+      end
+      object ButtonRandomString: TButton
+        Left = 50
+        Height = 25
+        Top = 96
+        Width = 223
+        Caption = 'Create Random String'
+        TabOrder = 3
+        OnClick = ButtonRandomStringClick
+      end
+    end
+  end
+  object ToolBarLabel: TLabel
+    Left = 0
+    Height = 37
+    Top = 0
+    Width = 529
+    Align = alTop
+    Caption = '                       Lazarus OpenSsl'
+    Font.Height = -27
+    ParentBidiMode = False
+    ParentFont = False
+  end
+end

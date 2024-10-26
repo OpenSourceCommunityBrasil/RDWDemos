@@ -9,8 +9,7 @@ uses
   ExtCtrls, DBClient, ComCtrls,
   uRESTDWServerEvents, DateUtils, uRESTDWParams,
   ActnList, jpeg, uRESTDWDataUtils, uRESTDWAbout, uRESTDWBasicDB, uRESTDWIdBase,
-  uRESTDWBasicTypes, uRESTDWBasic, uRESTDWComponentBase,
-  uRESTDWMemoryDataset, uRESTDWPrototypes, DBCtrls;
+  uRESTDWBasicTypes, uRESTDWBasic,  uRESTDWMemoryDataset, uRESTDWPrototypes, DBCtrls;
 
 type
 
