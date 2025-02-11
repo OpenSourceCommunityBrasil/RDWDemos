@@ -142,6 +142,13 @@ type
     RESTDWIdServicePooler1: TRESTDWIdServicePooler;
     CtiPrincipal: TTrayIcon;
     RESTDWAuthBasic1: TRESTDWAuthBasic;
+    RESTDWAuthOAuth1: TRESTDWAuthOAuth;
+    pOauth: TPanel;
+    Label23: TLabel;
+    Label24: TLabel;
+    ComboBox1: TComboBox;
+    Edit1: TEdit;
+    CheckBox1: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
     procedure ButtonStartClick(Sender: TObject);
@@ -501,7 +508,8 @@ End;
 
 procedure TfPrincipal.cbAuthOptionsChange(Sender: TObject);
 begin
- pTokenAuth.Visible := cbAuthOptions.ItemIndex > 1;
+ pTokenAuth.Visible := cbAuthOptions.ItemIndex = 2;
+ pOAuth.Visible     := cbAuthOptions.ItemIndex = 3;
  pBasicAuth.Visible := cbAuthOptions.ItemIndex = 1;
 end;
 

@@ -79,8 +79,8 @@ Uses
     RESTDWIdClientPooler1: TRESTDWIdClientPooler;
     RESTDWIdDatabase1: TRESTDWIdDatabase;
     DBGrid1: TDBGrid;
-    RESTDWClientSQL1: TRESTDWClientSQL;
     RESTDWMassiveCache1: TRESTDWMassiveCache;
+    RESTDWClientSQL1: TRESTDWClientSQL;
    Procedure btnOpenClick            (Sender            : TObject);
    Procedure btnExecuteClick         (Sender            : TObject);
    Procedure FormCreate              (Sender            : TObject);
@@ -115,6 +115,7 @@ Uses
     procedure RESTDWIdDatabase1Status(ASender: TObject;
       const AStatus: TConnStatus; const AStatusText: string);
     procedure RESTDWIdDatabase1Work(ASender: TObject; AWorkCount: Int64);
+    procedure DBGrid1TitleClick(Column: TColumn);
  Private
   { Private declarations }
   vSecresString    : String;
@@ -190,6 +191,7 @@ Begin
  RESTDWClientSQL1.UpdateTableName  := Trim(eUpdateTableName.Text);
  Try
   RESTDWClientSQL1.Active          := True;
+  RESTDWClientSQL1.Filtered := False;
 //  vStream    := TMemoryStream.Create;
 //  RESTDWClientSQL1.SaveToStream(vStream);
 //  If RESTDWClientSQL1.FindField('IMAGEM') <> Nil Then
@@ -415,6 +417,16 @@ procedure TfPrincipal.cbUseCriptoClick(Sender: TObject);
 begin
  RESTDWIdDatabase1.CriptOptions.Use   := cbUseCripto.Checked;
  RESTDWIdClientPooler1.CriptOptions.Use := RESTDWIdDatabase1.CriptOptions.Use;
+end;
+
+procedure TfPrincipal.DBGrid1TitleClick(Column: TColumn);
+begin
+ If RESTDWClientSQL1.Active then
+  Begin
+   If RESTDWClientSQL1.Filtered Then
+    RESTDWClientSQL1.Filtered := False;
+   RESTDWClientSQL1.IndexFieldNames := Column.FieldName;
+  End;
 end;
 
 Procedure TfPrincipal.FormCreate(Sender: TObject);

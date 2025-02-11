@@ -20,6 +20,9 @@ USES
 
 Const
   Const404Page = 'www\404.html';
+  cServerTimeHTML = '<p>Date/Time: <span id="datetime"></span></p> ' +
+                    '<script>var dt = new Date(); ' +
+                    'document.getElementById("datetime").innerHTML = dt.toLocaleTimeString(); </script>';
 
 TYPE
   TRDWDataModule = CLASS(TServerMethodDataModule)
@@ -33,11 +36,12 @@ TYPE
     FDQuery1: TFDQuery;
     FDQLogin: TFDQuery;
     RESTDWServerEvents1: TRESTDWServerEvents;
-    RESTDWServerContext1: TRESTDWServerContext;
     RESTDWFireDACDriver1: TRESTDWFireDACDriver;
     PROCEDURE Server_FDConnectionBeforeConnect(Sender: TObject);
     procedure ServerMethodDataModuleMassiveProcess(var MassiveDataset
       : TMassiveDatasetBuffer; var Ignore: Boolean);
+    procedure RESTDWServerEvents1EventsservertimeReplyEvent(
+      var Params: TRESTDWParams; const Result: TStringList);
   PRIVATE
     { Private declarations }
     vIDVenda: Integer;
@@ -71,6 +75,12 @@ Begin
   End;
   vTempClient.Free;
 End;
+
+procedure TRDWDataModule.RESTDWServerEvents1EventsservertimeReplyEvent(
+  var Params: TRESTDWParams; const Result: TStringList);
+begin
+ Result.Text := cServerTimeHTML;
+end;
 
 procedure TRDWDataModule.ServerMethodDataModuleMassiveProcess(var MassiveDataset
   : TMassiveDatasetBuffer; var Ignore: Boolean);
@@ -111,12 +121,12 @@ begin
 end;
 
 PROCEDURE TRDWDataModule.Server_FDConnectionBeforeConnect(Sender: TObject);
-VAR
-  Driver_BD: STRING;
-  Porta_BD: STRING;
-  Servidor_BD: STRING;
-  DataBaseB: STRING;
-  Pasta_BD: STRING;
+//VAR
+//  Driver_BD: STRING;
+//  Porta_BD: STRING;
+//  Servidor_BD: STRING;
+//  DataBaseB: STRING;
+//  Pasta_BD: STRING;
 BEGIN
   // Servidor_BD := servidor;
   // Pasta_BD := IncludeTrailingPathDelimiter(pasta);

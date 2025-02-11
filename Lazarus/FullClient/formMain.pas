@@ -4,10 +4,10 @@ interface
 
 uses
   Lcl, DateUtils, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, fpjson, DB, sqldb, DBGrids, ExtCtrls, ComCtrls, ActnList,
-  DBCtrls, uRESTDWBasicDB, uRESTDWServerEvents, uRESTDWDataUtils, uRESTDWConsts,
-  uRESTDWIdBase, LConvEncoding, uRESTDWComponentEvents, uRESTDWParams,
-  uRESTDWBasicTypes, uRESTDWProtoTypes;
+  Dialogs, StdCtrls, fpjson, DB, BufDataset, sqldb, DBGrids, ExtCtrls, ComCtrls,
+  ActnList, DBCtrls, uRESTDWBasicDB, uRESTDWServerEvents, uRESTDWDataUtils,
+  uRESTDWConsts, uRESTDWIdBase, LConvEncoding, uRESTDWComponentEvents,
+  uRESTDWParams, uRESTDWBasicTypes, uRESTDWProtoTypes;
 
 type
 
@@ -21,6 +21,7 @@ type
     btnMassive: TButton;
     btnOpen: TButton;
     btnServerTime: TButton;
+    BufDataset1: TBufDataset;
     Button1: TButton;
     Button2: TButton;
     cbAuthOptions: TComboBox;

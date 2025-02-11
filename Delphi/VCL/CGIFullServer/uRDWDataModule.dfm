@@ -20,13 +20,13 @@ object RDWDataModule: TRDWDataModule
   object Server_FDConnection: TFDConnection
     Params.Strings = (
       
-        'Database=D:\Meus Dados\Projetos\SUGV\Componentes\XyberPower\REST' +
-        '_Controls\DEMO\EMPLOYEE.FDB'
+        'Database=C:\Meus Dados\Projetos\Freelancer\Vicenzo\DemoUnidac\Ba' +
+        'nco\BENCHMARK.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Server=localhost'
       'Port=3050'
-      'CharacterSet='
+      'CharacterSet=WIN1252'
       'DriverID=FB')
     FetchOptions.AssignedValues = [evCursorKind]
     FetchOptions.CursorKind = ckDefault
@@ -114,13 +114,14 @@ object RDWDataModule: TRDWDataModule
             ParamName = 'resultstring'
             Encoded = True
           end>
-        DataMode = dmDataware
+        DataMode = dmRAW
         Name = 'servertime'
         EventName = 'servertime'
         BaseURL = '/'
-        DefaultContentType = 'application/json'
+        DefaultContentType = 'text/html'
         CallbackEvent = False
         OnlyPreDefinedParams = False
+        OnReplyEvent = RESTDWServerEvents1EventsservertimeReplyEvent
       end
       item
         Routes.All.Active = True

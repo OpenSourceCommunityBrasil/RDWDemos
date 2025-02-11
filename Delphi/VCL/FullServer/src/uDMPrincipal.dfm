@@ -175,6 +175,31 @@ object DMPrincipal: TDMPrincipal
         CallbackEvent = False
         OnlyPreDefinedParams = False
         OnReplyEvent = RESTDWServerEventsEventsservertimeReplyEvent
+      end
+      item
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
+        Params = <>
+        DataMode = dmDataware
+        Name = 'ping'
+        EventName = 'ping'
+        BaseURL = '/'
+        DefaultContentType = 'application/json'
+        CallbackEvent = False
+        OnlyPreDefinedParams = False
+        OnReplyEvent = RESTDWServerEventsEventspingReplyEvent
       end>
     Left = 184
     Top = 120

@@ -50,8 +50,6 @@ object fPrincipal: TfPrincipal
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 636
-    ExplicitHeight = 632
     object tsConfigs: TTabSheet
       Caption = 'Configuration'
       object Panel1: TPanel
@@ -63,8 +61,6 @@ object fPrincipal: TfPrincipal
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 628
-        ExplicitHeight = 600
         DesignSize = (
           632
           603)
@@ -383,7 +379,6 @@ object fPrincipal: TfPrincipal
           Color = 2763306
           ParentBackground = False
           TabOrder = 0
-          ExplicitLeft = 672
           object Image8: TImage
             Left = 4
             Top = 0
@@ -940,7 +935,6 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 12
-          ExplicitTop = 430
         end
         object eCertFile: TEdit
           Left = 7
@@ -955,7 +949,6 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 13
-          ExplicitTop = 476
         end
         object ePrivKeyPass: TMaskEdit
           Left = 459
@@ -972,7 +965,6 @@ object fPrincipal: TfPrincipal
           PasswordChar = '*'
           TabOrder = 14
           Text = ''
-          ExplicitTop = 430
         end
         object EdDataSource: TEdit
           Left = 459
@@ -1045,7 +1037,6 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 19
-          ExplicitTop = 522
         end
         object pBasicAuth: TPanel
           Left = 328
@@ -1128,10 +1119,10 @@ object fPrincipal: TfPrincipal
             'rdwAOToken')
         end
         object pTokenAuth: TPanel
-          Left = 326
-          Top = 25
-          Width = 290
-          Height = 139
+          Left = 328
+          Top = 27
+          Width = 289
+          Height = 131
           BevelOuter = bvNone
           TabOrder = 22
           Visible = False
@@ -1222,6 +1213,64 @@ object fPrincipal: TfPrincipal
             Text = 'testedehashrdw01'
           end
         end
+        object pOauth: TPanel
+          Left = 328
+          Top = 27
+          Width = 289
+          Height = 131
+          BevelOuter = bvNone
+          TabOrder = 23
+          Visible = False
+          object Label23: TLabel
+            Left = 0
+            Top = 2
+            Width = 65
+            Height = 17
+            Caption = 'Token Type'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label24: TLabel
+            Left = 0
+            Top = 46
+            Width = 89
+            Height = 17
+            Caption = 'GetToken Event'
+          end
+          object ComboBox1: TComboBox
+            Left = 0
+            Top = 21
+            Width = 175
+            Height = 25
+            Style = csDropDownList
+            ItemIndex = 0
+            TabOrder = 0
+            Text = 'rdwTS'
+            Items.Strings = (
+              'rdwTS'
+              'rdwJWT')
+          end
+          object Edit1: TEdit
+            Left = 1
+            Top = 64
+            Width = 137
+            Height = 25
+            TabOrder = 1
+            Text = 'GetToken'
+          end
+          object CheckBox1: TCheckBox
+            Left = 184
+            Top = 24
+            Width = 97
+            Height = 17
+            Caption = 'Need Cert?'
+            TabOrder = 2
+          end
+        end
       end
     end
     object tsLogs: TTabSheet
@@ -1285,7 +1334,6 @@ object fPrincipal: TfPrincipal
     Color = 2763306
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 636
     DesignSize = (
       640
       58)
@@ -1678,8 +1726,8 @@ object fPrincipal: TfPrincipal
       Transparent = True
     end
     object labSistema: TLabel
-      Left = 118
-      Top = 4
+      Left = 134
+      Top = 0
       Width = 54
       Height = 13
       Alignment = taCenter
@@ -1707,7 +1755,6 @@ object fPrincipal: TfPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 406
       object Image3: TImage
         Left = 0
         Top = 0
@@ -2090,7 +2137,6 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 474
       object Image4: TImage
         Left = 4
         Top = 0
@@ -2431,7 +2477,6 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 542
       object Image5: TImage
         Left = 4
         Top = 0
@@ -2835,8 +2880,6 @@ object fPrincipal: TfPrincipal
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 690
-    ExplicitWidth = 636
     DesignSize = (
       640
       37)
@@ -2871,7 +2914,6 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 0
       OnClick = ButtonStartClick
-      ExplicitLeft = 393
     end
     object ButtonStop: TButton
       Left = 502
@@ -2889,7 +2931,6 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 1
       OnClick = ButtonStopClick
-      ExplicitLeft = 499
     end
     object cbPoolerState: TCheckBox
       Left = 175
@@ -2907,7 +2948,6 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       State = cbChecked
       TabOrder = 2
-      ExplicitLeft = 174
     end
   end
   object ApplicationEvents1: TApplicationEvents
@@ -2916,7 +2956,7 @@ object fPrincipal: TfPrincipal
     Top = 216
   end
   object pmMenu: TPopupMenu
-    Left = 346
+    Left = 210
     Top = 168
     object RestaurarAplicao1: TMenuItem
       Caption = 'Restaurar Aplica'#231#227'o'
@@ -2976,5 +3016,18 @@ object fPrincipal: TfPrincipal
     Password = 'testserver'
     Left = 228
     Top = 374
+  end
+  object RESTDWAuthOAuth1: TRESTDWAuthOAuth
+    AuthDialog = True
+    TokenType = rdwOATBasic
+    AutoBuildHex = False
+    RSASHA256_Validation = True
+    LifeCycle = 1800
+    ServerValidationCert = True
+    GrantCodeEvent = 'authorize'
+    GrantType = 'client_credentials'
+    GetTokenEvent = 'access-token'
+    Left = 196
+    Top = 542
   end
 end

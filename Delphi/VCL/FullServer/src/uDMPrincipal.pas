@@ -109,6 +109,8 @@ TYPE
       var Params: TRESTDWParams; const Result: TStringList);
     procedure RESTDWServerEventsEventsservertimeReplyEvent(
       var Params: TRESTDWParams; const Result: TStringList);
+    procedure RESTDWServerEventsEventspingReplyEvent(var Params: TRESTDWParams;
+      const Result: TStringList);
   PRIVATE
     { Private declarations }
     vIDVenda: Integer;
@@ -479,6 +481,12 @@ begin
       [Params.ItemsString['temp1'].AsInteger,
       Params.ItemsString['temp2'].AsInteger])
   End;
+end;
+
+procedure TDMPrincipal.RESTDWServerEventsEventspingReplyEvent(
+  var Params: TRESTDWParams; const Result: TStringList);
+begin
+ result.Text := 'pong';
 end;
 
 procedure TDMPrincipal.RESTDWServerEventsEventsservertimeReplyEvent(
