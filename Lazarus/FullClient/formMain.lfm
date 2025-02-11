@@ -1,7 +1,7 @@
 object Form2: TForm2
-  Left = 442
+  Left = 36
   Height = 639
-  Top = 181
+  Top = 151
   Width = 872
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -15,7 +15,7 @@ object Form2: TForm2
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poDesktopCenter
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '3.4.0.0'
   object labResult: TLabel
     Left = 0
     Height = 23
@@ -130,8 +130,8 @@ object Form2: TForm2
     Font.Style = [fsBold]
     HideSelection = False
     Lines.Strings = (
-      'Select first 1000 ID_PAC, NM_PAC, END_PAC, BAIRRO_PAC, CID_PAC, UF_PAC, CEP_PAC '
-      'From pacientes'
+      'select *'
+      'FROM EMPLOYEE'
     )
     ParentFont = False
     TabOrder = 1
@@ -146,9 +146,9 @@ object Form2: TForm2
     Font.Height = -13
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
-    OnClick = btnOpenClick
     ParentFont = False
     TabOrder = 2
+    OnClick = btnOpenClick
   end
   object btnExecute: TButton
     Left = 4
@@ -160,9 +160,9 @@ object Form2: TForm2
     Font.Height = -13
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
-    OnClick = btnExecuteClick
     ParentFont = False
     TabOrder = 3
+    OnClick = btnExecuteClick
   end
   object ProgressBar1: TProgressBar
     Left = 4
@@ -181,9 +181,9 @@ object Form2: TForm2
     Font.Height = -13
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
-    OnClick = btnGetClick
     ParentFont = False
     TabOrder = 5
+    OnClick = btnGetClick
   end
   object StatusBar1: TStatusBar
     Left = 0
@@ -221,9 +221,9 @@ object Form2: TForm2
     Font.Height = -13
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
-    OnClick = btnApplyClick
     ParentFont = False
     TabOrder = 8
+    OnClick = btnApplyClick
   end
   object btnMassive: TButton
     Left = 251
@@ -235,9 +235,9 @@ object Form2: TForm2
     Font.Height = -13
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
-    OnClick = btnMassiveClick
     ParentFont = False
     TabOrder = 9
+    OnClick = btnMassiveClick
   end
   object btnServerTime: TButton
     Left = 251
@@ -249,9 +249,9 @@ object Form2: TForm2
     Font.Height = -13
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
-    OnClick = btnServerTimeClick
     ParentFont = False
     TabOrder = 10
+    OnClick = btnServerTimeClick
   end
   object paTopo: TPanel
     Left = 0
@@ -263,6 +263,7 @@ object Form2: TForm2
     ClientHeight = 58
     ClientWidth = 872
     Color = 2763306
+    ParentBackground = False
     ParentColor = False
     TabOrder = 11
     object Image1: TImage
@@ -574,6 +575,7 @@ object Form2: TForm2
       ClientHeight = 37
       ClientWidth = 59
       Color = clWhite
+      ParentBackground = False
       ParentColor = False
       TabOrder = 0
       object Image3: TImage
@@ -956,6 +958,7 @@ object Form2: TForm2
       ClientHeight = 37
       ClientWidth = 59
       Color = 2763306
+      ParentBackground = False
       ParentColor = False
       TabOrder = 1
       object Image4: TImage
@@ -1297,6 +1300,7 @@ object Form2: TForm2
       ClientHeight = 37
       ClientWidth = 59
       Color = 2763306
+      ParentBackground = False
       ParentColor = False
       TabOrder = 2
       object Image2: TImage
@@ -1802,9 +1806,9 @@ object Form2: TForm2
   end
   object cbxCompressao: TCheckBox
     Left = 350
-    Height = 19
+    Height = 17
     Top = 147
-    Width = 88
+    Width = 86
     Caption = 'Compression'
     Checked = True
     Font.Color = clWindowText
@@ -1817,9 +1821,9 @@ object Form2: TForm2
   end
   object chkhttps: TCheckBox
     Left = 242
-    Height = 19
+    Height = 17
     Top = 148
-    Width = 53
+    Width = 51
     Caption = 'HTTPS'
     Font.Color = clWindowText
     Font.Height = -11
@@ -1856,9 +1860,9 @@ object Form2: TForm2
   end
   object cbBinaryRequest: TCheckBox
     Left = 242
-    Height = 19
+    Height = 17
     Top = 165
-    Width = 98
+    Width = 96
     Caption = 'Binary Request'
     Checked = True
     Font.Color = clWindowText
@@ -1871,17 +1875,17 @@ object Form2: TForm2
   end
   object cbUseCripto: TCheckBox
     Left = 242
-    Height = 19
+    Height = 17
     Top = 183
-    Width = 104
+    Width = 102
     Caption = 'Use Criptografia'
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
-    OnClick = cbUseCriptoClick
     ParentFont = False
     TabOrder = 19
+    OnClick = cbUseCriptoClick
   end
   object cbAuthOptions: TComboBox
     Left = 242
@@ -1896,10 +1900,10 @@ object Form2: TForm2
       'rdwAOBearer'
       'rdwAOToken'
     )
-    OnChange = cbAuthOptionsChange
     Style = csDropDownList
     TabOrder = 20
     Text = 'rdwAONone'
+    OnChange = cbAuthOptionsChange
   end
   object pBasicAuth: TPanel
     Left = 479
@@ -1909,6 +1913,7 @@ object Form2: TForm2
     BevelOuter = bvNone
     ClientHeight = 113
     ClientWidth = 260
+    ParentBackground = False
     TabOrder = 21
     Visible = False
     object Label2: TLabel
@@ -1972,6 +1977,7 @@ object Form2: TForm2
     BevelOuter = bvNone
     ClientHeight = 118
     ClientWidth = 390
+    ParentBackground = False
     TabOrder = 22
     Visible = False
     object Label12: TLabel
@@ -2101,9 +2107,9 @@ object Form2: TForm2
     Font.Height = -13
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
-    OnClick = Button1Click
     ParentFont = False
     TabOrder = 23
+    OnClick = Button1Click
   end
   object eUpdateTableName: TEdit
     Left = 251
@@ -2284,7 +2290,7 @@ object Form2: TForm2
     ProxyOptions.Port = 8888
     PoolerService = 'localhost'
     PoolerPort = 8082
-    PoolerName = 'TDMPrincipal.RESTDWPoolerFD'
+    PoolerName = 'TServerMethodDM.RESTDWPoolerZEOS'
     StateConnection.AutoCheck = False
     StateConnection.InTime = 1000
     RequestTimeOut = 10000
@@ -2306,8 +2312,8 @@ object Form2: TForm2
     SSLVersions = []
     UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36'
     SSLMode = sslmUnassigned
-    Left = 436
-    Top = 523
+    Left = 392
+    Top = 424
   end
   object RESTDWClientSQL1: TRESTDWClientSQL
     Capacity = 195
@@ -2316,237 +2322,17 @@ object Form2: TForm2
     FilterOptions = []
     FieldDefs = <    
       item
-        Name = 'PESSOA_ID'
-        Attributes = [faRequired]
-        DataType = ftLargeint
-        Precision = -1
-      end    
-      item
-        Name = 'PESSOA_NOMEFANTASIA'
-        DataType = ftString
-        Precision = -1
-        Size = 40
-      end    
-      item
-        Name = 'PESSOA_RAZAOSOCIAL'
-        DataType = ftString
-        Precision = -1
-        Size = 50
-      end    
-      item
-        Name = 'PESSOA_CPFCNPJ'
-        DataType = ftString
-        Precision = -1
-        Size = 18
-      end    
-      item
-        Name = 'PESSOA_RG'
-        DataType = ftString
-        Precision = -1
-        Size = 12
-      end    
-      item
-        Name = 'PESSOA_IE'
-        DataType = ftString
-        Precision = -1
-        Size = 14
-      end    
-      item
-        Name = 'PESSOA_TRATAMENTO'
-        DataType = ftString
-        Precision = -1
-        Size = 15
-      end    
-      item
-        Name = 'PESSOA_DTNASCIMENTO'
-        DataType = ftDate
-        Precision = -1
-      end    
-      item
-        Name = 'PESSOA_LOCALNASCIMENTO'
-        DataType = ftString
-        Precision = -1
-        Size = 35
-      end    
-      item
-        Name = 'PESSOA_LOGRADOURO'
-        DataType = ftString
-        Precision = -1
-        Size = 40
-      end    
-      item
-        Name = 'PESSOA_NUMERO'
-        DataType = ftString
-        Precision = -1
-        Size = 20
-      end    
-      item
-        Name = 'PESSOA_COMPLEMENTO'
-        DataType = ftString
-        Precision = -1
-        Size = 20
-      end    
-      item
-        Name = 'PESSOA_BAIRRO'
-        DataType = ftString
-        Precision = -1
-        Size = 30
-      end    
-      item
-        Name = 'PESSOA_MUNICIPIO'
-        DataType = ftString
-        Precision = -1
-        Size = 35
-      end    
-      item
-        Name = 'PESSOA_UF'
-        DataType = ftString
-        Precision = -1
-        Size = 2
-      end    
-      item
-        Name = 'PESSOA_CEP'
-        DataType = ftString
-        Precision = -1
-        Size = 9
-      end    
-      item
-        Name = 'PESSOA_CAIXAPOSTAL'
-        DataType = ftString
-        Precision = -1
-        Size = 15
-      end    
-      item
-        Name = 'PESSOA_TELEFONE'
-        DataType = ftString
-        Precision = -1
-        Size = 45
-      end    
-      item
-        Name = 'PESSOA_EMAIL'
-        DataType = ftString
-        Precision = -1
-        Size = 75
-      end    
-      item
-        Name = 'PESSOA_SITE'
-        DataType = ftString
-        Precision = -1
-        Size = 75
-      end    
-      item
-        Name = 'PESSOA_CONTATO'
-        DataType = ftString
-        Precision = -1
-        Size = 25
-      end    
-      item
-        Name = 'PESSOA_OBSERVACOES'
-        DataType = ftString
-        Precision = -1
-        Size = 60
-      end    
-      item
-        Name = 'PESSOA_STATUS'
-        DataType = ftString
-        Precision = -1
-        Size = 1
-      end    
-      item
-        Name = 'PESSOA_TIPO'
-        DataType = ftString
-        Precision = -1
-        Size = 1
-      end    
-      item
-        Name = 'PESSOA_TPCLIENTE'
-        DataType = ftString
-        Precision = -1
-        Size = 1
-      end    
-      item
-        Name = 'PESSOA_TPFORNECEDOR'
-        DataType = ftString
-        Precision = -1
-        Size = 1
-      end    
-      item
-        Name = 'PESSOA_TPFINANCEIRA'
-        DataType = ftString
-        Precision = -1
-        Size = 1
-      end    
-      item
-        Name = 'PESSOA_TPTRANSPORTE'
-        DataType = ftString
-        Precision = -1
-        Size = 1
-      end    
-      item
-        Name = 'PESSOA_TPFUNCIONARIO'
-        DataType = ftString
-        Precision = -1
-        Size = 1
-      end    
-      item
-        Name = 'PESSOA_TPFACTORY'
-        DataType = ftString
-        Precision = -1
-        Size = 1
-      end    
-      item
-        Name = 'PLANTA_ID'
-        DataType = ftLargeint
-        Precision = -1
-      end    
-      item
-        Name = 'DEPARTAMENTO_ID'
-        DataType = ftLargeint
-        Precision = -1
-      end    
-      item
-        Name = 'CLASSE_ID_ENTRADA'
-        DataType = ftLargeint
-        Precision = -1
-      end    
-      item
-        Name = 'CLASSE_ID_SAIDA'
-        DataType = ftLargeint
-        Precision = -1
-      end    
-      item
-        Name = 'ID_EXTERNO'
-        DataType = ftLargeint
-        Precision = -1
-      end    
-      item
-        Name = 'AUD_DATA_CAD'
-        DataType = ftDateTime
-        Precision = -1
-      end    
-      item
-        Name = 'AUD_DATA_ALT'
-        DataType = ftDateTime
-        Precision = -1
-      end    
-      item
-        Name = 'AUD_USER_CAD'
-        DataType = ftLargeint
-        Precision = -1
-      end    
-      item
-        Name = 'AUD_USER_ALT'
-        DataType = ftLargeint
+        Name = 'PESO_PAC'
+        DataType = ftFloat
         Precision = -1
       end>
-    DatabaseCharSet = csUndefined
+    DatabaseCharSet = csWin1252
+    DatasetClosed = True
     SortOrder = soAsc
-    SortCaseSens = scYes
+    SortCaseSens = scNo
     SortFields = ''
-    AutoSortOnOpen = True
+    AutoSortOnOpen = False
     AutoRefreshOnFilterChanged = True
-    SequenceName = 'GEN_PACIENTES'
-    SequenceField = 'ID_PAC'
     MasterCascadeDelete = True
     BinaryRequest = True
     Datapacks = -1
@@ -2555,7 +2341,9 @@ object Form2: TForm2
     Params = <>
     DataBase = RESTDWIdDatabase1
     SQL.Strings = (
-      'select * from pessoa'
+      'select FIRST 1 PESO_PAC'
+      'FROM PACIENTES'
+      'where not(PESO_PAC is null)'
     )
     CacheUpdateRecords = False
     AutoCommitData = False
@@ -2565,5 +2353,10 @@ object Form2: TForm2
     ReflectChanges = False
     Left = 432
     Top = 280
+  end
+  object BufDataset1: TBufDataset
+    FieldDefs = <>
+    Left = 335
+    Top = 456
   end
 end

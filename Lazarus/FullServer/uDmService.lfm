@@ -10,17 +10,18 @@ object ServerMethodDM: TServerMethodDM
   Width = 514
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = True
     ClientCodepage = 'ISO8859_1'
     Properties.Strings = (
       'controls_cp=CP_UTF8'
       'AutoEncodeStrings='
       'codepage=ISO8859_1'
+      'RawStringEncoding=DB_CP'
     )
     BeforeConnect = ZConnection1BeforeConnect
+    DisableSavepoints = False
     Port = 3050
-    Protocol = 'firebird-2.5'
-    Left = 137
+    Protocol = 'firebird'
+    Left = 184
     Top = 40
   end
   object ZQuery1: TZQuery
@@ -160,7 +161,7 @@ object ServerMethodDM: TServerMethodDM
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
     Left = 195
-    Top = 202
+    Top = 200
   end
   object RESTDWServerEvents: TRESTDWServerEvents
     IgnoreInvalidParams = False
@@ -200,22 +201,24 @@ object ServerMethodDM: TServerMethodDM
     Left = 322
     Top = 235
   end
-  object RESTDWZeosDriver1: TRESTDWZeosDriver
-    Connection = ZConnection1
-    StrsTrim = False
-    StrsEmpty2Null = False
-    StrsTrim2Len = False
-    Compression = False
-    EncodeStringsJSON = False
-    Encoding = esUtf8
-    ParamCreate = True
-    DatabaseCharSet = csUndefined
-    CommitRecords = 100
-    Left = 345
-    Top = 128
-  end
   object RESTDWLazarusDriver1: TRESTDWLazarusDriver
     Connection = IBConnection1
+    ConectionType = dbtFirebird
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = False
+    Compression = False
+    EncodeStringsJSON = False
+    Encoding = esASCII
+    ParamCreate = True
+    DatabaseCharSet = csUndefined
+    CommitRecords = 100
+    Left = 315
+    Top = 170
+  end
+  object RESTDWZeosDriver1: TRESTDWZeosDriver
+    Connection = ZConnection1
+    ConectionType = dbtFirebird
     StrsTrim = False
     StrsEmpty2Null = False
     StrsTrim2Len = False
@@ -223,9 +226,9 @@ object ServerMethodDM: TServerMethodDM
     EncodeStringsJSON = False
     Encoding = esUtf8
     ParamCreate = True
-    DatabaseCharSet = csUndefined
+    DatabaseCharSet = csWin1252
     CommitRecords = 100
-    Left = 397
-    Top = 200
+    Left = 208
+    Top = 134
   end
 end

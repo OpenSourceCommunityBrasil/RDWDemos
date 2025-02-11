@@ -16,7 +16,7 @@ object RestDWForm: TRestDWForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.4.0.0'
   object Label8: TLabel
     Left = 8
     Height = 1
@@ -62,6 +62,7 @@ object RestDWForm: TRestDWForm
         BevelOuter = bvNone
         ClientHeight = 563
         ClientWidth = 617
+        ParentBackground = False
         TabOrder = 0
         object pBasicAuth1: TPanel
           Left = 325
@@ -71,6 +72,7 @@ object RestDWForm: TRestDWForm
           BevelOuter = bvNone
           ClientHeight = 113
           ClientWidth = 260
+          ParentBackground = False
           TabOrder = 19
           Visible = False
           object Label4: TLabel
@@ -341,6 +343,7 @@ object RestDWForm: TRestDWForm
           ClientHeight = 37
           ClientWidth = 59
           Color = 2763306
+          ParentBackground = False
           ParentColor = False
           TabOrder = 0
           object Image8: TImage
@@ -754,10 +757,10 @@ object RestDWForm: TRestDWForm
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ItemHeight = 17
-          OnChange = cbAdaptadoresChange
           ParentFont = False
           TabOrder = 2
           Text = 'cbAdaptadores'
+          OnChange = cbAdaptadoresChange
         end
         object edPortaBD: TEdit
           Left = 292
@@ -840,16 +843,16 @@ object RestDWForm: TRestDWForm
             'MySQL'
             'PostgreSQL'
           )
-          OnCloseUp = cbDriverCloseUp
           ParentFont = False
           TabOrder = 8
           Text = 'Selecione o SGBD'
+          OnCloseUp = cbDriverCloseUp
         end
         object ckUsaURL: TCheckBox
           Left = 26
           Height = 21
           Top = 259
-          Width = 75
+          Width = 73
           Caption = 'Uses URL'
           TabOrder = 9
         end
@@ -885,6 +888,7 @@ object RestDWForm: TRestDWForm
           Top = 420
           Width = 148
           Anchors = [akLeft, akBottom]
+          EnableSets = False
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Segoe UI'
@@ -947,7 +951,7 @@ object RestDWForm: TRestDWForm
           Left = 9
           Height = 21
           Top = 109
-          Width = 202
+          Width = 200
           Caption = 'Force Welcome Access Events'
           Font.Color = clWindowText
           Font.Height = -13
@@ -960,7 +964,7 @@ object RestDWForm: TRestDWForm
           Left = 9
           Height = 21
           Top = 131
-          Width = 307
+          Width = 305
           Caption = 'Update Memo LOG (Do not use in production)'
           Checked = True
           Font.Color = clWindowText
@@ -979,6 +983,7 @@ object RestDWForm: TRestDWForm
           BevelOuter = bvNone
           ClientHeight = 113
           ClientWidth = 260
+          ParentBackground = False
           TabOrder = 16
           Visible = False
           object Label2: TLabel
@@ -1047,10 +1052,10 @@ object RestDWForm: TRestDWForm
             'rdwAOBearer'
             'rdwAOToken'
           )
-          OnChange = cbAuthOptionsChange
           Style = csDropDownList
           TabOrder = 17
           Text = 'rdwAONone'
+          OnChange = cbAuthOptionsChange
         end
         object pTokenAuth: TPanel
           Left = 326
@@ -1060,6 +1065,7 @@ object RestDWForm: TRestDWForm
           BevelOuter = bvNone
           ClientHeight = 139
           ClientWidth = 290
+          ParentBackground = False
           TabOrder = 18
           Visible = False
           object Label12: TLabel
@@ -1243,6 +1249,7 @@ object RestDWForm: TRestDWForm
     ClientHeight = 58
     ClientWidth = 625
     Color = 2763306
+    ParentBackground = False
     ParentColor = False
     TabOrder = 1
     object labSistema: TLabel
@@ -1555,6 +1562,7 @@ object RestDWForm: TRestDWForm
       ClientHeight = 37
       ClientWidth = 59
       Color = clWhite
+      ParentBackground = False
       ParentColor = False
       TabOrder = 0
       object Image3: TImage
@@ -1937,6 +1945,7 @@ object RestDWForm: TRestDWForm
       ClientHeight = 37
       ClientWidth = 59
       Color = 2763306
+      ParentBackground = False
       ParentColor = False
       TabOrder = 1
       object Image4: TImage
@@ -2278,6 +2287,7 @@ object RestDWForm: TRestDWForm
       ClientHeight = 37
       ClientWidth = 59
       Color = 2763306
+      ParentBackground = False
       ParentColor = False
       TabOrder = 2
       object Image5: TImage
@@ -2682,6 +2692,7 @@ object RestDWForm: TRestDWForm
     BevelOuter = bvNone
     ClientHeight = 37
     ClientWidth = 625
+    ParentBackground = False
     TabOrder = 2
     object lSeguro: TLabel
       Left = 8
@@ -2709,9 +2720,9 @@ object RestDWForm: TRestDWForm
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
-      OnClick = ButtonStartClick
       ParentFont = False
       TabOrder = 0
+      OnClick = ButtonStartClick
     end
     object ButtonStop: TButton
       Cursor = crHandPoint
@@ -2725,15 +2736,15 @@ object RestDWForm: TRestDWForm
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
-      OnClick = ButtonStopClick
       ParentFont = False
       TabOrder = 1
+      OnClick = ButtonStopClick
     end
     object cbPoolerState: TCheckBox
-      Left = 181
+      Left = 182
       Height = 21
       Top = 10
-      Width = 108
+      Width = 106
       Anchors = []
       Caption = 'Pooler Active?'
       Checked = True
