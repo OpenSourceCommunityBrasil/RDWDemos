@@ -1,7 +1,7 @@
 object Form2: TForm2
-  Left = 36
+  Left = 430
   Height = 639
-  Top = 151
+  Top = 158
   Width = 872
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -15,7 +15,7 @@ object Form2: TForm2
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poDesktopCenter
-  LCLVersion = '3.4.0.0'
+  LCLVersion = '3.8.0.0'
   object labResult: TLabel
     Left = 0
     Height = 23
@@ -2194,7 +2194,6 @@ object Form2: TForm2
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'helloworld'
         EventName = 'helloworld'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -2225,7 +2224,6 @@ object Form2: TForm2
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'servertime'
         EventName = 'servertime'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -2290,7 +2288,7 @@ object Form2: TForm2
     ProxyOptions.Port = 8888
     PoolerService = 'localhost'
     PoolerPort = 8082
-    PoolerName = 'TServerMethodDM.RESTDWPoolerZEOS'
+    PoolerName = 'TServerMethodDM.RESTDWPoolerSQLDB'
     StateConnection.AutoCheck = False
     StateConnection.InTime = 1000
     RequestTimeOut = 10000
@@ -2341,7 +2339,7 @@ object Form2: TForm2
     Params = <>
     DataBase = RESTDWIdDatabase1
     SQL.Strings = (
-      'select FIRST 1 PESO_PAC'
+      'select FIRST 1 *'
       'FROM PACIENTES'
       'where not(PESO_PAC is null)'
     )

@@ -2,26 +2,39 @@ object dmFileServer: TdmFileServer
   OldCreateOrder = False
   Encoding = esUtf8
   QueuedRequest = False
+  Left = 80
+  Top = 103
   Height = 239
-  HorizontalOffset = 895
-  VerticalOffset = 440
+  HorizontalOffset = 940
+  VerticalOffset = 306
   Width = 351
   object dwSEArquivos: TRESTDWServerEvents
     IgnoreInvalidParams = False
     Events = <    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <        
           item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovBlob
+            TypeObject = toDataset
+            ObjectDirection = odIN
+            ObjectValue = ovUnknown
             ParamName = 'result'
-            Encoded = True
+            Encoded = False
           end>
         DataMode = dmDataware
-        Name = 'FileList'
         EventName = 'FileList'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -30,39 +43,50 @@ object dmFileServer: TdmFileServer
         OnReplyEvent = dwSEArquivosEventsFileListReplyEvent
       end    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <        
           item
             TypeObject = toParam
             ObjectDirection = odIN
             ObjectValue = ovString
             ParamName = 'Arquivo'
-            Encoded = True
+            Encoded = False
           end        
           item
             TypeObject = toParam
             ObjectDirection = odIN
             ObjectValue = ovString
             ParamName = 'Diretorio'
-            Encoded = True
+            Encoded = False
           end        
           item
             TypeObject = toParam
             ObjectDirection = odIN
             ObjectValue = ovBlob
             ParamName = 'FileSend'
-            Encoded = True
+            Encoded = False
           end        
           item
             TypeObject = toParam
             ObjectDirection = odOUT
             ObjectValue = ovBoolean
             ParamName = 'Result'
-            Encoded = True
+            Encoded = False
           end>
         DataMode = dmDataware
-        Name = 'SendReplicationFile'
         EventName = 'SendReplicationFile'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -71,25 +95,36 @@ object dmFileServer: TdmFileServer
         OnReplyEvent = dwSEArquivosEventsSendReplicationFileReplyEvent
       end    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <        
           item
             TypeObject = toParam
             ObjectDirection = odIN
             ObjectValue = ovString
             ParamName = 'Arquivo'
-            Encoded = True
+            Encoded = False
           end        
           item
             TypeObject = toParam
             ObjectDirection = odOUT
             ObjectValue = ovBlob
             ParamName = 'Result'
-            Encoded = True
+            Encoded = False
           end>
         DataMode = dmDataware
-        Name = 'DownloadFile'
         EventName = 'DownloadFile'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -97,7 +132,7 @@ object dmFileServer: TdmFileServer
         OnlyPreDefinedParams = False
         OnReplyEvent = dwSEArquivosEventsDownloadFileReplyEvent
       end>
-    Left = 80
-    Top = 103
+    Left = 136
+    Top = 56
   end
 end

@@ -26,10 +26,19 @@
     </RunParams>
     <RequiredPackages>
       <Item>
-        <PackageName Value="indylaz"/>
+        <PackageName Value="RESTDataWareComponents"/>
       </Item>
       <Item>
-        <PackageName Value="RESTDWZeos8Driver"/>
+        <PackageName Value="zcomponentdesign"/>
+      </Item>
+      <Item>
+        <PackageName Value="zcomponent"/>
+      </Item>
+      <Item>
+        <PackageName Value="RESTDWZeosDriver"/>
+      </Item>
+      <Item>
+        <PackageName Value="indylaz"/>
       </Item>
       <Item>
         <PackageName Value="LCL"/>

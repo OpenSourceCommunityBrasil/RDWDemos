@@ -337,6 +337,8 @@ object fPrincipal: TfPrincipal
         Text = 'Status'
         Width = 50
       end>
+    ExplicitTop = 563
+    ExplicitWidth = 870
   end
   object Memo1: TMemo
     Left = 387
@@ -354,6 +356,7 @@ object fPrincipal: TfPrincipal
       'Memo1')
     ParentFont = False
     TabOrder = 9
+    ExplicitWidth = 446
   end
   object btnApply: TButton
     Left = 127
@@ -452,6 +455,7 @@ object fPrincipal: TfPrincipal
     Color = 2763306
     ParentBackground = False
     TabOrder = 16
+    ExplicitWidth = 870
     DesignSize = (
       876
       58)
@@ -872,6 +876,7 @@ object fPrincipal: TfPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 607
       object Image3: TImage
         Left = 0
         Top = 0
@@ -1254,6 +1259,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 675
       object Image4: TImage
         Left = 4
         Top = 0
@@ -1594,6 +1600,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 743
       object Image2: TImage
         Left = 4
         Top = 0
@@ -2331,7 +2338,6 @@ object fPrincipal: TfPrincipal
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'helloworld'
         EventName = 'helloworld'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -2362,7 +2368,6 @@ object fPrincipal: TfPrincipal
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'servertime'
         EventName = 'servertime'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -2419,23 +2424,19 @@ object fPrincipal: TfPrincipal
     CriptOptions.Key = 'RDWBASEKEY256'
     DataRoute = '/'
     IgnoreEchoPooler = False
-    AuthenticationOptions.AuthorizationOption = rdwOAuth
+    AuthenticationOptions.AuthorizationOption = rdwAOBasic
     AuthenticationOptions.OptionParams.AuthDialog = True
     AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
     AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
     AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
     AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
-    AuthenticationOptions.OptionParams.TokenType = rdwOATBasic
-    AuthenticationOptions.OptionParams.AutoBuildHex = False
-    AuthenticationOptions.OptionParams.LifeCycle = 1800
-    AuthenticationOptions.OptionParams.GrantCodeEvent = 'authorize'
-    AuthenticationOptions.OptionParams.GrantType = 'client_credentials'
-    AuthenticationOptions.OptionParams.GetTokenEvent = 'access-token'
+    AuthenticationOptions.OptionParams.Username = 'fpc'
+    AuthenticationOptions.OptionParams.Password = 'restdw'
     Proxy = False
     ProxyOptions.Port = 8888
     PoolerService = '127.0.0.1'
     PoolerPort = 8082
-    PoolerName = 'TServerMethodDM.RESTDWPoolerZEOS'
+    PoolerName = 'TDMPrincipal.RESTDWPoolerFD'
     StateConnection.AutoCheck = False
     StateConnection.InTime = 1000
     RequestTimeOut = 60000
@@ -2483,6 +2484,8 @@ object fPrincipal: TfPrincipal
     MassiveType = mtMassiveCache
     Params = <>
     DataBase = RESTDWIdDatabase1
+    SQL.Strings = (
+      'Select * From EMPLOYEE')
     CacheUpdateRecords = True
     AutoCommitData = False
     AutoRefreshAfterCommit = False

@@ -2,15 +2,15 @@
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <BuildModes Active="Default"/>
-    <Units Count="2">
+    <Units Count="12">
       <Unit0>
         <Filename Value="FileClient.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="29" Y="9"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="25"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -20,20 +20,89 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="7"/>
-        <CursorPos X="55" Y="19"/>
-        <UsageCount Value="23"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
+        <TopLine Value="147"/>
+        <CursorPos Y="164"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="uFileClient.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="341"/>
+        <CursorPos X="64" Y="361"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\..\..\..\..\Source\Consts\uRESTDWConsts.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="28"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\..\..\..\..\Source\Basic\uRESTDWParams.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5528"/>
+        <CursorPos Y="5547"/>
+        <UsageCount Value="10"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\..\..\..\..\Source\Basic\uRESTDWBasicDB.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="27"/>
+        <UsageCount Value="10"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\..\..\..\..\Source\utils\uRESTDWMassiveBuffer.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="28"/>
+        <UsageCount Value="10"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3992"/>
+        <CursorPos Y="4009"/>
+        <UsageCount Value="10"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="C:\lazarus\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\..\..\..\..\Source\Basic\uRESTDWServerEvents.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="866"/>
+        <CursorPos Y="882"/>
+        <UsageCount Value="10"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\..\..\..\..\Source\utils\JSON\uRESTDWJSON.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="648"/>
+        <CursorPos Y="665"/>
+        <UsageCount Value="10"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\..\..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3233"/>
+        <CursorPos Y="3257"/>
+        <UsageCount Value="10"/>
+      </Unit11>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="uFileClient.pas"/>
+        <Caret Line="164" TopLine="147"/>
+      </Position1>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode=""/>
+      <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
 </CONFIG>

@@ -191,7 +191,10 @@ Begin
  RESTDWClientSQL1.UpdateTableName  := Trim(eUpdateTableName.Text);
  Try
   RESTDWClientSQL1.Active          := True;
-  RESTDWClientSQL1.Filtered := False;
+//  RESTDWClientSQL1.IndexFieldNames := 'PHONE_EXT';
+//  RESTDWClientSQL1.Filtered := False;
+//  RESTDWClientSQL1.Filter := 'emp_no < 10';
+//  RESTDWClientSQL1.Filtered := True;
 //  vStream    := TMemoryStream.Create;
 //  RESTDWClientSQL1.SaveToStream(vStream);
 //  If RESTDWClientSQL1.FindField('IMAGEM') <> Nil Then
@@ -423,9 +426,12 @@ procedure TfPrincipal.DBGrid1TitleClick(Column: TColumn);
 begin
  If RESTDWClientSQL1.Active then
   Begin
-   If RESTDWClientSQL1.Filtered Then
-    RESTDWClientSQL1.Filtered := False;
-   RESTDWClientSQL1.IndexFieldNames := Column.FieldName;
+   If RESTDWClientSQL1.IndexDefs.IndexOf(Column.FieldName) > -1 Then
+    RESTDWClientSQL1.IndexDefs.Clear;
+   RESTDWClientSQL1.IndexDefs.Add(Column.FieldName,
+                                  Column.FieldName,
+                                 [ixCaseInsensitive]);
+   RESTDWClientSQL1.IndexName  := Column.FieldName;
   End;
 end;
 

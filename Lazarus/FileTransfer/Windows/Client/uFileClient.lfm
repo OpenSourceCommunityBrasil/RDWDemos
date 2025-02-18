@@ -14,7 +14,7 @@ object Form4: TForm4
   Font.Name = 'Tahoma'
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '3.8.0.0'
   object Label4: TLabel
     Left = 13
     Height = 13
@@ -8373,9 +8373,9 @@ object Form4: TForm4
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = Button1Click
     ParentFont = False
     TabOrder = 4
+    OnClick = Button1Click
   end
   object lbLocalFiles: TListBox
     Left = 8
@@ -8395,9 +8395,9 @@ object Form4: TForm4
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = Button2Click
     ParentFont = False
     TabOrder = 6
+    OnClick = Button2Click
   end
   object Button3: TButton
     Left = 376
@@ -8409,9 +8409,9 @@ object Form4: TForm4
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = Button3Click
     ParentFont = False
     TabOrder = 7
+    OnClick = Button3Click
   end
   object cmb_tmp: TComboBox
     Left = 224
@@ -8441,25 +8441,36 @@ object Form4: TForm4
     Left = 184
     Top = 200
   end
-  object DWClientEvents1: TRESTDWClientEvents
+  object RESTDWClientEvents1: TRESTDWClientEvents
     ServerEventName = 'TdmFileServer.dwSEArquivos'
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    RESTClientPooler = RESTClientPooler1
+    RESTClientPooler = RESTDWIdClientPooler1
     Events = <    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <        
           item
             TypeObject = toParam
             ObjectDirection = odOUT
             ObjectValue = ovBlob
             ParamName = 'result'
-            Encoded = True
+            Encoded = False
           end>
         DataMode = dmDataware
-        Name = 'FileList'
         EventName = 'FileList'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -8467,39 +8478,50 @@ object Form4: TForm4
         OnlyPreDefinedParams = False
       end    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <        
           item
             TypeObject = toParam
             ObjectDirection = odIN
             ObjectValue = ovString
             ParamName = 'Arquivo'
-            Encoded = True
+            Encoded = False
           end        
           item
             TypeObject = toParam
             ObjectDirection = odIN
             ObjectValue = ovString
             ParamName = 'Diretorio'
-            Encoded = True
+            Encoded = False
           end        
           item
             TypeObject = toParam
             ObjectDirection = odIN
             ObjectValue = ovBlob
             ParamName = 'FileSend'
-            Encoded = True
+            Encoded = False
           end        
           item
             TypeObject = toParam
             ObjectDirection = odOUT
             ObjectValue = ovBoolean
             ParamName = 'Result'
-            Encoded = True
+            Encoded = False
           end>
         DataMode = dmDataware
-        Name = 'SendReplicationFile'
         EventName = 'SendReplicationFile'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -8507,40 +8529,52 @@ object Form4: TForm4
         OnlyPreDefinedParams = False
       end    
       item
-        Routes = [crAll]
-        NeedAuthorization = True
+        Routes.All.Active = True
+        Routes.All.NeedAuthorization = False
+        Routes.Get.Active = False
+        Routes.Get.NeedAuthorization = False
+        Routes.Post.Active = False
+        Routes.Post.NeedAuthorization = False
+        Routes.Put.Active = False
+        Routes.Put.NeedAuthorization = False
+        Routes.Patch.Active = False
+        Routes.Patch.NeedAuthorization = False
+        Routes.Delete.Active = False
+        Routes.Delete.NeedAuthorization = False
+        Routes.Option.Active = False
+        Routes.Option.NeedAuthorization = False
         Params = <        
           item
             TypeObject = toParam
             ObjectDirection = odIN
             ObjectValue = ovString
             ParamName = 'Arquivo'
-            Encoded = True
+            Encoded = False
           end        
           item
             TypeObject = toParam
             ObjectDirection = odOUT
             ObjectValue = ovBlob
             ParamName = 'Result'
-            Encoded = True
+            Encoded = False
           end>
         DataMode = dmDataware
-        Name = 'DownloadFile'
         EventName = 'DownloadFile'
         BaseURL = '/'
         DefaultContentType = 'application/json'
         CallbackEvent = False
         OnlyPreDefinedParams = False
       end>
-    Left = 170
-    Top = 105
+    Left = 257
+    Top = 95
   end
-  object RESTClientPooler1: TRESTDWIdClientPooler
+  object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
     Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
     ContentEncoding = 'gzip, identity'
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
+    DataRoute = '/'
     Encoding = esUtf8
     EncodedStrings = True
     ThreadRequest = False
@@ -8553,16 +8587,12 @@ object Form4: TForm4
     AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
     AuthenticationOptions.OptionParams.Username = 'testserver'
     AuthenticationOptions.OptionParams.Password = 'testserver'
-    RequestTimeOut = 9999999
-    ConnectTimeOut = 6000
+    RequestTimeOut = 10000
+    ConnectTimeOut = 3000
     AllowCookies = False
     RedirectMaximum = 0
     HandleRedirects = False
     ProxyOptions.ProxyPort = 0
-    OnWork = RESTClientPooler1Work
-    OnWorkBegin = RESTClientPooler1WorkBegin
-    OnWorkEnd = RESTClientPooler1WorkEnd
-    OnBeforeExecute = RESTClientPooler1BeforeExecute
     FailOver = False
     UseSSL = False
     FailOverConnections = <>
@@ -8572,10 +8602,10 @@ object Form4: TForm4
     CriptOptions.Key = 'RDWBASEKEY256'
     UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36'
     PoolerNotFoundMessage = 'Pooler not found'
+    SSLVersions = []
     DatabaseCharSet = csUndefined
     SSLMode = sslmUnassigned
-    SSLVersions = []
-    Left = 48
-    Top = 176
+    Left = 257
+    Top = 149
   end
 end

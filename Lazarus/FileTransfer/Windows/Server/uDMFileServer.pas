@@ -7,17 +7,20 @@ interface
 uses
   SysUtils, Classes, ShellAPI, uRESTDWAbout,
   uRESTDWServerEvents, uRESTDWJSONObject, uRESTDWDatamodule,
-  uRESTDWComponentBase, uRESTDWParams;
+  uRESTDWParams;
 
 type
+
+  { TdmFileServer }
+
   TdmFileServer = class(TServerMethodDataModule)
     dwSEArquivos: TRESTDWServerEvents;
+    procedure dwSEArquivosEventsDownloadFileReplyEvent(
+      var Params: TRESTDWParams; const Result: TStringList);
     procedure dwSEArquivosEventsFileListReplyEvent(var Params: TRESTDWParams;
-      var Result: string);
+      const Result: TStringList);
     procedure dwSEArquivosEventsSendReplicationFileReplyEvent(
-      var Params: TRESTDWParams; var Result: string);
-    procedure dwSEArquivosEventsDownloadFileReplyEvent(var Params: TRESTDWParams;
-      var Result: string);
+      var Params: TRESTDWParams; const Result: TStringList);
   private
     { Private declarations }
   public
@@ -35,13 +38,64 @@ uses uPrincipal;
 
 {$R *.lfm}
 
+
+procedure TdmFileServer.dwSEArquivosEventsFileListReplyEvent(
+  var Params: TRESTDWParams; const Result: TStringList);
+Var
+ vArquivo    : String;
+ vFileExport : TStringStream;
+ List        : TStringList;
+Begin
+ List               := TStringList.Create;
+ GetFilesServer(List);
+ Try
+  vFileExport       := TStringStream.Create(List.Text);
+  vFileExport.Position := 0;
+  Params.ItemsString['result'].LoadFromStream(vFileExport);
+ Finally
+  FreeAndNil(vFileExport);
+  FreeAndNil(List);
+ End;
+End;
+
+procedure TdmFileServer.dwSEArquivosEventsDownloadFileReplyEvent(
+  var Params: TRESTDWParams; const Result: TStringList);
+Var
+ vFile        : TMemoryStream;
+ vArquivo     : String;
+ vFileExport  : TMemoryStream;
+Begin
+ If (Params.ItemsString['Arquivo']     <> Nil) Then
+  Begin
+   vArquivo              := fServer.DirName + Trim(Params.ItemsString['Arquivo'].AsString);
+   If (vArquivo     <> '') Then
+    Begin
+     Try
+      If FileExists(vArquivo) Then
+       Begin
+        vFile := TMemoryStream.Create;
+        Try
+         vFile.LoadFromFile(vArquivo);
+         vFile.Position  := 0;
+        Except
+
+        End;
+        Params.ItemsString['result'].LoadFromStream(vFile);
+       End;
+     Finally
+      FreeAndNil(vFile);
+     End;
+    End;
+  End;
+End;
+
 procedure TdmFileServer.dwSEArquivosEventsSendReplicationFileReplyEvent(
-  var Params: TRESTDWParams; var Result: string);
+  var Params: TRESTDWParams; const Result: TStringList);
 Var
  vArquivo, vDiretorio: String;
- JSONValue    : TJSONValue;
+ JSONValue    : TRESTDWJSONValue;
  vFileIn,
- vFile        : TStringStream;
+ vFile        : TStream;
  Procedure DelFilesFromDir(Directory, FileMask : String; Const DelSubDirs: Boolean = False);
  Var
   SourceLst: string;
@@ -72,12 +126,12 @@ Begin
        ForceDirectories(fServer.DirName + vDiretorio);
      end;
    end;
-   JSONValue          := TJSONValue.Create;
+   JSONValue          := TRESTDWJSONValue.Create;
    JSONValue.Encoding := Encoding;
    vArquivo           := fServer.DirName + vDiretorio + Trim(ExtractFileName(Params.ItemsString['Arquivo'].AsString));
    If FileExists(vArquivo) Then
     DeleteFile(vArquivo);
-   vFileIn            := TStringStream.Create;
+   vFileIn            := TMemoryStream.Create;
    Params.ItemsString['FileSend'].SaveToStream(vFileIn);
    Try
     vFileIn.Position   := 0;
@@ -90,56 +144,6 @@ Begin
     JSONValue.Free;
    End;
   End;
-End;
-
-procedure TdmFileServer.dwSEArquivosEventsDownloadFileReplyEvent(
-  var Params: TRESTDWParams; var Result: string);
-Var
- vFile        : TMemoryStream;
- vArquivo     : String;
- vFileExport  : TMemoryStream;
-Begin
- If (Params.ItemsString['Arquivo']     <> Nil) Then
-  Begin
-   vArquivo              := fServer.DirName + Trim(Params.ItemsString['Arquivo'].AsString);
-   If (vArquivo     <> '') Then
-    Begin
-     Try
-      If FileExists(vArquivo) Then
-       Begin
-        vFile := TMemoryStream.Create;
-        Try
-         vFile.LoadFromFile(vArquivo);
-         vFile.Position  := 0;
-        Except
-
-        End;
-        Params.ItemsString['result'].LoadFromStream(vFile);
-       End;
-     Finally
-      FreeAndNil(vFile);
-     End;
-    End;
-  End;
-End;
-
-procedure TdmFileServer.dwSEArquivosEventsFileListReplyEvent(
-  var Params: TRESTDWParams; var Result: string);
-Var
- vArquivo    : String;
- vFileExport : TStringStream;
- List        : TStringList;
-Begin
- List               := TStringList.Create;
- GetFilesServer(List);
- Try
-  vFileExport       := TStringStream.Create(List.Text);
-  vFileExport.Position := 0;
-  Params.ItemsString['result'].LoadFromStream(vFileExport);
- Finally
-  FreeAndNil(vFileExport);
-  FreeAndNil(List);
- End;
 End;
 
 end.

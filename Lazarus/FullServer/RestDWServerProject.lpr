@@ -10,7 +10,7 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, indylaz, RestDWServerFormU, uDmService, uSock;
+  Forms, zcomponent, indylaz, RestDWServerFormU, uDmService, uSock;
 
 {$R *.res}
 

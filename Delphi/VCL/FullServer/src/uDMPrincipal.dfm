@@ -3,8 +3,8 @@ object DMPrincipal: TDMPrincipal
   Encoding = esUtf8
   OnMassiveProcess = ServerMethodDataModuleMassiveProcess
   QueuedRequest = False
-  Height = 252
-  Width = 328
+  Height = 370
+  Width = 447
   object RESTDWPoolerFD: TRESTDWPoolerDB
     RESTDriver = RESTDWFireDACDriver1
     Compression = True
@@ -15,8 +15,8 @@ object DMPrincipal: TDMPrincipal
     Active = True
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
-    Left = 62
-    Top = 115
+    Left = 182
+    Top = 187
   end
   object Server_FDConnection: TFDConnection
     Params.Strings = (
@@ -90,7 +90,7 @@ object DMPrincipal: TDMPrincipal
     Top = 63
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
-    Left = 110
+    Left = 86
     Top = 17
   end
   object RESTDWServerEvents: TRESTDWServerEvents
@@ -136,7 +136,6 @@ object DMPrincipal: TDMPrincipal
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'helloworld'
         EventName = 'helloworld'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -168,7 +167,6 @@ object DMPrincipal: TDMPrincipal
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'servertime'
         EventName = 'servertime'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -193,7 +191,6 @@ object DMPrincipal: TDMPrincipal
         Routes.Option.NeedAuthorization = False
         Params = <>
         DataMode = dmDataware
-        Name = 'ping'
         EventName = 'ping'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -215,7 +212,51 @@ object DMPrincipal: TDMPrincipal
     Encoding = esUtf8
     ParamCreate = False
     CommitRecords = 0
+    Left = 184
+    Top = 240
+  end
+  object RESTDWPoolerZEOS: TRESTDWPoolerDB
+    RESTDriver = RESTDWZeosDriver1
+    Compression = True
+    Encoding = esUtf8
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = True
+    Active = True
+    PoolerOffMessage = 'RESTPooler not active.'
+    ParamCreate = True
     Left = 64
-    Top = 168
+    Top = 192
+  end
+  object RESTDWZeosDriver1: TRESTDWZeosDriver
+    Connection = ZConnection1
+    ConectionType = dbtFirebird
+    StrsTrim = False
+    StrsEmpty2Null = False
+    StrsTrim2Len = False
+    Compression = False
+    EncodeStringsJSON = False
+    Encoding = esASCII
+    ParamCreate = True
+    CommitRecords = 100
+    Left = 64
+    Top = 256
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF16
+    ClientCodepage = 'WIN1252'
+    Catalog = ''
+    Properties.Strings = (
+      'codepage=WIN1252')
+    BeforeConnect = ZConnection1BeforeConnect
+    DisableSavepoints = False
+    HostName = ''
+    Port = 0
+    Database = ''
+    User = ''
+    Password = ''
+    Protocol = 'firebird'
+    Left = 64
+    Top = 136
   end
 end

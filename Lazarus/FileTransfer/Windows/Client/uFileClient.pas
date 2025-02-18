@@ -1,7 +1,5 @@
 unit uFileClient;
 
-{$MODE Delphi}
-
 interface
 
 uses
@@ -9,7 +7,7 @@ uses
   Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
   uRESTDWParams, uRESTDWJSONObject, uRESTDWConsts, ComCtrls,
   uRESTDWDataUtils, uRESTDWServerEvents, uRESTDWAbout, uRESTDWBasic, uRESTDWIdBase,
-  uRESTDWComponentBase, uRESTDWComponentEvents;
+  uRESTDWComponentEvents;
 
 type
 
@@ -37,8 +35,8 @@ type
     cmb_tmp: TComboBox;
     Label2: TLabel;
     ProgressBar1: TProgressBar;
-    DWClientEvents1: TRESTDWClientEvents;
-    RESTClientPooler1: TRESTDWIdClientPooler;
+    RESTDWClientEvents1: TRESTDWClientEvents;
+    RESTDWIdClientPooler1: TRESTDWIdClientPooler;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -70,15 +68,15 @@ Var
  vFileList     : TStringStream;
 Begin
  lbLocalFiles.Clear;
- RESTClientPooler1.Host     := eHost.Text;
- RESTClientPooler1.Port     := StrToInt(ePort.Text);
- RESTClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
- TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
- TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
+ RESTDWIdClientPooler1.Host     := eHost.Text;
+ RESTDWIdClientPooler1.Port     := StrToInt(ePort.Text);
+ RESTDWIdClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
+ TRESTDWAuthOptionBasic(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
+ TRESTDWAuthOptionBasic(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
  Try
   Try
-   DWClientEvents1.CreateDWParams('FileList', dwParams);
-   DWClientEvents1.SendEvent('FileList', dwParams, vErrorMessage);
+   RESTDWClientEvents1.CreateDWParams('FileList', dwParams);
+   RESTDWClientEvents1.SendEvent('FileList', dwParams, vErrorMessage);
    If vErrorMessage = '' Then
     Begin
      If Not dwParams.ItemsString['result'].isNull Then
@@ -109,18 +107,18 @@ Var
 Begin
  If lbLocalFiles.ItemIndex > -1 Then
   Begin
-   RESTClientPooler1.Host     := eHost.Text;
-   RESTClientPooler1.Port     := StrToInt(ePort.Text);
-   RESTClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
-   TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
-   TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
-   DWClientEvents1.CreateDWParams('DownloadFile', dwParams);
+   RESTDWIdClientPooler1.Host     := eHost.Text;
+   RESTDWIdClientPooler1.Port     := StrToInt(ePort.Text);
+   RESTDWIdClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
+   TRESTDWAuthOptionBasic(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
+   TRESTDWAuthOptionBasic(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
+   RESTDWClientEvents1.CreateDWParams('DownloadFile', dwParams);
    dwParams.ItemsString['Arquivo'].AsString := lbLocalFiles.Items[lbLocalFiles.ItemIndex];
    Try
     Try
-     RESTClientPooler1.Host := eHost.Text;
-     RESTClientPooler1.Port := StrToInt(ePort.Text);
-     DWClientEvents1.SendEvent('DownloadFile', dwParams, vErrorMessage);
+     RESTDWIdClientPooler1.Host := eHost.Text;
+     RESTDWIdClientPooler1.Port := StrToInt(ePort.Text);
+     RESTDWClientEvents1.SendEvent('DownloadFile', dwParams, vErrorMessage);
      If vErrorMessage = '' Then
       Begin
        StringStream          := TStringStream.Create('');
@@ -150,20 +148,22 @@ procedure TForm4.Button3Click(Sender: TObject);
 Var
  DWParams      : TRESTDWParams;
  vErrorMessage : String;
- MemoryStream  : TStringStream;
+ MemoryStream  : TMemoryStream;
 Begin
- RESTClientPooler1.RequestTimeOut:= StrToInt(Copy(cmb_tmp.Text, 1,1)) * 60000;
- RESTClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
- TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
- TRESTDWAuthOptionBasic(RESTClientPooler1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
+ RESTDWIdClientPooler1.RequestTimeOut:= StrToInt(Copy(cmb_tmp.Text, 1,1)) * 60000;
+ RESTDWIdClientPooler1.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
+ TRESTDWAuthOptionBasic(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
+ TRESTDWAuthOptionBasic(RESTDWIdClientPooler1.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
  If OpenDialog1.Execute Then
   Begin
-   DWClientEvents1.CreateDWParams('SendReplicationFile', dwParams);
+   RESTDWClientEvents1.CreateDWParams('SendReplicationFile', dwParams);
    dwParams.ItemsString['Arquivo'].AsString := OpenDialog1.FileName;
-   MemoryStream                 := TStringStream.Create(OpenDialog1.FileName, fmOpenRead);
+   MemoryStream                 := TMemoryStream.Create;
+   MemoryStream.LoadFromFile(OpenDialog1.FileName);
+   MemoryStream.position := 0;
    dwParams.ItemsString['FileSend'].LoadFromStream(MemoryStream);
    MemoryStream.Free;
-   DWClientEvents1.SendEvent('SendReplicationFile', DWParams, vErrorMessage);
+   RESTDWClientEvents1.SendEvent('SendReplicationFile', DWParams, vErrorMessage);
    If vErrorMessage = '' Then
     Begin
       Try

@@ -19,7 +19,8 @@ USES
   uRESTDWDatamodule, uRESTDWMassiveBuffer, uRESTDWJSONObject, uRESTDWAbout,
   uRESTDWServerContext, uRESTDWBasicDB, uRESTDWParams, uRESTDWBasicTypes,
   uRESTDWTools, uRESTDWBasic, uRESTDWMimeTypes,
-  uPrincipal, uRESTDWDriverBase, uRESTDWFireDACDriver;
+  uPrincipal, uRESTDWDriverBase, uRESTDWFireDACDriver, ZAbstractConnection,
+  ZConnection, uRESTDWZeosDriver;
 
 Const
   WelcomeSample = True;
@@ -41,6 +42,9 @@ TYPE
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     RESTDWServerEvents: TRESTDWServerEvents;
     RESTDWFireDACDriver1: TRESTDWFireDACDriver;
+    RESTDWPoolerZEOS: TRESTDWPoolerDB;
+    RESTDWZeosDriver1: TRESTDWZeosDriver;
+    ZConnection1: TZConnection;
     PROCEDURE Server_FDConnectionBeforeConnect(Sender: TObject);
     PROCEDURE Server_FDConnectionError(ASender, AInitiator: TObject;
       VAR AException: Exception);
@@ -111,6 +115,7 @@ TYPE
       var Params: TRESTDWParams; const Result: TStringList);
     procedure RESTDWServerEventsEventspingReplyEvent(var Params: TRESTDWParams;
       const Result: TStringList);
+    procedure ZConnection1BeforeConnect(Sender: TObject);
   PRIVATE
     { Private declarations }
     vIDVenda: Integer;
@@ -693,5 +698,40 @@ PROCEDURE TDMPrincipal.Server_FDConnectionError(ASender, AInitiator: TObject;
 BEGIN
   fPrincipal.memoResp.Lines.Add(AException.Message);
 END;
+
+procedure TDMPrincipal.ZConnection1BeforeConnect(Sender: TObject);
+VAR
+  Driver_BD: STRING;
+  Porta_BD: STRING;
+  Servidor_BD: STRING;
+  DataBase: STRING;
+  Pasta_BD: STRING;
+  Usuario_BD: STRING;
+  Senha_BD: STRING;
+BEGIN
+   DataBase := fPrincipal.EdBD.Text;
+   Driver_BD := fPrincipal.CbDriver.Text;
+   If fPrincipal.CkUsaURL.Checked Then
+    Servidor_BD := fPrincipal.EdURL.Text
+   Else
+    Servidor_BD := fPrincipal.DatabaseIP;
+   Case fPrincipal.CbDriver.ItemIndex Of
+    0 : Begin
+         Pasta_BD := IncludeTrailingPathDelimiter(fPrincipal.EdPasta.Text);
+         Database := fPrincipal.edBD.Text;
+         Database := Pasta_BD + Database;
+        End;
+    1 : Database := fPrincipal.EdBD.Text;
+   End;
+   Porta_BD   := fPrincipal.EdPortaBD.Text;
+   Usuario_BD := fPrincipal.EdUserNameBD.Text;
+   Senha_BD   := fPrincipal.EdPasswordBD.Text;
+   TZConnection(Sender).Database := Database;
+   TZConnection(Sender).HostName := Servidor_BD;
+   TZConnection(Sender).Port     := StrToInt(Porta_BD);
+   TZConnection(Sender).User     := Usuario_BD;
+   TZConnection(Sender).Password := Senha_BD;
+   TZConnection(Sender).LoginPrompt := FALSE;
+End;
 
 END.

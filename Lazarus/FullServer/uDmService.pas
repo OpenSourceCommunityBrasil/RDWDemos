@@ -6,22 +6,16 @@ uses
   SysUtils, Classes, IBConnection, sqldb, db, uRESTDWDatamodule, Dialogs,
   ZConnection, ZDataset, uRESTDWDataUtils, uRESTDWConsts, RestDWServerFormU,
   uRESTDWServerEvents, uRESTDWServerContext, uRESTDWBasicDB,
-  uRESTDWParams, uRESTDWLazarusDriver, uRESTDWZeosDriver;
+  uRESTDWParams, uRESTDWZeosDriver;
 
 type
 
   { TServerMethodDM }
-
   TServerMethodDM = class(TServerMethodDataModule)
-    DataSource1: TDataSource;
-    IBConnection1: TIBConnection;
-    RESTDWLazarusDriver1: TRESTDWLazarusDriver;
+    RESTDWPoolerDB: TRESTDWPoolerDB;
     RESTDWPoolerZEOS: TRESTDWPoolerDB;
-    RESTDWPoolerSQLDB: TRESTDWPoolerDB;
-    RESTDWServerEvents: TRESTDWServerEvents;
+    RESTDWServerContext1: TRESTDWServerContext;
     RESTDWZeosDriver1: TRESTDWZeosDriver;
-    SQLQuery1: TSQLQuery;
-    SQLTransaction1: TSQLTransaction;
     ZConnection1: TZConnection;
     ZQuery1: TZQuery;
     procedure DataModuleGetToken(Welcomemsg, AccessTag: String;
@@ -29,8 +23,6 @@ type
       var ErrorCode: Integer; var ErrorMessage: String; var TokenID: String;
       var Accept: Boolean);
     procedure IBConnection1BeforeConnect(Sender: TObject);
-    procedure RESTDWServerEventsEventsservertimeReplyEvent(
-      var Params: TRESTDWParams; var Result: String);
     procedure ServerMethodDataModuleCreate(Sender: TObject);
     procedure ZConnection1BeforeConnect(Sender: TObject);
   private
@@ -122,12 +114,6 @@ BEGIN
    TIBConnection(Sender).Password    := Senha_BD;
    TIBConnection(Sender).LoginPrompt := FALSE;
 End;
-
-procedure TServerMethodDM.RESTDWServerEventsEventsservertimeReplyEvent(
-  var Params: TRESTDWParams; var Result: String);
-begin
- Params.ItemsString['result'].AsDateTime := Now;
-end;
 
 procedure TServerMethodDM.DataModuleGetToken(Welcomemsg, AccessTag: String;
   Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;

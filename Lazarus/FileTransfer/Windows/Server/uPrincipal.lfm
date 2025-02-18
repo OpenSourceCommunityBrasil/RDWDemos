@@ -14,7 +14,7 @@ object fServer: TfServer
   Font.Name = 'Tahoma'
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '3.8.0.0'
   object Image1: TImage
     Left = 341
     Height = 100
@@ -8307,9 +8307,9 @@ object fServer: TfServer
   end
   object cbEncode: TCheckBox
     Left = 233
-    Height = 19
+    Height = 17
     Top = 84
-    Width = 103
+    Width = 101
     Caption = 'Encode Strings'
     Checked = True
     Font.Color = clWindowText
@@ -8372,15 +8372,15 @@ object fServer: TfServer
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    OnClick = ButtonStartClick
     ParentFont = False
     TabOrder = 5
+    OnClick = ButtonStartClick
   end
   object cbPoolerState: TCheckBox
     Left = 126
-    Height = 19
+    Height = 17
     Top = 85
-    Width = 101
+    Width = 99
     Caption = 'Pooler Active?'
     Checked = True
     Font.Color = clWindowText
@@ -8393,6 +8393,7 @@ object fServer: TfServer
   end
   object rspServerFiles: TRESTDWIdServicePooler
     Active = False
+    Authenticator = RESTDWAuthBasic1
     CORS = False
     CORS_CustomHeaders.Strings = (
       'Access-Control-Allow-Origin=*'
@@ -8403,27 +8404,28 @@ object fServer: TfServer
     RequestTimeout = -1
     ServicePort = 8082
     ProxyOptions.ProxyPort = 0
-    AuthenticationOptions.AuthorizationOption = rdwAOBasic
-    AuthenticationOptions.OptionParams.AuthDialog = True
-    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
-    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
-    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
-    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
-    AuthenticationOptions.OptionParams.Username = 'testserver'
-    AuthenticationOptions.OptionParams.Password = 'testserver'
     Encoding = esUtf8
     RootPath = '/'
     ForceWelcomeAccess = False
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    EncodeErrors = False
     DatabaseCharSet = csUndefined
-    OnCreate = rspServerFilesCreate
+    ServerIPVersionConfig.IPv4Address = '0.0.0.0'
+    ServerIPVersionConfig.IPv6Address = '::'
     SSLVerifyMode = []
     SSLVerifyDepth = 0
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
     SSLVersions = []
-    Left = 272
-    Top = 152
+    Left = 168
+    Top = 184
+  end
+  object RESTDWAuthBasic1: TRESTDWAuthBasic
+    AuthDialog = True
+    UserName = 'testserver'
+    Password = 'testserver'
+    Left = 278
+    Top = 153
   end
 end

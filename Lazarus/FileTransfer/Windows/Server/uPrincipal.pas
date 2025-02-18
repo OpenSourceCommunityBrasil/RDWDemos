@@ -5,10 +5,9 @@ unit uPrincipal;
 interface
 
 uses
-  SysUtils, Variants, Classes, Graphics,
-  Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  uDMFileServer, uRESTDWAbout, uRESTDWComponentBase,
-  uRESTDWBasic, uRESTDWIdBase, uRESTDWDataUtils, uRESTDWComponentEvents;
+  SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls,
+  ExtCtrls, uDMFileServer, uRESTDWAbout, uRESTDWBasic, uRESTDWIdBase,
+  uRESTDWDataUtils, uRESTDWAuthenticators, uRESTDWComponentEvents;
 
 type
 
@@ -30,10 +29,10 @@ type
     Label13: TLabel;
     Bevel2: TBevel;
     cbPoolerState: TCheckBox;
+    RESTDWAuthBasic1: TRESTDWAuthBasic;
     rspServerFiles: TRESTDWIdServicePooler;
     procedure FormCreate(Sender: TObject);
     procedure ButtonStartClick(Sender: TObject);
-    procedure rspServerFilesCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -112,9 +111,8 @@ procedure TfServer.ButtonStartClick(Sender: TObject);
 begin
  If Not rspServerFiles.Active Then
   Begin
-   rspServerFiles.AuthenticationOptions.AuthorizationOption := rdwAOBasic;
-   TRESTDWAuthOptionBasic(rspServerFiles.AuthenticationOptions.OptionParams).Username := edUserNameDW.Text;
-   TRESTDWAuthOptionBasic(rspServerFiles.AuthenticationOptions.OptionParams).Password := edPasswordDW.Text;
+   RESTDWAuthBasic1.Username  := edUserNameDW.Text;
+   RESTDWAuthBasic1.Password  := edPasswordDW.Text;
    rspServerFiles.ServicePort := StrToInt(edPortaDW.Text);
    rspServerFiles.Active      := True;
    If Not rspServerFiles.Active Then
@@ -128,11 +126,6 @@ begin
    ButtonStart.Caption        := 'Ativar';
    lbLocalFiles.Clear;
   End;
-end;
-
-procedure TfServer.rspServerFilesCreate(Sender: TObject);
-begin
-
 end;
 
 procedure TfServer.FormCreate(Sender: TObject);
