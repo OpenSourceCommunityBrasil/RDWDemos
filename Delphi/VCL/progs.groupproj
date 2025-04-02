@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{18FC3E13-F0D6-4E2F-A63D-112678A94CB9}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FullServer\RESTDWFullServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FullClient\RESTDWFullClient.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CadImageList\cadimagelist_berlin.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RESTDWFullServer">
+        <MSBuild Projects="FullServer\RESTDWFullServer.dproj"/>
+    </Target>
+    <Target Name="RESTDWFullServer:Clean">
+        <MSBuild Projects="FullServer\RESTDWFullServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTDWFullServer:Make">
+        <MSBuild Projects="FullServer\RESTDWFullServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RESTDWFullClient">
+        <MSBuild Projects="FullClient\RESTDWFullClient.dproj"/>
+    </Target>
+    <Target Name="RESTDWFullClient:Clean">
+        <MSBuild Projects="FullClient\RESTDWFullClient.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTDWFullClient:Make">
+        <MSBuild Projects="FullClient\RESTDWFullClient.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="cadimagelist_berlin">
+        <MSBuild Projects="CadImageList\cadimagelist_berlin.dproj"/>
+    </Target>
+    <Target Name="cadimagelist_berlin:Clean">
+        <MSBuild Projects="CadImageList\cadimagelist_berlin.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cadimagelist_berlin:Make">
+        <MSBuild Projects="CadImageList\cadimagelist_berlin.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RESTDWFullServer;RESTDWFullClient;cadimagelist_berlin"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RESTDWFullServer:Clean;RESTDWFullClient:Clean;cadimagelist_berlin:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RESTDWFullServer:Make;RESTDWFullClient:Make;cadimagelist_berlin:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

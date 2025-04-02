@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{77124043-4C5A-4AF7-9C1E-DC1460F6EF24}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RESTDWFullServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\..\Packages\Delphi\RESTDWCore.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RESTDWFullServer">
+        <MSBuild Projects="RESTDWFullServer.dproj"/>
+    </Target>
+    <Target Name="RESTDWFullServer:Clean">
+        <MSBuild Projects="RESTDWFullServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTDWFullServer:Make">
+        <MSBuild Projects="RESTDWFullServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RESTDWCore">
+        <MSBuild Projects="..\..\..\..\Packages\Delphi\RESTDWCore.dproj"/>
+    </Target>
+    <Target Name="RESTDWCore:Clean">
+        <MSBuild Projects="..\..\..\..\Packages\Delphi\RESTDWCore.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTDWCore:Make">
+        <MSBuild Projects="..\..\..\..\Packages\Delphi\RESTDWCore.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RESTDWFullServer;RESTDWCore"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RESTDWFullServer:Clean;RESTDWCore:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RESTDWFullServer:Make;RESTDWCore:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

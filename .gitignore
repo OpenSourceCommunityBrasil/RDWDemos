@@ -93,6 +93,6 @@ backup/
 
 # Code coverage reports
 **/console/
-**/vcl/
+#**/vcl/
 dunitx-results.xml
 *.bak
