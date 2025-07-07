@@ -3,8 +3,9 @@ unit RestDWServerFormU;
 Interface
 
 Uses LCL, LCLIntf, LCLType, Messages, SysUtils, Variants, Classes, Graphics,
-  Controls, Forms, Dialogs, uSock, IniFiles, IBConnection, db,
-  ComCtrls, MaskEdit, StdCtrls, ExtCtrls, Menus, uRESTDWIdBase, uRESTDWComponentEvents;
+  Controls, Forms, Dialogs, uSock, IniFiles,
+  ComCtrls, MaskEdit, StdCtrls, ExtCtrls, Menus, uRESTDWIdBase,
+  uRESTDWComponentEvents, uRESTDWAuthenticators;
 
 type
 
@@ -15,12 +16,12 @@ type
     ButtonStart: TButton;
     ButtonStop: TButton;
     cbAdaptadores: TComboBox;
-    cbAuthOptions: TComboBox;
     cbDriver: TComboBox;
     cbForceWelcome: TCheckBox;
     cbPoolerState: TCheckBox;
     cbTokenType: TComboBox;
     cbUpdateLog: TCheckBox;
+    cbAuthorizationToken: TCheckBox;
     ckUsaURL: TCheckBox;
     ctiPrincipal: TTrayIcon;
     eCertFile: TEdit;
@@ -51,7 +52,6 @@ type
     labDBConfig: TLabel;
     Label1: TLabel;
     Label10: TLabel;
-    Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
     Label14: TLabel;
@@ -96,12 +96,13 @@ type
     pmMenu: TPopupMenu;
     pTokenAuth: TPanel;
     RestaurarAplicao1: TMenuItem;
+    RESTDWAuthToken1: TRESTDWAuthToken;
     RESTDWIdServicePooler: TRESTDWIdServicePooler;
     SairdaAplicao1: TMenuItem;
     tsConfigs: TTabSheet;
     tsLogs: TTabSheet;
     tupdatelogs: TTimer;
-    procedure cbAuthOptionsChange(Sender: TObject);
+    procedure cbAuthorizationTokenChange(Sender: TObject);
     procedure cbDriverCloseUp(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
@@ -338,7 +339,8 @@ Begin
  FCfgName := StringReplace(ExtractFileName(ParamStr(0) ), '.exe' , '' , [rfReplaceAll]);
  FCfgName := ExtractFilePath(ParamSTR(0)) + 'Config_' + FCfgName + '.ini' ;
  RESTDWIdServicePooler.ServerMethodClass := TServerMethodDM;
- PageControl1.ActivePage              := tsConfigs;
+ RESTDWIdServicePooler.RootPath          := IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName) + 'www');
+ PageControl1.ActivePage                 := tsConfigs;
 End;
 
 procedure TRestDWForm.cbDriverCloseUp(Sender: TObject);
@@ -380,10 +382,12 @@ Begin
   End;
 End;
 
-procedure TRestDWForm.cbAuthOptionsChange(Sender: TObject);
+procedure TRestDWForm.cbAuthorizationTokenChange(Sender: TObject);
 begin
- pTokenAuth.Visible := cbAuthOptions.ItemIndex > 1;
- pBasicAuth.Visible := cbAuthOptions.ItemIndex = 1;
+ If cbAuthorizationToken.Checked Then
+  RESTDWIdServicePooler.Authenticator := RESTDWAuthToken1
+ Else
+  RESTDWIdServicePooler.Authenticator := Nil;
 end;
 
 procedure TRestDWForm.FormShow(Sender: TObject);
@@ -448,15 +452,6 @@ Begin
 End;
 
 procedure TRestDWForm.StartServer;
-Function GetAuthOption : TRESTDWAuthOption;
-Begin
- Case cbAuthOptions.ItemIndex Of
-  0 : Result := rdwAONone;
-  1 : Result := rdwAOBasic;
-  2 : Result := rdwAOBearer;
-  3 : Result := rdwAOToken;
- End;
-End;
 Function GetTokenType : TRESTDWTokenType;
 Begin
  Case cbTokenType.ItemIndex Of

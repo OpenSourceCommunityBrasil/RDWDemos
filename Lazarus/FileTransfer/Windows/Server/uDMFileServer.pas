@@ -70,10 +70,10 @@ Begin
    vArquivo              := fServer.DirName + Trim(Params.ItemsString['Arquivo'].AsString);
    If (vArquivo     <> '') Then
     Begin
+     vFile := TMemoryStream.Create;
      Try
       If FileExists(vArquivo) Then
        Begin
-        vFile := TMemoryStream.Create;
         Try
          vFile.LoadFromFile(vArquivo);
          vFile.Position  := 0;

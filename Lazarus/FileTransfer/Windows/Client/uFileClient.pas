@@ -5,9 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  uRESTDWParams, uRESTDWJSONObject, uRESTDWConsts, ComCtrls,
+  uRESTDWJSONObject, uRESTDWConsts, ComCtrls,
   uRESTDWDataUtils, uRESTDWServerEvents, uRESTDWAbout, uRESTDWBasic, uRESTDWIdBase,
-  uRESTDWComponentEvents;
+  uRESTDWComponentEvents, uRESTDWParams;
 
 type
 
@@ -42,7 +42,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Image1Click(Sender: TObject);
-    procedure RESTClientPooler1BeforeExecute(ASender: TObject);
     procedure RESTClientPooler1Work(ASender: TObject; AWorkCount: Int64);
     procedure RESTClientPooler1WorkEnd(ASender: TObject);
     procedure RESTClientPooler1WorkBegin(ASender: TObject; AWorkCount: Int64);
@@ -177,11 +176,6 @@ Begin
 end;
 
 procedure TForm4.Image1Click(Sender: TObject);
-begin
-
-end;
-
-procedure TForm4.RESTClientPooler1BeforeExecute(ASender: TObject);
 begin
 
 end;

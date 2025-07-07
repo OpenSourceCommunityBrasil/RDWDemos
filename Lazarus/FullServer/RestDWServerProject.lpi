@@ -77,7 +77,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="."/>
+      <OtherUnitFiles Value=".;C:\lazarus\components\Indy10\Core\;C:\lazarus\components\Indy10\Protocols\;C:\lazarus\components\Indy10\System\;..\..\..\Source\Basic;..\..\..\Source\Basic\Crypto;..\..\..\Source\utils;..\..\..\Source\utils\JSON;..\..\..\Source\Basic\Dialogs;..\..\..\Source\Basic\Mechanics;..\..\..\Source\Consts;..\..\..\Source\Includes;..\..\..\Source\Sockets\Indy;..\..\..\Source\Database_Drivers;..\..\..\Source\Database_Drivers\ZeosPhysLink;..\..\..\Source\Plugins;..\..\..\Source\Plugins\DMDados;..\..\..\Source\Plugins\Memdataset;..\..\..\Source\ShellTools"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

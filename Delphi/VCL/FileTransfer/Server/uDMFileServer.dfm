@@ -30,7 +30,6 @@ object dmFileServer: TdmFileServer
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'FileList'
         EventName = 'FileList'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -83,7 +82,6 @@ object dmFileServer: TdmFileServer
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'SendReplicationFile'
         EventName = 'SendReplicationFile'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -122,7 +120,6 @@ object dmFileServer: TdmFileServer
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'DownloadFile'
         EventName = 'DownloadFile'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -130,7 +127,7 @@ object dmFileServer: TdmFileServer
         OnlyPreDefinedParams = False
         OnReplyEvent = dwSEArquivosEventsDownloadFileReplyEvent
       end>
-    Left = 80
-    Top = 103
+    Left = 160
+    Top = 47
   end
 end

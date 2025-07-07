@@ -81,6 +81,18 @@ Uses
     DBGrid1: TDBGrid;
     RESTDWMassiveCache1: TRESTDWMassiveCache;
     RESTDWClientSQL1: TRESTDWClientSQL;
+    RESTDWClientSQL1EMP_NO: TSmallintField;
+    RESTDWClientSQL1FIRST_NAME: TStringField;
+    RESTDWClientSQL1LAST_NAME: TStringField;
+    RESTDWClientSQL1PHONE_EXT: TStringField;
+    RESTDWClientSQL1HIRE_DATE: TSQLTimeStampField;
+    RESTDWClientSQL1DEPT_NO: TStringField;
+    RESTDWClientSQL1JOB_CODE: TStringField;
+    RESTDWClientSQL1JOB_GRADE: TSmallintField;
+    RESTDWClientSQL1JOB_COUNTRY: TStringField;
+    RESTDWClientSQL1SALARY: TFloatField;
+    RESTDWClientSQL1FULL_NAME: TStringField;
+    RESTDWClientSQL1TIMEC: TTimeField;
    Procedure btnOpenClick            (Sender            : TObject);
    Procedure btnExecuteClick         (Sender            : TObject);
    Procedure FormCreate              (Sender            : TObject);
@@ -116,6 +128,8 @@ Uses
       const AStatus: TConnStatus; const AStatusText: string);
     procedure RESTDWIdDatabase1Work(ASender: TObject; AWorkCount: Int64);
     procedure DBGrid1TitleClick(Column: TColumn);
+    procedure RESTDWClientSQL1CalcFields(DataSet: TDataSet);
+    procedure RESTDWClientSQL1AfterInsert(DataSet: TDataSet);
  Private
   { Private declarations }
   vSecresString    : String;
@@ -590,6 +604,22 @@ procedure TfPrincipal.RESTDWIdClientPooler1BeforeGetToken(Welcomemsg, AccessTag:
 begin
  Params.Createparam('username', EdUserNameAuth.Text);
  Params.Createparam('password', EdPasswordAuth.Text);
+end;
+
+procedure TfPrincipal.RESTDWClientSQL1AfterInsert(DataSet: TDataSet);
+begin
+ If RESTDWClientSQL1.FindField('HIRE_DATE') <> Nil Then
+  RESTDWClientSQL1.FindField('HIRE_DATE').AsDateTime := Now;
+end;
+
+procedure TfPrincipal.RESTDWClientSQL1CalcFields(DataSet: TDataSet);
+begin
+ If Assigned(DataSet.FindField('A')) Then
+  DataSet.FindField('A').AsFloat := DataSet.FindField('ID_PAC').AsInteger;
+ If Assigned(DataSet.FindField('B')) Then
+  DataSet.FindField('B').AsFloat := DataSet.FindField('ID_PAC').AsInteger * 10;
+ If Assigned(DataSet.FindField('C')) Then
+  DataSet.FindField('C').AsFloat := DataSet.FindField('ID_PAC').AsInteger * 100;
 end;
 
 procedure TfPrincipal.RESTDWClientSQL1WriterProcess(DataSet: TDataSet; RecNo,

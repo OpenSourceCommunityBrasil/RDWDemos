@@ -16,7 +16,7 @@ uses
   FMX.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, uRESTDWBasicTypes,
   uRESTDWServerEvents, uRESTDWParams, uRESTDWBasic, FMX.Memo.Types,
-  uRESTDWComponentBase;
+  uRESTDWMemoryDataset;
 
 type
   TForm1 = class(TForm)

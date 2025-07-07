@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="13"/>
-        <UsageCount Value="26"/>
+        <UsageCount Value="31"/>
       </Unit>
       <Unit>
         <Filename Value="RestDWServerFormU.pas"/>
@@ -18,8 +18,8 @@
         <ComponentName Value="RestDWForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <CursorPos X="50" Y="7"/>
-        <UsageCount Value="26"/>
+        <CursorPos Y="7"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -29,11 +29,8 @@
         <ComponentName Value="ServerMethodDM"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="4"/>
-        <CursorPos X="86" Y="13"/>
-        <UsageCount Value="26"/>
+        <EditorIndex Value="8"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -44,7 +41,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="26"/>
+        <UsageCount Value="31"/>
       </Unit>
       <Unit>
         <Filename Value="unit1.pas"/>
@@ -58,16 +55,17 @@
       <Unit>
         <Filename Value="..\..\..\Source\Sockets\Indy\uRESTDWIdBase.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="25"/>
-        <CursorPos X="80" Y="46"/>
+        <TopLine Value="26"/>
+        <CursorPos X="27" Y="32"/>
         <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="21"/>
-        <CursorPos X="21" Y="36"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="3427"/>
+        <CursorPos X="23" Y="3430"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\Source\Includes\uRESTDW.inc"/>
@@ -79,15 +77,13 @@
       <Unit>
         <Filename Value="..\..\..\Source\Database_Drivers\uRESTDWZeosDriver.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="215"/>
-        <CursorPos X="111" Y="219"/>
+        <TopLine Value="31"/>
         <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\Source\Database_Drivers\uRESTDWDriverBase.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="183"/>
-        <CursorPos X="3" Y="200"/>
+        <TopLine Value="22"/>
         <UsageCount Value="10"/>
       </Unit>
       <Unit>
@@ -154,136 +150,236 @@
       </Unit>
       <Unit>
         <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="312"/>
         <CursorPos X="34" Y="320"/>
         <UsageCount Value="10"/>
         <Bookmarks Count="1">
           <Item0 X="76" Y="215" ID="1"/>
         </Bookmarks>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Plugins\SQLEditor\uRESTDWSqlEditor.pas"/>
+        <ComponentName Value="FrmDWSqlEditor"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="32" Y="11"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4654"/>
+        <CursorPos X="38" Y="4669"/>
+        <UsageCount Value="10"/>
+        <Bookmarks Count="1">
+          <Item0 X="8" Y="4678" ID="1"/>
+        </Bookmarks>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\Indy10\Core\IdAboutVCL.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="17" Y="3"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWDataUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="24"/>
+        <CursorPos X="15" Y="36"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Basic\uRESTDWBasicTypes.pas"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="314"/>
+        <CursorPos Y="334"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Packages\Lazarus\Drivers\RESTDWLazarusDrivers.lrs"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="17"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Plugins\DMDados\uRESTDWDatamodule.pas"/>
+        <ComponentName Value="ServerMethodDataModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="253"/>
+        <CursorPos X="72" Y="263"/>
+        <UsageCount Value="12"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Basic\uRESTDWStorageBin.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="43"/>
+        <CursorPos X="13" Y="53"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Basic\uRESTDWParams.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="5736"/>
+        <CursorPos Y="5749"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Basic\uRESTDWBasic.pas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="6183"/>
+        <CursorPos Y="6194"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWMessageCoderMIME.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="337"/>
+        <CursorPos Y="354"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWMessageCoder.pas"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="314"/>
+        <CursorPos Y="325"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="465"/>
+        <CursorPos X="35" Y="487"/>
+        <UsageCount Value="10"/>
+        <Bookmarks Count="1">
+          <Item0 X="14" Y="176" Left="1" Top="164" ID="1"/>
+        </Bookmarks>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="28">
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="182" Column="3" TopLine="153"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="176" TopLine="164"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="24" Column="15" TopLine="7"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3434" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="182" Column="3" TopLine="153"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3435" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="24" TopLine="7"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3436" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="157" Column="35" TopLine="146"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3439" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="156" Column="35" TopLine="145"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3444" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="157" Column="35" TopLine="146"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="176" TopLine="164"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="156" Column="35" TopLine="145"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3434" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="157" Column="3" TopLine="146"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3435" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="25" Column="15" TopLine="4"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3436" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="119" TopLine="118"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3439" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="23" TopLine="4"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3444" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="uDmService.pas"/>
-        <Caret Line="13" Column="86" TopLine="4"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="176" TopLine="164"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="157" TopLine="138"/>
+        <Filename Value="..\..\..\Source\Basic\uRESTDWBasic.pas"/>
+        <Caret Line="6194" TopLine="6183"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="119" Column="2" TopLine="102"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="176" TopLine="164"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="97" Column="3" TopLine="86"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3434" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="923" Column="2" TopLine="920"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3435" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="98" Column="15" TopLine="80"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3436" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="938" Column="2" TopLine="936"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3439" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="179" Column="15" TopLine="145"/>
+        <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
+        <Caret Line="3430" Column="23" TopLine="3427"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="124" Column="60" TopLine="102"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="176" Column="21" TopLine="164"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="213" Column="15" TopLine="203"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="345" Column="2" TopLine="342"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="176" Column="27" TopLine="156"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="214" Column="15" TopLine="197"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWMessageCoder.pas"/>
+        <Caret Line="325" TopLine="314"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="427" Column="8" TopLine="420"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="176" Column="27" TopLine="156"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="213" Column="15" TopLine="198"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="485" Column="35" TopLine="467"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="345" Column="17" TopLine="342"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="214" Column="13" TopLine="201"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="42" Column="23" TopLine="22"/>
       </Position>
       <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="412" Column="8" TopLine="408"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWServerContext.pas"/>
-        <Caret Line="222" Column="13" TopLine="198"/>
+        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Caret Line="99" Column="53" TopLine="81"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -291,4 +387,64 @@
       <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="uDmService.pas"/>
+        <Line Value="41"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Basic\uRESTDWStorageBin.pas"/>
+        <Line Value="1352"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Basic\uRESTDWBasic.pas"/>
+        <Line Value="5218"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Basic\uRESTDWBasic.pas"/>
+        <Line Value="6237"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Basic\uRESTDWBasic.pas"/>
+        <Line Value="6194"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Basic\Mechanics\uRESTDWMessageCoderMIME.pas"/>
+        <Line Value="392"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Line Value="176"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Basic\Mechanics\uRESTDWBuffer.pas"/>
+        <Line Value="487"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
 </CONFIG>

@@ -2,6 +2,8 @@ UNIT uDMPrincipal;
 
 INTERFACE
 
+{$DEFINE APPWIN}
+
 USES
   SysUtils, Classes, System.JSON, Dialogs,
 
@@ -20,7 +22,7 @@ USES
   uRESTDWServerContext, uRESTDWBasicDB, uRESTDWParams, uRESTDWBasicTypes,
   uRESTDWTools, uRESTDWBasic, uRESTDWMimeTypes,
   uPrincipal, uRESTDWDriverBase, uRESTDWFireDACDriver, ZAbstractConnection,
-  ZConnection, uRESTDWZeosDriver;
+  ZConnection, uRESTDWZeosDriver, FireDAC.Phys.MSSQLDef, FireDAC.Phys.MSSQL;
 
 Const
   WelcomeSample = True;
@@ -45,6 +47,7 @@ TYPE
     RESTDWPoolerZEOS: TRESTDWPoolerDB;
     RESTDWZeosDriver1: TRESTDWZeosDriver;
     ZConnection1: TZConnection;
+    FDPhysMSSQLDriverLink1: TFDPhysMSSQLDriverLink;
     PROCEDURE Server_FDConnectionBeforeConnect(Sender: TObject);
     PROCEDURE Server_FDConnectionError(ASender, AInitiator: TObject;
       VAR AException: Exception);
@@ -519,7 +522,7 @@ Var
     v404Error := TStringList.Create;
     Try
 {$IFDEF APPWIN}
-      v404Error.LoadFromFile(fPrincipal.RESTServicePooler1.RootPath +
+      v404Error.LoadFromFile(fPrincipal.RESTDWIdServicePooler1.RootPath +
         Const404Page);
 {$ELSE}
       v404Error.LoadFromFile('.\www\' + Const404Page);
@@ -627,70 +630,54 @@ begin
 end;
 
 PROCEDURE TDMPrincipal.Server_FDConnectionBeforeConnect(Sender: TObject);
-VAR
-  Driver_BD: STRING;
-  Porta_BD: STRING;
-  Servidor_BD: STRING;
-  DataBase: STRING;
-  Pasta_BD: STRING;
-  Usuario_BD: STRING;
-  Senha_BD: STRING;
-  DataSource_BD: STRING;
-  Monitor_BD: STRING;
-  OsAuthent_BD: Boolean;
-BEGIN
-  If Not vConnectFromClient Then
-  Begin
-    DataBase := fPrincipal.EdBD.Text;
-    Driver_BD := fPrincipal.CbDriver.Text;
-    Monitor_BD := fPrincipal.EdMonitor.Text;
-    OsAuthent_BD := fPrincipal.cbOsAuthent.Checked;
-    DataSource_BD := fPrincipal.EdDataSource.Text;
-
-    If fPrincipal.CkUsaURL.Checked Then
-      Servidor_BD := fPrincipal.EdURL.Text
-    Else
-      Servidor_BD := fPrincipal.DatabaseIP;
-    Case fPrincipal.CbDriver.ItemIndex Of
-      0:
-        Begin // FB
-          Pasta_BD := IncludeTrailingPathDelimiter(fPrincipal.EdPasta.Text);
-          DataBase := fPrincipal.EdBD.Text;
-          DataBase := Pasta_BD + DataBase;
-        End;
-      1:
-        Begin // MSSQL
-          DataBase := fPrincipal.EdBD.Text;
-          TFDConnection(Sender)
-            .Params.Add('OsAuthent=' + OsAuthent_BD.ToString());
-          TFDConnection(Sender).Params.Add('MonitorBy=' + Monitor_BD);
-        End;
-      2:
-        Driver_BD := 'MySQL'; // Desenvolver
-      3:
-        Driver_BD := 'PG'; // Desenvolver
-      4:
-        begin
-          Driver_BD := 'ODBC';
-          TFDConnection(Sender).Params.Add('DataSource=' + DataSource_BD);
-        end;
-    End;
-    Porta_BD := fPrincipal.EdPortaBD.Text;
-    Usuario_BD := fPrincipal.EdUserNameBD.Text;
-    Senha_BD := fPrincipal.EdPasswordBD.Text;
-    TFDConnection(Sender).Params.Clear;
-    TFDConnection(Sender).Params.Add('DriverID=' + Driver_BD);
-    TFDConnection(Sender).Params.Add('Server=' + Servidor_BD);
-    TFDConnection(Sender).Params.Add('Port=' + Porta_BD);
-    TFDConnection(Sender).Params.Add('Database=' + DataBase);
-    TFDConnection(Sender).Params.Add('User_Name=' + Usuario_BD);
-    TFDConnection(Sender).Params.Add('Password=' + Senha_BD);
-    TFDConnection(Sender).Params.Add('Protocol=TCPIP');
-    TFDConnection(Sender).Params.Add('Charset=ISO8859_1');
-    TFDConnection(Sender).DriverName := Driver_BD;
-    TFDConnection(Sender).LoginPrompt := False;
-    TFDConnection(Sender).UpdateOptions.CountUpdatedRecords := False;
-  End;
+Var
+ Driver_BD,
+ Porta_BD,
+ Servidor_BD,
+ DataBase,
+ Pasta_BD,
+ Usuario_BD,
+ Senha_BD   : String;
+Begin
+ {$IFDEF APPWIN}
+ database     := fPrincipal.EdBD.Text;
+ Driver_BD    := fPrincipal.CbDriver.Text;
+ If fPrincipal.CkUsaURL.Checked Then
+  Servidor_BD := fPrincipal.EdURL.Text
+ Else
+  Servidor_BD := fPrincipal.DatabaseIP;
+ Case fPrincipal.CbDriver.ItemIndex Of
+  0 : Begin
+       Pasta_BD := IncludeTrailingPathDelimiter(fPrincipal.EdPasta.Text);
+       Database := fPrincipal.edBD.Text;
+       Database := Pasta_BD + Database;
+      End;
+  1 : Database := fPrincipal.EdBD.Text;
+  3 : Driver_BD := 'PG';
+ End;
+ Porta_BD   := fPrincipal.EdPortaBD.Text;
+ Usuario_BD := fPrincipal.EdUserNameBD.Text;
+ Senha_BD   := fPrincipal.EdPasswordBD.Text;
+ {$ELSE}
+ Servidor_BD := servidor;
+ Porta_BD    := IntToStr(portaBD);
+ Database    := pasta + databaseC;
+ Usuario_BD  := usuarioBD;
+ Senha_BD    := senhaBD;
+ Driver_BD   := DriverBD;
+ {$ENDIF}
+ TFDConnection(Sender).Params.Clear;
+ TFDConnection(Sender).Params.Add('DriverID='  + Driver_BD);
+ TFDConnection(Sender).Params.Add('Server='    + Servidor_BD);
+ TFDConnection(Sender).Params.Add('Port='      + Porta_BD);
+ TFDConnection(Sender).Params.Add('Database='  + Database);
+ TFDConnection(Sender).Params.Add('User_Name=' + Usuario_BD);
+ TFDConnection(Sender).Params.Add('Password='  + Senha_BD);
+ TFDConnection(Sender).Params.Add('LoginTimeout=0');
+ TFDConnection(Sender).Params.Add('Protocol=TCPIP');
+ TFDConnection(Sender).DriverName                        := Driver_BD;
+ TFDConnection(Sender).LoginPrompt                       := FALSE;
+ TFDConnection(Sender).UpdateOptions.CountUpdatedRecords := False;
 End;
 
 PROCEDURE TDMPrincipal.Server_FDConnectionError(ASender, AInitiator: TObject;

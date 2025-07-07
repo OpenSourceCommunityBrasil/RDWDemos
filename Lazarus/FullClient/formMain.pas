@@ -21,7 +21,6 @@ type
     btnMassive: TButton;
     btnOpen: TButton;
     btnServerTime: TButton;
-    BufDataset1: TBufDataset;
     Button1: TButton;
     Button2: TButton;
     cbAuthOptions: TComboBox;
@@ -79,16 +78,28 @@ type
     pTokenAuth: TPanel;
     RESTDWClientEvents1: TRESTDWClientEvents;
     RESTDWClientSQL1: TRESTDWClientSQL;
+    RESTDWClientSQL1DEPT_NO: TStringField;
     RESTDWClientSQL1DEPT_NO1: TStringField;
+    RESTDWClientSQL1EMP_NO: TSmallintField;
     RESTDWClientSQL1EMP_NO1: TSmallintField;
+    RESTDWClientSQL1FIRST_NAME: TStringField;
     RESTDWClientSQL1FIRST_NAME1: TStringField;
+    RESTDWClientSQL1FULL_NAME: TStringField;
     RESTDWClientSQL1FULL_NAME1: TStringField;
+    RESTDWClientSQL1HIRE_DATE: TDateTimeField;
+    RESTDWClientSQL1JOB_CODE: TStringField;
     RESTDWClientSQL1JOB_CODE1: TStringField;
+    RESTDWClientSQL1JOB_COUNTRY: TStringField;
     RESTDWClientSQL1JOB_COUNTRY1: TStringField;
+    RESTDWClientSQL1JOB_GRADE: TSmallintField;
     RESTDWClientSQL1JOB_GRADE1: TSmallintField;
+    RESTDWClientSQL1LAST_NAME: TStringField;
     RESTDWClientSQL1LAST_NAME1: TStringField;
+    RESTDWClientSQL1PHONE_EXT: TStringField;
     RESTDWClientSQL1PHONE_EXT1: TStringField;
+    RESTDWClientSQL1SALARY: TFloatField;
     RESTDWClientSQL1SALARY1: TFloatField;
+    RESTDWClientSQL1TIMEC: TTimeField;
     RESTDWIdClientPooler1: TRESTDWIdClientPooler;
     RESTDWIdDatabase1: TRESTDWIdDatabase;
     StatusBar1: TStatusBar;
@@ -101,6 +112,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure cbAuthOptionsChange(Sender: TObject);
     procedure cbUseCriptoClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure RESTDWIdDatabase1BeforeConnect(Sender: TComponent);
@@ -381,6 +393,18 @@ begin
  RESTDWIdClientPooler1.CriptOptions.Use := RESTDWIdDatabase1.CriptOptions.Use;
 end;
 
+procedure TForm2.DBGrid1TitleClick(Column: TColumn);
+begin
+ If RESTDWClientSQL1.Active then
+  Begin
+   If RESTDWClientSQL1.IndexDefs.IndexOf(Column.FieldName) > -1 Then
+    RESTDWClientSQL1.IndexDefs.Clear;
+   RESTDWClientSQL1.IndexDefs.Add(Column.FieldName,
+                                  Column.FieldName,
+                                 [ixCaseInsensitive]);
+   RESTDWClientSQL1.IndexName  := Column.FieldName;
+  End;
+end;
 Procedure TForm2.SetLoginOptions;
 Begin
   Case cbAuthOptions.ItemIndex Of

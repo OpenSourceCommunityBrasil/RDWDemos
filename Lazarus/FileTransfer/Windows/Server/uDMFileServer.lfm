@@ -4,10 +4,11 @@ object dmFileServer: TdmFileServer
   QueuedRequest = False
   Left = 80
   Top = 103
-  Height = 239
-  HorizontalOffset = 940
-  VerticalOffset = 306
-  Width = 351
+  Height = 359
+  HorizontalOffset = 1343
+  VerticalOffset = 459
+  Width = 527
+  PPI = 144
   object dwSEArquivos: TRESTDWServerEvents
     IgnoreInvalidParams = False
     Events = <    
@@ -132,7 +133,7 @@ object dmFileServer: TdmFileServer
         OnlyPreDefinedParams = False
         OnReplyEvent = dwSEArquivosEventsDownloadFileReplyEvent
       end>
-    Left = 136
-    Top = 56
+    Left = 204
+    Top = 84
   end
 end

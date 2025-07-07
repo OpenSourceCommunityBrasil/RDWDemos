@@ -1,29 +1,29 @@
 object Form4: TForm4
   Left = 522
-  Height = 345
+  Height = 518
   Top = 172
-  Width = 505
+  Width = 758
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'FileClient'
-  ClientHeight = 345
-  ClientWidth = 505
+  ClientHeight = 518
+  ClientWidth = 758
   Color = clBtnFace
+  DesignTimePPI = 144
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -17
   Font.Name = 'Tahoma'
-  OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '3.8.0.0'
+  OnCreate = FormCreate
   object Label4: TLabel
-    Left = 13
-    Height = 13
-    Top = 38
-    Width = 26
+    Left = 20
+    Height = 21
+    Top = 57
+    Width = 40
     Caption = 'Host'
     Color = clBtnFace
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentColor = False
@@ -31,14 +31,14 @@ object Form4: TForm4
     Transparent = False
   end
   object Label5: TLabel
-    Left = 155
-    Height = 13
-    Top = 40
-    Width = 31
+    Left = 232
+    Height = 21
+    Top = 60
+    Width = 46
     Caption = 'Porta'
     Color = clBtnFace
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentColor = False
@@ -46,11 +46,10 @@ object Form4: TForm4
     Transparent = False
   end
   object Image1: TImage
-    Left = 366
-    Height = 100
-    Top = 35
-    Width = 133
-    OnClick = Image1Click
+    Left = 549
+    Height = 150
+    Top = 52
+    Width = 200
     Picture.Data = {
       1754506F727461626C654E6574776F726B4772617068696394FF030089504E47
       0D0A1A0A0000000D494844520000025800000250080600000052351AB1000000
@@ -8245,84 +8244,85 @@ object Form4: TForm4
     }
     Stretch = True
     Transparent = True
+    OnClick = Image1Click
   end
   object Bevel1: TBevel
-    Left = 8
-    Height = 2
-    Top = 32
-    Width = 491
+    Left = 12
+    Height = 3
+    Top = 48
+    Width = 736
     Shape = bsTopLine
   end
   object Label7: TLabel
-    Left = 8
-    Height = 13
-    Top = 13
-    Width = 196
+    Left = 12
+    Height = 21
+    Top = 20
+    Width = 309
     Caption = 'CONFIGURAÇÃO SERVIDOR RestDW'
     Font.Color = clNavy
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
   end
   object Label6: TLabel
-    Left = 123
-    Height = 13
-    Top = 79
-    Width = 35
+    Left = 184
+    Height = 20
+    Top = 118
+    Width = 52
     AutoSize = False
     Caption = 'Senha'
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
   end
   object Label8: TLabel
-    Left = 13
-    Height = 13
-    Top = 79
-    Width = 43
+    Left = 20
+    Height = 20
+    Top = 118
+    Width = 64
     AutoSize = False
     Caption = 'Usuário'
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
   end
   object Label1: TLabel
-    Left = 8
-    Height = 13
-    Top = 122
-    Width = 56
+    Left = 12
+    Height = 21
+    Top = 183
+    Width = 90
     Caption = 'COMANDO'
     Font.Color = clNavy
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
   end
   object Bevel2: TBevel
-    Left = 8
-    Height = 2
-    Top = 138
-    Width = 491
+    Left = 12
+    Height = 3
+    Top = 207
+    Width = 736
     Shape = bsTopLine
   end
   object Label2: TLabel
-    Left = 225
-    Height = 13
-    Top = 40
-    Width = 48
+    Left = 338
+    Height = 21
+    Top = 60
+    Width = 72
     Caption = 'TimeOut'
     Color = clBtnFace
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentColor = False
@@ -8330,47 +8330,47 @@ object Form4: TForm4
     Transparent = False
   end
   object eHost: TEdit
-    Left = 13
-    Height = 21
-    Top = 55
-    Width = 136
+    Left = 20
+    Height = 29
+    Top = 82
+    Width = 204
     TabOrder = 0
     Text = 'localhost'
   end
   object ePort: TEdit
-    Left = 155
-    Height = 21
-    Top = 55
-    Width = 40
+    Left = 232
+    Height = 29
+    Top = 82
+    Width = 60
     TabOrder = 1
     Text = '8082'
   end
   object edPasswordDW: TEdit
-    Left = 123
-    Height = 21
-    Top = 97
-    Width = 100
+    Left = 184
+    Height = 29
+    Top = 146
+    Width = 150
     EchoMode = emPassword
     PasswordChar = '*'
     TabOrder = 2
     Text = 'testserver'
   end
   object edUserNameDW: TEdit
-    Left = 13
-    Height = 21
-    Top = 97
-    Width = 100
+    Left = 20
+    Height = 29
+    Top = 146
+    Width = 150
     TabOrder = 3
     Text = 'testserver'
   end
   object Button1: TButton
-    Left = 376
-    Height = 37
-    Top = 173
-    Width = 119
+    Left = 564
+    Height = 56
+    Top = 260
+    Width = 178
     Caption = 'File List'
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
@@ -8378,21 +8378,21 @@ object Form4: TForm4
     OnClick = Button1Click
   end
   object lbLocalFiles: TListBox
-    Left = 8
-    Height = 200
-    Top = 141
-    Width = 358
+    Left = 12
+    Height = 300
+    Top = 212
+    Width = 537
     ItemHeight = 0
     TabOrder = 5
   end
   object Button2: TButton
-    Left = 376
-    Height = 37
-    Top = 216
-    Width = 119
+    Left = 564
+    Height = 56
+    Top = 324
+    Width = 178
     Caption = 'Download File'
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
@@ -8400,13 +8400,13 @@ object Form4: TForm4
     OnClick = Button2Click
   end
   object Button3: TButton
-    Left = 376
-    Height = 37
-    Top = 260
-    Width = 119
+    Left = 564
+    Height = 56
+    Top = 390
+    Width = 178
     Caption = 'Upload File'
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
@@ -8414,11 +8414,11 @@ object Form4: TForm4
     OnClick = Button3Click
   end
   object cmb_tmp: TComboBox
-    Left = 224
-    Height = 21
-    Top = 55
-    Width = 113
-    ItemHeight = 13
+    Left = 336
+    Height = 29
+    Top = 82
+    Width = 170
+    ItemHeight = 21
     ItemIndex = 0
     Items.Strings = (
       '1 minuto'
@@ -8430,16 +8430,16 @@ object Form4: TForm4
     Text = '1 minuto'
   end
   object ProgressBar1: TProgressBar
-    Left = 376
-    Height = 17
-    Top = 303
-    Width = 119
+    Left = 564
+    Height = 26
+    Top = 454
+    Width = 178
     TabOrder = 9
   end
   object OpenDialog1: TOpenDialog
     Title = 'Arquivo a enviar'
-    Left = 184
-    Top = 200
+    Left = 276
+    Top = 300
   end
   object RESTDWClientEvents1: TRESTDWClientEvents
     ServerEventName = 'TdmFileServer.dwSEArquivos'
@@ -8565,8 +8565,8 @@ object Form4: TForm4
         CallbackEvent = False
         OnlyPreDefinedParams = False
       end>
-    Left = 257
-    Top = 95
+    Left = 386
+    Top = 143
   end
   object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
@@ -8605,7 +8605,7 @@ object Form4: TForm4
     SSLVersions = []
     DatabaseCharSet = csUndefined
     SSLMode = sslmUnassigned
-    Left = 257
-    Top = 149
+    Left = 386
+    Top = 224
   end
 end

@@ -1,32 +1,32 @@
 object Form2: TForm2
-  Left = 430
-  Height = 639
-  Top = 158
-  Width = 872
+  Left = 330
+  Height = 958
+  Top = 101
+  Width = 1308
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'RESTClientPooler Test'
-  ClientHeight = 639
-  ClientWidth = 872
+  ClientHeight = 958
+  ClientWidth = 1308
   Color = clBtnFace
+  DesignTimePPI = 144
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -17
   Font.Name = 'Tahoma'
+  Position = poDesktopCenter
   OnClose = FormClose
   OnCreate = FormCreate
-  Position = poDesktopCenter
-  LCLVersion = '3.8.0.0'
   object labResult: TLabel
     Left = 0
-    Height = 23
-    Top = 385
-    Width = 872
+    Height = 34
+    Top = 576
+    Width = 1308
     Align = alBottom
     AutoSize = False
     Caption = ' .: QUERY RESULT'
     Color = clGrayText
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Layout = tlCenter
     ParentColor = False
@@ -34,15 +34,15 @@ object Form2: TForm2
     Transparent = False
   end
   object labSql: TLabel
-    Left = 4
-    Height = 23
-    Top = 205
-    Width = 367
+    Left = 6
+    Height = 34
+    Top = 308
+    Width = 550
     AutoSize = False
     Caption = ' .: SQL QUERY'
     Color = clGrayText
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Layout = tlCenter
     ParentColor = False
@@ -50,15 +50,15 @@ object Form2: TForm2
     Transparent = False
   end
   object labRepsonse: TLabel
-    Left = 384
-    Height = 23
-    Top = 205
-    Width = 485
+    Left = 576
+    Height = 34
+    Top = 308
+    Width = 728
     AutoSize = False
     Caption = ' .: SERVER RESPONSE'
     Color = clGrayText
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Layout = tlCenter
     ParentColor = False
@@ -67,15 +67,15 @@ object Form2: TForm2
   end
   object labConexao: TLabel
     Left = 0
-    Height = 23
-    Top = 58
-    Width = 872
+    Height = 34
+    Top = 87
+    Width = 1308
     Align = alTop
     AutoSize = False
     Caption = ' .: SERVER CONFIGURATION'
     Color = clGrayText
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Layout = tlCenter
     ParentColor = False
@@ -83,15 +83,15 @@ object Form2: TForm2
     Transparent = False
   end
   object labVersao: TLabel
-    Left = 470
-    Height = 23
-    Top = 58
-    Width = 319
+    Left = 705
+    Height = 34
+    Top = 87
+    Width = 478
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Versão'
     Font.Color = clWhite
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Consolas'
     Font.Style = [fsBold]
     Layout = tlCenter
@@ -100,50 +100,51 @@ object Form2: TForm2
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 208
-    Top = 408
-    Width = 872
+    Height = 312
+    Top = 610
+    Width = 1308
     Align = alBottom
     BorderStyle = bsNone
     Color = clInfoBk
     Columns = <>
     DataSource = DataSource1
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
     ParentFont = False
     TabOrder = 0
     TitleFont.Color = clWindowText
-    TitleFont.Height = -13
+    TitleFont.Height = -20
     TitleFont.Name = 'Calibri'
     TitleFont.Style = [fsBold]
+    OnTitleClick = DBGrid1TitleClick
   end
   object mComando: TMemo
-    Left = 4
-    Height = 72
-    Top = 231
-    Width = 246
+    Left = 6
+    Height = 108
+    Top = 346
+    Width = 369
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     HideSelection = False
     Lines.Strings = (
       'select *'
-      'FROM EMPLOYEE'
+      'FROM employee'
     )
     ParentFont = False
     TabOrder = 1
   end
   object btnOpen: TButton
-    Left = 4
-    Height = 26
-    Top = 305
-    Width = 120
+    Left = 6
+    Height = 39
+    Top = 458
+    Width = 180
     Caption = 'Open Fixo'
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -151,13 +152,13 @@ object Form2: TForm2
     OnClick = btnOpenClick
   end
   object btnExecute: TButton
-    Left = 4
-    Height = 26
-    Top = 333
-    Width = 120
+    Left = 6
+    Height = 39
+    Top = 500
+    Width = 180
     Caption = 'Execute'
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -165,20 +166,20 @@ object Form2: TForm2
     OnClick = btnExecuteClick
   end
   object ProgressBar1: TProgressBar
-    Left = 4
-    Height = 17
-    Top = 362
-    Width = 367
+    Left = 6
+    Height = 26
+    Top = 543
+    Width = 550
     TabOrder = 4
   end
   object btnGet: TButton
-    Left = 127
-    Height = 26
-    Top = 305
-    Width = 120
+    Left = 190
+    Height = 39
+    Top = 458
+    Width = 180
     Caption = 'Get Employee'
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -187,38 +188,38 @@ object Form2: TForm2
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 616
-    Width = 872
+    Height = 36
+    Top = 922
+    Width = 1308
     Color = clGray
     Panels = <    
       item
         Text = 'Status'
-        Width = 50
+        Width = 75
       end>
     ParentColor = False
   end
   object Memo1: TMemo
-    Left = 384
-    Height = 148
-    Top = 231
-    Width = 486
+    Left = 576
+    Height = 222
+    Top = 346
+    Width = 729
     Anchors = [akTop, akLeft, akRight]
     Color = clInfoBk
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Consolas'
     ParentFont = False
     TabOrder = 7
   end
   object btnApply: TButton
-    Left = 127
-    Height = 26
-    Top = 333
-    Width = 120
+    Left = 190
+    Height = 39
+    Top = 500
+    Width = 180
     Caption = 'ApplyUpdates'
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -226,13 +227,13 @@ object Form2: TForm2
     OnClick = btnApplyClick
   end
   object btnMassive: TButton
-    Left = 251
-    Height = 26
-    Top = 333
-    Width = 120
+    Left = 376
+    Height = 39
+    Top = 500
+    Width = 180
     Caption = 'Show Massive'
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -240,13 +241,13 @@ object Form2: TForm2
     OnClick = btnMassiveClick
   end
   object btnServerTime: TButton
-    Left = 251
-    Height = 26
-    Top = 305
-    Width = 120
+    Left = 376
+    Height = 39
+    Top = 458
+    Width = 180
     Caption = 'Server Time'
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -255,22 +256,22 @@ object Form2: TForm2
   end
   object paTopo: TPanel
     Left = 0
-    Height = 58
+    Height = 87
     Top = 0
-    Width = 872
+    Width = 1308
     Align = alTop
     BevelOuter = bvNone
-    ClientHeight = 58
-    ClientWidth = 872
+    ClientHeight = 87
+    ClientWidth = 1308
     Color = 2763306
     ParentBackground = False
     ParentColor = False
     TabOrder = 11
     object Image1: TImage
       Left = 0
-      Height = 58
+      Height = 87
       Top = 0
-      Width = 230
+      Width = 345
       Align = alLeft
       Center = True
       Picture.Data = {
@@ -550,14 +551,14 @@ object Form2: TForm2
       Transparent = True
     end
     object labSistema: TLabel
-      Left = 118
-      Height = 13
-      Top = 4
-      Width = 52
+      Left = 177
+      Height = 23
+      Top = 6
+      Width = 82
       Alignment = taCenter
       Caption = 'C L I E N T'
       Font.Color = 4227327
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       Layout = tlCenter
@@ -565,15 +566,15 @@ object Form2: TForm2
       ParentFont = False
     end
     object paPortugues: TPanel
-      Left = 666
-      Height = 37
-      Top = 10
-      Width = 59
+      Left = 1000
+      Height = 56
+      Top = 15
+      Width = 88
       Anchors = [akTop, akRight]
       BevelOuter = bvNone
       Caption = 'paPortugues'
-      ClientHeight = 37
-      ClientWidth = 59
+      ClientHeight = 56
+      ClientWidth = 88
       Color = clWhite
       ParentBackground = False
       ParentColor = False
@@ -581,9 +582,9 @@ object Form2: TForm2
       object Image3: TImage
         Cursor = crHandPoint
         Left = 0
-        Height = 37
+        Height = 56
         Top = 0
-        Width = 59
+        Width = 88
         Align = alClient
         AutoSize = True
         Center = True
@@ -948,23 +949,23 @@ object Form2: TForm2
       end
     end
     object paEspanhol: TPanel
-      Left = 734
-      Height = 37
-      Top = 10
-      Width = 59
+      Left = 1102
+      Height = 56
+      Top = 15
+      Width = 88
       Anchors = [akTop, akRight]
       BevelOuter = bvNone
       Caption = 'paPortugues'
-      ClientHeight = 37
-      ClientWidth = 59
+      ClientHeight = 56
+      ClientWidth = 88
       Color = 2763306
       ParentBackground = False
       ParentColor = False
       TabOrder = 1
       object Image4: TImage
         Cursor = crHandPoint
-        Left = 4
-        Height = 37
+        Left = 33
+        Height = 56
         Top = 0
         Width = 55
         Align = alRight
@@ -1290,23 +1291,23 @@ object Form2: TForm2
       end
     end
     object paIngles: TPanel
-      Left = 802
-      Height = 37
-      Top = 10
-      Width = 59
+      Left = 1204
+      Height = 56
+      Top = 15
+      Width = 88
       Anchors = [akTop, akRight]
       BevelOuter = bvNone
       Caption = 'paPortugues'
-      ClientHeight = 37
-      ClientWidth = 59
+      ClientHeight = 56
+      ClientWidth = 88
       Color = 2763306
       ParentBackground = False
       ParentColor = False
       TabOrder = 2
       object Image2: TImage
         Cursor = crHandPoint
-        Left = 4
-        Height = 37
+        Left = 33
+        Height = 56
         Top = 0
         Width = 55
         Align = alRight
@@ -1697,94 +1698,94 @@ object Form2: TForm2
     end
   end
   object labHost: TLabel
-    Left = 8
-    Height = 17
-    Top = 99
-    Width = 27
+    Left = 12
+    Height = 28
+    Top = 148
+    Width = 41
     Caption = 'Host'
     Color = clBtnFace
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     ParentColor = False
     ParentFont = False
     Transparent = False
   end
   object labPorta: TLabel
-    Left = 147
-    Height = 17
-    Top = 99
-    Width = 24
+    Left = 220
+    Height = 28
+    Top = 148
+    Width = 36
     Caption = 'Port'
     Color = clBtnFace
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     ParentColor = False
     ParentFont = False
     Transparent = False
   end
   object labAcesso: TLabel
-    Left = 8
-    Height = 17
-    Top = 148
-    Width = 66
+    Left = 12
+    Height = 28
+    Top = 222
+    Width = 98
     Caption = 'Access TAG'
     Color = clBtnFace
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     ParentColor = False
     ParentFont = False
     Transparent = False
   end
   object labWelcome: TLabel
-    Left = 116
-    Height = 17
-    Top = 148
-    Width = 110
+    Left = 174
+    Height = 28
+    Top = 222
+    Width = 162
     Caption = 'Welcome Message'
     Color = clBtnFace
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     ParentColor = False
     ParentFont = False
     Transparent = False
   end
   object labExtras: TLabel
-    Left = 242
-    Height = 17
-    Top = 131
-    Width = 35
+    Left = 363
+    Height = 28
+    Top = 196
+    Width = 51
     Caption = 'Extras'
     Color = clBtnFace
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     ParentColor = False
     ParentFont = False
     Transparent = False
   end
   object Label11: TLabel
-    Left = 240
-    Height = 17
-    Top = 91
-    Width = 127
+    Left = 360
+    Height = 28
+    Top = 136
+    Width = 195
     Caption = 'Authorization Options'
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     ParentColor = False
     ParentFont = False
   end
   object eHost: TEdit
-    Left = 8
-    Height = 25
-    Top = 119
-    Width = 135
+    Left = 12
+    Height = 36
+    Top = 178
+    Width = 202
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -1792,12 +1793,12 @@ object Form2: TForm2
     Text = 'localhost'
   end
   object ePort: TEdit
-    Left = 147
-    Height = 25
-    Top = 119
-    Width = 40
+    Left = 220
+    Height = 36
+    Top = 178
+    Width = 60
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -1805,14 +1806,14 @@ object Form2: TForm2
     Text = '8082'
   end
   object cbxCompressao: TCheckBox
-    Left = 350
-    Height = 17
-    Top = 147
-    Width = 86
+    Left = 525
+    Height = 27
+    Top = 220
+    Width = 128
     Caption = 'Compression'
     Checked = True
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -1820,26 +1821,26 @@ object Form2: TForm2
     TabOrder = 14
   end
   object chkhttps: TCheckBox
-    Left = 242
-    Height = 17
-    Top = 148
-    Width = 51
+    Left = 363
+    Height = 27
+    Top = 222
+    Width = 78
     Caption = 'HTTPS'
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 15
   end
   object eAccesstag: TEdit
-    Left = 8
-    Height = 25
-    Top = 168
-    Width = 103
+    Left = 12
+    Height = 36
+    Top = 252
+    Width = 154
     EchoMode = emPassword
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -1847,26 +1848,26 @@ object Form2: TForm2
     TabOrder = 16
   end
   object eWelcomemessage: TEdit
-    Left = 116
-    Height = 25
-    Top = 168
-    Width = 119
+    Left = 174
+    Height = 36
+    Top = 252
+    Width = 178
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 17
   end
   object cbBinaryRequest: TCheckBox
-    Left = 242
-    Height = 17
-    Top = 165
-    Width = 96
+    Left = 363
+    Height = 27
+    Top = 248
+    Width = 145
     Caption = 'Binary Request'
     Checked = True
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -1874,13 +1875,13 @@ object Form2: TForm2
     TabOrder = 18
   end
   object cbUseCripto: TCheckBox
-    Left = 242
-    Height = 17
-    Top = 183
-    Width = 102
+    Left = 363
+    Height = 27
+    Top = 274
+    Width = 157
     Caption = 'Use Criptografia'
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -17
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -1888,11 +1889,11 @@ object Form2: TForm2
     OnClick = cbUseCriptoClick
   end
   object cbAuthOptions: TComboBox
-    Left = 242
-    Height = 21
-    Top = 110
-    Width = 175
-    ItemHeight = 13
+    Left = 363
+    Height = 29
+    Top = 165
+    Width = 262
+    ItemHeight = 21
     ItemIndex = 0
     Items.Strings = (
       'rdwAONone'
@@ -1906,47 +1907,47 @@ object Form2: TForm2
     OnChange = cbAuthOptionsChange
   end
   object pBasicAuth: TPanel
-    Left = 479
-    Height = 113
-    Top = 88
-    Width = 260
+    Left = 718
+    Height = 170
+    Top = 132
+    Width = 390
     BevelOuter = bvNone
-    ClientHeight = 113
-    ClientWidth = 260
+    ClientHeight = 170
+    ClientWidth = 390
     ParentBackground = False
     TabOrder = 21
     Visible = False
     object Label2: TLabel
-      Left = 10
-      Height = 17
-      Top = 5
-      Width = 45
+      Left = 15
+      Height = 28
+      Top = 8
+      Width = 67
       Caption = 'Usuário'
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       ParentColor = False
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 131
-      Height = 17
-      Top = 5
-      Width = 35
+      Left = 196
+      Height = 28
+      Top = 8
+      Width = 53
       Caption = 'Senha'
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       ParentColor = False
       ParentFont = False
     end
     object edUserNameDW: TEdit
-      Left = 10
-      Height = 25
-      Top = 24
-      Width = 100
+      Left = 15
+      Height = 36
+      Top = 36
+      Width = 150
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
@@ -1954,13 +1955,13 @@ object Form2: TForm2
       Text = 'testserver'
     end
     object edPasswordDW: TEdit
-      Left = 131
-      Height = 25
-      Top = 24
-      Width = 100
+      Left = 196
+      Height = 36
+      Top = 36
+      Width = 150
       EchoMode = emPassword
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
@@ -1970,104 +1971,104 @@ object Form2: TForm2
     end
   end
   object pTokenAuth: TPanel
-    Left = 476
-    Height = 118
-    Top = 85
-    Width = 390
+    Left = 714
+    Height = 177
+    Top = 128
+    Width = 585
     BevelOuter = bvNone
-    ClientHeight = 118
-    ClientWidth = 390
+    ClientHeight = 177
+    ClientWidth = 585
     ParentBackground = False
     TabOrder = 22
     Visible = False
     object Label12: TLabel
-      Left = 10
-      Height = 17
-      Top = 5
-      Width = 34
+      Left = 15
+      Height = 28
+      Top = 8
+      Width = 51
       Caption = 'Token'
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       ParentColor = False
       ParentFont = False
     end
     object Label13: TLabel
-      Left = 235
-      Height = 13
-      Top = 53
-      Width = 98
+      Left = 352
+      Height = 21
+      Top = 80
+      Width = 154
       Caption = 'Token Creation Time'
       ParentColor = False
     end
     object lTokenBegin: TLabel
-      Left = 235
-      Height = 13
-      Top = 70
-      Width = 12
+      Left = 352
+      Height = 21
+      Top = 105
+      Width = 15
       Caption = '...'
       ParentColor = False
     end
     object lTokenEnd: TLabel
-      Left = 235
-      Height = 13
-      Top = 102
-      Width = 12
+      Left = 352
+      Height = 21
+      Top = 153
+      Width = 15
       Caption = '...'
       ParentColor = False
     end
     object Label21: TLabel
-      Left = 235
-      Height = 13
-      Top = 86
-      Width = 75
+      Left = 352
+      Height = 21
+      Top = 129
+      Width = 115
       Caption = 'Token LifeCycle'
       ParentColor = False
     end
     object Label4: TLabel
-      Left = 123
-      Height = 17
-      Top = 51
-      Width = 35
+      Left = 184
+      Height = 28
+      Top = 76
+      Width = 53
       Caption = 'Senha'
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       ParentColor = False
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 11
-      Height = 17
-      Top = 51
-      Width = 45
+      Left = 16
+      Height = 28
+      Top = 76
+      Width = 67
       Caption = 'Usuário'
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       ParentColor = False
       ParentFont = False
     end
     object eTokenID: TEdit
-      Left = 10
-      Height = 25
-      Top = 24
-      Width = 279
+      Left = 15
+      Height = 36
+      Top = 36
+      Width = 418
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
     end
     object EdPasswordAuth: TEdit
-      Left = 123
-      Height = 25
-      Top = 70
-      Width = 100
+      Left = 184
+      Height = 36
+      Top = 105
+      Width = 150
       EchoMode = emPassword
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
@@ -2076,12 +2077,12 @@ object Form2: TForm2
       Text = '123'
     end
     object EdUserNameAuth: TEdit
-      Left = 11
-      Height = 25
-      Top = 70
-      Width = 100
+      Left = 16
+      Height = 36
+      Top = 105
+      Width = 150
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -20
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
@@ -2089,22 +2090,22 @@ object Form2: TForm2
       Text = 'rdw'
     end
     object Button2: TButton
-      Left = 292
-      Height = 25
-      Top = 24
-      Width = 96
+      Left = 438
+      Height = 38
+      Top = 36
+      Width = 144
       Caption = 'Show Secret'
       TabOrder = 3
     end
   end
   object Button1: TButton
-    Left = 251
-    Height = 26
-    Top = 276
-    Width = 120
+    Left = 376
+    Height = 39
+    Top = 414
+    Width = 180
     Caption = 'AssyncExec'
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -2112,43 +2113,43 @@ object Form2: TForm2
     OnClick = Button1Click
   end
   object eUpdateTableName: TEdit
-    Left = 251
-    Height = 25
-    Top = 248
-    Width = 119
+    Left = 376
+    Height = 36
+    Top = 372
+    Width = 178
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 24
-    Text = 'PACIENTES'
+    Text = 'employee'
   end
   object Label1: TLabel
-    Left = 251
-    Height = 17
-    Top = 231
-    Width = 109
+    Left = 376
+    Height = 28
+    Top = 346
+    Width = 162
     Caption = 'UpdateTableName'
     Color = clBtnFace
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     ParentColor = False
     ParentFont = False
     Transparent = False
   end
   object DBImage1: TDBImage
-    Left = 704
-    Height = 157
-    Top = 85
-    Width = 154
+    Left = 1056
+    Height = 236
+    Top = 128
+    Width = 231
     DataSource = DataSource1
     Stretch = True
   end
   object ActionList1: TActionList
-    Left = 406
-    Top = 297
+    Left = 609
+    Top = 446
   end
   object RESTDWClientEvents1: TRESTDWClientEvents
     ServerEventName = 'TServerMethodDM.RESTDWServerEvents'
@@ -2230,8 +2231,8 @@ object Form2: TForm2
         CallbackEvent = False
         OnlyPreDefinedParams = False
       end>
-    Left = 88
-    Top = 475
+    Left = 132
+    Top = 713
   end
   object RESTDWIdClientPooler1: TRESTDWIdClientPooler
     DataCompression = True
@@ -2264,31 +2265,32 @@ object Form2: TForm2
     SSLVersions = []
     DatabaseCharSet = csUndefined
     SSLMode = sslmUnassigned
-    Left = 182
-    Top = 516
+    Left = 273
+    Top = 774
   end
   object DataSource1: TDataSource
     DataSet = RESTDWClientSQL1
-    Left = 558
-    Top = 275
+    Left = 837
+    Top = 413
   end
   object RESTDWIdDatabase1: TRESTDWIdDatabase
     Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
     ContentEncoding = 'gzip, identity'
-    Active = False
+    Active = True
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
     DataRoute = '/'
+    MyIP = '127.0.0.1'
     IgnoreEchoPooler = False
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False
     ProxyOptions.Port = 8888
     PoolerService = 'localhost'
     PoolerPort = 8082
-    PoolerName = 'TServerMethodDM.RESTDWPoolerSQLDB'
+    PoolerName = 'TServerMethodDM.RESTDWPoolerDB'
     StateConnection.AutoCheck = False
     StateConnection.InTime = 1000
     RequestTimeOut = 10000
@@ -2310,8 +2312,8 @@ object Form2: TForm2
     SSLVersions = []
     UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36'
     SSLMode = sslmUnassigned
-    Left = 392
-    Top = 424
+    Left = 588
+    Top = 636
   end
   object RESTDWClientSQL1: TRESTDWClientSQL
     Capacity = 195
@@ -2320,12 +2322,75 @@ object Form2: TForm2
     FilterOptions = []
     FieldDefs = <    
       item
-        Name = 'PESO_PAC'
+        Name = 'EMP_NO'
+        DataType = ftSmallint
+        Precision = -1
+      end    
+      item
+        Name = 'FIRST_NAME'
+        DataType = ftString
+        Precision = -1
+        Size = 15
+      end    
+      item
+        Name = 'LAST_NAME'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'PHONE_EXT'
+        DataType = ftString
+        Precision = -1
+        Size = 4
+      end    
+      item
+        Name = 'HIRE_DATE'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'DEPT_NO'
+        DataType = ftString
+        Precision = -1
+        Size = 3
+      end    
+      item
+        Name = 'JOB_CODE'
+        DataType = ftString
+        Precision = -1
+        Size = 5
+      end    
+      item
+        Name = 'JOB_GRADE'
+        DataType = ftSmallint
+        Precision = -1
+      end    
+      item
+        Name = 'JOB_COUNTRY'
+        DataType = ftString
+        Precision = -1
+        Size = 15
+      end    
+      item
+        Name = 'SALARY'
         DataType = ftFloat
+        Precision = 16
+      end    
+      item
+        Name = 'FULL_NAME'
+        DataType = ftString
+        Precision = -1
+        Size = 37
+      end    
+      item
+        Name = 'TIMEC'
+        DataType = ftTime
         Precision = -1
       end>
     DatabaseCharSet = csWin1252
     DatasetClosed = True
+    IndexDefs = <>
     SortOrder = soAsc
     SortCaseSens = scNo
     SortFields = ''
@@ -2339,9 +2404,7 @@ object Form2: TForm2
     Params = <>
     DataBase = RESTDWIdDatabase1
     SQL.Strings = (
-      'select FIRST 1 *'
-      'FROM PACIENTES'
-      'where not(PESO_PAC is null)'
+      'Select * From EMPLOYEE'
     )
     CacheUpdateRecords = False
     AutoCommitData = False
@@ -2349,12 +2412,122 @@ object Form2: TForm2
     ThreadRequest = False
     RaiseErrors = True
     ReflectChanges = False
-    Left = 432
-    Top = 280
-  end
-  object BufDataset1: TBufDataset
-    FieldDefs = <>
-    Left = 335
-    Top = 456
+    Left = 648
+    Top = 420
+    object RESTDWClientSQL1EMP_NO: TSmallintField
+      FieldKind = fkData
+      FieldName = 'EMP_NO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object RESTDWClientSQL1FIRST_NAME: TStringField
+      FieldKind = fkData
+      FieldName = 'FIRST_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 15
+    end
+    object RESTDWClientSQL1LAST_NAME: TStringField
+      FieldKind = fkData
+      FieldName = 'LAST_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object RESTDWClientSQL1PHONE_EXT: TStringField
+      FieldKind = fkData
+      FieldName = 'PHONE_EXT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+    object RESTDWClientSQL1HIRE_DATE: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'HIRE_DATE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object RESTDWClientSQL1DEPT_NO: TStringField
+      FieldKind = fkData
+      FieldName = 'DEPT_NO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 3
+    end
+    object RESTDWClientSQL1JOB_CODE: TStringField
+      FieldKind = fkData
+      FieldName = 'JOB_CODE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 5
+    end
+    object RESTDWClientSQL1JOB_GRADE: TSmallintField
+      FieldKind = fkData
+      FieldName = 'JOB_GRADE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object RESTDWClientSQL1JOB_COUNTRY: TStringField
+      FieldKind = fkData
+      FieldName = 'JOB_COUNTRY'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 15
+    end
+    object RESTDWClientSQL1SALARY: TFloatField
+      FieldKind = fkData
+      FieldName = 'SALARY'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 16
+    end
+    object RESTDWClientSQL1FULL_NAME: TStringField
+      FieldKind = fkData
+      FieldName = 'FULL_NAME'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 37
+    end
+    object RESTDWClientSQL1TIMEC: TTimeField
+      FieldKind = fkData
+      FieldName = 'TIMEC'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

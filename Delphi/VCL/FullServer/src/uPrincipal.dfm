@@ -369,7 +369,7 @@ object fPrincipal: TfPrincipal
           ParentFont = False
         end
         object Panel4: TPanel
-          Left = 676
+          Left = 670
           Top = 10
           Width = 59
           Height = 37
@@ -379,11 +379,12 @@ object fPrincipal: TfPrincipal
           Color = 2763306
           ParentBackground = False
           TabOrder = 0
+          ExplicitLeft = 676
           object Image8: TImage
             Left = 4
             Top = 0
             Width = 55
-            Height = 37
+            Height = 33
             Cursor = crHandPoint
             Align = alRight
             AutoSize = True
@@ -768,7 +769,6 @@ object fPrincipal: TfPrincipal
               70657DABFDC9F73762FEF63EF1F7BF473C9DFF009343F353FE612C3FEA2EDF3E
               58D0FF00C6D65F8BF7076E7FCE17A7F7C3EF0FFFD9}
             Transparent = True
-            ExplicitHeight = 33
           end
         end
         object edPortaDW: TEdit
@@ -1745,7 +1745,7 @@ object fPrincipal: TfPrincipal
       Visible = False
     end
     object paPortugues: TPanel
-      Left = 410
+      Left = 404
       Top = 10
       Width = 59
       Height = 37
@@ -1755,11 +1755,12 @@ object fPrincipal: TfPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 410
       object Image3: TImage
         Left = 0
         Top = 0
-        Width = 59
-        Height = 37
+        Width = 55
+        Height = 33
         Cursor = crHandPoint
         Align = alClient
         AutoSize = True
@@ -2122,12 +2123,10 @@ object fPrincipal: TfPrincipal
           571E833261F434752B4E55D542F8FA9FF55BFE2270F548E6FF00FFD9}
         Transparent = True
         OnClick = Image3Click
-        ExplicitWidth = 55
-        ExplicitHeight = 33
       end
     end
     object paEspanhol: TPanel
-      Left = 478
+      Left = 472
       Top = 10
       Width = 59
       Height = 37
@@ -2137,11 +2136,12 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 478
       object Image4: TImage
         Left = 4
         Top = 0
         Width = 55
-        Height = 37
+        Height = 33
         Cursor = crHandPoint
         Align = alRight
         AutoSize = True
@@ -2463,11 +2463,10 @@ object fPrincipal: TfPrincipal
           3C9BC09762AEC55D8ABB1570FE0708E6893FFFD9}
         Transparent = True
         OnClick = Image4Click
-        ExplicitHeight = 33
       end
     end
     object paIngles: TPanel
-      Left = 546
+      Left = 540
       Top = 10
       Width = 59
       Height = 37
@@ -2477,11 +2476,12 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 546
       object Image5: TImage
         Left = 4
         Top = 0
         Width = 55
-        Height = 37
+        Height = 33
         Cursor = crHandPoint
         Align = alRight
         AutoSize = True
@@ -2867,7 +2867,6 @@ object fPrincipal: TfPrincipal
           58D0FF00C6D65F8BF7076E7FCE17A7F7C3EF0FFFD9}
         Transparent = True
         OnClick = Image5Click
-        ExplicitHeight = 33
       end
     end
   end
@@ -2899,7 +2898,7 @@ object fPrincipal: TfPrincipal
       ExplicitLeft = 9
     end
     object ButtonStart: TButton
-      Left = 396
+      Left = 392
       Top = 6
       Width = 100
       Height = 25
@@ -2914,9 +2913,10 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 0
       OnClick = ButtonStartClick
+      ExplicitLeft = 396
     end
     object ButtonStop: TButton
-      Left = 502
+      Left = 497
       Top = 6
       Width = 100
       Height = 25
@@ -2931,9 +2931,10 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 1
       OnClick = ButtonStopClick
+      ExplicitLeft = 502
     end
     object cbPoolerState: TCheckBox
-      Left = 175
+      Left = 173
       Top = 12
       Width = 115
       Height = 17
@@ -2948,6 +2949,7 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       State = cbChecked
       TabOrder = 2
+      ExplicitLeft = 175
     end
   end
   object ApplicationEvents1: TApplicationEvents

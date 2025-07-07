@@ -595,6 +595,7 @@ End;
 procedure TfPrincipal.StartServer;
  Function GetAuthOption : TRESTDWAuthOption;
  Begin
+  Result := rdwAONone;
   Case cbAuthOptions.ItemIndex Of
    0 : Result := rdwAONone;
    1 : Result := rdwAOBasic;
@@ -604,6 +605,7 @@ procedure TfPrincipal.StartServer;
  End;
  Function GetTokenType : TRESTDWTokenType;
  Begin
+  Result := rdwPersonal;
   Case cbTokenType.ItemIndex Of
    0 : Result := rdwTS;
    1 : Result := rdwJWT;
