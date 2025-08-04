@@ -78,7 +78,7 @@ object DMWebPascal: TDMWebPascal
         ContextName = 'index'
         Routes.All.Active = False
         Routes.All.NeedAuthorization = False
-        Routes.Get.Active = False
+        Routes.Get.Active = True
         Routes.Get.NeedAuthorization = False
         Routes.Post.Active = True
         Routes.Post.NeedAuthorization = True

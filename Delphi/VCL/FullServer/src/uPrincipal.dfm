@@ -5,7 +5,7 @@ object fPrincipal: TfPrincipal
   BorderStyle = bsSingle
   Caption = 'REST Dataware CORE - Full Server'
   ClientHeight = 730
-  ClientWidth = 640
+  ClientWidth = 620
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -39,7 +39,7 @@ object fPrincipal: TfPrincipal
   object PageControl1: TPageControl
     Left = 0
     Top = 58
-    Width = 640
+    Width = 620
     Height = 635
     ActivePage = tsConfigs
     Align = alClient
@@ -50,19 +50,23 @@ object fPrincipal: TfPrincipal
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 634
+    ExplicitHeight = 618
     object tsConfigs: TTabSheet
       Caption = 'Configuration'
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 632
+        Width = 612
         Height = 603
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 626
+        ExplicitHeight = 586
         DesignSize = (
-          632
+          612
           603)
         object Label1: TLabel
           Left = 190
@@ -171,7 +175,7 @@ object fPrincipal: TfPrincipal
         object Label6: TLabel
           Left = 0
           Top = 586
-          Width = 632
+          Width = 612
           Height = 17
           Align = alBottom
           Alignment = taCenter
@@ -185,6 +189,7 @@ object fPrincipal: TfPrincipal
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
+          ExplicitWidth = 632
         end
         object Label15: TLabel
           Left = 7
@@ -231,7 +236,7 @@ object fPrincipal: TfPrincipal
         object labConexao: TLabel
           Left = 0
           Top = 0
-          Width = 632
+          Width = 612
           Height = 23
           Align = alTop
           AutoSize = False
@@ -246,6 +251,7 @@ object fPrincipal: TfPrincipal
           ParentFont = False
           Transparent = False
           Layout = tlCenter
+          ExplicitWidth = 632
         end
         object Label7: TLabel
           Left = 9
@@ -369,7 +375,7 @@ object fPrincipal: TfPrincipal
           ParentFont = False
         end
         object Panel4: TPanel
-          Left = 670
+          Left = 644
           Top = 10
           Width = 59
           Height = 37
@@ -379,12 +385,12 @@ object fPrincipal: TfPrincipal
           Color = 2763306
           ParentBackground = False
           TabOrder = 0
-          ExplicitLeft = 676
+          ExplicitLeft = 658
           object Image8: TImage
             Left = 4
             Top = 0
             Width = 55
-            Height = 33
+            Height = 37
             Cursor = crHandPoint
             Align = alRight
             AutoSize = True
@@ -769,6 +775,7 @@ object fPrincipal: TfPrincipal
               70657DABFDC9F73762FEF63EF1F7BF473C9DFF009343F353FE612C3FEA2EDF3E
               58D0FF00C6D65F8BF7076E7FCE17A7F7C3EF0FFFD9}
             Transparent = True
+            ExplicitHeight = 33
           end
         end
         object edPortaDW: TEdit
@@ -935,6 +942,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 12
+          ExplicitTop = 416
         end
         object eCertFile: TEdit
           Left = 7
@@ -949,6 +957,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 13
+          ExplicitTop = 462
         end
         object ePrivKeyPass: TMaskEdit
           Left = 459
@@ -965,6 +974,7 @@ object fPrincipal: TfPrincipal
           PasswordChar = '*'
           TabOrder = 14
           Text = ''
+          ExplicitTop = 416
         end
         object EdDataSource: TEdit
           Left = 459
@@ -1037,6 +1047,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 19
+          ExplicitTop = 508
         end
         object pBasicAuth: TPanel
           Left = 328
@@ -1214,8 +1225,8 @@ object fPrincipal: TfPrincipal
           end
         end
         object pOauth: TPanel
-          Left = 328
-          Top = 27
+          Left = 324
+          Top = 26
           Width = 289
           Height = 131
           BevelOuter = bvNone
@@ -1327,15 +1338,16 @@ object fPrincipal: TfPrincipal
   object paTopo: TPanel
     Left = 0
     Top = 0
-    Width = 640
+    Width = 620
     Height = 58
     Align = alTop
     BevelOuter = bvNone
     Color = 2763306
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 634
     DesignSize = (
-      640
+      620
       58)
     object Image2: TImage
       Left = 0
@@ -1745,7 +1757,7 @@ object fPrincipal: TfPrincipal
       Visible = False
     end
     object paPortugues: TPanel
-      Left = 404
+      Left = 378
       Top = 10
       Width = 59
       Height = 37
@@ -1755,12 +1767,12 @@ object fPrincipal: TfPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 410
+      ExplicitLeft = 392
       object Image3: TImage
         Left = 0
         Top = 0
-        Width = 55
-        Height = 33
+        Width = 59
+        Height = 37
         Cursor = crHandPoint
         Align = alClient
         AutoSize = True
@@ -2123,10 +2135,12 @@ object fPrincipal: TfPrincipal
           571E833261F434752B4E55D542F8FA9FF55BFE2270F548E6FF00FFD9}
         Transparent = True
         OnClick = Image3Click
+        ExplicitWidth = 55
+        ExplicitHeight = 33
       end
     end
     object paEspanhol: TPanel
-      Left = 472
+      Left = 446
       Top = 10
       Width = 59
       Height = 37
@@ -2136,12 +2150,12 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 478
+      ExplicitLeft = 460
       object Image4: TImage
         Left = 4
         Top = 0
         Width = 55
-        Height = 33
+        Height = 37
         Cursor = crHandPoint
         Align = alRight
         AutoSize = True
@@ -2463,10 +2477,11 @@ object fPrincipal: TfPrincipal
           3C9BC09762AEC55D8ABB1570FE0708E6893FFFD9}
         Transparent = True
         OnClick = Image4Click
+        ExplicitHeight = 33
       end
     end
     object paIngles: TPanel
-      Left = 540
+      Left = 514
       Top = 10
       Width = 59
       Height = 37
@@ -2476,12 +2491,12 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 546
+      ExplicitLeft = 528
       object Image5: TImage
         Left = 4
         Top = 0
         Width = 55
-        Height = 33
+        Height = 37
         Cursor = crHandPoint
         Align = alRight
         AutoSize = True
@@ -2867,23 +2882,26 @@ object fPrincipal: TfPrincipal
           58D0FF00C6D65F8BF7076E7FCE17A7F7C3EF0FFFD9}
         Transparent = True
         OnClick = Image5Click
+        ExplicitHeight = 33
       end
     end
   end
   object Panel2: TPanel
     Left = 0
     Top = 693
-    Width = 640
+    Width = 620
     Height = 37
     Align = alBottom
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 676
+    ExplicitWidth = 634
     DesignSize = (
-      640
+      620
       37)
     object lSeguro: TLabel
-      Left = 4
+      Left = 1
       Top = 12
       Width = 80
       Height = 17
@@ -2898,7 +2916,7 @@ object fPrincipal: TfPrincipal
       ExplicitLeft = 9
     end
     object ButtonStart: TButton
-      Left = 392
+      Left = 374
       Top = 6
       Width = 100
       Height = 25
@@ -2913,10 +2931,10 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 0
       OnClick = ButtonStartClick
-      ExplicitLeft = 396
+      ExplicitLeft = 384
     end
     object ButtonStop: TButton
-      Left = 497
+      Left = 475
       Top = 6
       Width = 100
       Height = 25
@@ -2931,10 +2949,10 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 1
       OnClick = ButtonStopClick
-      ExplicitLeft = 502
+      ExplicitLeft = 487
     end
     object cbPoolerState: TCheckBox
-      Left = 173
+      Left = 164
       Top = 12
       Width = 115
       Height = 17
@@ -2949,7 +2967,7 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       State = cbChecked
       TabOrder = 2
-      ExplicitLeft = 175
+      ExplicitLeft = 169
     end
   end
   object ApplicationEvents1: TApplicationEvents
@@ -3003,8 +3021,8 @@ object fPrincipal: TfPrincipal
     SSLMode = sslmUnassigned
     SSLMethod = sslvSSLv2
     SSLVersions = []
-    Left = 188
-    Top = 370
+    Left = 252
+    Top = 410
   end
   object CtiPrincipal: TTrayIcon
     PopupMenu = pmMenu
@@ -3016,8 +3034,8 @@ object fPrincipal: TfPrincipal
     AuthDialog = True
     UserName = 'testserver'
     Password = 'testserver'
-    Left = 228
-    Top = 374
+    Left = 340
+    Top = 454
   end
   object RESTDWAuthOAuth1: TRESTDWAuthOAuth
     AuthDialog = True
@@ -3029,7 +3047,7 @@ object fPrincipal: TfPrincipal
     GrantCodeEvent = 'authorize'
     GrantType = 'client_credentials'
     GetTokenEvent = 'access-token'
-    Left = 196
-    Top = 542
+    Left = 252
+    Top = 526
   end
 end

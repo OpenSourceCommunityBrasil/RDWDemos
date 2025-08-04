@@ -159,6 +159,7 @@ begin
    RESTDWIdDatabase1.WelcomeMessage  := eWelcomemessage.Text;
    RESTDWClientSQL1.Insert;
    TBlobField(RESTDWClientSQL1.FindField('BLOBIMAGE')).LoadFromFile(OpenPictureDialog1.FileName);
+   RESTDWClientSQL1.FindField('BLOBTEXT').AsString := 'חחחבבבב';
    RESTDWClientSQL1.Post;
    If Not RESTDWClientSQL1.ApplyUpdates(vError) Then
     Showmessage(vError)

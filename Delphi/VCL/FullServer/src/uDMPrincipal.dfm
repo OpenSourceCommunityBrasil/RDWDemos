@@ -1,4 +1,4 @@
-object DMPrincipal: TDMPrincipal
+object ServerMethodDM: TServerMethodDM
   OnCreate = ServerMethodDataModuleCreate
   Encoding = esUtf8
   OnMassiveProcess = ServerMethodDataModuleMassiveProcess
@@ -6,7 +6,7 @@ object DMPrincipal: TDMPrincipal
   Height = 555
   Width = 671
   PixelsPerInch = 144
-  object RESTDWPoolerFD: TRESTDWPoolerDB
+  object RESTDWPoolerDB: TRESTDWPoolerDB
     RESTDriver = RESTDWFireDACDriver1
     Compression = True
     Encoding = esUtf8

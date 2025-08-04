@@ -531,7 +531,7 @@ Begin
   labVersao.Caption := RESTDWVERSAO;
   FCfgName                             := StringReplace(ExtractFileName(ParamStr(0)), '.exe', '', [RfReplaceAll]);
   FCfgName                             := ExtractFilePath(ParamSTR(0)) + 'Config_' + FCfgName + '.ini';
-  RESTDWIdServicePooler1.ServerMethodClass := TDMPrincipal;
+  RESTDWIdServicePooler1.ServerMethodClass := TServerMethodDM;
 //  RESTDWIdServicePooler1.AddDataRoute('datadm',  TDMPrincipal);
 //  RESTDWIdServicePooler1.AddDataRoute('datadm2', TDMSecundario);
   RESTDWIdServicePooler1.RootPath      := IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName));

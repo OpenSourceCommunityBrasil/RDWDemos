@@ -18,7 +18,6 @@ object ServerMethodDM: TServerMethodDM
       'codepage=WIN1252'
       'RawStringEncoding=DB_CP'
     )
-    AutoCommit = False
     BeforeConnect = ZConnection1BeforeConnect
     DisableSavepoints = False
     Port = 3050

@@ -22,6 +22,7 @@ type
     cbTokenType: TComboBox;
     cbUpdateLog: TCheckBox;
     cbAuthorizationToken: TCheckBox;
+    CheckBox1: TCheckBox;
     ckUsaURL: TCheckBox;
     ctiPrincipal: TTrayIcon;
     eCertFile: TEdit;

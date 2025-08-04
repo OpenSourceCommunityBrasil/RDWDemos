@@ -1,0 +1,36 @@
+object rdwDaemonDM: TrdwDaemonDM
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 437
+  HorizontalOffset = 677
+  VerticalOffset = 250
+  Width = 569
+  object RESTDWServicePooler: TRESTDWIdServicePooler
+    Active = False
+    CORS = False
+    CORS_CustomHeaders.Strings = (
+      'Access-Control-Allow-Origin=*'
+      'Access-Control-Allow-Headers=Content-Type, Origin, Accept, Authorization, X-CUSTOM-HEADER'
+    )
+    PathTraversalRaiseError = True
+    RequestTimeout = -1
+    ServicePort = 8083
+    ProxyOptions.ProxyPort = 0
+    Encoding = esUtf8
+    RootPath = '/'
+    ForceWelcomeAccess = False
+    CriptOptions.Use = False
+    CriptOptions.Key = 'RDWBASEKEY256'
+    EncodeErrors = False
+    DatabaseCharSet = csUndefined
+    ServerIPVersionConfig.IPv4Address = '0.0.0.0'
+    ServerIPVersionConfig.IPv6Address = '::'
+    SSLVerifyMode = []
+    SSLVerifyDepth = 0
+    SSLMode = sslmUnassigned
+    SSLMethod = sslvSSLv2
+    SSLVersions = []
+    Left = 129
+    Top = 149
+  end
+end

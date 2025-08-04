@@ -1165,6 +1165,14 @@ object RestDWForm: TRestDWForm
           TabOrder = 20
           OnChange = cbAuthorizationTokenChange
         end
+        object CheckBox1: TCheckBox
+          Left = 452
+          Height = 32
+          Top = 168
+          Width = 120
+          Caption = 'CheckBox1'
+          TabOrder = 21
+        end
       end
     end
     object tsLogs: TTabSheet

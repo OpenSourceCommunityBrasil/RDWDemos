@@ -29,8 +29,8 @@ Const
   Const404Page = 'www\404.html';
 
 TYPE
-  TDMPrincipal = CLASS(TServerMethodDataModule)
-    RESTDWPoolerFD: TRESTDWPoolerDB;
+  TServerMethodDM = CLASS(TServerMethodDataModule)
+    RESTDWPoolerDB: TRESTDWPoolerDB;
     Server_FDConnection: TFDConnection;
     FDPhysFBDriverLink1: TFDPhysFBDriverLink;
     FDStanStorageJSONLink1: TFDStanStorageJSONLink;
@@ -131,14 +131,14 @@ TYPE
   END;
 
 VAR
-  DMPrincipal: TDMPrincipal;
+  ServerMethodDM: TServerMethodDM;
 
 IMPLEMENTATION
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 {$R *.dfm}
 
-procedure TDMPrincipal.employeeReplyEvent(var Params: TRESTDWParams;
+procedure TServerMethodDM.employeeReplyEvent(var Params: TRESTDWParams;
   dJsonMode: TDataMode; Var Result: String);
 Var
   JSONValue: TRESTDWJSONValue;
@@ -175,7 +175,7 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.FDQuery1AfterScroll(DataSet: TDataSet);
+procedure TServerMethodDM.FDQuery1AfterScroll(DataSet: TDataSet);
 begin
   If FDQuery1.FieldByName('emp_no') <> Nil Then
   Begin
@@ -186,7 +186,7 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.dwcrEmployeeItemsdatatableRequestExecute
+procedure TServerMethodDM.dwcrEmployeeItemsdatatableRequestExecute
   (const Params: TRESTDWParams; var ContentType, Result: string);
 Var
   JSONValue: TRESTDWJSONValue;
@@ -216,7 +216,7 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.DWServerContext1ContextListangularReplyRequest
+procedure TServerMethodDM.DWServerContext1ContextListangularReplyRequest
   (const Params: TRESTDWParams; var ContentType, Result: string;
   const RequestType: TRequestType);
 var
@@ -231,7 +231,7 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.DWServerContext1ContextListindexReplyRequest
+procedure TServerMethodDM.DWServerContext1ContextListindexReplyRequest
   (const Params: TRESTDWParams; var ContentType, Result: string;
   const RequestType: TRequestType);
 var
@@ -246,7 +246,7 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.DWServerContext1ContextListindexReplyRequestStream
+procedure TServerMethodDM.DWServerContext1ContextListindexReplyRequestStream
   (const Params: TRESTDWParams; var ContentType: string;
   const Result: TMemoryStream; const RequestType: TRequestType;
   var StatusCode: Integer);
@@ -255,7 +255,7 @@ begin
   Result.Position := 0;
 end;
 
-procedure TDMPrincipal.DWServerContext1ContextListinitReplyRequest
+procedure TServerMethodDM.DWServerContext1ContextListinitReplyRequest
   (const Params: TRESTDWParams; var ContentType, Result: string;
   const RequestType: TRequestType);
 begin
@@ -271,7 +271,7 @@ begin
     + '  </body>' + '</html>';
 end;
 
-procedure TDMPrincipal.DWServerContext1ContextListopenfileReplyRequestStream
+procedure TServerMethodDM.DWServerContext1ContextListopenfileReplyRequestStream
   (const Params: TRESTDWParams; var ContentType: string;
   const Result: TMemoryStream; const RequestType: TRequestType;
   var StatusCode: Integer);
@@ -314,7 +314,7 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.DWServerContext1ContextListphpReplyRequest
+procedure TServerMethodDM.DWServerContext1ContextListphpReplyRequest
   (const Params: TRESTDWParams; var ContentType, Result: string;
   const RequestType: TRequestType);
 var
@@ -329,7 +329,7 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.DWServerContext1ContextListzsendReplyRequest
+procedure TServerMethodDM.DWServerContext1ContextListzsendReplyRequest
   (const Params: TRESTDWParams; var ContentType, Result: string;
   const RequestType: TRequestType);
 var
@@ -344,7 +344,7 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.DWServerEvents1EventsassynceventReplyEvent
+procedure TServerMethodDM.DWServerEvents1EventsassynceventReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 Var
   vstringtime: TStringList;
@@ -358,47 +358,47 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.DWServerEvents1EventseventdatetimeReplyEvent
+procedure TServerMethodDM.DWServerEvents1EventseventdatetimeReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 begin
   Params.ItemsString['result'].AsDateTime := Params.ItemsString['mydatetime']
     .AsDateTime + 1;
 end;
 
-procedure TDMPrincipal.DWServerEvents1EventseventintReplyEvent
+procedure TServerMethodDM.DWServerEvents1EventseventintReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 begin
   Params.ItemsString['result'].AsInteger :=
     Random(Params.ItemsString['mynumber'].AsInteger);
 end;
 
-procedure TDMPrincipal.DWServerEvents1EventsgetemployeeDWReplyEvent
+procedure TServerMethodDM.DWServerEvents1EventsgetemployeeDWReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 begin
   employeeReplyEvent(Params, Params.DataMode, Result);
 end;
 
-procedure TDMPrincipal.DWServerEvents1EventsgetemployeeReplyEvent
+procedure TServerMethodDM.DWServerEvents1EventsgetemployeeReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 Begin
   employeeReplyEvent(Params, Params.DataMode, Result);
 End;
 
-procedure TDMPrincipal.DWServerEvents1EventshelloworldRDWReplyEvent
+procedure TServerMethodDM.DWServerEvents1EventshelloworldRDWReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 begin
   Params.ItemsString['result'].AsString := 'Hello World : ' +
     QuotedSTR(Params.ItemsString['entrada'].AsString);
 end;
 
-procedure TDMPrincipal.DWServerEvents1EventshelloworldReplyEvent
+procedure TServerMethodDM.DWServerEvents1EventshelloworldReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 begin
   Result := Format('Hello World :"%s"',
     [Params.ItemsString['entrada'].AsString]);
 end;
 
-procedure TDMPrincipal.DWServerEvents1EventsloaddataseteventReplyEvent
+procedure TServerMethodDM.DWServerEvents1EventsloaddataseteventReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 Var
   JSONValue: TRESTDWJSONValue;
@@ -427,13 +427,13 @@ BEGIN
   End;
 end;
 
-procedure TDMPrincipal.DWServerEvents2Eventshelloworld2ReplyEvent
+procedure TServerMethodDM.DWServerEvents2Eventshelloworld2ReplyEvent
   (var Params: TRESTDWParams; var Result: string);
 begin
   Result := 'Sou eu ServerEvent2';
 end;
 
-procedure TDMPrincipal.DWSETESTEEventsservertimeReplyEventByType
+procedure TServerMethodDM.DWSETESTEEventsservertimeReplyEventByType
   (var Params: TRESTDWParams; var Result: string;
   const RequestType: TRequestType; var StatusCode: Integer;
   RequestHeader: TStringList);
@@ -446,7 +446,7 @@ begin
     ['inputdata'].AsString;
 End;
 
-Function TDMPrincipal.GetGenID(GenName: String): Integer;
+Function TServerMethodDM.GetGenID(GenName: String): Integer;
 Var
   vTempClient: TFDQuery;
 Begin
@@ -464,7 +464,7 @@ Begin
   vTempClient.Free;
 End;
 
-procedure TDMPrincipal.RESTDWDriverFD1PrepareConnection(var ConnectionDefs
+procedure TServerMethodDM.RESTDWDriverFD1PrepareConnection(var ConnectionDefs
   : TConnectionDefs);
 begin
   vConnectFromClient := True;
@@ -476,7 +476,7 @@ begin
   ConnectionDefs.Password := 'masterkey';
 end;
 
-procedure TDMPrincipal.RESTDWServerEventsEventshelloworldReplyEvent(
+procedure TServerMethodDM.RESTDWServerEventsEventshelloworldReplyEvent(
   var Params: TRESTDWParams; const Result: TStringList);
 begin
   If Params.ItemsString['temp'].AsString <> '' Then
@@ -491,25 +491,25 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.RESTDWServerEventsEventspingReplyEvent(
+procedure TServerMethodDM.RESTDWServerEventsEventspingReplyEvent(
   var Params: TRESTDWParams; const Result: TStringList);
 begin
  result.Text := 'pong';
 end;
 
-procedure TDMPrincipal.RESTDWServerEventsEventsservertimeReplyEvent(
+procedure TServerMethodDM.RESTDWServerEventsEventsservertimeReplyEvent(
   var Params: TRESTDWParams; const Result: TStringList);
 begin
   Params.ItemsString['result'].AsDateTime := Now;
 end;
 
-procedure TDMPrincipal.ServerMethodDataModuleCreate(Sender: TObject);
+procedure TServerMethodDM.ServerMethodDataModuleCreate(Sender: TObject);
 begin
   vConnectFromClient := False;
-  RESTDWPoolerFD.Active := fPrincipal.CbPoolerState.Checked;
+  RESTDWPoolerDB.Active := fPrincipal.CbPoolerState.Checked;
 end;
 
-procedure TDMPrincipal.ServerMethodDataModuleGetToken(Welcomemsg,
+procedure TServerMethodDM.ServerMethodDataModuleGetToken(Welcomemsg,
   AccessTag: string; Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
   var ErrorCode: Integer; var ErrorMessage, TokenID: string;
   var Accept: Boolean);
@@ -580,7 +580,7 @@ begin
   End;
 end;
 
-procedure TDMPrincipal.ServerMethodDataModuleMassiveProcess(var MassiveDataset
+procedure TServerMethodDM.ServerMethodDataModuleMassiveProcess(var MassiveDataset
   : TMassiveDatasetBuffer; var Ignore: Boolean);
 begin
   { //Esse código é para manipular o evento nao permitindo que sejam alteradas por massive outras
@@ -617,7 +617,7 @@ begin
   End;
 end;
 
-Procedure TDMPrincipal.ServerMethodDataModuleUserTokenAuth(Welcomemsg,
+Procedure TServerMethodDM.ServerMethodDataModuleUserTokenAuth(Welcomemsg,
   AccessTag: string; Params: TRESTDWParams; AuthOptions: TRESTDWAuthTokenParam;
   Var ErrorCode: Integer; var ErrorMessage, TokenID: string;
   Var Accept: Boolean);
@@ -629,7 +629,7 @@ begin
   // AuthOptions.Secrets
 end;
 
-PROCEDURE TDMPrincipal.Server_FDConnectionBeforeConnect(Sender: TObject);
+PROCEDURE TServerMethodDM.Server_FDConnectionBeforeConnect(Sender: TObject);
 Var
  Driver_BD,
  Porta_BD,
@@ -680,13 +680,13 @@ Begin
  TFDConnection(Sender).UpdateOptions.CountUpdatedRecords := False;
 End;
 
-PROCEDURE TDMPrincipal.Server_FDConnectionError(ASender, AInitiator: TObject;
+PROCEDURE TServerMethodDM.Server_FDConnectionError(ASender, AInitiator: TObject;
   VAR AException: Exception);
 BEGIN
   fPrincipal.memoResp.Lines.Add(AException.Message);
 END;
 
-procedure TDMPrincipal.ZConnection1BeforeConnect(Sender: TObject);
+procedure TServerMethodDM.ZConnection1BeforeConnect(Sender: TObject);
 VAR
   Driver_BD: STRING;
   Porta_BD: STRING;

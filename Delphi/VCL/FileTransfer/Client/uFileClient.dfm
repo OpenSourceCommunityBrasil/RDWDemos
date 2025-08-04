@@ -8508,7 +8508,6 @@ object Form4: TForm4
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'FileList'
         EventName = 'FileList'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -8560,7 +8559,6 @@ object Form4: TForm4
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'SendReplicationFile'
         EventName = 'SendReplicationFile'
         BaseURL = '/'
         DefaultContentType = 'application/json'
@@ -8598,7 +8596,6 @@ object Form4: TForm4
             Encoded = True
           end>
         DataMode = dmDataware
-        Name = 'DownloadFile'
         EventName = 'DownloadFile'
         BaseURL = '/'
         DefaultContentType = 'application/json'
