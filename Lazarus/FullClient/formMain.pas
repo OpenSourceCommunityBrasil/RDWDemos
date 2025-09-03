@@ -405,6 +405,7 @@ begin
    RESTDWClientSQL1.IndexName  := Column.FieldName;
   End;
 end;
+
 Procedure TForm2.SetLoginOptions;
 Begin
   Case cbAuthOptions.ItemIndex Of

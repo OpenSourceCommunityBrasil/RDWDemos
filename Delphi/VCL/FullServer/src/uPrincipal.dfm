@@ -50,24 +50,24 @@ object fPrincipal: TfPrincipal
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 634
-    ExplicitHeight = 618
+    ExplicitWidth = 600
+    ExplicitHeight = 571
     object tsConfigs: TTabSheet
       Caption = 'Configuration'
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 612
-        Height = 603
+        Width = 596
+        Height = 577
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 626
-        ExplicitHeight = 586
+        ExplicitWidth = 576
+        ExplicitHeight = 513
         DesignSize = (
-          612
-          603)
+          596
+          577)
         object Label1: TLabel
           Left = 190
           Top = 32
@@ -174,8 +174,8 @@ object fPrincipal: TfPrincipal
         end
         object Label6: TLabel
           Left = 0
-          Top = 586
-          Width = 612
+          Top = 560
+          Width = 596
           Height = 17
           Align = alBottom
           Alignment = taCenter
@@ -189,6 +189,7 @@ object fPrincipal: TfPrincipal
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
+          ExplicitTop = 586
           ExplicitWidth = 632
         end
         object Label15: TLabel
@@ -236,7 +237,7 @@ object fPrincipal: TfPrincipal
         object labConexao: TLabel
           Left = 0
           Top = 0
-          Width = 612
+          Width = 596
           Height = 23
           Align = alTop
           AutoSize = False
@@ -375,7 +376,7 @@ object fPrincipal: TfPrincipal
           ParentFont = False
         end
         object Panel4: TPanel
-          Left = 644
+          Left = 624
           Top = 10
           Width = 59
           Height = 37
@@ -385,7 +386,7 @@ object fPrincipal: TfPrincipal
           Color = 2763306
           ParentBackground = False
           TabOrder = 0
-          ExplicitLeft = 658
+          ExplicitLeft = 604
           object Image8: TImage
             Left = 4
             Top = 0
@@ -942,7 +943,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 12
-          ExplicitTop = 416
+          ExplicitTop = 369
         end
         object eCertFile: TEdit
           Left = 7
@@ -957,7 +958,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 13
-          ExplicitTop = 462
+          ExplicitTop = 415
         end
         object ePrivKeyPass: TMaskEdit
           Left = 459
@@ -974,7 +975,7 @@ object fPrincipal: TfPrincipal
           PasswordChar = '*'
           TabOrder = 14
           Text = ''
-          ExplicitTop = 416
+          ExplicitTop = 369
         end
         object EdDataSource: TEdit
           Left = 459
@@ -1047,7 +1048,7 @@ object fPrincipal: TfPrincipal
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 19
-          ExplicitTop = 508
+          ExplicitTop = 461
         end
         object pBasicAuth: TPanel
           Left = 328
@@ -1345,7 +1346,7 @@ object fPrincipal: TfPrincipal
     Color = 2763306
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 634
+    ExplicitWidth = 600
     DesignSize = (
       620
       58)
@@ -1757,7 +1758,7 @@ object fPrincipal: TfPrincipal
       Visible = False
     end
     object paPortugues: TPanel
-      Left = 378
+      Left = 358
       Top = 10
       Width = 59
       Height = 37
@@ -1767,7 +1768,7 @@ object fPrincipal: TfPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 392
+      ExplicitLeft = 338
       object Image3: TImage
         Left = 0
         Top = 0
@@ -2140,7 +2141,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paEspanhol: TPanel
-      Left = 446
+      Left = 426
       Top = 10
       Width = 59
       Height = 37
@@ -2150,7 +2151,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 460
+      ExplicitLeft = 406
       object Image4: TImage
         Left = 4
         Top = 0
@@ -2481,7 +2482,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paIngles: TPanel
-      Left = 514
+      Left = 494
       Top = 10
       Width = 59
       Height = 37
@@ -2491,7 +2492,7 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 528
+      ExplicitLeft = 474
       object Image5: TImage
         Left = 4
         Top = 0
@@ -2895,13 +2896,13 @@ object fPrincipal: TfPrincipal
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 676
-    ExplicitWidth = 634
+    ExplicitTop = 629
+    ExplicitWidth = 600
     DesignSize = (
       620
       37)
     object lSeguro: TLabel
-      Left = 1
+      Left = -1
       Top = 12
       Width = 80
       Height = 17
@@ -2916,7 +2917,7 @@ object fPrincipal: TfPrincipal
       ExplicitLeft = 9
     end
     object ButtonStart: TButton
-      Left = 374
+      Left = 361
       Top = 6
       Width = 100
       Height = 25
@@ -2931,10 +2932,10 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 0
       OnClick = ButtonStartClick
-      ExplicitLeft = 384
+      ExplicitLeft = 348
     end
     object ButtonStop: TButton
-      Left = 475
+      Left = 458
       Top = 6
       Width = 100
       Height = 25
@@ -2949,10 +2950,10 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       TabOrder = 1
       OnClick = ButtonStopClick
-      ExplicitLeft = 487
+      ExplicitLeft = 442
     end
     object cbPoolerState: TCheckBox
-      Left = 164
+      Left = 157
       Top = 12
       Width = 115
       Height = 17
@@ -2967,7 +2968,7 @@ object fPrincipal: TfPrincipal
       ParentFont = False
       State = cbChecked
       TabOrder = 2
-      ExplicitLeft = 169
+      ExplicitLeft = 150
     end
   end
   object ApplicationEvents1: TApplicationEvents
@@ -3049,5 +3050,11 @@ object fPrincipal: TfPrincipal
     GetTokenEvent = 'access-token'
     Left = 252
     Top = 526
+  end
+  object tstart: TTimer
+    Enabled = False
+    OnTimer = tstartTimer
+    Left = 412
+    Top = 352
   end
 end

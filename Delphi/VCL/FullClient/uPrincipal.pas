@@ -81,18 +81,6 @@ Uses
     DBGrid1: TDBGrid;
     RESTDWMassiveCache1: TRESTDWMassiveCache;
     RESTDWClientSQL1: TRESTDWClientSQL;
-    RESTDWClientSQL1EMP_NO: TSmallintField;
-    RESTDWClientSQL1FIRST_NAME: TStringField;
-    RESTDWClientSQL1LAST_NAME: TStringField;
-    RESTDWClientSQL1PHONE_EXT: TStringField;
-    RESTDWClientSQL1HIRE_DATE: TSQLTimeStampField;
-    RESTDWClientSQL1DEPT_NO: TStringField;
-    RESTDWClientSQL1JOB_CODE: TStringField;
-    RESTDWClientSQL1JOB_GRADE: TSmallintField;
-    RESTDWClientSQL1JOB_COUNTRY: TStringField;
-    RESTDWClientSQL1SALARY: TFloatField;
-    RESTDWClientSQL1FULL_NAME: TStringField;
-    RESTDWClientSQL1TIMEC: TTimeField;
    Procedure btnOpenClick            (Sender            : TObject);
    Procedure btnExecuteClick         (Sender            : TObject);
    Procedure FormCreate              (Sender            : TObject);
@@ -440,8 +428,7 @@ procedure TfPrincipal.DBGrid1TitleClick(Column: TColumn);
 begin
  If RESTDWClientSQL1.Active then
   Begin
-   If RESTDWClientSQL1.IndexDefs.IndexOf(Column.FieldName) > -1 Then
-    RESTDWClientSQL1.IndexDefs.Clear;
+   RESTDWClientSQL1.IndexDefs.Clear;
    RESTDWClientSQL1.IndexDefs.Add(Column.FieldName,
                                   Column.FieldName,
                                  [ixCaseInsensitive]);

@@ -4,8 +4,8 @@ object DMWebPascal: TDMWebPascal
   OnUserTokenAuth = ServerMethodDataModuleUserTokenAuth
   OnGetToken = ServerMethodDataModuleGetToken
   QueuedRequest = False
-  Height = 545
-  Width = 524
+  Height = 486
+  Width = 483
   PixelsPerInch = 144
   object RESTDWPoolerDB1: TRESTDWPoolerDB
     RESTDriver = RESTDWFireDACDriver1
@@ -17,7 +17,7 @@ object DMWebPascal: TDMWebPascal
     Active = True
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
-    Left = 90
+    Left = 114
     Top = 193
   end
   object Server_FDConnection: TFDConnection
@@ -38,34 +38,34 @@ object DMWebPascal: TDMWebPascal
     LoginPrompt = False
     Transaction = FDTransaction1
     BeforeConnect = Server_FDConnectionBeforeConnect
-    Left = 91
+    Left = 115
     Top = 58
   end
   object FDPhysFBDriverLink1: TFDPhysFBDriverLink
-    Left = 175
+    Left = 199
     Top = 126
   end
   object FDStanStorageJSONLink1: TFDStanStorageJSONLink
-    Left = 133
+    Left = 157
     Top = 126
   end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
-    Left = 175
+    Left = 199
     Top = 58
   end
   object FDTransaction1: TFDTransaction
     Options.AutoStop = False
     Options.DisconnectAction = xdRollback
     Connection = Server_FDConnection
-    Left = 133
+    Left = 157
     Top = 58
   end
   object FDQuery1: TFDQuery
     Connection = Server_FDConnection
     SQL.Strings = (
       '')
-    Left = 217
+    Left = 241
     Top = 58
   end
   object dwsCrudServer: TRESTDWServerContext
@@ -141,11 +141,11 @@ object DMWebPascal: TDMWebPascal
         OnBeforeRenderer = dwsCrudServerContextListindex2BeforeRenderer
       end>
     OnBeforeRenderer = dwsCrudServerBeforeRenderer
-    Left = 204
+    Left = 228
     Top = 242
   end
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    Left = 302
+    Left = 326
     Top = 126
   end
   object dwcrIndex: TRESTDWContextRules
@@ -543,7 +543,7 @@ object DMWebPascal: TDMWebPascal
         OnBeforeRendererContextItem = dwcrIndexItemsdwframeBeforeRendererContextItem
       end>
     OnBeforeRenderer = dwcrIndexBeforeRenderer
-    Left = 317
+    Left = 341
     Top = 226
   end
   object dwcrLogin: TRESTDWContextRules
@@ -685,7 +685,7 @@ object DMWebPascal: TDMWebPascal
         OnBeforeRendererContextItem = dwcrLoginItemsmeuloginnameBeforeRendererContextItem
       end>
     OnBeforeRenderer = dwcrLoginBeforeRenderer
-    Left = 312
+    Left = 336
     Top = 312
   end
   object rOpenSecrets: TRESTDWClientSQL
@@ -710,7 +710,7 @@ object DMWebPascal: TDMWebPascal
     ThreadRequest = False
     RaiseErrors = True
     ReflectChanges = False
-    Left = 192
+    Left = 216
     Top = 336
   end
   object RESTDWFireDACDriver1: TRESTDWFireDACDriver
@@ -724,7 +724,7 @@ object DMWebPascal: TDMWebPascal
     Encoding = esASCII
     ParamCreate = True
     CommitRecords = 100
-    Left = 54
+    Left = 78
     Top = 304
   end
 end

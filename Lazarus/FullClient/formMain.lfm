@@ -14,6 +14,7 @@ object Form2: TForm2
   Font.Height = -17
   Font.Name = 'Tahoma'
   Position = poDesktopCenter
+  LCLVersion = '4.0.0.4'
   OnClose = FormClose
   OnCreate = FormCreate
   object labResult: TLabel
@@ -2278,12 +2279,11 @@ object Form2: TForm2
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
     ContentEncoding = 'gzip, identity'
-    Active = True
+    Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
     DataRoute = '/'
-    MyIP = '127.0.0.1'
     IgnoreEchoPooler = False
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False

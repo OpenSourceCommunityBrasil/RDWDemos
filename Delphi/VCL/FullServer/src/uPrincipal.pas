@@ -149,6 +149,7 @@ type
     ComboBox1: TComboBox;
     Edit1: TEdit;
     CheckBox1: TCheckBox;
+    tstart: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
     procedure ButtonStartClick(Sender: TObject);
@@ -166,6 +167,7 @@ type
     procedure Image4Click(Sender: TObject);
     procedure Image5Click(Sender: TObject);
     procedure cbAuthOptionsChange(Sender: TObject);
+    procedure tstartTimer(Sender: TObject);
   Private
     { Private declarations }
     VLastRequest,
@@ -590,6 +592,7 @@ Begin
  eHostCertFile.Text       := Ini.ReadString('SSL',         'HostCF', '');
  cbForceWelcome.Checked   := Ini.ReadInteger('Configs',    'ForceWelcomeAccess', 0) = 1;
  Ini.Free;
+ tstart.Enabled := True;
 End;
 
 procedure TfPrincipal.StartServer;
@@ -668,6 +671,12 @@ Begin
    LSeguro.Caption    := 'Seguro : Não';
   End;
 End;
+
+procedure TfPrincipal.tstartTimer(Sender: TObject);
+begin
+  tstart.Enabled := False;
+  ButtonStart.OnClick(Self);
+end;
 
 procedure TfPrincipal.TupdatelogsTimer(Sender: TObject);
 var

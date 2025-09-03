@@ -1,6 +1,6 @@
 object fPrincipal: TfPrincipal
-  Left = 426
-  Top = 153
+  Left = 0
+  Top = 0
   Caption = 'RESTDataWare - Full Client'
   ClientHeight = 600
   ClientWidth = 876
@@ -10,7 +10,7 @@ object fPrincipal: TfPrincipal
   Font.Height = -11
   Font.Name = 'Segoe UI'
   Font.Style = []
-  Position = poDesktopCenter
+  Position = poDesigned
   OnCreate = FormCreate
   DesignSize = (
     876
@@ -253,9 +253,9 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     Lines.Strings = (
-      'Select * From '
-      'EMPLOYEE'
-      '--where emp_no is null')
+      'Select first 1 DISCOUNT From '
+      'SALES'
+      '')
     ParentFont = False
     TabOrder = 2
   end
@@ -338,13 +338,11 @@ object fPrincipal: TfPrincipal
         Text = 'Status'
         Width = 50
       end>
-    ExplicitTop = 563
-    ExplicitWidth = 870
   end
   object Memo1: TMemo
     Left = 387
     Top = 234
-    Width = 452
+    Width = 440
     Height = 148
     Anchors = [akLeft, akTop, akRight]
     Color = clInfoBk
@@ -357,7 +355,6 @@ object fPrincipal: TfPrincipal
       'Memo1')
     ParentFont = False
     TabOrder = 9
-    ExplicitWidth = 446
   end
   object btnApply: TButton
     Left = 127
@@ -456,7 +453,6 @@ object fPrincipal: TfPrincipal
     Color = 2763306
     ParentBackground = False
     TabOrder = 16
-    ExplicitWidth = 870
     DesignSize = (
       876
       58)
@@ -867,7 +863,7 @@ object fPrincipal: TfPrincipal
       Layout = tlCenter
     end
     object paPortugues: TPanel
-      Left = 613
+      Left = 601
       Top = 10
       Width = 59
       Height = 37
@@ -877,7 +873,6 @@ object fPrincipal: TfPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 607
       object Image3: TImage
         Left = 0
         Top = 0
@@ -1250,7 +1245,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paEspanhol: TPanel
-      Left = 681
+      Left = 669
       Top = 10
       Width = 59
       Height = 37
@@ -1260,7 +1255,6 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 675
       object Image4: TImage
         Left = 4
         Top = 0
@@ -1591,7 +1585,7 @@ object fPrincipal: TfPrincipal
       end
     end
     object paIngles: TPanel
-      Left = 749
+      Left = 737
       Top = 10
       Width = 59
       Height = 37
@@ -1601,7 +1595,6 @@ object fPrincipal: TfPrincipal
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 743
       object Image2: TImage
         Left = 4
         Top = 0
@@ -2419,12 +2412,11 @@ object fPrincipal: TfPrincipal
     Charset = 'utf8'
     ContentEncoding = 'gzip, identity'
     OnBeforeConnect = RESTDWIdDatabase1BeforeConnect
-    Active = True
+    Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
     DataRoute = '/'
-    MyIP = '127.0.0.1'
     IgnoreEchoPooler = False
     AuthenticationOptions.AuthorizationOption = rdwAOBasic
     AuthenticationOptions.OptionParams.AuthDialog = True
@@ -2473,71 +2465,7 @@ object fPrincipal: TfPrincipal
   object RESTDWClientSQL1: TRESTDWClientSQL
     Active = False
     Filtered = False
-    FieldDefs = <
-      item
-        Name = 'EMP_NO'
-        Attributes = [faRequired]
-        DataType = ftSmallint
-      end
-      item
-        Name = 'FIRST_NAME'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'LAST_NAME'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 20
-      end
-      item
-        Name = 'PHONE_EXT'
-        DataType = ftString
-        Size = 4
-      end
-      item
-        Name = 'HIRE_DATE'
-        Attributes = [faRequired]
-        DataType = ftTimeStamp
-      end
-      item
-        Name = 'DEPT_NO'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 3
-      end
-      item
-        Name = 'JOB_CODE'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 5
-      end
-      item
-        Name = 'JOB_GRADE'
-        Attributes = [faRequired]
-        DataType = ftSmallint
-      end
-      item
-        Name = 'JOB_COUNTRY'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'SALARY'
-        Attributes = [faRequired]
-        DataType = ftFloat
-      end
-      item
-        Name = 'FULL_NAME'
-        DataType = ftString
-        Size = 37
-      end
-      item
-        Name = 'TIMEC'
-        DataType = ftTime
-      end>
+    FieldDefs = <>
     DatasetClosed = True
     IndexDefs = <>
     AfterInsert = RESTDWClientSQL1AfterInsert
@@ -2565,57 +2493,5 @@ object fPrincipal: TfPrincipal
     ReflectChanges = False
     Left = 464
     Top = 432
-    object RESTDWClientSQL1EMP_NO: TSmallintField
-      FieldName = 'EMP_NO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object RESTDWClientSQL1FIRST_NAME: TStringField
-      FieldName = 'FIRST_NAME'
-      Required = True
-      Size = 15
-    end
-    object RESTDWClientSQL1LAST_NAME: TStringField
-      FieldName = 'LAST_NAME'
-      Required = True
-    end
-    object RESTDWClientSQL1PHONE_EXT: TStringField
-      FieldName = 'PHONE_EXT'
-      Size = 4
-    end
-    object RESTDWClientSQL1HIRE_DATE: TSQLTimeStampField
-      FieldName = 'HIRE_DATE'
-      Required = True
-    end
-    object RESTDWClientSQL1DEPT_NO: TStringField
-      FieldName = 'DEPT_NO'
-      Required = True
-      Size = 3
-    end
-    object RESTDWClientSQL1JOB_CODE: TStringField
-      FieldName = 'JOB_CODE'
-      Required = True
-      Size = 5
-    end
-    object RESTDWClientSQL1JOB_GRADE: TSmallintField
-      FieldName = 'JOB_GRADE'
-      Required = True
-    end
-    object RESTDWClientSQL1JOB_COUNTRY: TStringField
-      FieldName = 'JOB_COUNTRY'
-      Required = True
-      Size = 15
-    end
-    object RESTDWClientSQL1SALARY: TFloatField
-      FieldName = 'SALARY'
-      Required = True
-    end
-    object RESTDWClientSQL1FULL_NAME: TStringField
-      FieldName = 'FULL_NAME'
-      Size = 37
-    end
-    object RESTDWClientSQL1TIMEC: TTimeField
-      FieldName = 'TIMEC'
-    end
   end
 end
