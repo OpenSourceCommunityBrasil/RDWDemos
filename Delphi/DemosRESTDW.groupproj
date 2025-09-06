@@ -18,6 +18,9 @@
         <Projects Include="VCL\JSON\Basic\RESTDWJsonSerialize.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="VCL\JsonParser\RESTDWJsonParser.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -71,14 +74,23 @@
     <Target Name="RESTDWJsonSerialize:Make">
         <MSBuild Projects="VCL\JSON\Basic\RESTDWJsonSerialize.dproj" Targets="Make"/>
     </Target>
+    <Target Name="RESTDWJsonParser">
+        <MSBuild Projects="VCL\JsonParser\RESTDWJsonParser.dproj"/>
+    </Target>
+    <Target Name="RESTDWJsonParser:Clean">
+        <MSBuild Projects="VCL\JsonParser\RESTDWJsonParser.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTDWJsonParser:Make">
+        <MSBuild Projects="VCL\JsonParser\RESTDWJsonParser.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="RESTDWFullClient;RESTDWFullServer;ClientSlides;WebPascalFullServer;RESTDWJsonSerialize"/>
+        <CallTarget Targets="RESTDWFullClient;RESTDWFullServer;ClientSlides;WebPascalFullServer;RESTDWJsonSerialize;RESTDWJsonParser"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="RESTDWFullClient:Clean;RESTDWFullServer:Clean;ClientSlides:Clean;WebPascalFullServer:Clean;RESTDWJsonSerialize:Clean"/>
+        <CallTarget Targets="RESTDWFullClient:Clean;RESTDWFullServer:Clean;ClientSlides:Clean;WebPascalFullServer:Clean;RESTDWJsonSerialize:Clean;RESTDWJsonParser:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="RESTDWFullClient:Make;RESTDWFullServer:Make;ClientSlides:Make;WebPascalFullServer:Make;RESTDWJsonSerialize:Make"/>
+        <CallTarget Targets="RESTDWFullClient:Make;RESTDWFullServer:Make;ClientSlides:Make;WebPascalFullServer:Make;RESTDWJsonSerialize:Make;RESTDWJsonParser:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

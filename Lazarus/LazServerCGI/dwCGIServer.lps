@@ -4,12 +4,12 @@
     <PathDelim Value="\"/>
     <Version Value="12"/>
     <BuildModes Active="Default"/>
-    <Units Count="106">
+    <Units Count="111">
       <Unit0>
         <Filename Value="dwCGIServer.lpr"/>
         <IsPartOfProject Value="True"/>
         <CursorPos Y="20"/>
-        <UsageCount Value="153"/>
+        <UsageCount Value="154"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -20,8 +20,8 @@
         <ResourceBaseClass Value="DataModule"/>
         <EditorIndex Value="2"/>
         <TopLine Value="28"/>
-        <CursorPos X="34" Y="38"/>
-        <UsageCount Value="153"/>
+        <CursorPos Y="50"/>
+        <UsageCount Value="154"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -30,7 +30,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
         <CursorPos Y="5"/>
-        <UsageCount Value="153"/>
+        <UsageCount Value="154"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -39,10 +39,10 @@
         <ComponentName Value="ServerMethodDM"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="219"/>
-        <CursorPos X="50" Y="234"/>
-        <UsageCount Value="153"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="31" Y="21"/>
+        <UsageCount Value="154"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -484,9 +484,9 @@
       </Unit63>
       <Unit64>
         <Filename Value="uDmService.lfm"/>
+        <HasResources Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="169"/>
-        <CursorPos Y="187"/>
+        <CursorPos X="25" Y="9"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit64>
@@ -561,11 +561,10 @@
       </Unit74>
       <Unit75>
         <Filename Value="..\..\..\Source\ShellTools\uRESTDWShellServicesLazarus.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="260"/>
         <CursorPos Y="263"/>
         <UsageCount Value="12"/>
-        <Loaded Value="True"/>
       </Unit75>
       <Unit76>
         <Filename Value="..\..\..\..\..\..\CORE\Source\Basic\uRESTDWBasic.pas"/>
@@ -779,138 +778,178 @@
       </Unit103>
       <Unit104>
         <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWAuthenticators.pas"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="130"/>
         <CursorPos X="19" Y="155"/>
         <UsageCount Value="11"/>
-        <Loaded Value="True"/>
       </Unit104>
       <Unit105>
         <Filename Value="..\..\..\Source\Sockets\Indy\uRESTDWIdBase.pas"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="3310"/>
-        <CursorPos Y="3314"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3312"/>
+        <CursorPos X="65" Y="3327"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit105>
+      <Unit106>
+        <Filename Value="..\..\..\Source\Basic\Crypto\DWDCPblockciphers.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="292"/>
+        <CursorPos Y="322"/>
+        <UsageCount Value="10"/>
+      </Unit106>
+      <Unit107>
+        <Filename Value="..\..\..\Source\utils\uRESTDWBase64.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="195"/>
+        <CursorPos Y="225"/>
+        <UsageCount Value="10"/>
+      </Unit107>
+      <Unit108>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWExprParser.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1029"/>
+        <CursorPos X="20" Y="1043"/>
+        <UsageCount Value="10"/>
+      </Unit108>
+      <Unit109>
+        <Filename Value="C:\lazarus\components\lazreport\source\addons\ZeosDB\lr_editvariables.pas"/>
+        <ComponentName Value="lrEditVariablesForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="LR_EditVariables"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="82"/>
+        <CursorPos X="64" Y="104"/>
+        <UsageCount Value="10"/>
+      </Unit109>
+      <Unit110>
+        <Filename Value="..\..\..\Source\Basic\Crypto\DWDCPbase64.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="149"/>
+        <CursorPos X="5" Y="178"/>
+        <UsageCount Value="10"/>
+      </Unit110>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="dmdwcgiserver.pas"/>
-        <Caret Line="4" Column="35"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="22" Column="41" TopLine="12"/>
       </Position1>
       <Position2>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="9" Column="20" TopLine="6"/>
+        <Caret Line="28" Column="52" TopLine="23"/>
       </Position2>
       <Position3>
-        <Filename Value="dmdwcgiserver.pas"/>
-        <Caret Line="4" Column="35"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="26" TopLine="5"/>
       </Position3>
       <Position4>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="9" Column="3" TopLine="9"/>
+        <Caret Line="7" Column="20"/>
       </Position4>
       <Position5>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="322" TopLine="322"/>
+        <Caret Line="89" Column="7" TopLine="62"/>
       </Position5>
       <Position6>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="25" TopLine="15"/>
+        <Caret Line="96" TopLine="69"/>
       </Position6>
       <Position7>
-        <Filename Value="dmdwcgiserver.pas"/>
-        <Caret Line="14" Column="35"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="122" TopLine="97"/>
       </Position7>
       <Position8>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="28" Column="44" TopLine="13"/>
+        <Caret Line="97" Column="2" TopLine="90"/>
       </Position8>
       <Position9>
         <Filename Value="uDmService.pas"/>
+        <Caret Line="196" TopLine="172"/>
       </Position9>
       <Position10>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="9" Column="30"/>
+        <Caret Line="127" TopLine="110"/>
       </Position10>
       <Position11>
-        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWAuthenticators.pas"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="165" TopLine="138"/>
       </Position11>
       <Position12>
-        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWAuthenticators.pas"/>
-        <Caret Line="57" Column="61" TopLine="32"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="143" TopLine="116"/>
       </Position12>
       <Position13>
-        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWAuthenticators.pas"/>
-        <Caret Line="50" Column="24" TopLine="32"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="196" TopLine="193"/>
       </Position13>
       <Position14>
-        <Filename Value="..\..\..\Source\Basic\Mechanics\uRESTDWAuthenticators.pas"/>
-        <Caret Line="61" Column="49" TopLine="36"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="239" TopLine="236"/>
       </Position14>
       <Position15>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="28" TopLine="6"/>
+        <Caret Line="242" TopLine="238"/>
       </Position15>
       <Position16>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="243" TopLine="226"/>
+        <Caret Line="211" TopLine="205"/>
       </Position16>
       <Position17>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="100" Column="23" TopLine="84"/>
+        <Caret Line="204" TopLine="201"/>
       </Position17>
       <Position18>
         <Filename Value="uDmService.pas"/>
+        <Caret Line="321" TopLine="303"/>
       </Position18>
       <Position19>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="220" Column="63" TopLine="200"/>
+        <Caret Line="324" TopLine="306"/>
       </Position19>
       <Position20>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="110" Column="49" TopLine="94"/>
+        <Caret Line="333" TopLine="308"/>
       </Position20>
       <Position21>
         <Filename Value="uDmService.pas"/>
-        <Caret Line="159" Column="3" TopLine="145"/>
+        <Caret Line="353" TopLine="326"/>
       </Position21>
       <Position22>
-        <Filename Value="dwCGIServer.lpr"/>
-        <Caret Line="13" Column="5"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="328" TopLine="325"/>
       </Position22>
       <Position23>
-        <Filename Value="dmdwcgiserver.pas"/>
-        <Caret Line="9" Column="35"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="210" Column="32" TopLine="197"/>
       </Position23>
       <Position24>
-        <Filename Value="..\..\..\Source\ShellTools\uRESTDWShellServicesLazarus.pas"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="89" TopLine="62"/>
       </Position24>
       <Position25>
-        <Filename Value="..\..\..\Source\ShellTools\uRESTDWShellServicesLazarus.pas"/>
-        <Caret Line="162" Column="14" TopLine="138"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="64" Column="13" TopLine="59"/>
       </Position25>
       <Position26>
-        <Filename Value="..\..\..\Source\ShellTools\uRESTDWShellServicesLazarus.pas"/>
-        <Caret Line="44" Column="13" TopLine="29"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="69" Column="19" TopLine="57"/>
       </Position26>
       <Position27>
-        <Filename Value="..\..\..\Source\ShellTools\uRESTDWShellServicesLazarus.pas"/>
-        <Caret Line="119" Column="22" TopLine="114"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="436" TopLine="411"/>
       </Position27>
       <Position28>
-        <Filename Value="..\..\..\Source\ShellTools\uRESTDWShellServicesLazarus.pas"/>
-        <Caret Line="129" Column="35" TopLine="113"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="501" TopLine="474"/>
       </Position28>
       <Position29>
-        <Filename Value="..\..\..\Source\ShellTools\uRESTDWShellServicesLazarus.pas"/>
-        <Caret Line="47" Column="13" TopLine="29"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="113" TopLine="86"/>
       </Position29>
       <Position30>
-        <Filename Value="..\..\..\Source\Sockets\Indy\uRESTDWIdBase.pas"/>
-        <Caret Line="146" Column="34" TopLine="126"/>
+        <Filename Value="uDmService.pas"/>
+        <Caret Line="414" Column="75" TopLine="400"/>
       </Position30>
     </JumpHistory>
     <RunParams>
@@ -941,27 +980,11 @@
         <Source Value="..\..\Source\libs\Synopse\uRESTDWSynBase.pas"/>
         <Line Value="1380"/>
       </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="dmdwcgiserver.pas"/>
-        <Line Value="38"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="dmdwcgiserver.pas"/>
-        <Line Value="44"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="dmdwcgiserver.pas"/>
-        <Line Value="50"/>
-      </Item>
     </BreakPoints>
+    <Watches>
+      <Item>
+        <Expression Value="end"/>
+      </Item>
+    </Watches>
   </Debugging>
 </CONFIG>

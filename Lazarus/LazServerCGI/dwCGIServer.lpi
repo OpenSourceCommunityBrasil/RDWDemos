@@ -34,25 +34,28 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="6">
+    <RequiredPackages Count="7">
       <Item1>
-        <PackageName Value="RESTDWZeosDriver"/>
+        <PackageName Value="zcomponentdesign"/>
       </Item1>
       <Item2>
-        <PackageName Value="RESTDWShellServices"/>
+        <PackageName Value="RESTDWZeosDriver"/>
       </Item2>
       <Item3>
-        <PackageName Value="restdatawarecomponents"/>
+        <PackageName Value="RESTDWShellServices"/>
       </Item3>
       <Item4>
-        <PackageName Value="zcomponent"/>
+        <PackageName Value="restdatawarecomponents"/>
       </Item4>
       <Item5>
-        <PackageName Value="FCL"/>
+        <PackageName Value="zcomponent"/>
       </Item5>
       <Item6>
-        <PackageName Value="WebLaz"/>
+        <PackageName Value="FCL"/>
       </Item6>
+      <Item7>
+        <PackageName Value="WebLaz"/>
+      </Item7>
     </RequiredPackages>
     <Units Count="4">
       <Unit0>
