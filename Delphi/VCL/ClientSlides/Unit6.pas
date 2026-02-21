@@ -23,9 +23,6 @@ type
     Label1: TLabel;
     DBNavigator1: TDBNavigator;
     OpenPictureDialog1: TOpenPictureDialog;
-    RESTDWClientSQL1ID: TIntegerField;
-    RESTDWClientSQL1BLOBIMAGE: TBlobField;
-    RESTDWClientSQL1BLOBTEXT: TMemoField;
     DBMemo1: TDBMemo;
     RESTDWIdDatabase1: TRESTDWIdDatabase;
     labHost: TLabel;
@@ -79,6 +76,9 @@ type
     rClientSQLCatalogImagesBLOBIMAGE: TBlobField;
     Button4: TButton;
     DBGrid1: TDBGrid;
+    RESTDWClientSQL1ID: TIntegerField;
+    RESTDWClientSQL1BLOBIMAGE: TBlobField;
+    RESTDWClientSQL1BLOBTEXT: TMemoField;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -140,7 +140,7 @@ begin
   End;
  RESTDWClientSQL1.Active       := False;
  RESTDWClientSQL1.SQL.Clear;
- RESTDWClientSQL1.SQL.Add('select * from IMAGELIST');
+ RESTDWClientSQL1.SQL.Add('select * from IMAGELIST2');
  RESTDWClientSQL1.Active       := True;
 end;
 

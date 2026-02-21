@@ -185,9 +185,7 @@ Begin
   End;
 // RESTDWIdDatabase1.PoolerList;
  INICIO                            := Now;
- RESTDWClientSQL1.Active           := False;
 // DataSource1.DataSet               := RESTDWClientSQL1;
- RESTDWClientSQL1.BinaryRequest    := cbBinaryRequest.Checked;
  RESTDWClientSQL1.SQL.Clear;
  RESTDWClientSQL1.SQL.Add(MComando.Text);
  RESTDWClientSQL1.UpdateTableName  := Trim(eUpdateTableName.Text);

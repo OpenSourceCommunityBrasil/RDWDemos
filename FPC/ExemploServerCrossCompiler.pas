@@ -167,7 +167,7 @@ End;
   RESTDWServerContext.Free;
   RESTDWServerEvents.Free;
   ZConnection.Connected    := False;
-  ZQuery.Free;
+  ZQuery.Free; 
   ZConnection.Free;
   RESTDWPoolerZeos.Free;
   RESTDWZeosDriver.Free;

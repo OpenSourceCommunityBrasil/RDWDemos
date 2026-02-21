@@ -4,11 +4,10 @@ object ServerMethodDM: TServerMethodDM
   OnUserTokenAuth = DataModuleUserTokenAuth
   OnGetToken = DataModuleGetToken
   QueuedRequest = False
-  Height = 752
-  HorizontalOffset = 659
-  VerticalOffset = 245
-  Width = 771
-  PPI = 144
+  Height = 501
+  HorizontalOffset = 439
+  VerticalOffset = 163
+  Width = 514
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF8
     ClientCodepage = 'WIN1252'
@@ -22,14 +21,14 @@ object ServerMethodDM: TServerMethodDM
     DisableSavepoints = False
     Port = 3050
     Protocol = 'firebird'
-    Left = 276
-    Top = 60
+    Left = 184
+    Top = 40
   end
   object ZQuery1: TZQuery
     Connection = ZConnection1
     Params = <>
-    Left = 428
-    Top = 117
+    Left = 285
+    Top = 78
   end
   object RESTDWZeosDriver1: TRESTDWZeosDriver
     Connection = ZConnection1
@@ -43,8 +42,8 @@ object ServerMethodDM: TServerMethodDM
     ParamCreate = True
     DatabaseCharSet = csWin1252
     CommitRecords = 100
-    Left = 264
-    Top = 296
+    Left = 152
+    Top = 152
   end
   object RESTDWPoolerDB: TRESTDWPoolerDB
     RESTDriver = RESTDWZeosDriver1
@@ -56,8 +55,8 @@ object ServerMethodDM: TServerMethodDM
     Active = True
     PoolerOffMessage = 'RESTPooler not active.'
     ParamCreate = True
-    Left = 264
-    Top = 400
+    Left = 176
+    Top = 267
   end
   object dwcrLogin: TRESTDWContextRules
     ContentType = 'text/html'
@@ -167,8 +166,8 @@ object ServerMethodDM: TServerMethodDM
         OnBeforeRendererContextItem = dwcrLoginItemsmeuloginnameBeforeRendererContextItem
       end>
     OnBeforeRenderer = dwcrLoginBeforeRenderer
-    Left = 576
-    Top = 310
+    Left = 384
+    Top = 207
   end
   object dwcrIndex: TRESTDWContextRules
     ContentType = 'text/html'
@@ -485,8 +484,8 @@ object ServerMethodDM: TServerMethodDM
         OnBeforeRendererContextItem = dwcrIndexItemsdwframeBeforeRendererContextItem
       end>
     OnBeforeRenderer = dwcrIndexBeforeRenderer
-    Left = 581
-    Top = 224
+    Left = 387
+    Top = 149
   end
   object dwsCrudServer: TRESTDWServerContext
     IgnoreInvalidParams = False
@@ -560,8 +559,8 @@ object ServerMethodDM: TServerMethodDM
         IgnoreBaseHeader = False
       end>
     OnBeforeRenderer = dwsCrudServerBeforeRenderer
-    Left = 468
-    Top = 240
+    Left = 312
+    Top = 160
   end
   object rOpenSecrets: TRESTDWClientSQL
     Active = False
@@ -576,7 +575,6 @@ object ServerMethodDM: TServerMethodDM
     AutoSortOnOpen = True
     AutoRefreshOnFilterChanged = True
     MasterCascadeDelete = True
-    BinaryRequest = False
     Datapacks = -1
     DataCache = False
     MassiveType = mtMassiveCache
@@ -587,7 +585,7 @@ object ServerMethodDM: TServerMethodDM
     ThreadRequest = False
     RaiseErrors = True
     ReflectChanges = False
-    Left = 456
-    Top = 334
+    Left = 304
+    Top = 223
   end
 end

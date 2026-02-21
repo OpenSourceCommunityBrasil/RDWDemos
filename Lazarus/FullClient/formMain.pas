@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, fpjson, DB, BufDataset, sqldb, DBGrids, ExtCtrls, ComCtrls,
   ActnList, DBCtrls, uRESTDWBasicDB, uRESTDWServerEvents, uRESTDWDataUtils,
   uRESTDWConsts, uRESTDWIdBase, LConvEncoding, uRESTDWComponentEvents,
-  uRESTDWParams, uRESTDWBasicTypes, uRESTDWProtoTypes;
+  uRESTDWParams, uRESTDWBasicTypes, uRESTDWProtoTypes, uRESTDWMemoryDataset;
 
 type
 
@@ -24,7 +24,6 @@ type
     Button1: TButton;
     Button2: TButton;
     cbAuthOptions: TComboBox;
-    cbBinaryRequest: TCheckBox;
     cbUseCripto: TCheckBox;
     cbxCompressao: TCheckBox;
     chkhttps: TCheckBox;
@@ -78,28 +77,6 @@ type
     pTokenAuth: TPanel;
     RESTDWClientEvents1: TRESTDWClientEvents;
     RESTDWClientSQL1: TRESTDWClientSQL;
-    RESTDWClientSQL1DEPT_NO: TStringField;
-    RESTDWClientSQL1DEPT_NO1: TStringField;
-    RESTDWClientSQL1EMP_NO: TSmallintField;
-    RESTDWClientSQL1EMP_NO1: TSmallintField;
-    RESTDWClientSQL1FIRST_NAME: TStringField;
-    RESTDWClientSQL1FIRST_NAME1: TStringField;
-    RESTDWClientSQL1FULL_NAME: TStringField;
-    RESTDWClientSQL1FULL_NAME1: TStringField;
-    RESTDWClientSQL1HIRE_DATE: TDateTimeField;
-    RESTDWClientSQL1JOB_CODE: TStringField;
-    RESTDWClientSQL1JOB_CODE1: TStringField;
-    RESTDWClientSQL1JOB_COUNTRY: TStringField;
-    RESTDWClientSQL1JOB_COUNTRY1: TStringField;
-    RESTDWClientSQL1JOB_GRADE: TSmallintField;
-    RESTDWClientSQL1JOB_GRADE1: TSmallintField;
-    RESTDWClientSQL1LAST_NAME: TStringField;
-    RESTDWClientSQL1LAST_NAME1: TStringField;
-    RESTDWClientSQL1PHONE_EXT: TStringField;
-    RESTDWClientSQL1PHONE_EXT1: TStringField;
-    RESTDWClientSQL1SALARY: TFloatField;
-    RESTDWClientSQL1SALARY1: TFloatField;
-    RESTDWClientSQL1TIMEC: TTimeField;
     RESTDWIdClientPooler1: TRESTDWIdClientPooler;
     RESTDWIdDatabase1: TRESTDWIdDatabase;
     StatusBar1: TStatusBar;
@@ -284,7 +261,7 @@ Begin
   End;
  INICIO                            := Now;
 // RESTDWIdDatabase1.PoolerList;
- RESTDWClientSQL1.BinaryRequest    := cbBinaryRequest.Checked;
+// RESTDWClientSQL1.BinaryRequest    := cbBinaryRequest.Checked;
  RESTDWClientSQL1.Close;
  DBImage1.DataField := '';
  RESTDWClientSQL1.SQL.Clear;
@@ -326,7 +303,7 @@ Begin
  RESTDWIdClientPooler1.DataCompression := cbxCompressao.Checked;
  RESTDWIdClientPooler1.AccessTag       := eAccesstag.Text;
  RESTDWIdClientPooler1.WelcomeMessage  := eWelcomemessage.Text;
- RESTDWIdClientPooler1.BinaryRequest   := cbBinaryRequest.Checked;
+ RESTDWIdClientPooler1.BinaryRequest   := True;
  If chkhttps.Checked then
   RESTDWIdClientPooler1.TypeRequest    := TTyperequest.trHttps
  Else

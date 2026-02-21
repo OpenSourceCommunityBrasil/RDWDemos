@@ -4,14 +4,12 @@
     <PathDelim Value="\"/>
     <Version Value="12"/>
     <BuildModes Active="Default"/>
-    <Units Count="48">
+    <Units Count="66">
       <Unit0>
         <Filename Value="RestClient.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
+        <CursorPos Y="14"/>
         <UsageCount Value="209"/>
       </Unit0>
       <Unit1>
@@ -21,8 +19,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="71"/>
-        <CursorPos X="16" Y="80"/>
+        <TopLine Value="75"/>
+        <CursorPos X="12" Y="79"/>
         <UsageCount Value="209"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -32,28 +30,28 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="395"/>
         <CursorPos X="93" Y="416"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
       </Unit2>
       <Unit3>
         <Filename Value="..\..\..\..\Source\libs\uDWConsts.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="198"/>
         <CursorPos X="43" Y="217"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\..\..\..\Source\Basic\uRESTDWReg.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="803"/>
         <CursorPos X="55" Y="813"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
       </Unit4>
       <Unit5>
         <Filename Value="..\..\..\..\Source\Sockets\Indy\uRESTDWIdBase.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4152"/>
         <CursorPos Y="4168"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
         <Bookmarks Count="2">
           <Item0 Y="4550" ID="1"/>
           <Item1 Y="4168" ID="2"/>
@@ -64,313 +62,523 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="3947"/>
         <CursorPos Y="3964"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
       </Unit6>
       <Unit7>
         <Filename Value="..\..\..\..\Source\Basic\uRESTDWPoolermethod.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2441"/>
         <CursorPos Y="2449"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
       </Unit7>
       <Unit8>
         <Filename Value="..\..\..\..\Source\Sockets\Indy\uRESTDWIdReg.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="75"/>
         <CursorPos Y="102"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
       </Unit8>
       <Unit9>
         <Filename Value="..\..\..\..\Source\Basic\uRESTDWBasicTypes.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1947"/>
         <CursorPos Y="1965"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
       </Unit9>
       <Unit10>
         <Filename Value="..\..\..\..\Source\Libs\uRESTDWTools.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3119"/>
         <CursorPos Y="3136"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
       </Unit10>
       <Unit11>
         <Filename Value="..\..\..\..\Source\Libs\uRESTDWBase64.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="272"/>
         <CursorPos Y="289"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="9"/>
       </Unit11>
       <Unit12>
         <Filename Value="C:\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="2264"/>
-        <CursorPos Y="2288"/>
-        <UsageCount Value="4"/>
+        <TopLine Value="841"/>
+        <CursorPos Y="855"/>
+        <UsageCount Value="11"/>
       </Unit12>
       <Unit13>
-        <Filename Value="C:\lazarus\lcl\include\application.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="430"/>
-        <CursorPos Y="458"/>
-        <UsageCount Value="4"/>
-      </Unit13>
-      <Unit14>
         <Filename Value="..\..\..\Source\Basic\uRESTDWBasicDB.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="6934"/>
-        <CursorPos X="2" Y="6946"/>
-        <UsageCount Value="76"/>
+        <TopLine Value="589"/>
+        <CursorPos X="40" Y="604"/>
+        <UsageCount Value="74"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="7882"/>
+        <CursorPos X="22" Y="7900"/>
+        <UsageCount Value="58"/>
+        <Bookmarks Count="7">
+          <Item0 X="2" Y="765" ID="8"/>
+          <Item1 Y="673" ID="9"/>
+          <Item2 X="14" Y="4887" Left="1" Top="4875" ID="4"/>
+          <Item3 Y="2019" Left="1" Top="2004" ID="5"/>
+          <Item4 Y="1430" Left="1" Top="1409" ID="2"/>
+          <Item5 X="2" Y="3102" Left="1" Top="3096" ID="3"/>
+          <Item6 X="20" Y="3129" Left="1" Top="3115" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
       </Unit14>
       <Unit15>
-        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Filename Value="..\..\..\Source\Basic\uRESTDWStorageBin.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="2248"/>
-        <CursorPos X="71" Y="2256"/>
-        <UsageCount Value="26"/>
-        <Bookmarks Count="4">
-          <Item0 X="3" Y="161" ID="5"/>
-          <Item1 X="2" Y="754" ID="8"/>
-          <Item2 Y="662" ID="9"/>
-          <Item3 X="34" Y="1493" ID="3"/>
+        <TopLine Value="52"/>
+        <CursorPos X="40" Y="65"/>
+        <UsageCount Value="65"/>
+        <Bookmarks Count="2">
+          <Item0 X="21" Y="695" Left="1" Top="682" ID="3"/>
+          <Item1 X="23" Y="224" Left="1" Top="212" ID="2"/>
         </Bookmarks>
       </Unit15>
       <Unit16>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWStorageBin.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="497"/>
-        <CursorPos Y="508"/>
-        <UsageCount Value="59"/>
-        <Bookmarks Count="1">
-          <Item0 X="2" Y="345" Left="1" Top="332" ID="4"/>
-        </Bookmarks>
-      </Unit16>
-      <Unit17>
         <Filename Value="..\..\..\Source\utils\uRESTDWTools.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="3299"/>
-        <CursorPos X="22" Y="3304"/>
-        <UsageCount Value="25"/>
-        <Bookmarks Count="2">
-          <Item0 Y="3311" Left="1" Top="3295" ID="1"/>
-          <Item1 Y="3438" Left="1" Top="3429" ID="2"/>
-        </Bookmarks>
-      </Unit17>
-      <Unit18>
+        <TopLine Value="2776"/>
+        <CursorPos Y="2793"/>
+        <UsageCount Value="22"/>
+      </Unit16>
+      <Unit17>
         <Filename Value="..\..\..\Source\Basic\uRESTDWBufferBase.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="18"/>
-        <CursorPos X="71" Y="50"/>
-        <UsageCount Value="51"/>
-      </Unit18>
-      <Unit19>
+        <TopLine Value="442"/>
+        <CursorPos Y="472"/>
+        <UsageCount Value="45"/>
+      </Unit17>
+      <Unit18>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\db.pas"/>
         <UnitName Value="DB"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1561"/>
-        <CursorPos X="15" Y="1572"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="1670"/>
+        <CursorPos X="36" Y="1682"/>
         <UsageCount Value="24"/>
-      </Unit19>
-      <Unit20>
-        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemUnicode.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="61" Y="21"/>
-        <UsageCount Value="4"/>
-      </Unit20>
-      <Unit21>
+        <Loaded Value="True"/>
+      </Unit18>
+      <Unit19>
         <Filename Value="C:\Temp\Temp\CORE\Source\Memdataset\uDWDataset.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="853"/>
         <CursorPos X="26" Y="880"/>
-        <UsageCount Value="5"/>
-      </Unit21>
-      <Unit22>
+        <UsageCount Value="9"/>
+      </Unit19>
+      <Unit20>
         <Filename Value="C:\lazarus\lcl\dbgrids.pas"/>
         <UnitName Value="DBGrids"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1559"/>
-        <CursorPos Y="1576"/>
-        <UsageCount Value="5"/>
-      </Unit22>
-      <Unit23>
+        <TopLine Value="2219"/>
+        <CursorPos Y="2233"/>
+        <UsageCount Value="13"/>
+      </Unit20>
+      <Unit21>
         <Filename Value="C:\lazarus\lcl\lclmessageglue.pas"/>
         <UnitName Value="LCLMessageGlue"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="98"/>
-        <CursorPos Y="123"/>
-        <UsageCount Value="4"/>
-      </Unit23>
-      <Unit24>
+        <TopLine Value="106"/>
+        <CursorPos Y="125"/>
+        <UsageCount Value="7"/>
+      </Unit21>
+      <Unit22>
         <Filename Value="..\..\..\Source\utils\uRESTDWMassiveBuffer.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="2167"/>
-        <CursorPos Y="2178"/>
-        <UsageCount Value="25"/>
-      </Unit24>
-      <Unit25>
+        <TopLine Value="2259"/>
+        <CursorPos Y="2273"/>
+        <UsageCount Value="19"/>
+      </Unit22>
+      <Unit23>
         <Filename Value="..\..\..\Source\utils\uRESTDWJSONObject.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4317"/>
         <CursorPos Y="4327"/>
-        <UsageCount Value="25"/>
-      </Unit25>
-      <Unit26>
+        <UsageCount Value="19"/>
+      </Unit23>
+      <Unit24>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\dataset.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="486"/>
-        <CursorPos X="20" Y="490"/>
-        <UsageCount Value="5"/>
-      </Unit26>
-      <Unit27>
+        <EditorIndex Value="3"/>
+        <TopLine Value="1553"/>
+        <CursorPos X="3" Y="1558"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit24>
+      <Unit25>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\inc\objpash.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="198"/>
         <CursorPos X="28" Y="198"/>
-        <UsageCount Value="7"/>
-      </Unit27>
-      <Unit28>
+        <UsageCount Value="1"/>
+      </Unit25>
+      <Unit26>
         <Filename Value="..\..\..\Source\Sockets\Indy\uRESTDWIdBase.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="706"/>
-        <CursorPos Y="720"/>
-        <UsageCount Value="4"/>
-      </Unit28>
-      <Unit29>
+        <TopLine Value="3888"/>
+        <CursorPos Y="3901"/>
+        <UsageCount Value="24"/>
+      </Unit26>
+      <Unit27>
         <Filename Value="C:\lazarus\lcl\include\wincontrol.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="5413"/>
-        <CursorPos Y="5430"/>
-        <UsageCount Value="4"/>
-      </Unit29>
-      <Unit30>
-        <Filename Value="C:\lazarus\lcl\include\customcontrol.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="95"/>
-        <CursorPos Y="105"/>
-        <UsageCount Value="4"/>
-      </Unit30>
-      <Unit31>
+        <TopLine Value="7237"/>
+        <CursorPos Y="7255"/>
+        <UsageCount Value="9"/>
+      </Unit27>
+      <Unit28>
         <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemVCLUtils.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="2"/>
-        <UsageCount Value="5"/>
-      </Unit31>
-      <Unit32>
+        <UsageCount Value="9"/>
+      </Unit28>
+      <Unit29>
         <Filename Value="..\..\..\Source\Basic\uRESTDWBasic.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="2" Y="28"/>
-        <UsageCount Value="5"/>
-      </Unit32>
-      <Unit33>
+        <UsageCount Value="9"/>
+      </Unit29>
+      <Unit30>
         <Filename Value="..\..\..\Source\Basic\uRESTDWProtoTypes.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="36"/>
-        <CursorPos X="34" Y="44"/>
-        <UsageCount Value="51"/>
-      </Unit33>
-      <Unit34>
-        <Filename Value="..\..\..\Source\Consts\uRESTDWConsts.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="393"/>
-        <CursorPos Y="397"/>
-        <UsageCount Value="4"/>
-      </Unit34>
-      <Unit35>
-        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemWideStrings.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="240"/>
-        <CursorPos Y="257"/>
-        <UsageCount Value="4"/>
-      </Unit35>
-      <Unit36>
+        <TopLine Value="74"/>
+        <CursorPos X="15" Y="95"/>
+        <UsageCount Value="46"/>
+      </Unit30>
+      <Unit31>
         <Filename Value="C:\lazarus\lcl\grids.pas"/>
         <UnitName Value="Grids"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="4933"/>
-        <CursorPos Y="4950"/>
-        <UsageCount Value="5"/>
-      </Unit36>
-      <Unit37>
-        <Filename Value="C:\Users\xyderx\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Protocols\IdHTTP.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2518"/>
-        <CursorPos Y="2535"/>
-        <UsageCount Value="4"/>
-      </Unit37>
-      <Unit38>
+        <TopLine Value="4732"/>
+        <CursorPos Y="4747"/>
+        <UsageCount Value="11"/>
+      </Unit31>
+      <Unit32>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32callback.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="2757"/>
-        <CursorPos Y="2776"/>
-        <UsageCount Value="4"/>
-      </Unit38>
-      <Unit39>
-        <Filename Value="..\..\..\Source\Basic\uRESTDWPropertyPersist.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="69"/>
-        <CursorPos Y="81"/>
-        <UsageCount Value="4"/>
-      </Unit39>
-      <Unit40>
-        <Filename Value="formMain.lfm"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2328"/>
-        <CursorPos Y="2360"/>
-        <UsageCount Value="4"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit40>
-      <Unit41>
+        <TopLine Value="2008"/>
+        <CursorPos Y="2019"/>
+        <UsageCount Value="7"/>
+      </Unit32>
+      <Unit33>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\bufdataset.pas"/>
         <UnitName Value="BufDataset"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2546"/>
         <CursorPos X="21" Y="2565"/>
-        <UsageCount Value="9"/>
-      </Unit41>
-      <Unit42>
+        <UsageCount Value="3"/>
+      </Unit33>
+      <Unit34>
         <Filename Value="..\..\..\Source\Database_Drivers\uRESTDWDriverBase.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="23"/>
-        <CursorPos Y="46"/>
-        <UsageCount Value="6"/>
-      </Unit42>
-      <Unit43>
+        <TopLine Value="22"/>
+        <UsageCount Value="9"/>
+      </Unit34>
+      <Unit35>
         <Filename Value="C:\lazarus\components\Indy10\System\IdGlobal.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="9766"/>
         <CursorPos Y="9777"/>
-        <UsageCount Value="5"/>
-      </Unit43>
-      <Unit44>
+        <UsageCount Value="9"/>
+      </Unit35>
+      <Unit36>
         <Filename Value="..\..\..\Source\Basic\uRESTDWBasicTypes.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="239"/>
         <CursorPos X="3" Y="251"/>
-        <UsageCount Value="25"/>
-      </Unit44>
-      <Unit45>
+        <UsageCount Value="30"/>
+      </Unit36>
+      <Unit37>
         <Filename Value="..\..\..\Source\Basic\uRESTDWParams.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6418"/>
         <CursorPos Y="6428"/>
-        <UsageCount Value="24"/>
-      </Unit45>
-      <Unit46>
+        <UsageCount Value="18"/>
+      </Unit37>
+      <Unit38>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\sysstrh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="140"/>
         <CursorPos X="10" Y="151"/>
-        <UsageCount Value="10"/>
-      </Unit46>
-      <Unit47>
+        <UsageCount Value="4"/>
+      </Unit38>
+      <Unit39>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\sysstr.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1141"/>
         <CursorPos X="30" Y="1153"/>
+        <UsageCount Value="4"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="..\..\..\Source\Basic\uRESTDWPoolermethod.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1490"/>
+        <CursorPos X="46" Y="1499"/>
+        <UsageCount Value="22"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="..\..\..\Source\utils\JSON\uRESTDWJSON.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1819"/>
+        <CursorPos Y="1838"/>
+        <UsageCount Value="9"/>
+        <Bookmarks Count="4">
+          <Item0 Y="1063" Left="1" Top="1051" ID="2"/>
+          <Item1 X="27" Y="2285" Left="1" Top="2267" ID="3"/>
+          <Item2 Y="3011" Left="1" Top="2995" ID="4"/>
+          <Item3 X="100" Y="1833" Left="1" Top="1807" ID="1"/>
+        </Bookmarks>
+      </Unit41>
+      <Unit42>
+        <Filename Value="..\..\..\Source\utils\JSON\uRESTDWJSONInterface.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="47"/>
+        <CursorPos X="22" Y="64"/>
+        <UsageCount Value="9"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3"/>
+        <UsageCount Value="22"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="C:\lazarus\lcl\include\canvas.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1579"/>
+        <CursorPos Y="1591"/>
+        <UsageCount Value="9"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\win32lclintf.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="743"/>
+        <CursorPos Y="753"/>
+        <UsageCount Value="9"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="C:\lazarus\lcl\lclrescache.pas"/>
+        <UnitName Value="LCLResCache"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="538"/>
+        <CursorPos X="3" Y="558"/>
+        <UsageCount Value="9"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\classes\classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="481"/>
+        <CursorPos X="50" Y="498"/>
         <UsageCount Value="10"/>
       </Unit47>
+      <Unit48>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\classes\lists.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="211"/>
+        <CursorPos X="3" Y="217"/>
+        <UsageCount Value="9"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="C:\lazarus\lcl\include\pen.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="228"/>
+        <CursorPos Y="240"/>
+        <UsageCount Value="11"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="C:\lazarus\components\Indy10\Protocols\IdHTTP.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2595"/>
+        <CursorPos Y="2606"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\inc\systemh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="783"/>
+        <CursorPos X="11" Y="795"/>
+        <UsageCount Value="8"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="C:\lazarus\lcl\dbctrls.pp"/>
+        <UnitName Value="DBCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1795"/>
+        <CursorPos Y="1807"/>
+        <UsageCount Value="9"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="C:\lazarus\lcl\include\dbimage.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="71"/>
+        <CursorPos Y="84"/>
+        <UsageCount Value="9"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="C:\lazarus\lcl\include\picture.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="734"/>
+        <CursorPos Y="746"/>
+        <UsageCount Value="9"/>
+      </Unit54>
+      <Unit55>
+        <Filename Value="C:\lazarus\lcl\lcltype.pp"/>
+        <UnitName Value="LCLType"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3036"/>
+        <CursorPos Y="3056"/>
+        <UsageCount Value="9"/>
+      </Unit55>
+      <Unit56>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\fgl.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="931"/>
+        <CursorPos Y="945"/>
+        <UsageCount Value="9"/>
+      </Unit56>
+      <Unit57>
+        <Filename Value="C:\lazarus\lcl\include\winapi.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="372"/>
+        <CursorPos Y="386"/>
+        <UsageCount Value="9"/>
+      </Unit57>
+      <Unit58>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\win32winapi.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1865"/>
+        <CursorPos Y="1881"/>
+        <UsageCount Value="9"/>
+      </Unit58>
+      <Unit59>
+        <Filename Value="C:\lazarus\lcl\include\region.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5"/>
+        <CursorPos Y="25"/>
+        <UsageCount Value="9"/>
+      </Unit59>
+      <Unit60>
+        <Filename Value="..\..\..\Source\Plugins\SQLEditor\uRESTDWSqlEditor.pas"/>
+        <ComponentName Value="FrmDWSqlEditor"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="49"/>
+        <CursorPos X="17" Y="61"/>
+        <UsageCount Value="8"/>
+      </Unit60>
+      <Unit61>
+        <Filename Value="C:\lazarus\ide\lazarus.pp"/>
+        <UnitName Value="Lazarus"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+      </Unit61>
+      <Unit62>
+        <Filename Value="formMain.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit62>
+      <Unit63>
+        <Filename Value="..\..\..\Source\Basic\uRESTDWDesignReg.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="779"/>
+        <CursorPos X="87" Y="792"/>
+        <UsageCount Value="10"/>
+      </Unit63>
+      <Unit64>
+        <Filename Value="C:\temp\dwMem\uDWDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="106"/>
+        <CursorPos X="16" Y="119"/>
+        <UsageCount Value="12"/>
+      </Unit64>
+      <Unit65>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\fields.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="519"/>
+        <CursorPos X="3" Y="522"/>
+        <UsageCount Value="10"/>
+      </Unit65>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="18" HistoryIndex="17">
+      <Position1>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="94" Column="26" TopLine="88"/>
+      </Position1>
+      <Position2>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="96" Column="37" TopLine="88"/>
+      </Position2>
+      <Position3>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="108" Column="37" TopLine="70"/>
+      </Position3>
+      <Position4>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="79" Column="12" TopLine="74"/>
+      </Position4>
+      <Position5>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="79" Column="12" TopLine="75"/>
+      </Position5>
+      <Position6>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Caret Line="7851" Column="17" TopLine="7836"/>
+      </Position6>
+      <Position7>
+        <Filename Value="formMain.pas"/>
+        <Caret Line="79" Column="12" TopLine="75"/>
+      </Position7>
+      <Position8>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Caret Line="6075" Column="69" TopLine="6063"/>
+      </Position8>
+      <Position9>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Caret Line="7891" Column="27" TopLine="7878"/>
+      </Position9>
+      <Position10>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\db.pas"/>
+        <Caret Line="422" Column="14" TopLine="409"/>
+      </Position10>
+      <Position11>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\db.pas"/>
+        <Caret Line="118" Column="3" TopLine="102"/>
+      </Position11>
+      <Position12>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\db.pas"/>
+      </Position12>
+      <Position13>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\db.pas"/>
+        <Caret Line="1682" Column="20" TopLine="1657"/>
+      </Position13>
+      <Position14>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\dataset.inc"/>
+        <Caret Line="1558" Column="3" TopLine="1553"/>
+      </Position14>
+      <Position15>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Caret Line="7893" Column="33" TopLine="7878"/>
+      </Position15>
+      <Position16>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\db.pas"/>
+        <Caret Line="1682" Column="14" TopLine="1668"/>
+      </Position16>
+      <Position17>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Caret Line="7893" Column="38" TopLine="7878"/>
+      </Position17>
+      <Position18>
+        <Filename Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Caret Line="7901" Column="22" TopLine="7881"/>
+      </Position18>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>
@@ -382,29 +590,64 @@
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="..\..\..\Source\utils\uRESTDWMassiveBuffer.pas"/>
-        <Line Value="2244"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="..\..\..\Source\utils\uRESTDWMassiveBuffer.pas"/>
-        <Line Value="2230"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="..\..\..\Source\utils\uRESTDWMassiveBuffer.pas"/>
-        <Line Value="2194"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
         <Source Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\sysstr.inc"/>
         <Line Value="1153"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Line Value="4155"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Line Value="4698"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Line Value="4728"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Plugins\Memdataset\uRESTDWMemoryDataset.pas"/>
+        <Line Value="4734"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Basic\uRESTDWStorageBin.pas"/>
+        <Line Value="161"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\Basic\uRESTDWStorageBin.pas"/>
+        <Line Value="133"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\utils\JSON\uRESTDWJSON.pas"/>
+        <Line Value="2494"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\..\..\Source\utils\uRESTDWMassiveBuffer.pas"/>
+        <Line Value="1644"/>
       </Item>
     </BreakPoints>
   </Debugging>

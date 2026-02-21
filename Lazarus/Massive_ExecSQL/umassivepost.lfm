@@ -1,0 +1,227 @@
+object fMassivePost: TfMassivePost
+  Left = 448
+  Height = 358
+  Top = 125
+  Width = 386
+  Caption = 'MassivePost'
+  ClientHeight = 358
+  ClientWidth = 386
+  Position = poScreenCenter
+  OnClose = FormClose
+  object DBEFIRST_NAME: TDBEdit
+    Left = 108
+    Height = 23
+    Top = 44
+    Width = 233
+    DataField = 'FIRST_NAME'
+    DataSource = fPrincipal.dsClientSQLEmployee
+    CharCase = ecUppercase
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object bMassiveCencel: TButton
+    Left = 197
+    Height = 26
+    Top = 310
+    Width = 163
+    Caption = 'Cancel'
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 6
+    OnClick = bMassiveCencelClick
+  end
+  object bMassivePost: TButton
+    Left = 28
+    Height = 26
+    Top = 310
+    Width = 163
+    Caption = 'Post/ApplyUpdates'
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+    OnClick = bMassivePostClick
+  end
+  object DBLCBJOB_CODE: TDBLookupComboBox
+    Left = 108
+    Height = 23
+    Top = 189
+    Width = 173
+    DataField = 'JOB_CODE'
+    DataSource = fPrincipal.dsClientSQLEmployee
+    KeyField = 'JOB_CODE'
+    ListField = 'JOB_TITLE'
+    ListFieldIndex = 0
+    ListSource = fPrincipal.dsClientSQLJobs
+    LookupCache = False
+    Style = csDropDownList
+    TabOrder = 4
+  end
+  object DBLCBDEPT_NO: TDBLookupComboBox
+    Left = 108
+    Height = 23
+    Top = 159
+    Width = 173
+    DataField = 'DEPT_NO'
+    DataSource = fPrincipal.dsClientSQLEmployee
+    KeyField = 'DEPT_NO'
+    ListField = 'DEPARTMENT'
+    ListFieldIndex = 0
+    ListSource = fPrincipal.dsClientSQLDep_No
+    LookupCache = False
+    Style = csDropDownList
+    TabOrder = 3
+  end
+  object DBEPHONE_EXT: TDBEdit
+    Left = 108
+    Height = 23
+    Top = 103
+    Width = 53
+    DataField = 'PHONE_EXT'
+    DataSource = fPrincipal.dsClientSQLEmployee
+    CharCase = ecUppercase
+    MaxLength = 0
+    TabOrder = 2
+  end
+  object DBELAST_NAME: TDBEdit
+    Left = 108
+    Height = 23
+    Top = 73
+    Width = 233
+    DataField = 'LAST_NAME'
+    DataSource = fPrincipal.dsClientSQLEmployee
+    CharCase = ecUppercase
+    MaxLength = 0
+    TabOrder = 1
+  end
+  object DBTTIMEC: TDBText
+    Left = 108
+    Height = 15
+    Top = 281
+    Width = 54
+    DataField = 'TIMEC'
+    DataSource = fPrincipal.dsClientSQLEmployee
+  end
+  object DBTSALARY: TDBText
+    Left = 108
+    Height = 15
+    Top = 260
+    Width = 62
+    DataField = 'MAX_SALARY'
+    DataSource = fPrincipal.dsClientSQLJobs
+  end
+  object DBTJOB_COUNTRY: TDBText
+    Left = 108
+    Height = 15
+    Top = 239
+    Width = 98
+    DataField = 'JOB_COUNTRY'
+    DataSource = fPrincipal.dsClientSQLJobs
+  end
+  object DBTJOB_GRADE: TDBText
+    Left = 108
+    Height = 15
+    Top = 219
+    Width = 81
+    DataField = 'JOB_GRADE'
+    DataSource = fPrincipal.dsClientSQLJobs
+  end
+  object DBTHIRE_DATE: TDBText
+    Left = 108
+    Height = 15
+    Top = 135
+    Width = 77
+    DataField = 'HIRE_DATE'
+    DataSource = fPrincipal.dsClientSQLEmployee
+  end
+  object DBTEMP_NO: TDBText
+    Left = 108
+    Height = 15
+    Top = 23
+    Width = 67
+    DataField = 'EMP_NO'
+    DataSource = fPrincipal.dsClientSQLEmployee
+  end
+  object Label11: TLabel
+    Left = 65
+    Height = 15
+    Top = 281
+    Width = 37
+    Caption = 'TIMEC:'
+  end
+  object Label10: TLabel
+    Left = 20
+    Height = 15
+    Top = 239
+    Width = 82
+    Caption = 'JOB_COUNTRY:'
+  end
+  object Label9: TLabel
+    Left = 57
+    Height = 15
+    Top = 260
+    Width = 45
+    Caption = 'SALARY:'
+  end
+  object Label8: TLabel
+    Left = 37
+    Height = 15
+    Top = 219
+    Width = 65
+    Caption = 'JOB_GRADE:'
+  end
+  object Label7: TLabel
+    Left = 79
+    Height = 15
+    Top = 192
+    Width = 23
+    Caption = 'JOB:'
+  end
+  object Label6: TLabel
+    Left = 72
+    Height = 15
+    Top = 162
+    Width = 30
+    Caption = 'DEPT:'
+  end
+  object Label5: TLabel
+    Left = 42
+    Height = 15
+    Top = 135
+    Width = 60
+    Caption = 'HIRE_DATE:'
+  end
+  object Label4: TLabel
+    Left = 35
+    Height = 15
+    Top = 106
+    Width = 67
+    Caption = 'PHONE_EXT:'
+  end
+  object Label3: TLabel
+    Left = 34
+    Height = 15
+    Top = 76
+    Width = 68
+    Caption = 'LAST_NAME:'
+  end
+  object Label2: TLabel
+    Left = 32
+    Height = 15
+    Top = 47
+    Width = 70
+    Caption = 'FIRST_NAME:'
+  end
+  object Label1: TLabel
+    Left = 52
+    Height = 15
+    Top = 23
+    Width = 50
+    Caption = 'EMP_NO:'
+  end
+end

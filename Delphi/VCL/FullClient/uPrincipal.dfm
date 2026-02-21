@@ -253,9 +253,8 @@ object fPrincipal: TfPrincipal
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     Lines.Strings = (
-      'Select first 1 DISCOUNT From '
-      'SALES'
-      '')
+      'Select first 1 JOB_REQUIREMENT From '
+      'JOB')
     ParentFont = False
     TabOrder = 2
   end
@@ -2428,7 +2427,7 @@ object fPrincipal: TfPrincipal
     AuthenticationOptions.OptionParams.Password = 'restdw'
     Proxy = False
     ProxyOptions.Port = 8888
-    PoolerService = '127.0.0.1'
+    PoolerService = '192.168.145.129'
     PoolerPort = 8082
     PoolerName = 'TServerMethodDM.RESTDWPoolerDB'
     StateConnection.AutoCheck = False
@@ -2465,7 +2464,71 @@ object fPrincipal: TfPrincipal
   object RESTDWClientSQL1: TRESTDWClientSQL
     Active = False
     Filtered = False
-    FieldDefs = <>
+    FieldDefs = <
+      item
+        Name = 'EMP_NO'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FIRST_NAME'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'LAST_NAME'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'PHONE_EXT'
+        DataType = ftString
+        Size = 4
+      end
+      item
+        Name = 'HIRE_DATE'
+        Attributes = [faRequired]
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'DEPT_NO'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'JOB_CODE'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'JOB_GRADE'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'JOB_COUNTRY'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'SALARY'
+        Attributes = [faRequired]
+        DataType = ftExtended
+      end
+      item
+        Name = 'FULL_NAME'
+        DataType = ftString
+        Size = 37
+      end
+      item
+        Name = 'TIMEC'
+        DataType = ftTime
+      end>
     DatasetClosed = True
     IndexDefs = <>
     AfterInsert = RESTDWClientSQL1AfterInsert
@@ -2476,22 +2539,20 @@ object fPrincipal: TfPrincipal
     AutoSortOnOpen = True
     AutoRefreshOnFilterChanged = True
     MasterCascadeDelete = True
-    BinaryRequest = True
     Datapacks = -1
     DataCache = False
     MassiveType = mtMassiveCache
     Params = <>
     DataBase = RESTDWIdDatabase1
     SQL.Strings = (
-      'Select * From '
-      'EMPLOYEE')
+      'Select * From EMPLOYEE')
     CacheUpdateRecords = True
     AutoCommitData = False
     AutoRefreshAfterCommit = False
     ThreadRequest = False
     RaiseErrors = True
     ReflectChanges = False
-    Left = 464
+    Left = 456
     Top = 432
   end
 end

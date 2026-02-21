@@ -310,7 +310,6 @@ object Form6: TForm6
     Color = 2763306
     ParentBackground = False
     TabOrder = 11
-    ExplicitWidth = 867
     DesignSize = (
       873
       58)
@@ -731,7 +730,6 @@ object Form6: TForm6
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 630
       object Image3: TImage
         Left = 0
         Top = 0
@@ -1113,7 +1111,6 @@ object Form6: TForm6
       Color = 2763306
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 698
       object Image4: TImage
         Left = 4
         Top = 0
@@ -1453,7 +1450,6 @@ object Form6: TForm6
       Color = 2763306
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 766
       object Image2: TImage
         Left = 4
         Top = 0
@@ -2148,6 +2144,7 @@ object Form6: TForm6
         Name = 'BLOBTEXT'
         DataType = ftMemo
       end>
+    DatasetClosed = True
     IndexDefs = <>
     SortOrder = soAsc
     SortCaseSens = scYes
@@ -2156,14 +2153,13 @@ object Form6: TForm6
     AutoRefreshOnFilterChanged = True
     SequenceField = 'ID'
     MasterCascadeDelete = False
-    BinaryRequest = True
     Datapacks = -1
     DataCache = True
     MassiveType = mtMassiveCache
     Params = <>
     DataBase = RESTDWIdDatabase1
     SQL.Strings = (
-      'select * from IMAGELIST'
+      'select * from IMAGELIST2'
       'order by id')
     UpdateTableName = 'IMAGELIST'
     CacheUpdateRecords = True
@@ -2175,9 +2171,9 @@ object Form6: TForm6
     Left = 272
     Top = 363
     object RESTDWClientSQL1ID: TIntegerField
-      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
     end
     object RESTDWClientSQL1BLOBIMAGE: TBlobField
       FieldName = 'BLOBIMAGE'
@@ -2196,17 +2192,18 @@ object Form6: TForm6
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
     ContentEncoding = 'gzip, identity'
-    Active = False
+    Active = True
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
+    MyIP = '127.0.0.1'
     IgnoreEchoPooler = False
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False
     ProxyOptions.Port = 8888
     PoolerService = '127.0.0.1'
     PoolerPort = 8082
-    PoolerName = 'TDMPrincipal.RESTDWPoolerFD'
+    PoolerName = 'TServerMethodDM.RESTDWPoolerDB'
     StateConnection.AutoCheck = False
     StateConnection.InTime = 1000
     RequestTimeOut = 9999999
@@ -2245,7 +2242,6 @@ object Form6: TForm6
     AutoRefreshOnFilterChanged = True
     SequenceField = 'id'
     MasterCascadeDelete = True
-    BinaryRequest = True
     Datapacks = -1
     DataCache = False
     MassiveType = mtMassiveCache
